@@ -1,0 +1,57 @@
+<%# render :partial=>'project/actionbar' %>
+
+
+
+
+<div style='padding:10px'>
+<table cellspacing=0 style='width:100%'> <tr> 
+<td id='news' style='vertical-align:top;'> 
+
+<div style='border-bottom:1px solid #C3D9FF;background-color:white;padding:10px;padding-bottom:0;'>
+<div class='centered' style='width:90%'>  
+
+<table cellspacing=0 cellpadding=0  style='border-bottom:1px solid #C0C0C0;width:100%'><tr>                            
+
+                        <td style='text-align:left;font-size:16pt;font-weight:bold'><%=@project.title%></td>
+                        <td style='padding-top:8px;padding-left:5px;vertical-align:top;width:190px' class='small-link-div bold-link-div'>
+                            <div class='menu-like-links'><%=link_to 'Invite New Member',:action=>'invite_new_member',:id=>@project.id%></div>
+                            <div class='menu-like-links'><%=link_to 'Schedule New Meeting',:action=>'schedule_new_meeting',:id=>@project.id%></div>
+                            <div class='menu-like-links'><%=link_to 'Assign New Task',:action=>'assign_new_task',:id=>@project.id%></div>
+                            <br>
+                        </td>
+                    </tr></table>    
+                        <table>
+                            <tr>
+                                <td class='bold-gray'><span style="font-size:14;"><%= @project.description %></span></td>
+                            </tr>                             
+                        </table>
+
+</div></div>
+
+
+<div class='flex'>Upcoming Events</div>
+<div class='centered' style='width:90%'>  
+<%= render :partial=>'project/upcoming' %>
+</div>
+
+</td>
+<td  style='vertical-align:top;padding-left:30px;width:50%'>
+<div class='flex'>Project Members</div>
+<div id='students' style='padding-left:10px;padding-right:10px;'>
+                        <%= render_component :controller=>'project',:action=>'students_in_tab', 
+                        :params=>{:pid=>@project.id}%>
+
+</div> 
+<div class='flex'>Project Desk</div>
+<div id='righttop'>
+<%= javascript_tag remote_function :url=>{:action=>'desk',:id=>@project.id},
+                :asynchronous=>false,
+                :update=>'righttop'%>
+</div>
+ </td>
+<%# tabit "righttop", Tab.new("Scraps",{:action=>'desk',:id=>@project.id}), Tab.new("Upcoming",{:action=>'upcoming',:id=>@project.id}) %>
+
+</tr></table>    
+</div>
+
+

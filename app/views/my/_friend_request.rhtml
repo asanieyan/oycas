@@ -1,0 +1,41 @@
+
+<div id='requests' style=''>
+    <br>
+    <%=show_pagination 'requests',{:object=>'friend request'},@friend_request_paginator%>
+    <%@friend_requests.each do |req| %>                            
+            <%
+                image_thumb = @showing_recieved_requests ? req.requester.thumb_image : req.requestee.thumb_image
+                student = @showing_recieved_requests ? req.requester : req.requestee
+                
+            
+            
+            %>
+          <table class='notice' style='margin-top:3px;margin-bottom:3px;width:100%;' cellspacing=0 cellpadding=0>
+            <tr>
+                <td style='width:1px'>                        
+                     <%=image_tag image_thumb,:style=>''%>                                         
+                 </td>
+                <td class='small-link-div' style='vertical-align:top;padding-left:10px;'>    
+                     <%=link_to_student student%> 
+                     <div>
+                         <%=req.message%>
+                     </div>
+                 </td>
+                <td style='width:100px'>                     
+                    <%if @showing_recieved_requests%>
+                    <%=m_link 'Confirm',:controller=>'confirm',:action=>'friendship',:id=>req.requester.guid%> 
+                    <%=m_link 'Reject',:action=>'reject_friend_request',:id=>req.requester.id%>
+                    <%if @I.can_send_message_to?(req.requester)%>
+                        <%=m_link 'Send A message',:action=>'compose',:guid=>req.requester.guid%>
+                    <%end%>    
+                    <%else%>
+                                    <%=m_link 'Cancel Request',url_for_student(student,:action=>'cancel_friend_request')%>
+                                    <%=link_to_add_friend student,'Resend Request'%>
+
+                    <%end%>
+                </td>
+                 
+            </tr>
+           </table>
+    <%end%>
+</div>    

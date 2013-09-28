@@ -1,0 +1,31 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+
+</div>
+
+<div class="projectGeneral">
+<form name="confirm_member_removal" id="confirm_member_removal" action="commit_remove_project_members">
+You have selected the following members for deletion:<br><br>
+<% members.each do |member| %>
+<input type="hidden" name="members[]" value="<%=member%>"><%= get_name_by_guid(member) %><br>
+<% end %>
+<br>
+<% if delete_project == true then %>
+All current members of this project have been selected for removal, which will mean that the project will be deleted from our records as well.
+<% elsif self_delete == true then %>
+Note that you have selected yourself to be removed as a member of this project. Doing so will be a permanent action unless you are invited back to the project by an existing member.
+<% end %>
+<br><br>
+
+<input type="submit" value="YES, Remove Selected Members <% if delete_project == true then %>and Delete Project<% end %>">
+<input type="button" value="NO, Go Back to Settings" onclick="document.location='settings'">
+</form>
+</div>

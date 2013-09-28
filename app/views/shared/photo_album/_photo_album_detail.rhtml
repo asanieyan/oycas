@@ -1,0 +1,49 @@
+<p>
+    <strong> <%= link_to album.name,{:action=>'album',:id=>album.guid},:style=>'font-size:20pt' %></strong><br>
+</p>
+<p>
+    <% if album.location.size > 0%>
+        <strong style='font-size:8pt'> Location: </strong> <%= album.location%>
+    <% end %>
+    
+</p>
+<p>
+    <%= album.description%>
+</p>
+
+<%=show_pagination paginator,'album_page','panel2',{:url=>{:action=>'get_album_info',:id=>album.guid}}%>
+<table>
+<% i = 0%>
+<%while i < photos.size%>
+    <tr>
+        
+        <%photos[i..i+2].each do |photo|%>
+             
+                    <td>   
+
+                       <% img_tag = image_tag "/albums/#{student.guid}/#{album.guid}/s#{photo.guid}.jpg", :class=>'thumbnail-unselected'%>
+                      
+                       <%= link_to img_tag, {:action=>'album',:id=>album.guid,:photo=>photo.guid}  %>
+                    </td>
+        
+        <% end %>
+        <%i = i + 3%>
+
+    </tr>
+
+    
+<%end%>
+    
+    
+  
+</table>
+
+<div  class='shade1-link' style=';width:400px'>         
+
+             <%=link_to "View album", {:action=>'album',:id=>album.guid}%> 
+</div>
+
+
+
+
+

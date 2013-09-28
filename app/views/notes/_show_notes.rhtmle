@@ -1,0 +1,38 @@
+ <div class='blue-box' id='centered' style='height:100%;border-width:1 0 0 0;background-color:white;padding:0 10 0 10;'>         
+            
+            <%unless @notes.empty?%>    
+                 <br>
+                 <%if params[:view] == "lv"%>
+                     <%=render_p 'notes/notes_table_partial_list_view'%>
+                 <%else%>                
+                     <%=render_p 'notes/notes_table_partial'%>
+                 <%end%>
+              
+            <%else%>
+                <%if params[:q]%>
+                    <div class='bold-gray' style='padding:30px;font-size:12pt;font-weight:normal'>
+                        Found 0 notes for your search.
+                    </div>                
+                <%else%>
+                    <div style='margin-top:50px'>
+                    <%if @note_context.is_a? Klass %>
+                        <div class='bold-gray' style='padding:30px;font-size:12pt;font-weight:normal'>
+                            No notes have been shared for this class yet.                             
+                        </div>
+                   <%elsif @note_context.is_a? Course %>
+                        <div class='bold-gray' style='padding:30px;font-size:12pt;font-weight:normal'>
+                            No notes have been shared for this course yet.                             
+                        </div>               
+                    <%elsif @note_context.is_a? Student%>
+                        <div class='title-div bold-gray ' style='font-weight:normal'>
+                            <%if @I.am? @note_context%>                                                        
+                                Your binder is empty. 
+                            <%else%>
+                                <%=link_to_student(@note_context)%> binder is empty.
+                            <%end%>
+                         </div>
+                    <%end%>
+                 <%end%>   
+            <%end%>
+            </div>
+    </div>

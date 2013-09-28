@@ -1,0 +1,30 @@
+
+<input type="hidden" name="<%= index %>" id="security<%= index %>" value="<%= init_value %>" />
+
+<div onblur='alert("d")'>asdf </div>
+<table class="securityinterface" style="width:200px"><tr style="vertical-align:middle;"><td style="width:10px;">
+<img src="/images/securitycontrol/lock.gif" style="padding:0;border:0;"/>
+</td><td>
+<a href="javascript:void(0);" onclick="changeSecMenuState('<%= index %>','on')" class="securityinterface" style="text-decoration:underline;">
+&nbsp;Set Visibility (currently: <span id="level<%= index %>">X</span>)</a>
+</td><td style="width:10px">
+	<a id="closeButton<%= index %>" class="securityhidden" href="javascript:void(0);" onclick="changeSecMenuState('<%= index %>','off')">
+		<img src="/images/securitycontrol/close.gif" border="0"/>
+	</a>
+</td></tr><tr><td colspan="3">
+
+    <div class="securityhidden" id="selectionBox<%= index %>" style="padding-left:20px;">
+    <img src="/images/securitycontrol/offstate.gif" id="img<%= index %>1" />&nbsp;friends<br>
+    <img src="/images/securitycontrol/offstate.gif" id="img<%= index %>2" />&nbsp;project members<br>
+    <img src="/images/securitycontrol/offstate.gif" id="img<%= index %>3" />&nbsp;classmates<br>
+    <img src="/images/securitycontrol/offstate.gif" id="img<%= index %>4" />&nbsp;schoolmates<br>
+    <img src="/images/securitycontrol/offstate.gif" id="img<%= index %>5" />&nbsp;everyone<br>
+    	<div id="track<%= index %>" style="margin-top:5px; margin-bottom:5px; width:100px;">
+    		<div style="height:17px; background-color:ffffdd; width:111px; border:solid 1px black;">
+    			<div id="handle<%= index %>" style="cursor:move;"><img src="/images/securitycontrol/scrollhandle.gif"></div>
+    		</div>
+    	</div>
+    </div>
+
+	<script> createSecurityControl("<%= index %>"); </script>
+</td></tr></table>

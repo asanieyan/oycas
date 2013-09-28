@@ -1,0 +1,25 @@
+
+  <div class='head-panel' style='<%= "height:10px" unless (panel.head.size rescue 0)  > 0 %>' > <%=panel.head%> </div>
+  <% if panel.tabs.length > 0%>
+    <div id='header'>     
+            <ul>
+            <%panel.tabs.each do |tab|%> 
+                <%if panel.is_tab_selected? tab %>                        
+                <li id='current'> <span> <%=tab.name%> </span>  </li>
+                <%else%>
+                <li> <%=link_to_tab tab.passables %> </li>                        
+                <%end%>
+            <%end%>
+            </ul>
+    
+    </div>
+    <div  class='' id="<%=panel.name%>-shade" style=''>  &nbsp;</div>                   
+    <div style='width:100%' id="<%=panel.name%>-body" >      
+                <% if panel.selected_tab.template %>                    
+                    <%= render :partial=>panel.selected_tab.template, :locals=>(panel.selected_tab.locals.update Hash['current_tab',panel.selected_tab])%>
+                <% else %>
+                    <%= panel.selected_tab.html_content  %>            
+                <% end %>
+    </div>
+   
+ <% end %>

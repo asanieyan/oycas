@@ -1,0 +1,199 @@
+school: 
+  city: burnaby
+  name: Simon Fraser University
+  website: http://www.sfu.ca
+  email_domain: sfu.ca
+  short_name: SFU
+  network: vancouver
+  logo: http://www.ensc.sfu.ca/research/kamal/index/images/sfu_Logo.jpg
+  facebook_domain: sfu
+  time_zone: 'Canada/Pacific' 
+  rss_news_feed: 'http://www.sfu.ca/sfunews/News_Releases/rss/rssPeople.xml'
+
+semesters: 
+ -
+  name: fall
+  start month: 9
+  end month: 12
+ -    
+  name: spring
+  start month: 1    
+  end month: 4
+ - 
+  name: summer
+  start month: 5 
+  end month: 8
+    
+courses:
+ -
+  url: http://www3.reg.sfu.ca/Tango/course_index/search.taf?function=search&start=2
+  parse_options:
+   :body_tag: <TABLE BORDER=1 CELLSPACING=2 CELLPADDING=2>
+   :delete_tags: [tr, th]
+   :pattern:    
+    - !ruby/regexp /<td>.*?<\/td>/i
+    - !ruby/regexp /<td>.*"(.*)">/i: :next_link
+ -
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /html.*/im
+    - !ruby/regexp /<TH>Title. <\/TH>.<TD>(\w+) (.*?)-(.*?) (.*?)<\/TD>/m: [:code, :number, :credit, :name]
+    - !ruby/regexp /<TH>Program. <\/TH>.<TD>(.*?)<\/TD>/m: :subject_name
+    - !ruby/regexp /<TH>Description. <\/TH>.<TD>(.*?)<\/TD>/m: :desc
+
+teachers_2:
+ - #english
+  url: http://www.sfu.ca/english/faculty.htm
+  parse_options:
+   :region: English Department Faculty Members.*  
+   :prepend_url: :photo
+   :pattern:    
+    - !ruby/regexp /<table.*?<\/table>/im
+    - !ruby/regexp /img src="(.*?)".*?border=3/i: :photo
+    - !ruby/regexp /<B>(.*?),(.*?)<\/B>/: [:last_name, :first_name]
+    - !ruby/regexp /mailto:(.*?)"/: :email        
+teachers_1:
+ - #physics
+  url: http://www.sfu.ca/physics/faculty/index.html
+  parse_options:
+   :pattern:       
+    - !ruby/regexp /href="[a-z.]+" class="text"/
+    - !ruby/regexp /href="([a-z.]+)" class="text"/: :next_link
+ -
+  parse_options:
+   :prepend_url: :photo   
+   :pattern:    
+    - !ruby/regexp /<html>.*/m
+    - !ruby/regexp /<title>([a-zA-Z ]+).*?<\/title>/: :name
+    - !ruby/regexp /src="(\w+\/facpic.jpg)"/: :photo
+    - !ruby/regexp /"mailto:(.*?)"/: :email    
+ - #economics
+  url: http://www.sfu.ca/economics/faculty/index.html
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /href=".*?faculty.*?html"/
+    - !ruby/regexp /"(.*?faculty.*?html)"/: :next_link
+ -
+  parse_options:
+   :prepend_url: :photo   
+   :pattern:    
+    - !ruby/regexp /<html>.*/m
+    - !ruby/regexp /<title>(.*?),/: :name
+    - !ruby/regexp /SRC="([a-z_.]+)" HSPACE=10/: :photo
+    - !ruby/regexp /(\w+@sfu.ca)/: :email
+ - #antriphology
+  url: http://www.sfu.ca/sociology/01department/faculty.html 
+  parse_options:
+   :region: Faculty - Areas of Research.*
+   :pattern:    
+    - !ruby/regexp /<a href="biographies/.*?" target="_blank"/
+    - !ruby/regexp /<a href="(biographies/.*?)" target="_blank"/: :next_link
+ - 
+  parse_options:
+   :prepend_url: :photo   
+   :pattern:    
+    - !ruby/regexp /<table width="95%" height="1".*?<\/table>/m
+    - !ruby/regexp /src="(..\/..\/images\/portrets\/.*?)"/: :photo
+    - !ruby/regexp /<span class="italicgreen">Dr. (.*?)<\/span>/: :name
+    - !ruby/regexp />(.*?@sfu.ca)</: :email
+ - #mathematics
+  url: http://www.math.sfu.ca/people/faculty.php
+  parse_options:
+   :block_condition: ['van brummelen_g', :not_match]
+   :pattern:    
+    - !ruby/regexp /<a href="profile.php\?ID=.*?">/
+    - !ruby/regexp /<a href="(profile.php\?ID=.*?)">/: :next_link
+ -
+  parse_options:   
+   :prepend_url: :photo
+   :pattern:
+    - !ruby/regexp /<div id="photo_profile">.*<\/div>/m
+    - !ruby/regexp /src="(.*?)"/: :photo
+    - !ruby/regexp /<h3>(.*?)<\/h3>/: :name
+    - !ruby/regexp /(sfu.ca)\/~(.*)"/: [:host, :email]     
+ - #chemistry teachers
+  url: http://www.sfu.ca/chemistry/faculty/index.html 
+  parse_options:
+   :region: MainRegion.*  
+   :pattern:    
+    - !ruby/regexp /.chemistry.faculty\/.+?\/index.html/
+    - !ruby/regexp /(.chemistry.faculty.*?index.html)/: :next_link
+ -  
+  parse_options:
+    :prepend_url: :photo
+    :pattern:
+     - !ruby/regexp /MainRegion.*/m
+     - !ruby/regexp /<h1>(.*?)<\/h1>/: :name
+     - !ruby/regexp /<img src="(.*?)"/: :photo
+     - !ruby/regexp /(\w+@sfu.ca)/: :email
+ - #biology teachers
+  url: http://www.sfu.ca/biology/faculty/
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<a href=".*?\/">/
+    - !ruby/regexp /<a href="(.*?\/)">/: :next_link
+ -  
+  parse_options:
+    :prepend_url: :photo
+    :pattern:
+     - !ruby/regexp /head.*/m
+     - !ruby/regexp /<title>(.*?)<\/title>/: :name
+     - !ruby/regexp /--><img src="(.*?)" alt="Professor, SFU Biological Sciences"/: :photo
+     - !ruby/regexp /"mailto:(.*?)"/: :email
+ - #engineering teachers
+  url: http://web.ensc.sfu.ca/people/faculty
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<a href="../people/.*?">.*?</a>/
+    - !ruby/regexp /(\/people\/profile_\w+)"/: :next_link
+ -
+  parse_options:    
+    :prepend_url: :photo       
+    :pattern:
+     - !ruby/regexp /<td width="122" class="profile">.*/m
+     - !ruby/regexp /(\/images.website.faculty_staff\/.*?\.\w+)\?/: :photo
+     - !ruby/regexp /<h1.*?>(.*?)<\/h1>/: :name
+     - !ruby/regexp /"mailto:(.*?)"/: :email
+ - #computer teachers
+  url: http://www.cs.sfu.ca/people/Faculty/
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<div class="person_block">.*?<\/div>/m
+    - !ruby/regexp /href="(.*?)"/m: :next_link
+ -
+  parse_options:
+   :prepend_url: :photo   
+   :pattern:    
+    - !ruby/regexp /<table>.*?<\/table>/m
+    - !ruby/regexp /src="(.*?)"/: :photo
+    - !ruby/regexp /<h3>(.*?),/: :name
+    - !ruby/regexp /www.(.*?)\/~(.*?)\//: [:host, :email]
+ - #communication teachers
+  url: http://www.cmns.sfu.ca/people/faculty
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<a href="\/people\/faculty\/.*?\/">.*?<\/a>/
+    - !ruby/regexp /href="(.*?)".*?>(.*?)</: [:next_link, :name]
+ -
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<div class="post".*?>.*?<\/div>/m
+    - !ruby/regexp /<h2>(.*?)<\/h2>/m: :name
+    - !ruby/regexp /<img src="(.*?)"/: :photo
+    - !ruby/regexp /<p>.*?(\w+@.*?sfu.ca)<br \/>/m: :email 
+    
+ - #business teachers
+  url: http://www.sfubusiness.ca/faculty/ 
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<a href=".*?" style="text-decoration:none;">.*?<\/a>/i
+    - !ruby/regexp /href="(.*?)".*?>(.*?)</i: [:next_link, :name]
+ -
+  parse_options:
+   :prepend_url: :photo
+   :pattern:    
+    - !ruby/regexp /<table width="95%" border="0" cellpadding = "10">.*?<\/table>/im
+    - !ruby/regexp /<img src='(.*?)'/: :photo
+    - !ruby/regexp /<h3>(.*?)<\/h3>/im: :name        
+    - !ruby/regexp /document.write\( "<a href=mailto:" \);.*?document.write\( "(.*?)" \);.*?document.write\( "@" \);.*?document.write\( "(.*?)" \);/im: [:email, :host]
+    

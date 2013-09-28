@@ -1,0 +1,26 @@
+<%create_flex_box(context + " Discussions") do |css,links,label|
+            links << link_to('Start new',:action=>'new_forum_topic') if can_start
+            links << link_to('View board',:action=>'forum_topics')
+            l = if discussions.empty?
+                    ""
+                elsif discussions.size == 1
+                         "Showing the only topic"
+                elsif discussions.size <= max
+                        "Showing " + pluralize(discussions.size,"topic")
+                else    
+                    "Showing #{max} of #{discussions.size} topics"
+                end
+            label << l    
+%>
+        <div class='status-box dark-bold-gray' >                        
+        <%discussions[0..max-1].each do |discussion|%>
+           <div class='list-item-div'>
+            <div><%=link_to break_down(discussion.topic,40),:action=>'view_topic',:id=>discussion.id%></div>
+            <div class='normal-gray'>
+                   <%=pluralize(discussion.posts.size,"post")%> <br> Updated <%=time_helper(@my.time(discussion.last_post_time),@my.tz)%>
+            </div>
+           </div> 
+        <%end%>       
+        <%="<div class='bold-gray' >No topic has been discussed yet </div>" if discussions.empty?%>         
+         </div> 
+<%end%>

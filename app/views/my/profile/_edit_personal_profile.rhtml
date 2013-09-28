@@ -1,0 +1,41 @@
+<%@profile = @me.profile%>
+<div class='profile-box' >
+<div class='status-box'>
+<div id='message'> </div>
+
+<form action='/my/edit_personal_profile' method='post'>
+    <style>
+            personalTable td { vertical-align:top}
+            personalTable select { font-size:8pt}
+    </style>
+        <table cellspacing=0 cellpadding=0 id='personalTable'>
+                <tr> 
+                        <td class=''> Religious Views: </td>
+                        <td>   <%= input 'profile', 'religious_views'  %>
+                            </td>                                                                  
+                </tr>                
+                <tr> 
+                        <td class=''> Political Views: </td>
+                        <td> <%= input 'profile', 'political_views'  %>
+                           
+                        </td>                                                                        
+                </tr>           
+           
+            <% ['Activities','Interests','Favorite Music','Favorite TV Shows','Favorite Movies','Favorite Books','Favorite Quotes','About Me'].each do |subject| %>                          
+                <tr>
+                    <td class=''><%= subject %>: </td>
+                       <% attr_name = subject.downcase!.gsub(/ /,'_') %> 
+                    <td><%=  text_area_tag "profile[#{attr_name}]",(@profile.send attr_name)  , :size => "45x5",:maxlength=>@profile.size_of(attr_name) %>   </td>                              
+                </tr>  
+           
+            <% end%>
+
+        </table>
+        <div style='text-align:right'><%=submit_tag %> </div>
+                
+</form>
+
+</div>
+</div>
+
+

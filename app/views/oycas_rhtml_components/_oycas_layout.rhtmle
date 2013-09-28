@@ -1,0 +1,18 @@
+   <div id='centered'  class='vendor-width' > 
+          <%=oycas_masthead(logo,&block)%>
+          <table cellspacing=0 cellpadding=0 class='top-v-align' id='content-panel' style=''>
+           <tr><td>
+            <%=yield(:main_content) || yield%>
+          </td></tr>
+          </table>
+        
+          <div id='bottom-links' class='small-link-div' style='text-align:right'>
+            <%=[    link_to('About us',"/oycas/about"),
+                    link_to('Blog',"/oycas/blogs"),
+                    link_to_popup('Feedback',{:action=>"report_bug"})
+               ].join("&nbsp;&nbsp;")
+            %>
+        
+          </div>
+  </div> 
+  <%=generate_msg%>   

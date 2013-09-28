@@ -1,0 +1,23 @@
+<script>
+function project_quick_action() {
+    obj = document.getElementById('quick_action_select')
+    if (!obj.value) {
+        obj.selectedIndex=0
+    } else {
+        //alert(obj.value);
+        document.location = "../"+obj.value
+    }
+}
+</script>
+<table style="width:100%;text-align:right;"><tr><td>
+<form name="quick_action" id="quick_action">
+    <select name="quick_action_select" id="quick_action_select" onchange="project_quick_action();">
+        <option  value="" selected="selected">Quick Actions
+        <option value="">------------------
+        <option value="invite_new_member">Invite New Member
+        <option value="schedule_new_meeting">Schedule New Meeting
+        <option value="assign_new_task">Assign New Task
+        <option value="upload_new_document">Upload New Document
+    </select>
+</form>
+</td></tr></table>

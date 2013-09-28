@@ -1,0 +1,3 @@
+<%= render :partial=>'project/actionbar' %>
+<div id="settings"></div>
+<%= tabit "settings", Tab.new("Project Settings",{:action=>'project_settings',:id=>params[:id]}), Tab.new("Personal Settings",{:action=>'personal_settings',:id=>params[:id]}) %>

@@ -1,0 +1,86 @@
+<%=update_page_tag {|p|
+    p['list-of-my-courses'].update render_p 'school/current_klasses_partial_shown_in_course_catalouge'
+}
+%>
+<div id='thisdiv' class='status-box'  style='border:none;padding:15px;'>
+    <div class='title-div'>
+        <%=@course.title%>
+    </div>
+
+<p> <strong> Description: </strong> <br>
+<%= @course.description%><br><br>
+<% my_class = @course.has_student?(@me) %>
+
+<%if @school.deadline_to_reg_passed? and not my_class%>
+    <div class='server-alert-message dark-bold-gray'>
+      Wow! the semester almost over and you want to register.             
+    
+    <p>
+        We are sorry but to keep the course and instructor evaluation as real as possible, 
+        we close the course for registration <%=distance_of_time_in_words_to_now(@school.deadline_to_reg)%> ago on <%=@school.deadline_to_reg.strftime("%B %d").gsub(/0(\d)/,'\1') %> so people who are not in this class can give
+        fake evaluation. 
+        
+    </p>
+    </div>
+<%elsif my_class%>    
+   <div class='server-alert-message dark-bold-gray'> 
+        You are registered in this course</div>
+<%elsif  @I.exceed_max_reg_at(@school)%>           
+   <div class='server-alert-message dark-bold-gray'> 
+   
+    You can only register in <%=School::MaxReg%> courses per semester. 
+    You must drop some of your courses first. </div> 
+    
+<%elsif @school.student_can_register?(@me)and not my_class %>
+   <div>
+        <%button_name = @course.klasses_at_current_semester.size > 0 ? "Register new class" : "Register in course"%>
+        <%=  button_to_popup button_name,{:action=>'register_for_course',:id=>@course.id},
+            :pop_options=>{:remove_canvas=>true,:width=>'500',:title=>"Registering for #{@course.short_title} in #{@school.current_semester.name}"},
+            :style=>'font-weight:bold'%>
+   </div>
+
+<%else%>
+    
+<%end%>
+<%unless  @course.klasses_at_current_semester.empty?%>
+    
+        <div class='bold-gray title-div' >Current Classes:
+        </div>
+    <div class='status-box'>
+    <% @course.klasses_at_current_semester.each do |klass| %>
+        <ul class='liststyle1'>
+        <li> <span class='small-link-div'><%=link_to_klass klass%>
+            <%if not @school.deadline_to_reg_passed?%>
+                <%if my_class == klass %>
+                    <span style='margin-left:40px'><%= link_to_remote 'drop class',:update=>"course-desc-div",
+                                                                                   :url=>{:action=>'deregister_from_course',:course_id=>@course.id},:style=>'font-size:8pt !important'%></span>
+                 <%elsif my_class%>
+                    <span style='margin-left:40px'><%= link_to_remote 'switch to this class',
+                                                    :update=>"course-desc-div",
+                                                    :url=>{:action=>'switch_class',
+                                                           :klass_id=>klass.id}
+                                                      %></span>
+                                                          
+                 <%elsif  @school.student_can_register?(@me) %>
+                    <span style='margin-left:40px'><%= link_to_remote 'register in class',
+                                                       :update=>"course-desc-div",
+                                                       :url=>{:action=>'switch_class',:klass_id=>klass.id}%>
+                                                
+                                                </span>             
+                 <%end%>   
+             <%end%>             
+            <br>
+            <span class='dark-gray'>
+                 <%=klass.formated_schedule.join("<br>")%>
+            </span>
+        </li>
+        </ul>
+
+       
+    <%end%>
+    </div>
+   
+<%end%>
+
+
+</div>

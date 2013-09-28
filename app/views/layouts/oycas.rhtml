@@ -1,0 +1,30 @@
+<html>
+	<head> 
+		<title><%= @title %> </title>
+		<link href="/stylesheets/loginlayout.css" rel="Stylesheet" type="text/css" />
+        <%=oycas_include_tags%>
+        <%=javascript_include_tag "tooltip"%>          
+	</head>
+	<body style=''>	
+  		    <%if not @me%>        
+                <%=generate_oycas_layout("/access") do  |context,constant|             
+                        constant << oycas_access_constant_menu                 
+                   end    
+                %>  
+            <%else%>
+                <%=generate_oycas_layout("/my") do  |context,constant|             
+                        constant << oycas_session_constant_menu                 
+                   end    
+                %>              
+            <%end%>
+	        <style>
+	        	#content-panel{	        	 
+	        	  padding:20px;
+	        	  background-color:white !important;
+	        	  height:200px;	 
+	        	  border-top:1px solid #C0C0C0;       	  	        	  
+	        	}            
+    	    </style>                                           
+	</body>	
+
+</html>

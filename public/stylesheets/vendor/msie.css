@@ -1,0 +1,29 @@
+.header {
+    float:none!important;
+    
+}
+.scrap-stamp{
+}
+.scrap-table {
+
+      width:96%;
+
+}
+
+.popup {
+    background-image:none !important;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='/images/popbck.png');
+}
+.transparent-shade {
+    background-image:none !important;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='/images/popbck.png');
+	
+	
+}
+.sub-menu-item-hover {
+    width:100%;
+}
+ul.liststyle1 {    
+    padding:0 !important;
+    margin:25  !important;
+}

@@ -1,0 +1,28 @@
+<div id="project_error"></div>
+
+<div class="projectGeneral">
+<%= form_tag({:action=>"upload_document"},{:method=>"post", :enctype=>"multipart/form-data"}) %>
+File 1:&nbsp;<%= file_field_tag("documents[]") %><br><br>
+Comment:&nbsp;<input type="text" name="comments[]" size="40"><br><br>
+<br>
+File 2:&nbsp;<%= file_field_tag("documents[]") %><br><br>
+Comment:&nbsp;<input type="text" name="comments[]" size="40"><br><br>
+<br>
+File 3:&nbsp;<%= file_field_tag("documents[]") %><br><br>
+Comment:&nbsp;<input type="text" name="comments[]" size="40"><br><br>
+
+
+<% if @directories != nil then %>
+Folder:<br><select name="folder" size="5" width="30">
+    <% @directories.each do |dir| %>
+        <option value="<%=dir.guid%>" <% if params[:folder] != nil then %><% if dir.guid == params[:folder] then %>selected<% end %><% else%><% if dir.folder == "general" then %>selected<% end %><% end %>><%=dir.folder%><br>
+        
+    <% end %>
+</select>
+<br><br>
+<% end %>
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="submit" value="Upload File">
+<input type="button" onclick="Pop.close()" value="Cancel">
+</form>
+</div>

@@ -1,0 +1,62 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+<% if meetinglist != nil then %>
+<% if meetinglist.length > 0 %>
+
+Meetings:
+<%= link_to '[ schedule new meeting ]', :action=>'schedule_new_meeting' %>
+<br><br>
+
+<% meetinglist.each do |meeting| %>
+
+<div style="background-color:dddddd;padding:5px;border: 1px solid black;">
+Title:&nbsp;<%= meeting.title %>&nbsp;&nbsp;
+&nbsp;<%= link_to '[ edit meeting ]', :action=>'edit_meeting', :meeting_id=>meeting.id %>
+&nbsp;<%= link_to '[ unschedule meeting ]',{ :action=>'unschedule_meeting', :meeting_id=>meeting.id}, :confirm => "Are you sure you want to unschedule this meeting?" %>
+&nbsp;<%= link_to '[ add note ]', :action=>'add_note', :meeting_id=>meeting.id %>
+<br>
+Scheduled on:&nbsp;<%= format_datetime(meeting.scheduled_on) %><br>
+Scheduled by:&nbsp;<%= get_name_by_guid(meeting.scheduled_by) %><br>
+Created on:&nbsp;<%= format_datetime(meeting.created_on) %><br>
+<br>
+Participants:<br>
+    <% meeting.participants.each do |participant| %>
+        <%= get_name_by_guid(participant.guid) %><br>
+    <% end %>
+<br>
+
+    <% meetings = meeting.notes %>
+    <% if meetings != nil then %>
+        <% if meetings.length > 0 %>
+        Notes:<br>
+        <% meetings.each do |note| %>
+            <%= note.message %>
+            <%= link_to '[ delete note ]', {:action=>'delete_note', :meeting_id=>meeting.id, :note_id=>note.id}, :confirm => "Are you sure you want to delete this note?" %>
+            <br><br>
+        <% end %>
+        <% end %>
+    <% else %>
+    <% end %>
+</div><br>
+<% end %>
+
+<% else %>
+There are no scheduled meetings.<br><br>
+
+Click <%= link_to 'here', :action=>'schedule_new_meeting' %> to schedule a new meeting.
+
+
+<% end %>
+<% end %>
+</div>

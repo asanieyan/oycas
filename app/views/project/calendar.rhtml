@@ -1,0 +1,130 @@
+<%= render :partial=>'project/actionbar' %>
+<div style="display:none;background-color:ffffff;padding:3px;color:000000;font-family:verdana,sans serif;border: 1px solid black;" id="nttooltip_">start new task</div>
+<div style="display:none;background-color:ffffff;padding:3px;color:000000;font-family:verdana,sans serif;border: 1px solid black;" id="nmtooltip_">schedule new meeting</div>
+
+<% if @specified_year == 0 || @specified_month == 0 || @specified_month > 12 then %>
+    <% @specified_year = Time.now.year %>
+    <% @specified_month = Time.now.month %>
+<% end %>
+
+
+
+<% if @specified_month == 12 then%>
+    <% backyear = @specified_year %>
+    <% backmonth = 11 %>
+    <% forwardyear = @specified_year+1 %>
+    <% forwardmonth = 1 %>
+<% elsif  @specified_month == 1 then %>
+    <% backyear = @specified_year-1 %>
+    <% backmonth = 12 %>
+    <% forwardyear = @specified_year %>
+    <% forwardmonth = 2 %>
+<% else %>
+    <% backyear = @specified_year %>
+    <% backmonth = @specified_month-1 %>
+    <% forwardyear = @specified_year %>
+    <% forwardmonth = @specified_month+1 %>
+<% end %>
+
+
+<div class='centered' style='width:90%'>  
+
+<table width="700px"><tr><td>
+<%=form_tag({:action=>"calendar"},{:method=>"post"})%>
+<input type="hidden" name="y" value='<%=backyear%>'>
+<input type="hidden" name="m" value='<%=backmonth%>'>
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="submit" value="<<">
+</form>
+</td><td style="text-align:right;">
+<%=form_tag({:action=>"calendar"},{:method=>"post"})%>
+<input type="hidden" name="y" value='<%=forwardyear%>'>
+<input type="hidden" name="m" value='<%=forwardmonth%>'>
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="submit" value=">>">
+</form>
+</td></tr></table>
+
+<%= calendar(:year => @specified_year, :month => @specified_month, :table_class => 'projectCalendarTable', :day_name_class => 'projectCalendarDayName', :month_name_class => 'projectCalendarMonthName', :other_month_class => 'projectCalendarOtherMonth') do |d| 
+
+
+celltext = ""
+
+mcount=0
+meeting_tooltip_text=""
+if @project.project_meetings != nil then 
+    @project.project_meetings.each do |m|
+        if Date.new(m.scheduled_on.year,m.scheduled_on.month,m.scheduled_on.day) == d then
+            mcount+=1
+            meeting_tooltip_text+="#{m.title}<br><br>"
+        end
+    end
+    if mcount > 0 then 
+        thelink = "<span id='mtrigger_#{d.mday}'>meetings: "+mcount.to_s+"</span><br>"
+        thetooltip = "<div id='mtooltip_#{d.mday}' style='display:none;' class='projectCalendarTooltip'>Scheduled Meetings:<br>#{meeting_tooltip_text}</div>"
+        thescript= "<script>setupTooltip('#{d.mday}','m')</script>"
+        celltext += (thelink + thetooltip + thescript)
+    end
+
+end
+
+
+tcount=0
+task_tooltip_text=""
+if @project.project_tasks != nil then 
+    @project.project_tasks.each do |t|
+        if Date.new(t.start_date.year,t.start_date.month,t.start_date.day) == d then
+            tcount+=1
+            task_tooltip_text+="#{t.title}<br>Complete by:#{t.completion_date.month} #{t.completion_date.day}, #{t.completion_date.year}<br><br>"
+        end
+    end
+    if tcount > 0 then 
+        thelink = "<span id='ttrigger_#{d.mday}'>tasks: "+tcount.to_s+"</span><br>"
+        thetooltip = "<div id='ttooltip_#{d.mday}' style='display:none;' class='projectCalendarTooltip'>Assigned tasks:<br>#{task_tooltip_text}</div>"
+        thescript= "<script>setupTooltip('#{d.mday}','t')</script>"
+        celltext += (thelink + thetooltip + thescript)
+    end
+
+end
+
+
+
+
+linkstext = ""
+if d.year > Time.now.year then
+    linkstext += "<table><tr><td>"
+    linkstext += form_tag({:action=>"schedule_new_meeting"},{:name=>"nm#{d.mday}", :id=>"nm#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='submit' value='' id='nmtrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nm');</script>"
+    linkstext += "</td><td>"
+    linkstext += form_tag({:action=>"assign_new_task"},{:name=>"nt#{d.mday}", :id=>"nt#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='hidden' name='startyear' value='#{d.year}'><input type='hidden' name='startmonth' value='#{d.month}'><input type='hidden' name='startday' value='#{d.mday}'><input type='submit' value='' id='nttrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nt');</script>"
+    linkstext += "</td></tr></table>"
+elsif d.year == Time.now.year then
+if d.month > Time.now.month then
+    linkstext += "<table><tr><td>"
+    linkstext += form_tag({:action=>"schedule_new_meeting"},{:name=>"nm#{d.mday}", :id=>"nm#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='submit' value='' id='nmtrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nm');</script>"
+    linkstext += "</td><td>"
+    linkstext += form_tag({:action=>"assign_new_task"},{:name=>"nt#{d.mday}", :id=>"nt#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='hidden' name='startyear' value='#{d.year}'><input type='hidden' name='startmonth' value='#{d.month}'><input type='hidden' name='startday' value='#{d.mday}'><input type='submit' value='' id='nttrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nt');</script>"
+    linkstext += "</td></tr></table>"
+elsif d.month == Time.now.month then
+    if d.day >= Time.now.day then
+        linkstext += "<table><tr><td>"
+        linkstext += form_tag({:action=>"schedule_new_meeting"},{:name=>"nm#{d.mday}", :id=>"nm#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='submit' value='' id='nmtrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nm');</script>"
+        linkstext += "</td><td>"
+        linkstext += form_tag({:action=>"assign_new_task"},{:name=>"nt#{d.mday}", :id=>"nt#{d.mday}"})+"<input type='hidden' name='fromcalendar' value='true'><input type='hidden' name='year' value='#{d.year}'><input type='hidden' name='pid' value='#{@project.id}'><input type='hidden' name='month' value='#{d.month}'><input type='hidden' name='day' value='#{d.mday}'><input type='hidden' name='startyear' value='#{d.year}'><input type='hidden' name='startmonth' value='#{d.month}'><input type='hidden' name='startday' value='#{d.mday}'><input type='submit' value='' id='nttrigger_#{d.mday}'></form><script>setupLinkTooltip('#{d.mday}','nt');</script>"
+        linkstext += "</td></tr></table>"
+    end
+end
+end
+
+if d == Date.new(Time.now.year, Time.now.month, Time.now.day) then    
+    text = %Q!<span class="projectCalendarCurrentDaySpan">#{d.mday}</span>#{linkstext}#{celltext}!
+    styleclass = {:class=>"projectCalendarCurrentDay"}
+
+else
+    text = %Q!<span class="projectCalendarSpan">#{d.mday}</span>#{linkstext}#{celltext}!
+    styleclass = {:class=>"projectCalendarDay"}
+end
+
+[text, styleclass]
+end %>
+
+</div>

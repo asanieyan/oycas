@@ -1,0 +1,24 @@
+<fb:explanation><fb:message>  
+    <div style='float:right'>
+        <%=link_to_app "Go to mailbox","/my/messages"%>
+    </div>
+    <%if @unread_msgs.empty?%>
+        You have no unread messages
+    <%else%>        
+        You have <%=pluralize(@unread_msgs.size,"unread message")%> 
+    <%end%>
+</fb:message></fb:explanation>
+
+<%@unread_msgs.each do |m|%>    
+<div class='status-box dark-gray' >
+    <div class='normal-gray'>
+            <%=time_helper(@my.time(m.created_on),@my.tz)%>
+            <%=link_to_app m.sender.full_name,url_for_student(m.sender)%>  wrote you:
+    </div>        
+   <div>
+       <span class='normal-gray' style='font-size:8pt'> Subject: </span><%=m.subject%><br>
+       <%=truncate(strip_tags(m.body),150)%>&nbsp;&nbsp;<%=link_to_app 'view message',"/my/messages/#{m.id}?folder=in"%>
+   </div>
+   
+</div>    
+<%end%>

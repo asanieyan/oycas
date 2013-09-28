@@ -1,0 +1,9 @@
+<div id='err'>
+
+</div>
+<%=form_tag%>
+Enter a comment
+<%=text_area_tag "comments","",:size=>'60x6'%>
+<%=link_to_function 'Cancel',"Pop.close()"%>
+<%=submit_tag "Resolve",:onclick=>"if ($('comments').value.blank()){Message.show({err:'Please Enter a comment'});return false;}"%>
+</form>

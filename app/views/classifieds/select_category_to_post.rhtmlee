@@ -1,0 +1,29 @@
+<script>
+        function switchNetwork(network) {
+                window.redirectTo("/classifieds/network/" + network + "/select_category_to_post")
+                
+        }
+</script>
+<style>
+    select {
+        font-size:10pt;
+    }
+    small-select {
+        
+    }
+</style>
+
+<div class='status-box' style='background-color:white;'>
+<%unless @my_networks.size == 0 %>
+    <div class='bold-gray'>Select the network your are posting to: 
+        
+        <%=select_tag "network",options_for_select(@my_networks.map{|n| [n.name.titlecase,n.name]},params[:network]),
+        :style=>'font-size:8pt',:onchange=>"switchNetwork(this.value)"%>
+    </div><br>    
+    
+    <%@my_networks.each do |network| %>
+        <%link_to network.title,:network=>network.name,:action=>params[:action]%>
+    <%end%>
+<%end%>
+    <%=render :partial=>'classifieds/same_level_categories', :locals=>{'first_level'=>true,'levels'=>@levels,'selected_leaf'=>@selected_leaf}%>
+</div>

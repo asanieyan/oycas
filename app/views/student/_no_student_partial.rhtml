@@ -1,0 +1,18 @@
+<%if @student_owner.is_a? Student%>    
+    <%if not @studentb %>
+            You don't have any friends right now. 
+            <span class=''> Checkout 
+            <%=link_to "your school",url_for_school(@my.default_school) %> to find your friends.</span>    
+    
+    <%else%>
+        <%=@studentb.f_name %> doesn't have any friends now. 
+        <%if false and not @I.have_sent_friend_req_to(@studentb) and @I.can_add_as_friend?(@studentb)%>
+            <span class='bold-link-div small-link-div'> Do you want to 
+            <%=link_to_popup "Add #{@studentb.gender.to_s.objective_pronoun} as friend." ,{:action=>'add_as_friend'},
+            :pop_options=>{:title=>"Adding  #{@studentb.f_name} as Your Friend"}   %> </span>
+        <%else%>
+            
+        <%end%>
+        
+    <%end%>
+<%end%>    

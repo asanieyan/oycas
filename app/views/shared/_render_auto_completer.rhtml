@@ -1,0 +1,11 @@
+
+<ul>
+<%results.each do |result|%>
+    <li><%if (!value rescue true)%>
+            <%=result%>
+        <%else%>
+            <%=result.gsub(/(#{value})/i,'<strong>\1</strong>')%>
+        <%end%>
+    </li>
+<%end%>
+</ul>

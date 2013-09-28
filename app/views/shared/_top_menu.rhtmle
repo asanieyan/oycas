@@ -1,0 +1,5 @@
+<% menu_sections.each do |section| %>
+	<% section.each_pair do |menu,url| %>			
+			<%= link_to menu, url %> 
+	<% end %>
+<% end %>

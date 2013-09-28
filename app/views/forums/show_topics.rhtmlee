@@ -1,0 +1,101 @@
+<div class='title-box' style=''>
+    <%if @forum_owner.is_a? School%>
+     <div class='title-div'>
+        <%=link_to image_tag(@forum_owner.logo,:style=>'margin-right:20px;float:left;height:70px'),url_for_school(@forum_owner)%>
+        School Discussions
+     </div>
+    <%elsif @forum_owner.is_a? Klass%>
+         <%=image_tag '/images/blogger.gif',:style=>'margin-right:20px;float:left;'%>
+    
+        <span   class='title-div'> <%=@forum_owner.name%> Discussions </span>  
+    
+    <%end%>    
+</div>
+    <div style='clear:left'></div><br>
+    <div class='centered' style='width:95%;'>
+    <div class='status-box' style=''>               
+        <% if @controller.can_post_to_forum?%>
+        <div class='title-div' style='margin-bottom:5px;'>
+        
+            <%=link_to("Start New Discussion",:action=>'new_forum_topic')%>
+            <%=hr%>
+        </div>       
+        <%end%>
+        <%#cache({:action=>'forum_topics',:page=>params[:page] ,:order=>params[:order],:sort=>params[:sort]}) do 
+        %>
+        <%#cache({:hot_topics=>true}) do
+        %>  
+            <%if not @hot_topics.empty? %>
+            
+           
+                <div id='hot-topics-text' class='title-div' style='position:relative;background-color:#4E6BBA;color:white;'>
+                   <div style='padding:2px;padding-left:5px'> Hot Topics</div>
+                </div>        
+                <%=roundedDIV("div#hot-topics-text","#FFFFFF","#4E6BBA",:only=>:top) %>                                      
+                <div class='status-box' style='margin-top:0'>
+                <% @hot_topics.each do |hotd| %>    
+                 <div style='margin-bottom:10px;border-bottom:1px #D0D0D0 solid;padding-bottom:5px;'>   
+                    * <%=link_to hotd.topic,{:action=>'view_topic',:id=>hotd.id},:post=>true,:style=>'font-weight:bold'%>
+                    <span style='padding-left:5px'><%= pluralize(hotd.num_posts,"Reply") %>. 
+                    <span class='bold-gray' style='font-weight:normal'>Updated <%=time_helper(@my.time(hotd.last_post_time),@my.tz)%>
+                    </span></span>
+                 </div>
+                <%end%>
+                </div>
+         
+            
+            
+         
+            <%elsif @discussions.empty? %>
+                <div class='title-div'>
+                        There are no discussions yet. 
+                </div>
+            <%end%>   
+        <%#end
+        %>        
+
+    <%if not @discussions.empty?%>    
+    <div id='discussion-topics' class='' style=''>
+  
+        <%=show_pagination nil,:object=>'topic',:method=>:get,:order=>params[:order],:sort=>params[:sort]%>
+        <table id='' style='width:100%'>  
+        <tr>    
+            <th style='width:58%'> Discussion Topic </th>
+            <% url_com = {:page=>params[:page],:order=>(params[:order] == "asc" ? "desc" : "asc")}%>
+            <th style='width:20%'> <%=link_to "Created On",url_com.merge({:sort=>'co'})%> </th>
+            <th style='width:20%'> <%=link_to "Lastest Post", url_com.merge({:sort=>'lp'})%> </th>
+            <th style='text-align:center;width:1%'> <%=link_to "Views",url_com.merge({:sort=>'v'})%> </th>
+            <th style='text-align:center;width:1%'> <%=link_to "Replies", url_com.merge({:sort=>'r'}) %> </th>
+            
+            
+        </tr>
+        <%@discussions.each do |discussion| %>
+                <tr class="<%= cycle('even', 'odd') -%>">
+                    
+                        <td>   
+                           <%link_to_block({:action=>'view_topic',:id=>discussion.id},{:post=>:true}) do%>
+                                <strong><div> <%=break_down(discussion.topic,40)%> </div></strong>
+                           <%end%>
+                        </td>                                   
+                        <td>                         
+                                <%= time_helper(@my.time(discussion.created_on),@my.tz) 
+                                 %>                                 
+                        </td>
+                        <td> <%=time_helper(@my.time(discussion.last_post_time),@my.tz) %><br>by <%= link_to_student discussion.last_poster,:my_name=>'you'%></td> 
+                        <td style='text-align:center'> 
+                                <%=discussion.num_views%>
+                        </td>
+                        
+                        <td  style='text-align:center'>
+                                <%=discussion.num_posts%>                
+                        </td>
+                 
+        
+                </tr>
+        <%end%>
+        </table>
+    <%end%>
+    </div>
+ </div>
+</div>
+

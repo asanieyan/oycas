@@ -1,0 +1,36 @@
+<div class='title-div title-box' style='padding:0'>
+    Resetting Password
+</div>
+<div id='pass-msg'>
+
+</div>
+<div  class='status-box'>
+    Please enter your new password.
+        <ul>
+                <li> Make sure your CAPS-lock key isn't on</li>
+                <a name="center"> </a>
+                <li> It must be at least <%=Student::PasswordLength%> characters long, but more is better</li>
+                <li> Using both letters and numbers is even better</li>
+                <li>'QUAils' isn't the same password as 'quails'</li>
+        </ul>      
+    
+</div>
+      <%=form_tag({},{:method=>:post})%>     
+        <%=     xm = Builder::XmlMarkup.new
+                xm.table {                                 
+                    xm.tr { 
+                        xm.td("New Password:", :class=>"label")
+                        xm.td { |xm| xm.input(:type=>"password",:name=>'password') }
+                    }  
+                    xm.tr { 
+                        xm.td("Confirm New Password:", :class=>"label")
+                        xm.td { |xm| xm.input(:type=>"password",:name=>'confirm_password') }
+                    }                                                                              
+                    xm.tr {
+                        xm.td
+                        xm.td {
+                            xm.input( :type=>'submit',:value=>'Reset Password', :class=>'button-link')
+                        }
+                    }                                                                   
+                }
+        %>           </form>

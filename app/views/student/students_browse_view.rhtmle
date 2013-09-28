@@ -1,0 +1,28 @@
+ <%=render_p 'student/view_header'%>
+<div class='left-side-box' style='width:20%'>   
+  <%unless flash[:profile_access_denied]%>
+      <%=render_p 'student/filter_box'%>
+  <%end%>
+</div>
+<div style=''>        
+    <div class='' style='<%=@browser.if_is({:msie=>"width:98%"},"width:75%")%>;padding-left:20px;margin-top:10px'; >    
+    <%unless @students.empty? %>
+        <%=show_pagination(nil,{:object=>@student_object_name,:method=>:get}.update(params),@student_display_paginator)%>    
+        <%@students.each do |s|%>
+               
+                <%= render_p 'student/student_mini_profile',{'student'=>s} %>
+        
+        <%end%>
+    <%else%>        
+        <div class='status-box' style='display:table;width:100%;height:100%;background-color:white'> 
+          <div class='' style='font-size:11pt;padding-top:10px;padding-bottom:10px;font-weight:normal'>  
+            <%if params[:commit] %>
+                Found no result.
+            <%else%>
+                <%=render_p 'student/no_student_partial'%>
+            <%end%>
+          </div>
+        </div>    
+    <%end%>
+    </div>
+</div>

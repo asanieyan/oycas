@@ -1,0 +1,14 @@
+<div id="project_error"></div>
+<div id="project_message"></div>
+<div class="projectGeneral">
+<%=form_tag({:action=>'update_personal_settings'},{:method=>:post})%>
+
+project email address:<input type="text" name="project_email_address" width="100" value="<%= @project_member.project_email_address %>">
+<br><br>
+
+<input type="hidden" name="id" value="<%= @project.id %>">
+<input type="hidden" name="member_id" value="<%= @project_member.id %>">
+<input type="submit" value="Save Changes">
+
+</form>
+</div>

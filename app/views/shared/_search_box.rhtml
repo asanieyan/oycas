@@ -1,0 +1,27 @@
+<table cellspacing=0 cellpadding=0 style=''>
+        <tr>
+            <td style='vertical-align:bottom;color:#909090;font-weight:bold;font-size:8pt'>
+               <%if options[:label]%>
+                   <%=options.delete(:label)%>:&nbsp;&nbsp;      
+               <%end%>
+           </td>
+           <td>                                                         
+                 <table style='display:inline-table ;border:1px solid #C0C0C0' cellspacing=0 cellpadding=2>
+                      <tr>
+                        <td style='padding-left:3px;padding-top:3px;vertical-align:bottom'>
+                            <%=image_tag '/images/search.gif'%></td>
+                            <% 
+                                text_field_options = options.update({:class=>'search-box',:style=>"border:none",:banner=>options.delete(:banner)})
+                                
+                            %>
+                            <td style='vertical-align:top'><%=flaggy_text_field name || "search_value",
+                                                        content,
+                                                        text_field_options
+                                                                     
+                                                                     %>
+                        </td>
+                      </tr>
+                 </table>
+           </td>
+    </tr>
+ </table>

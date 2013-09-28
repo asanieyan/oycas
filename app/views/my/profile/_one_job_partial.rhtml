@@ -1,0 +1,65 @@
+
+  
+         <table>
+                           
+                <tr> 
+                        <td class='form1_q'> Employer: </td>
+                        <td><%= text_field_tag "job#{job_index}[employer]",job.employer,:size=>'30',:class=>'textfield'  %>   
+                            </td>     
+                 </tr>
+                 <tr>
+                        <td class='form1_q'> Position: </td>
+                        
+                        <td>   
+                               <%= text_field_tag "job#{job_index}[job_position]",job.job_position,:size=>'30',:class=>'textfield'  %>                                  
+                               <%= select_tag "job#{job_index}[job_class]", "<option value=""> Work As </option>" + (options_for_select job.column_for_attribute('job_class').values,job.job_class) %>
+                        </td> 
+                                                                                        
+                </tr>
+
+               <tr> 
+                    <td class='form1_q'> Responsibilities: </td>
+                    <td> <%=  text_area_tag "job#{job_index}[description]", job.description, :size => "31x5" %>   </td>    
+               </tr>
+               <tr> 
+                    <td class='form1_q'> From: </td>
+                    <td> <%=  select_year ( job.start_year || Time.gm(2000) ,:end_year=>Time.now.year,:prefix=>"job#{job_index}",:field_name=>'start_year') %><%=  select_month ( job.start_month || Date.today, :end_year=>Time.now.year,:prefix=>"job#{job_index}",:field_name=>'start_month') %>   </td>    
+               </tr>  
+              <tr> 
+                    <td  class='form1_q'> To: </td>
+                    <td>    
+                        
+                          <%= check_box_tag "job#{job_index}[current]",1,job.end_year.nil?,:onclick=>"toggleStuff('j#{job_index}')" %> I am still working here
+                    </td>    
+               </tr>  
+
+              <tr> 
+                    <td  class='form1_q'>  </td>
+                    <td style='<%= "display:none" if job.end_year.nil? %>' id="j<%=job_index%>"> <%=  select_year ( job.end_year || Time.gm(2000) ,:end_year=>Time.now.year,:prefix=>"job#{job_index}",:field_name=>'end_year') %><%=  select_month ( job.end_month || Date.today, :end_year=>Time.now.year,:prefix=>"job#{job_index}",:field_name=>'end_month') %>   
+                          
+                    </td>    
+               </tr>  
+              
+               <tr> 
+                    <td> </td>                                       
+                    <td> <%= link_to_function 'remove this job',"inputTag = document.createElement('input');inputTag.name='job#{job_index}[remove]';inputTag.type='hidden';inputTag.value='#{rand(1000)}';document.job_form.appendChild(inputTag);document.job_form.submit()" %> </td>
+                </tr>
+                                 
+        </table>
+        <div id='new_tables'>
+            <table>
+                <tr> 
+                    <td width='100px'> &nbsp; </td>                                       
+                    <td> <%= 
+                    
+                    (link_to_remote 'add another job',:update=>'new_tables',
+                                                               :url=>{:action=>'get_job_table',:index=>job_index}
+                                                              
+                                                              
+                                                               )    if  last_job && more_jobs %> 
+                    </td>
+                </tr>       
+            </table>
+        
+        </div>
+        

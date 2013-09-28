@@ -1,0 +1,11 @@
+<%=table_tag(:cols=>4,:table=>{:style=>"width:100%",:class=>"blue-box"}) do |cols|
+       @reqs = ChangeNameRequest.find(:all,:order=>'created_on DESC').each do |req|
+            cols << link_to_student(req.student)
+            cols << content_tag(:div,req.requested_name,:class=>"bold-gray")
+            cols << req.created_on    
+            cols << [m_link("Approve",{:approve=>req.id},:post=>true), m_link("Reject",{:reject=>req.id},:post=>true),{:style=>"width:100px"}]   
+           
+       end     
+   end
+%>
+<%=content_tag(:div,"No Name Requests",:class=>"title-div blue-box") if @reqs.empty?%>

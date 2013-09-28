@@ -1,0 +1,22 @@
+<div id="project_errors"></div>
+
+<div class="projectGeneral">
+<%= form_tag({:action=>"commit_remove_project_members"},{:method=>"post"})%>
+You have selected the following members for deletion:<br><br>
+<% params[:members].each do |member| %>
+<input type="hidden" name="members[]" value="<%=member%>"><%= Student.find(member).whole_name %><br>
+<% end %>
+<br>
+<% if flash[:delete_project] == true then %>
+All current members of this project have been selected for removal, which will mean that the project will be deleted from our records as well.
+<% elsif flash[:self_delete] == true then %>
+Note that you have selected yourself to be removed as a member of this project. Doing so will be a permanent action unless you are invited back to the project by an existing member.
+<% end %>
+<br><br>
+
+<input type="hidden" name="id" value="<%=@project.id%>">
+
+<input type="submit" value="YES, Remove Selected Members <% if flash[:delete_project] == true then %>and Delete Project<% end %>">
+<input type="button" value="NO, Go Back to Settings" onclick="Pop.close()">
+</form>
+</div>

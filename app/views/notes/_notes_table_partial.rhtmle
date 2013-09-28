@@ -1,0 +1,96 @@
+<%=show_pagination nil,:object=>'note'%>
+<%@notes.each do |note| %>            
+
+<table id='note<%=note.guid%>' class='status-box' cellspacing=0;cellpading=0 style='width:100%;margin-bottom:10px'>
+    <tr>
+        <td colspan=2 class=''> 
+            <table style='color:#606060;'>
+            <tr>
+                <td style='vertical-align:top'>Title:                                    
+                
+                </td>
+                <td> 
+                    <strong><%= note.note_type.to_s.titlecase + " - " + break_down(note.title,50)%></strong> <br>
+                </td>
+             </tr>
+            <%if note.comment %>
+             <tr>
+                <td></td>
+                <td> 
+                    <%=break_down(note.comment,60) %>
+                 </td>
+              </tr>  
+            <%end%>
+          </table>
+        </td>
+        <td style='vertical-align:top;width:1px'>
+          <%if @I.am? note.owner %>
+            <div class='bold-link-div'>    
+                    <%=link_to 'X',{:controller=>'course',:courseid=>rand(1000000),:action=>'delete_note',:id=>note.id},
+                        :confirm=>["Delete Your Note","Are you sure you want to delete this note.",
+                        {:onclose=>"$('note#{note.guid}').style.backgroundColor=''",:onpop=>"$('note#{note.guid}').style.backgroundColor='#DDDDDD'"}] %>                        
+                    
+                    <%=link_to_popup image_tag('/images/marker.gif',:style=>"width:15px"),{:controller=>'course',:courseid=>rand(1000000),:action=>'edit_note',:id=>note.id},                      
+                                    :pop_options=>{:title=>"Edit Note",:onclose=>"$('note#{note.guid}').style.backgroundColor=''",:onpop=>"$('note#{note.guid}').style.backgroundColor='#DDDDDD'"} %>                        
+
+            </div>
+         <%end%>                                    
+       </td>
+    </tr>
+    <tr>
+    <td style='vertical-align:top;width:40%'>
+        
+            <table  style='color:#606060;'>                       
+
+                <tr>
+                    <td style='vertical-align:top'>
+                       <%if note.klass_id%>
+                            Class:     
+                       <%else%>
+                            Course:
+                       <%end%>
+                        
+                    </td>
+                    <td style='padding-left:2px'>
+                     <%if note.klass%>    
+                        <%=link_to_klass note.klass%>       
+                     <%else%>
+                        <%=note.course.short_title%>
+                     <%end%>   
+                    </td>
+                </tr>
+
+            </table>
+                    <div class='small-link-div regular-link-div' style='padding-left:2px'>
+                       
+                            <%=link_to image_tag('/images/download.gif') + "Download Note",:controller=>'course',:courseid=>rand(1000000),:action=>'download',:note=>note.guid%> <br>
+                                                                           
+                            
+                    </div>
+    </td>
+    <td class='normal-gray small-link-div' style='vertical-align:top;'>                     
+        created <%=time_helper(@my.time(note.created_on),@my.tz).downcase %>
+        <%if not @note_context.is_a?(Student)%>
+            <%= if note.is_anonymous? and note.owner.is? @me
+                    "by you anonymously."
+                elsif not note.is_anonymous?                    
+                    "by " + (link_to_student note.owner,:link_me=>"you") + "."
+                end
+            %> 
+        <%elsif note.is_anonymous?%>
+             anonymously
+        <%end%>
+        <br>                     
+        <% if note.num_downloads > 0 %>                    downloaded  <%=pluralize(note.num_downloads,'time')%>.<br><% end %>
+               
+ 
+                
+                </td>
+    <td style=''>
+        &nbsp;
+      
+    </td>
+</tr>
+  </table>
+<div class='' style='margin-bottom:10px;border-bottom:1px solid #D0D0D0'>  </div>            
+<%end%>

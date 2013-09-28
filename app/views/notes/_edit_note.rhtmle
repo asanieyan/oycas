@@ -1,0 +1,39 @@
+<div class='status-box'>
+<div id='note-edit-message'>
+</div>
+<%=form_tag({},{:onsubmit=>"if($('title').value.length <= 6){Message.show({'note-edit-message':'Please enter a longer and more descriptive title for your note document.'},{hide:true});return false;}"})%>
+<table> 
+    <tr>
+        <td class='bold-gray' style='vertical-align:top;'>
+            
+            Title:<span style='color:red'>*</span>
+            <div> <%=text_field_tag "title",@note.title,:maxlength=>CourseNote.size_of('title'),:size=>@browser.sel_for({:msie=>'46'},'49')%> </div>
+            <br>
+            <div> Note Type: <%=select_tag "note_type",options_for_select(CourseNote.values_of('note_type').map{|s| [s.to_s.titlecase,s]},@note.note_type)%></div>
+            <br>Comment:            
+            <div> <%=text_area_tag "comment",@note.comment,:size=>"30x5",:maxlength=>CourseNote.size_of('comment')%> </div>              
+        </td>
+
+    </tr>
+</table>
+<table style=';background-color:#EEEFEF;border:1px #C3D9FF solid;padding:5px;margin-top:10px;margin-bottom:10px;'>
+    <tr>    
+    
+        <td style='vertical-align:top;margin-right:5px;'>
+          <%=check_box_tag "anon",1,@note.is_anonymous? %> 
+        </td>
+    <td style=''>
+        <strong>This is an Anonymous Note.</strong> 
+        <span style='font-size:10pt'>
+        By checking this box no one will know that this document belongs to you.
+        </span>
+        </td>
+    </tr>
+</table>
+<div style='text-align:right;margin-bottom:10px;'>
+    
+    <%=link_to_function 'Cancel',"Pop.close()"%>
+    <%=submit_tag "Save"%>
+</div>
+</form>
+</div>

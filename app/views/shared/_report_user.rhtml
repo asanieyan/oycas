@@ -1,0 +1,34 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<form name="report_user" id="report_user" action="commit_report_user">
+
+    Offender: <%=params[:guid]%><br>
+    Reporter: <%= @me.guid %><br>
+    <br>
+    Reason:
+    <select name="reason" id="reason">
+        <option value="inappropriate or pornographic picture">inappropriate or pornographic picture
+        <option value="attacking individual or group">attacking individual or group
+        <option value="fake profile">fake profile
+        <option value="obscene profile comment">obscene profile comment
+        <option value="other">other
+    </select>
+    
+    <br><br>
+    Comments (required):<br>
+    <textarea name="comments"></textarea>
+    <br><br>
+    <input type="hidden" name="reportee_guid" value="<%= params[:guid] %>">
+    <input type="hidden" name="reporter_guid" value="<%= @me.guid %>">
+    <input type="submit" value="Submit Report">
+</form>

@@ -1,0 +1,19 @@
+<div class='title-box title-div'  style='padding-right:2;margin-bottom:0'>
+ 
+    <div style='font-variant:small-cap'>
+    <%if @student_owner.is_a? Student%>
+        <%=image_tag '/images/friends.gif'%>
+        <%if @I.am? @student_owner%>
+            My Friends
+        <%else%>
+            <%=@studentb.full_name%> Friends
+        <%end%>
+    <%elsif @student_owner.is_a? School%>
+        <%=image_tag '/images/students.gif'%><%=@school.name%> Students
+    <%elsif @student_owner.is_a? Klass %>    
+        <%=image_tag '/images/students.gif'%> <%=@klass.name%> Students
+    <%else%>
+        <%=image_tag '/images/students.gif'%> 
+    <%end%>
+    </div>
+</div>

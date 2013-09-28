@@ -1,0 +1,92 @@
+<style>
+    .gray {
+            color: #505050;
+            font-weight:bold;
+            font-size:8pt;
+
+    }
+    p.gray {
+            padding:20px;
+            padding-top:15px;
+    }   
+
+</style>
+<form id='thisform' action='/my/edit_profile_add_ons' method='POST'>
+<div class='profile-box' >
+<div class='status-box'>
+    <div id='message'>
+           
+    </div>    
+    <p> 
+       
+        In your profile privacy setting you have selected that <strong><%=@my.desc_for @my.profile_visibility %></strong>
+        can see your profile. Here you can be more specific as to what they can see.
+    </p>
+    <div class='title1'>
+        <%=image_tag '/images/desk.gif',:style=>""%>
+        My Desk Messages</div>
+    <p >This setting for your desk controls who can see your desk posts and does not control
+        who can post on your desk - only <strong>your friends</strong> can post on your desk.</p>
+    <p class='gray'> Who can see my desk in my profile: <%=select_visibility "desk_visibility",@my.desk_visibility,:max=>@my.profile_visibility%> </p>
+
+    <div class='title1'>
+     <%=image_tag '/images/books2.gif'%>    My Courses
+     </div>
+    <p> 
+      
+         <%if @my.current_courses_option %>        
+            In your <strong> <%=link_to_mini%>
+            </strong> everyone can see the courses you are taking currently.               
+        <%else%>
+        <p class='gray'>         
+            Who can see my current semester courses: <%=select_visibility "current_course_visibility",
+                        @my.current_course_visibility,:max=>@my.profile_visibility,:onchange=>update_page {|p|
+                                    p << "if ($('current_course_visibility').value > 0)"
+                                    p <<    "$('notice1').show()"
+                                    p << "else"
+                                    p <<    "$('notice1').hide()"
+                                }
+                        %> 
+            <%notice1_style = "display:none" if @my.current_course_visibility == 0%>          
+       
+        </p>  
+            <p id='notice1'  style='<%=notice1_style%>'> 
+                    Please note that  the courses you are currently taking will be displayed in your <strong><%=link_to_mini%></strong>
+                    for anyone who has the permission to see them in your profile.
+            </p>             
+      <%end%>   
+      <%if false%>           
+        <p class='gray'> 
+            Who can see my course archives in my profile: <%=select_visibility "course_archive_visibility",@my.course_archive_visibility,:max=>@my.profile_visibility%> 
+        </p>    
+      <%end%>     
+    </p>        
+    
+    <div class='title1'>
+     <%=image_tag '/images/friends.gif'%>My Friends </div>  
+        <%if @my.friend_option %>
+            <p>
+            In your <strong> <%=link_to_mini%>
+            </strong> you have allowed everyone to see your friends.  </p>
+        <%else%>
+            <p class='gray'> 
+            Who can see my friends in my profile: <%=select_visibility "friend_visibility",@my.friend_visibility,:max=>@my.profile_visibility%> </p>
+        <%end%>
+    <%if @my.albums.size > 0%>
+    <div class='title1'>
+    <%=image_tag '/images/frame.gif',:style=>'height:30px'%>    My Photo Albums </div>
+    <p> For each of your albums, you can set who can view it. </p>            
+    <p class='gray'>
+        <table>
+        <% @my.albums.each do |album|%>
+            <tr>
+           <td class='gray'> <%=album.name%>  </td><td style='padding-left:40px;'><%=select_visibility "albums[#{album.id}]",album.visibility%>          </td>
+           </tr>
+        <%end%>
+        </table>
+      </p>        
+    </div>
+    <%end%>
+    <div style='text-align:right'><%=submit_tag %> </div>
+</div>     
+</form>   

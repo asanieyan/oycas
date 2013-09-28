@@ -1,0 +1,25 @@
+<%=show_pagination paginator,'page','panel1-body',:url=>{:field_name => @params[:field_name],:instructor_id=>@params[:instructor_id]}%>
+<%= link_to_remote 'back',:update=>'panel1-body', :url=>{:action=>'overview'}.merge(instructor_params)%>
+
+<br>
+<table  cellspacing=0 style='width:95%;margin:0 auto'>
+<%index = 0%>
+<% comments.in_groups_of(2,false) do |comment1_2| %>
+        
+        <tr>
+        <%comment1_2.each do |comment|%>        
+            <%index += 1%>
+            <td style='width:50%;padding-right:40px;padding-top:20px' >
+                    <%if comment%>
+                        <div style='width:100%;border-bottom:solid 1px #C0C0C0'>
+                            <span style='color:#C0C0C0;font-weight:bold'>Comment <%=index%></span>
+                        </div>
+                        <%=comment.body%> 
+                    <%end%>
+            </td>
+
+        <%end%>
+        </tr>
+        
+<% end%>
+</table>

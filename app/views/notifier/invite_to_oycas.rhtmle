@@ -1,0 +1,33 @@
+<%
+	profile_link = Notifier::Host + "/student/#{@inviter.guid}/profile"
+	thumb_url = Notifier::Host + @inviter.thumb_image
+%>
+<div style='float:left;margin-right:20px;'>
+	<a href="<%=profile_link%>"><img src='<%=thumb_url%>' /></a>
+</div>
+<a href="<%=profile_link%>"><%=@inviter.full_name%></a> has invited you to join oycas <br>
+<div style='clear:left'><br></div>
+
+<%
+	if Time.now.to_date <= Time.local(2007,07,03).to_date
+%>
+
+	<img src="http://www.oycas.com/images/promos/invite_special.gif" width="576" height="792" border="0" alt="" usemap="#invite_special_Map">
+	<map name="invite_special_Map">
+	<area shape="rect" alt="" coords="29,773,114,792" href="mailto:info@oycas.com">
+	<area shape="rect" alt="" coords="204,684,355,717" href="http://www.oycas.com">
+	<area shape="rect" alt="" coords="13,0,218,72" href="http://www.oycas.com" target="_blank">
+	<area shape="rect" alt="" coords="340,467,546,533" href="http://www.oycas.com/access/register" target="_blank">
+	</map>
+
+<%else%>
+
+	<img src="http://www.oycas.com/images/promos/invite.gif" width="576" height="792" border="0" alt="" usemap="#email_imager_Map">
+	<map name="email_imager_Map">
+	<area shape="rect" alt="" coords="29,647,114,666" href="mailto:info@oycas.com">
+	<area shape="rect" alt="" coords="208,559,359,592" href="http://www.oycas.com">
+	<area shape="rect" alt="" coords="13,0,218,72" href="http://www.oycas.com" target="_blank">
+	<area shape="rect" alt="" coords="340,467,546,533" href="http://www.oycas.com/access/register" target="_blank">
+	</map>
+
+<%end%>

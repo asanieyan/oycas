@@ -1,0 +1,10 @@
+Articles Section<br><br>
+<% if @articles == [] then %>
+There are no articles to display. Click <%= link_to "here", :action => 'upload_article'%> to upload one.
+<% else %>
+
+  <% @articles.each do |article| %>
+  <%= link_to article.title, :action => 'view_article', :article_id => article.id%> (<%=article.created_on%>)  [ <%= link_to 'delete', :action => 'delete_article', :article_id => article.id %> ]<br>
+  <% end %>
+
+<% end %>

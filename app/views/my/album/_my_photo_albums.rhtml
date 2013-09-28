@@ -1,0 +1,18 @@
+<% if albums.empty? %>
+<div class='compact-center'>
+    <div style='width:45%;float:left'>
+     <div class='shade1-soft' > 
+                <strong> No Albums Yet!! </strong>
+                <p> You can organize your photos by creating albums and upload 
+        unlimited photos to your account </p>                                                  
+     </div>
+    <div class='shade1-link' style='border-top:none'> <%=link_to "create my first album now", "create_album"%> </div>
+               
+    </div>
+    <div class='border-in-shade1' style='float:left;margin-left:40px;height:200px'>  </div>            
+</div>                
+<% else %>
+      <%= render :partial=>'shared/photo_album/show_photo_albums', :locals=>{'paginator'=>paginator,'albums'=>albums}%>
+
+<%end %>       
+

@@ -1,0 +1,75 @@
+var Classified = {
+    getPostPictures  : function(ids,post_id) { 
+        ids = ids.split(",")               
+        //if post_id is not null it will get the images of a post 
+        //iterate through each image id 
+        //for each id add an image object
+        
+        imageArrays = []
+        ids.each(function(id){                                                     
+                   if (id != null && !id.blank()){
+                       image = new Image()
+                       image.addClassName = 'post-images'
+                       
+                       image.id = 'postimage' + id 
+                       image.name = 'postimage' + id 
+                       if (post_id != null){
+                            image.src = '/shared_images/classifieds/' + id + '.jpg'
+                            image.style.width = '100px'
+                       }
+                       else {
+                            image.src = "/classifieds/get_attached_images_to_post?image_id=" + id                                                                        
+                            
+                       }
+                       
+                       image.style.border = "1px solid black"
+                       image.style.margin = "3px"
+                       $('image-place').appendChild(image)
+                       new Draggable(image.id,{revert:true});                                   
+                       //imageArrays.push(image)                         
+                     }                           
+        });
+       Droppables.add('wasetbin', {
+            onDrop: function(element) {                   
+                    id = element.id.gsub(/postimage/,'')
+                   
+                    q = $H({image_id :id,remove:true})                            
+                    if (!(post_id == null || post_id == "undefined"))
+                        q['post_id'] = post_id
+                                               
+                    new Ajax.Request("/classifieds/get_attached_images_to_post?"+q.toQueryString(),{method: 'GET'})
+                    $('image-place').removeChild(element)                        
+            }
+       });                
+    },
+    displaySelectInput : function(select,options) {
+       
+        options = Object.extend({
+            fieldLength : 30,
+            initialValue : "",
+            fieldDesc : ""                
+        },options || {})
+        options.fieldDesc =  options.fieldDesc || "";
+        if (!options.fieldDesc.blank()) {
+            options.fieldDesc = "<div class='dark-gray' style='margin-top:5px;margin-bottom:5px'>"+ options.fieldDesc +"</div>"
+        }
+        select = $(select);
+        if ($(select).selectedIndex == select.options.length - 1) //last element
+        {   randomID = "Text" + Math.floor(Math.random() * 10000000000);
+            inputName = select.name;
+            select.name = "";
+            select.setAttribute("oldName",inputName);
+            select.setAttribute("randomID",randomID);
+            new Insertion.After(select,"<div id='"+randomID+"' style='margin-top:5px'>"+ options.fieldDesc +"<input size="+options.fieldLength+"type='text' value='"+ options.initialValue +"' name='"+ inputName +"' /></div>");       
+            $(randomID).down("input").focus();
+        }else {
+            inputName = select.readAttribute("oldName");           
+            if (inputName) {                
+                textField = $(select.readAttribute("randomID"))
+                textField.remove()
+                select.setAttribute("oldName",null);
+                select.name = inputName;
+            }                       
+        }
+    }
+}

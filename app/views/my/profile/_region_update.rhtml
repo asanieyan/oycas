@@ -1,0 +1,26 @@
+<% if not my_country or my_country == "Canada"                        
+       sub_region_title = 'Province' 
+       sub_region_select_options = options_for_select(StudentHelper::CANADA_PROVINCES,my_sub_region || "British Columbia")                                                       
+   elsif my_country == "United States"
+       sub_region_title = 'States'
+       sub_region_select_options = options_for_select(StudentHelper::US_STATES,my_sub_region)                                                           
+   else
+       sub_region_select_options = nil                               
+       sub_region_title = 'Country'    
+  end
+
+  if sub_region_select_options
+      sub_region_select = select_tag "profile[sub_region]",sub_region_select_options
+  end
+  country_select = select_tag("profile[country]",
+    options_for_select(ActionView::Helpers::FormOptionsHelper::COUNTRIES,my_country || "Canada"),
+    :onchange=>remote_function(:update=>'regionElement',:url=>{:action=>'update_region'},
+    :with=>"'my_country='+$('profile[country]').value"))
+%>
+<td id='sub_region_title' class='form1_q'> 
+     <%=sub_region_title%>
+ </td>
+<td id='sub_region_value'>
+    <%= sub_region_select %> <%=country_select%>
+</td> 
+                        <td> &nbsp;</td>      

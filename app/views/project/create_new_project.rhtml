@@ -1,0 +1,24 @@
+<div id="project_error"></div><br>
+
+<%=form_tag({:action=>'commit_create_new_project'},{:method=>:post})%>
+title (mandatory):<input type="text" name="title" width="100" value="<%= params[:title] %>">
+<br><br>
+
+description (optional):<textarea name="description"><%= params[:description] %></textarea>
+<br><br>
+
+project-specific email address:
+<select name="project_email_address">
+    <% @me.emails.each do |e| %>
+    
+    <option value="<%=e.contact_email%>"<% if params[:project_email_address] == e.contact_email then %> selected="selected"<%end%>><%=e.contact_email%>
+    
+    <% end %>
+</select>
+<br><br>
+
+<input type="hidden" name="id" value="<%=params[:id]%>">
+<input type="submit" value="Create Project">
+<input type="button" value="Cancel">
+
+</form>

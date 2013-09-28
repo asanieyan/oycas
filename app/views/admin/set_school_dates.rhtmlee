@@ -1,0 +1,11 @@
+<%=form_tag%>
+<%=table_tag :cols=>3 do |col|
+			%w(class_start class_end exam_end).each do |l|
+				col << l.sub(/_/,' ').titlecase + ": "
+				col.push text_field_tag("#{l}[day]",(@school.current_semester.send(l.to_sym).day rescue ""),:maxlength=>2,:size=>2)
+				col.push select_dates_for_semester(@school.current_semester,l)
+			end
+   end
+%>
+<%=submit_tag%>
+</form>

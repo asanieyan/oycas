@@ -1,0 +1,122 @@
+
+<% element_id = "attributes[#{attrb.id}]"%>
+<% if attrb._type_.to_s =~ /multiple/%>
+                    <% values = attrb.values.map{|v| v.valid_value} 
+                    %>  
+                                      
+                    <% 
+                        if attrb.sortable.to_s == 'y'
+                            values = values.sort{|a,b| 
+                                    ret_val = a <=> b                                   
+                            } 
+                        end 
+                        values << attrb.other_name   if attrb.other_name
+                        selected_value = if (attrb_value || "").size > 0 and attrb._type_.to_s == "multiple_with_input" and not values.include?(attrb_value)                                            
+                                            attrb.other_name
+                                         else
+                                            attrb_value    
+                                         end
+                       
+                        if  attrb.required != :y 
+                            values = [['-',""]] + values                                                        
+                        end                                         
+                    %> 
+            <div id='<%=attrb.id%>' class='title'> 
+                <%= attrb.name %>            
+            </div>                    
+<% if (attrb.descr || "").size > 0 %>            <span style='font-size:8pt;color: #909090'> (<%=attrb.descr%>) </span>             <% end %>
+            <div class='attribute-value'> 
+                    <%input_options = {:fieldLength=>attrb.field_length,
+                                       :fieldDesc=>attrb.field_desc}                                                                              
+                                       %>
+                    <%=select_tag element_id ,options_for_select(values,selected_value),:onchange=>(attrb._type_.to_s == "multiple_with_input" ? "Classified.displaySelectInput(this,#{input_options.to_json})" : "")
+                    
+                    %>                      
+                    <%if selected_value == attrb.other_name%>
+                        <%=javascript_tag "Classified.displaySelectInput('#{element_id}',#{input_options.update(:initialValue=>attrb_value).to_json})"%>
+                    <%end%>              
+            </div>     
+                                
+            
+<% elsif attrb._type_.to_s == "boolean"%>    
+<% if (attrb.descr || "").size > 0 %>            <span style='font-size:8pt;color: #909090'> (<%=attrb.descr%>) </span>             <% end %>
+     <table cellspacing=0>  
+            <tr oncick='$("<%=element_id%>").checked = !$("<%=element_id%>").checked'>
+                 <td> 
+
+                 <%=check_box_tag "c#{element_id}", attrb.name,(attrb_value || "").size > 0,:onclick=>       "if(this.checked) " + 
+                                                                                       "value = this.value; " + 
+                                                                                    "else " +
+                                                                                        "value = ''; " +                                                                                    
+                                                                                     "$('#{element_id}').value = value; "
+                                                                                    
+                                                                                    
+                 
+                 %> 
+     
+                      <%=hidden_field_tag element_id,attrb_value %>        
+                 
+                 </td>
+                <td style='vertical-align:middle'><%= attrb.name %></td>
+            </tr>
+    </table>
+
+<%elsif attrb._type_.to_s == 'date' %>
+            <div id='<%=attrb.id%>' class='title'> 
+                <%= attrb.name %> <span class='normal-gray'>(mm/dd/yy)</span>
+            </div>    
+<% if (attrb.descr || "").size > 0 %>            <span style='font-size:8pt;color: #909090'> (<%=attrb.descr%>) </span>             <% end %>
+            <div class='attribute-value'> 
+                   <% time = attrb_value;
+                   
+                     if attrb_value and attrb_value =~ /^\d+$/                     
+                             time = Time.at(attrb_value.to_i).strftime("%m/%d/%Y")                     
+                     elsif attrb_value == "mm/dd/yy"
+                             time = ""
+                     end
+                 %>
+                 <%=text_field_tag element_id,time %> &nbsp;&nbsp; <%image_tag 'https://www.scs.fsu.edu/twiki/pub/TechHelp/EGroupWare/calendar_icon.png'%>
+                 <%=link_to_popup image_tag('/images/calendar.gif'),{:action=>"calendar",:update=>element_id},{:pop_options=>{:remove_canvas=>true,:title=>image_tag('/images/calendarbig.gif')}}%>
+                 
+            </div>   
+              
+
+<%elsif attrb._type_.to_s == 'address' %>
+            <div id='<%=attrb.id%>' class='title'> 
+                <%= attrb.name %>
+            </div>  
+            <div class='attribute-value'> 
+               <table style='margin-left:20px;' >
+                    <%
+                        street,city,postal_code = attrb_value.split("###",3)
+                        street = (flash[:saved_params]["street"] rescue nil) || street 
+                        street = nil if element_id == street
+                        city = (flash[:saved_params]["city"] rescue nil) || city
+                        postal_code = (flash[:saved_params]["postal_code"] rescue nil) || postal_code
+
+                    %> 
+                    <tr> <td style='width:40px' > Street: </td> <td> <%=text_field_tag "street",street, :size=>'50' %> </td> </tr>
+                    <tr> <td> City: </td> <td> <%=text_field_tag "city",city %> </td> </tr>
+                    <tr> <td> Postal Code: </td> <td> <%=text_field_tag "postal_code",postal_code,:size=>'20' %> </td> </tr>                            
+                </table>
+                <%=hidden_field_tag element_id,element_id%>
+            </div>
+
+<%elsif attrb._type_.to_s == 'currency' %>
+            <div id='<%=attrb.id%>' class='title'> 
+                <%= attrb.name %>
+            </div> 
+        <% if (attrb.descr || "").size > 0 %>                    
+            <span style='font-size:8pt;color: #909090'> (<%=attrb.descr%>) </span>             
+
+        <% end %>            
+              $<%=text_field_tag element_id ,attrb_value,:size=>10,:maxlength=>10%>
+ <% else %>
+        <div id='<%=attrb.id%>' class='title'> 
+            <%= attrb.name %>
+        </div>
+        <% if (attrb.descr || "").size > 0 %>            
+            <span style='font-size:8pt;color: #909090'> (<%=attrb.descr%>) </span>     <br>       
+         <% end %>                      
+         <%=text_field_tag element_id, attrb_value,:size=>(attrb.field_length || 30)%>
+    <%end%>

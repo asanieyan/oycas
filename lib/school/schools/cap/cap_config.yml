@@ -1,0 +1,35 @@
+school: 
+  name: Capilano College
+  city: north vancouver
+  website: http://www.capcollege.bc.ca
+  short_name: CapilanoCollege
+  email_domain: capcollege.bc.ca
+  network: vancouver
+  facebook_domain: 
+  logo: http://ottawa.awn.com/OIAF05/images/spon_capilano.gif
+  time_zone: 'Canada/Pacific'  
+semester_seasons: 
+- name: Fall
+  start_month: 9
+  end_month: 12
+- name: Spring
+  start_month: 1
+  end_month: 4
+- name: Summer
+  start_month: 5
+  end_month: 8
+courses:
+ -
+  url: http://www.capcollege.bc.ca/future/calendar/current/courses.html
+  parse_options:
+   :body_tag: tbody
+   :pattern:    
+    - !ruby/regexp /<tr.*?>.*?<\/tr>/m
+    - !ruby/regexp /title="(.*?)">(.*?)<\/a>.*?href="(.*?)"/m: [:subject_name, :code, :next_link]
+ - 
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<div class="informaltable">.*?<\/div>/m
+    - !ruby/regexp /<td class="course" align="left">(\w+) (.*?)<\/td><td class="name" colspan="2" align="left">(.*?)<\/td>/m: [:code, :number, :name]  
+    - !ruby/regexp /<td class="credits" align="left">(.*?) credits<\/td>/: :credit
+    - !ruby/regexp /<td class="description" colspan="3" align="left">([^<].*?)<\/td>/m: [:desc]      

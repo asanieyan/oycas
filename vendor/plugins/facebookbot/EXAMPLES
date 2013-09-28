@@ -1,0 +1,45 @@
+== Primo Examples!
+
+So you want to create your own FacebookBot, eh? Good plan, sir or madam!
+I have included three example bots for you, in order of difficulty
+here they are: basic_bot.rb, example_bot.rb, complex_bot.rb.
+== A solid example to get you started
+
+Here's a solid example to get you started:
+
+  require 'facebook_bot/facebook_bot'
+  fb = FacebookBot.new({:email => 'ilove@you.edu', :password => 'imfat'})
+  fb.set_status 'I loves facebookbot!'
+
+That's all there is to it, folks! Isn't that easy? Easy peasy lemon squeezy!
+
+== Basic Bot
+
+You can take a gander at basic_bot.rb to see how a bot could login to your
+Facebook profile and update your status.  Its basically the code I just 
+shared with you above, plus some comments and lines and such.
+
+== Example Bot
+
+This bot does a little bit more, but not too much. We didn't want to
+overwhelm you with parenthesis and clauses and such.. yet.  All this
+bot does is login to your profile, pokes one of your friends at random,
+and changes your status to a random phrase. Then it just goes to sleep
+for 15 to 30 minutes, and perks right back up and starts the whole
+process over again. It is all pretty simple and easy to follow. I hope.
+You can ignore all that jibberish about OPTIONS and ARGV and debugging
+and such.
+
+== Complex Bot
+
+Ut oh, you're in for a treat with here, big guy or big girl! This is a very
+complicated bot that does all sorts of crazy things. better yet, I am
+constantly updating it to do more crazy nonsense! You can look at this for
+some great examples of how to do a certain thing. I wouldn't actually
+run this for your own account, however, lest ye be asking for trouble!
+Well, I am asking for trouble.. which is why I run it on my Facebook
+profile. Yee-haw!
+
+== Still Confused?
+Hark! C'mon fair child! Can you not try things out on your own for once?
+You need to pick up the reins and just go for it! Go for the gold! Gusto!

@@ -1,0 +1,97 @@
+<div style=''>
+<div class='' style='padding:15px;margin:0px;'>
+<div class='title-box title-div' style='padding:0'>
+Register & Start Using Oycas
+</div>
+<div>
+    To get started with oycas, fill out the following fields.<br><br>
+</div>
+<div id='reg-message'>
+
+</div>
+
+<style>
+    .thist td {
+        padding-bottom:10px;
+    }
+    td.bold-gray {
+        width:100px;
+    }
+    td.desc {
+        color:#808080;
+        font-size:8pt;
+    }
+    td.desc A {
+        font-size:8pt;
+    }
+</style>
+<%= form_tag ({:action=>'register'},:id=>"register_form")%>
+    <table id='' class='top-v-align thist'>                
+        <tr> 
+            <td class='bold-gray' style='color:#707070'>Email: </td>
+            <td>	<%=text_field_tag 'email',params[:email],:size=>40,:maxlength=>Registration.size_of('email') ,
+                        :onblur=><<-eof
+                            if (true || $('email').value.include('@')){
+                                #{remote_function(:url=>{:action=>'get_school'},:with=>"'email='+$('email').value")}
+                            }
+                        eof
+                        %>                  
+            </td> 
+            <td class='desc' style=''>
+               You must enter your school email address to be able to use oycas. To see the list of supported schools <%=link_to 'click here','schools'%>.
+            </td>                           
+        </tr>
+     </table>
+     <table id='student-info' class='top-v-align thist'> 
+        <tr> 
+            <td class='bold-gray' style='color:#707070'>Full name: </td>
+            <td>	
+                    <%=text_field_tag 'name',params[:name],:size=>40 %>              
+                    <%if flash[:email_is_valid] %>
+                        <%=javascript_tag("$('name').focus()")%>
+                    
+                    <%end%>                    
+            </td>                
+             
+            <td class='desc'>
+                Please enter this in the form of first name, a space and last name (ex. John Smith). Once your name is set you can't change it so please enter your real name.
+            </td>
+        </tr>  
+
+        <tr> 
+            <td class='bold-gray' style='color:#707070'>Password: </td>
+            <td>	<%=password_field_tag 'password',params[:password],:size=>40,:maxlength=>Registration.size_of('password') %> 
+                   
+            </td> 
+            <td class='desc' style=''>
+               Your password can consist of any set of characters and it must be at least <%=Student::PasswordLength%> characters long. Be careful, your password is <strong> case sensitive</strong>.
+            </td>                             
+        </tr>                    
+        <tr> 
+            <td class='bold-gray' style='color:#707070'>Cofirm Password: </td>
+            <td>	<%=password_field_tag 'confirm_password',params[:confirm_password],:size=>40,:maxlength=>Registration.size_of('password') %> 
+                   
+            </td> 
+            <td class='desc' style=''>
+               
+            </td>                             
+        </tr>                    
+
+         <tr>
+            <td class='bold-gray' style='color:#707070'> School Status:</td>
+            <td style=''>   
+                      <%=select_tag "school_status",options_for_select(Registration.values_of('school_status').map{|r| [r.to_s.capitalize,r.to_s]},"undergraduate"),
+                        :style=>'font-size:8pt;width:222px',:size=>4
+                      %>                                   
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td style='padding-top:10px;text-align:right'> 
+                <%=submit_tag "Register",:id=>"submit"%>
+             </td>
+        </tr>
+     </table>
+</form>
+</div>
+</div>

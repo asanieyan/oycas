@@ -1,0 +1,38 @@
+<table cellspacing=0 cellpadding=0 style='width:100%' >
+    <tr>
+        <td style=''>
+           <div class='status-box'>
+                <div class='gray-title-underline orange title-div' style='margin-bottom:10px'>
+                    About Oycas
+                </div>  
+                <div style='width:500px' id='centered'>
+                    <p>
+                        Oycas is a web-based educational management tool for college & university students.
+                    </p>
+                </div>
+            
+           </div>       
+              
+        </td>
+        <td style='padding-left:10px;width:200px'>
+                <%=content_tag(:div,link_to('See All',"/oycas/blogs"),:class=>"small-link-div",:style=>"float:right")%>
+                <div class='dark-bold-gray blue-title-underline' style='' >                    
+                    Recent Blogs
+                </div>
+                <%@blogs = OycasBlog.find(:all,:order=>"created_on DESC",:limit=>4).each do |blog|%>
+                    <div class='small-link-div' style='margin-top:10px;'>
+                        <%=link_to blog.subject,:action=>:blog,:id=>blog.id%>
+                        <div style='font-size:6pt'><%=blog.created_on.strftime("%B %d")%></div>
+                    </div>
+                <%end%>
+                <%=content_tag(:div,"No Blog Entry",:class=>"bold-gray") if @blogs.empty?%>  
+                <br>
+                    
+        
+        </td>
+    </tr>
+</table>
+
+
+
+

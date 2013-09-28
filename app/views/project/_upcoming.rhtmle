@@ -1,0 +1,87 @@
+<div style="display:none;background-color:ffffff;padding:3px;color:000000;font-family:verdana,sans serif;border: 1px solid black;" id="nttooltip_">start new task</div>
+<div style="display:none;background-color:ffffff;padding:3px;color:000000;font-family:verdana,sans serif;border: 1px solid black;" id="nmtooltip_">schedule new meeting</div>
+<br><br>
+<% @todays_date = Time.now %>
+<table class="projectCalendarTable">
+<tr>
+<% 1..7.times do |h| %>
+<td style="text-align:center;"><%= h %></td>
+<% end %>
+</tr>
+<% 1..2.times do |i| %>
+<tr valign="top">
+<% 1..7.times do |j| %>
+
+
+<% if i==0 && j==0 then %>
+<td class="projectCalendarCurrentDaySmall">
+<% else %>
+<td class="projectCalendarDaySmall">
+<% end %>
+
+
+<% @meetingstext = "" %>
+<% @taskstext = "" %>
+<% @day = ((i*7)+j)+@todays_date.day %>
+<% @month = @todays_date.month %>
+<% @year = @todays_date.year %>
+
+<% if @day > last_of_month.day then %>
+<% @day -= last_of_month.day %>
+<% end %>
+
+<% d = Date.new(@year, @month, @day) %>
+
+<% if i==0 && j==0 then %>
+<span class="projectCalendarCurrentDaySpanSmall"><%= @day %></span><br>
+<% else %>
+<span class="projectCalendarSpanSmall"><%= @day %></span><br>
+<% end %>
+
+<% mcount=0
+meeting_tooltip_text=""
+if @project.project_meetings != nil then 
+    @project.project_meetings.each do |m|
+        if Date.new(m.scheduled_on.year,m.scheduled_on.month,m.scheduled_on.day) == d then
+            mcount+=1
+            meeting_tooltip_text+="#{m.title}<br><br>"
+        end
+    end
+    if mcount > 0 then 
+        thelink = "<span id='mtrigger_#{d.mday}'>M: "+mcount.to_s+"</span><br>"
+        thetooltip = "<div id='mtooltip_#{d.mday}' style='display:none;' class='projectCalendarTooltip'>Scheduled Meetings:<br>#{meeting_tooltip_text}</div>"
+        thescript= "<script>setupTooltip('#{d.mday}','m')</script>"
+        @meetingstext = (thelink + thetooltip + thescript)
+    end
+
+end
+
+
+tcount=0
+task_tooltip_text=""
+if @project.project_tasks != nil then 
+    @project.project_tasks.each do |t|
+        if Date.new(t.start_date.year,t.start_date.month,t.start_date.day) == d then
+            tcount+=1
+            task_tooltip_text+="#{t.title}<br>Complete by:#{t.completion_date.month} #{t.completion_date.day}, #{t.completion_date.year}<br><br>"
+        end
+    end
+    if tcount > 0 then 
+        thelink = "<span id='ttrigger_#{d.mday}'>T: "+tcount.to_s+"</span><br>"
+        thetooltip = "<div id='ttooltip_#{d.mday}' style='display:none;' class='projectCalendarTooltip'>Assigned tasks:<br>#{task_tooltip_text}</div>"
+        thescript= "<script>setupTooltip('#{d.mday}','t')</script>"
+        @taskstext = (thelink + thetooltip + thescript)
+    end
+
+end
+
+%>
+
+<%= @meetingstext %>
+<%= @taskstext %>
+
+</td>
+<% end %>
+</tr>
+<% end %>
+</table>

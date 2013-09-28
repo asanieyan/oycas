@@ -1,0 +1,54 @@
+<%=form_tag({},{:method=>:get})%>
+       <div id='rate-this' class='status-box bold-link-div regular-link-div dark-bold-gray' style='font-size:8pt'>
+            <%if controller.action_name =~ /rate/%>               
+                To rate a student select a rate from 1 to 5 <br>                 
+                <%=link_to 'click here',:action=>'students_in_full'%> to go back to the browse view.
+                <div class='normal-gray normal-link-div nounderline-link'> <%link_to_help "still need help ?",'h1'%></div>
+            <%else%>
+                Decide who is popular and who is not by            
+                <%=link_to 'rating',:action=>'rate_students'%> other students. 
+            <%end%>
+      </div>
+      
+       <div style='padding-right:10px'> 
+            <%=search_box 'q',params[:q],:size=>15%> <br>
+       </div>
+
+       <div class='bold-gray' style='border-bottom:1px solid #C0C0C0'> 
+            Sort  
+       </div>  
+       <div style='margin-top:5px;margin-bottom:20px;'>
+            <%=select_tag "s",options_for_select([["Randomly",'r'],["Alphabetically",'a'],["Most Popular",'mp'],
+                                                            
+            ],params[:s] || "r")%>
+       
+       </div>    
+       <div class='bold-gray' style='border-bottom:1px solid #C0C0C0'> 
+            Show   
+       </div>  
+       <div style='margin-top:5px;margin-bottom:20px;'>
+            <%=select_tag "v",options_for_select([["--------------------",""],["Online students",'on'],["Offline students",'off']                                                            
+            ],params[:v])%>       
+       </div>    
+       
+       
+       <div class='bold-gray' style='border-bottom:1px solid #C0C0C0'> 
+            Gender
+       </div>
+       <div style='margin-top:5px;margin-bottom:20px;'>        
+            <%=select_tag "g",options_for_select([[["-----------"],""],["Male",'0'],["Female",'1']],params[:g] )%>               
+       </div>       
+       <div class='bold-gray' style='border-bottom:1px solid #C0C0C0'> 
+            Relationship Status 
+       </div>
+       <div style='margin-top:5px;margin-bottom:20px;'>     
+            <% options =  [["-----------------",""]];Student.values_of('relationship_status').each_with_index { |v,i|
+                            options << [v,i.to_s]        
+            }%>     
+            <%=select_tag "r",options_for_select(options,params[:r])%>
+       
+       </div>   
+       <%=submit_tag "Filter"%>  or 
+       <%=link_to "Reset",:action=>controller.action_name%>
+         
+   </form>

@@ -1,0 +1,21 @@
+--- 
+:school: 
+  city: north vancouver
+  name: Capilano College
+  network: vancouver
+  logo: http://ottawa.awn.com/OIAF05/images/spon_capilano.gif
+  website: http://www.capcollege.bc.ca
+  facebook_domain: 
+  email_domain: capcollege.bc.ca
+  short_name: CapilanoCollege
+  time_zone: Canada/Pacific
+:semester_seasons: 
+- name: Fall
+  start_month: 9
+  end_month: 12
+- name: Spring
+  start_month: 1
+  end_month: 4
+- name: Summer
+  start_month: 5
+  end_month: 8

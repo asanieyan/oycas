@@ -1,0 +1,11 @@
+<div class='title-box title-div' style='padding:0;'>
+    Supported Schools
+</div>
+<%@schools = School.find(:all)%>
+<%if @schools.size < 10%>
+At the moment we only support the following <%=@schools.size > 1 ? 'schools' : 'school'%>.<br><br>
+<%@schools.each do |school|%>
+<div>    * <%=school.name%> </div>
+<%end%>
+
+<%end%>

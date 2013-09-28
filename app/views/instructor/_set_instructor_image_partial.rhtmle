@@ -1,0 +1,5 @@
+<div class='title-div' style=''><%=link_to 'Edit Instructor',:controller=>'klass',:cid=>klass_guid,:action=>'edit',:teacher_id=>instructor.id%>
+</div> 
+<%=image_tag instructor.profile_img,:style=>'border:1px solid #C0C0C0;padding:5px;' %>
+
+

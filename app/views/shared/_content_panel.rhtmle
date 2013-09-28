@@ -1,0 +1,24 @@
+<table cellspacing=0 style='width:100%;height:100%'>
+               <tr> 
+                   <td style='width:10px;height:100%'> &nbsp; </td>  
+                   <% gui.panels.each do |panel|%>
+                   <% if gui.panels.index(panel) > 0 %> 
+                         <% height = (panel.tabs.length > 0 ?  30 : 5 ) %>  
+                         
+                           
+                           <td style='height:100%;width:50px;vertical-align:top;'> 
+                                
+                                <div style='height:<%=height%>%'> </div> 
+                                <div style='height:<%= 95 -  height %>%;width:50%;border-right:#C0C0C0 1px solid'> &nbsp;  </div>   
+                                
+                           </td> 
+                           <% panel.width = '50%' unless panel.width %> 
+                   
+                   <%end%>
+                   <td id="<%=panel.name%>" <%= %(style='width:#{panel.width}') if panel.width %>> 
+                           <%= render :partial=>'shared/info_panel' , :locals=>{'panel'=>panel}%>        	                               
+                   </td>  
+                   <% end%>
+                   <td style='width:10px'>  &nbsp;</td>
+               </tr>	
+</table>

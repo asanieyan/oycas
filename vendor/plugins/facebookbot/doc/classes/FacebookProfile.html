@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: FacebookProfile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">FacebookProfile</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/facebook_bot/profile_rb.html">
+                facebook_bot/profile.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Handles all profile-related functionality.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000033">add_profile_info</a>&nbsp;&nbsp;
+      <a href="#M000035">get_profile_info</a>&nbsp;&nbsp;
+      <a href="#M000034">remove_profile_info</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="#M000033" class="method-signature">
+          <span class="method-name">add_profile_info</span><span class="method-args">(type, params)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method will update your profile information. Type is the type of
+profile update you&#8216;re doing. It&#8216;s a string.
+</p>
+<table>
+<tr><td valign="top">Here&#8216;s the list of &#8216;em:</td><td>basic, contact, personal, education, work, courses.
+
+</td></tr>
+</table>
+<p>
+Params is a <a href="Hash.html">Hash</a>. Which keys and values you give it
+depend on the type. The values of the <a href="Hash.html">Hash</a> are
+arrays of information you would like inserted into your profile. The keys
+can be one or more of the following:
+</p>
+<h2>Basic Profile Updates</h2>
+<table>
+<tr><td valign="top">sex:</td><td>0 for no sex listed, 1 for female, 2 for male.
+
+</td></tr>
+<tr><td valign="top">meeting_sex1:</td><td>Interested in meeting women? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">meeting_sex2:</td><td>Interested in meeting men? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">relationship:</td><td>&#8216;1&#8217; if Single, &#8216;2&#8217; if In a Relationship,
+&#8216;3&#8217; if In an Open Relationship, &#8216;4&#8217; if Married,
+&#8216;5&#8217; if Engaged, &#8216;6&#8217; if It&#8216;s Complicated.
+
+</td></tr>
+<tr><td valign="top">meeting_for1:</td><td>Looking for friendship? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">meeting_for2:</td><td>Looking for dating? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">meeting_for3:</td><td>Looking for a relationship? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">meeting_for4:</td><td>Looking for random play? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">meeting_for5:</td><td>Looking for whatever you can get? &#8216;on&#8217; or nil.
+
+</td></tr>
+<tr><td valign="top">birthday_month:</td><td>-1 for no month selected, otherwise &#8216;1&#8217; through
+&#8216;12&#8216;
+
+</td></tr>
+<tr><td valign="top">birthday_day:</td><td>&#8216;1&#8217; through &#8216;31&#8216;
+
+</td></tr>
+<tr><td valign="top">birthday_visibility:</td><td>&#8216;1&#8217; if &#8216;Show my full birthday&#8217;, &#8216;2&#8217; if
+&#8216;Show only month &amp; day&#8217;, &#8216;3&#8217; if &#8216;Dont
+show my birthday&#8216;
+
+</td></tr>
+<tr><td valign="top">hometown:</td><td>String
+
+</td></tr>
+<tr><td valign="top">hometown_region:</td><td>Integer, See State Chart. This is only if the hometown_country is United
+States (398), otherwise don&#8216;t set a hometown_region.
+
+</td></tr>
+<tr><td valign="top">hometown_country:</td><td>Integer, See Country Chart.
+
+</td></tr>
+<tr><td valign="top">political:</td><td>&#8216;0&#8217; for none, &#8216;1&#8217; if Very Liberal, &#8216;2&#8217;
+if Liberal, &#8216;3&#8217; if Moderate, &#8216;4&#8217; if Conservative,
+&#8216;5&#8217; if Very Conservative, &#8216;6&#8217; if Apathetic,
+&#8216;7&#8217; if Libertarian, &#8216;8&#8217; if Other
+
+</td></tr>
+<tr><td valign="top">religion_name:</td><td>String
+
+</td></tr>
+</table>
+<p>
+Example:
+</p>
+<pre>
+  fb.add_profile_info('basic',{'meeting_sex1' =&gt; 'on',
+                               'meeting_sex2' =&gt; 'on',
+                               'relationship' =&gt; rand(6)+1,
+                               'meeting_for1' =&gt; 'on',
+                               'meeting_for2' =&gt; 'on',
+                               'meeting_for3' =&gt; 'on',
+                               'meeting_for4' =&gt; 'on',
+                               'meeting_for5' =&gt; 'on',
+                               'birthday_month' =&gt; rand(12)+1,
+                               'birthday_day' =&gt; rand(28)+1,
+                               'hometown' =&gt; random.item('CITY'),
+                               'hometown_region' =&gt; rand(50)+1,
+                               'hometown_country' =&gt; 398,
+                               'political' =&gt; rand(9),
+                               'religion_name' =&gt; random.item('RELIGION')}.random_pairs)
+</pre>
+<h2>Contact Profile Updates</h2>
+<table>
+<tr><td valign="top">sn_0:</td><td>String. This is for editing existing screennames. Can also do sn_1, sn_2,
+etc. It won&#8216;t accept a sn_X without a corresponding sn_serv_X.
+
+</td></tr>
+<tr><td valign="top">new_sn_0:</td><td>String. This is for adding screennames. Can also do new_sn_1, new_sn_2,
+new_sn_3, new_sn_4. It won&#8216;t accept a new_sn_X without a
+corresponding sn_serv_X.
+
+</td></tr>
+<tr><td valign="top">sn_serv_0:</td><td>&#8216;1&#8217; if AIM, &#8216;4&#8217; if Google Talk, &#8216;6&#8217; if
+Skype, &#8216;5&#8217; if Windows Live, &#8216;7&#8217; if Yahoo,
+&#8216;2&#8217; if Gadu-Gadu, &#8216;3&#8217; if ICQ. Can also do
+sn_serv_1, sn_serv_2, sn_serv_3, sn_serv_4.
+
+</td></tr>
+<tr><td valign="top">mobile:</td><td>String
+
+</td></tr>
+<tr><td valign="top">other_phone:</td><td>String
+
+</td></tr>
+<tr><td valign="top">school_mailbox:</td><td>String
+
+</td></tr>
+<tr><td valign="top">residence_name:</td><td>String
+
+</td></tr>
+<tr><td valign="top">room:</td><td>String
+
+</td></tr>
+<tr><td valign="top">address:</td><td>String
+
+</td></tr>
+<tr><td valign="top">city:</td><td>String
+
+</td></tr>
+<tr><td valign="top">region:</td><td>Integer, See State Chart.
+
+</td></tr>
+<tr><td valign="top">country:</td><td>Integer, See Country Chart.
+
+</td></tr>
+<tr><td valign="top">zip:</td><td>String
+
+</td></tr>
+<tr><td valign="top">website:</td><td>String, can be more than one separated by \n
+
+</td></tr>
+</table>
+<p>
+Examples:
+</p>
+<pre>
+  fb.add_profile_info('contact', {'mobile' =&gt; random.phone_number,
+                                 'other_phone' =&gt; random.phone_number,
+                                 'school_mailbox' =&gt; rand(4030),
+                                 'room' =&gt; rand(32),
+                                 'city' =&gt; random.item('CITY'),
+                                 'region' =&gt; rand(50)+1,
+                                 'zip' =&gt; random.zip_code}.random_pairs(5,10))
+
+  fb.add_profile_info('contact',{'new_sn_0' =&gt; 'XXXstunta43',
+                               'sn_serv_0' =&gt; rand(7)+1})
+</pre>
+<h2>Personal Profile Updates</h2>
+<p>
+NOTE: For this one, the keys provided are merged randomly with existing
+information via comma-separation. Quote and about_me are overwritten, not
+appended to.
+</p>
+<table>
+<tr><td valign="top">clubs:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">interests:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">music:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">tv:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">movies:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">books:</td><td><a href="Array.html">Array</a>
+
+</td></tr>
+<tr><td valign="top">quote:</td><td>String
+
+</td></tr>
+<tr><td valign="top">about_me:</td><td>String
+
+</td></tr>
+</table>
+<p>
+Examples:
+</p>
+<pre>
+  fb.add_profile_info 'personal', {'clubs' =&gt; ['running', 'talking'],
+                                   'interests' =&gt; ['eating'],
+                                   'quote' =&gt; 'i love FacebookBot'}
+
+  fb.add_profile_info('personal',{'interests' =&gt; random.item('INTEREST'),
+                                   'music' =&gt; random.item('BAND'),
+                                   'tv' =&gt; random.item('TVSHOW'),
+                                   'movies' =&gt; random.item('MOVIE'),
+                                   'books' =&gt; random.item('BOOK'),
+                                   'clubs' =&gt; random.item('ACTIVITY'),
+                                   'quote' =&gt; random.item('QUOTE')}.random_pair)
+</pre>
+<h2>Education Profile Updates</h2>
+<p>
+This one is a little funky. Because you can choose up to five schools
+you&#8216;ve attended, this allows for a whole lot of query string options.
+Below, you&#8216;ll see I put in X&#8216;s where one of the numbers 0, 1,
+2, 3, or 4 should go. If you want to show you&#8216;ve attended more than
+one school, just pass keys education_1_school_name,
+education_2_school_name, etc. etc.
+</p>
+<table>
+<tr><td valign="top">education_X_school_name:</td><td>String. X should be replaced with 0-4.
+
+</td></tr>
+<tr><td valign="top">education_X_year:</td><td>String or Integer. X should be replaced with 0-4.
+
+</td></tr>
+<tr><td valign="top">education_X_school_type:</td><td>&#8217;&#8217; for nothing, &#8216;1&#8217; for College, &#8216;2&#8217;
+for Graduate School. X should be replaced with 0-4.
+
+</td></tr>
+<tr><td valign="top">education_X_concentrationY_name:</td><td>String. You should replace X with 0-4 and Y with 0-2. You can only select
+up to three concentrations per school.
+
+</td></tr>
+<tr><td valign="top">highschool:</td><td>String
+
+</td></tr>
+</table>
+<h2>State Chart</h2>
+<p>
+These state codes are used throughout facebook, I guess:
+</p>
+<table>
+<tr><td valign="top">Alabama:</td><td>1
+
+</td></tr>
+<tr><td valign="top">Alaska:</td><td>2
+
+</td></tr>
+<tr><td valign="top">Arizona:</td><td>3
+
+</td></tr>
+<tr><td valign="top">Arkansas:</td><td>4
+
+</td></tr>
+<tr><td valign="top">California:</td><td>5
+
+</td></tr>
+<tr><td valign="top">Colorado:</td><td>6
+
+</td></tr>
+<tr><td valign="top">Connecticut:</td><td>7
+
+</td></tr>
+<tr><td valign="top">Delaware:</td><td>8
+
+</td></tr>
+<tr><td valign="top">District Of Columbia:</td><td>9
+
+</td></tr>
+<tr><td valign="top">Florida:</td><td>10
+
+</td></tr>
+<tr><td valign="top">Georgia:</td><td>11
+
+</td></tr>
+<tr><td valign="top">Guam:</td><td>65
+
+</td></tr>
+<tr><td valign="top">Hawaii:</td><td>12
+
+</td></tr>
+<tr><td valign="top">Idaho:</td><td>13
+
+</td></tr>
+<tr><td valign="top">Illinois:</td><td>14
+
+</td></tr>
+<tr><td valign="top">Indiana:</td><td>15
+
+</td></tr>
+<tr><td valign="top">Iowa:</td><td>16
+
+</td></tr>
+<tr><td valign="top">Kansas:</td><td>17
+
+</td></tr>
+<tr><td valign="top">Kentucky:</td><td>18
+
+</td></tr>
+<tr><td valign="top">Louisiana:</td><td>19
+
+</td></tr>
+<tr><td valign="top">Maine:</td><td>20
+
+</td></tr>
+<tr><td valign="top">Maryland:</td><td>21
+
+</td></tr>
+<tr><td valign="top">Massachusetts:</td><td>22
+
+</td></tr>
+<tr><td valign="top">Michigan:</td><td>23
+
+</td></tr>
+<tr><td valign="top">Minnesota:</td><td>24
+
+</td></tr>
+<tr><td valign="top">Mississippi:</td><td>25
+
+</td></tr>
+<tr><td valign="top">Missouri:</td><td>26
+
+</td></tr>
+<tr><td valign="top">Montana:</td><td>39
+
+</td></tr>
+<tr><td valign="top">Nebraska:</td><td>40
+
+</td></tr>
+<tr><td valign="top">Nevada:</td><td>41
+
+</td></tr>
+<tr><td valign="top">New Hampshire:</td><td>42
+
+</td></tr>
+<tr><td valign="top">New Jersey:</td><td>43
+
+</td></tr>
+<tr><td valign="top">New Mexico:</td><td>44
+
+</td></tr>
+<tr><td valign="top">New York:</td><td>45
+
+</td></tr>
+<tr><td valign="top">North Carolina:</td><td>46
+
+</td></tr>
+<tr><td valign="top">North Dakota:</td><td>47
+
+</td></tr>
+<tr><td valign="top">Ohio:</td><td>48
+
+</td></tr>
+<tr><td valign="top">Oklahoma:</td><td>49
+
+</td></tr>
+<tr><td valign="top">Oregon:</td><td>50
+
+</td></tr>
+<tr><td valign="top">Pennsylvania:</td><td>51
+
+</td></tr>
+<tr><td valign="top">Puerto Rico:</td><td>52
+
+</td></tr>
+<tr><td valign="top">Rhode Island:</td><td>53
+
+</td></tr>
+<tr><td valign="top">South Carolina:</td><td>54
+
+</td></tr>
+<tr><td valign="top">South Dakota:</td><td>55
+
+</td></tr>
+<tr><td valign="top">Tennessee:</td><td>56
+
+</td></tr>
+<tr><td valign="top">Texas:</td><td>57
+
+</td></tr>
+<tr><td valign="top">Utah:</td><td>58
+
+</td></tr>
+<tr><td valign="top">Vermont:</td><td>59
+
+</td></tr>
+<tr><td valign="top">Virginia:</td><td>60
+
+</td></tr>
+<tr><td valign="top">Washington:</td><td>61
+
+</td></tr>
+<tr><td valign="top">West Virginia:</td><td>62
+
+</td></tr>
+<tr><td valign="top">Wisconsin:</td><td>63
+
+</td></tr>
+<tr><td valign="top">Wyoming:</td><td>64
+
+</td></tr>
+</table>
+<h2>Country Chart</h2>
+<p>
+Here&#8216;s a helpful country chart:
+</p>
+<table>
+<tr><td valign="top">United States:</td><td>398
+
+</td></tr>
+<tr><td valign="top">Canada:</td><td>326
+
+</td></tr>
+<tr><td valign="top">England:</td><td>327
+
+</td></tr>
+<tr><td valign="top">Scotland:</td><td>228
+
+</td></tr>
+<tr><td valign="top">Wales:</td><td>288
+
+</td></tr>
+<tr><td valign="top">Abuja:</td><td>302
+
+</td></tr>
+<tr><td valign="top">Afghanistan:</td><td>233
+
+</td></tr>
+<tr><td valign="top">Akrotiri:</td><td>399
+
+</td></tr>
+<tr><td valign="top">Albania:</td><td>320
+
+</td></tr>
+<tr><td valign="top">Algeria:</td><td>400
+
+</td></tr>
+<tr><td valign="top">American Samoa:</td><td>221
+
+</td></tr>
+<tr><td valign="top">Andorra:</td><td>401
+
+</td></tr>
+<tr><td valign="top">Angola:</td><td>234
+
+</td></tr>
+<tr><td valign="top">Anguilla:</td><td>402
+
+</td></tr>
+<tr><td valign="top">Antarctica:</td><td>403
+
+</td></tr>
+<tr><td valign="top">Antigua:</td><td>278
+
+</td></tr>
+<tr><td valign="top">APO:</td><td>190
+
+</td></tr>
+<tr><td valign="top">Argentina:</td><td>135
+
+</td></tr>
+<tr><td valign="top">Armenia:</td><td>404
+
+</td></tr>
+<tr><td valign="top">Aruba:</td><td>284
+
+</td></tr>
+<tr><td valign="top">Ashmore and Cartier Islands:</td><td>405
+
+</td></tr>
+<tr><td valign="top">Australia:</td><td>111
+
+</td></tr>
+<tr><td valign="top">Austria:</td><td>81
+
+</td></tr>
+<tr><td valign="top">Azerbaijan:</td><td>213
+
+</td></tr>
+<tr><td valign="top">Bahrain:</td><td>174
+
+</td></tr>
+<tr><td valign="top">Bangladesh:</td><td>165
+
+</td></tr>
+<tr><td valign="top">Barbados:</td><td>208
+
+</td></tr>
+<tr><td valign="top">Belarus:</td><td>112
+
+</td></tr>
+<tr><td valign="top">Belgium:</td><td>72
+
+</td></tr>
+<tr><td valign="top">Belize:</td><td>176
+
+</td></tr>
+<tr><td valign="top">Benin:</td><td>406
+
+</td></tr>
+<tr><td valign="top">Bermuda:</td><td>181
+
+</td></tr>
+<tr><td valign="top">Bhutan:</td><td>407
+
+</td></tr>
+<tr><td valign="top">Bolivia:</td><td>132
+
+</td></tr>
+<tr><td valign="top">Bosnia and Herzegovina:</td><td>236
+
+</td></tr>
+<tr><td valign="top">Botswana:</td><td>177
+
+</td></tr>
+<tr><td valign="top">Brazil:</td><td>122
+
+</td></tr>
+<tr><td valign="top">British Virgin Islands:</td><td>290
+
+</td></tr>
+<tr><td valign="top">Brunei:</td><td>144
+
+</td></tr>
+<tr><td valign="top">Bulgaria:</td><td>369
+
+</td></tr>
+<tr><td valign="top">Burkina Faso:</td><td>235
+
+</td></tr>
+<tr><td valign="top">Burundi:</td><td>385
+
+</td></tr>
+<tr><td valign="top">Cambodia:</td><td>188
+
+</td></tr>
+<tr><td valign="top">Cameroon:</td><td>209
+
+</td></tr>
+<tr><td valign="top">Cape Verde:</td><td>215
+
+</td></tr>
+<tr><td valign="top">Cayman Islands:</td><td>211
+
+</td></tr>
+<tr><td valign="top">Côte d&#8216;Ivoire:</td><td>470
+
+</td></tr>
+<tr><td valign="top">Central African Republic:</td><td>408
+
+</td></tr>
+<tr><td valign="top">Chad:</td><td>409
+
+</td></tr>
+<tr><td valign="top">Channel Islands:</td><td>468
+
+</td></tr>
+<tr><td valign="top">Chile:</td><td>118
+
+</td></tr>
+<tr><td valign="top">China:</td><td>91
+
+</td></tr>
+<tr><td valign="top">Colombia:</td><td>310
+
+</td></tr>
+<tr><td valign="top">Comoros:</td><td>410
+
+</td></tr>
+<tr><td valign="top">Costa Rica:</td><td>162
+
+</td></tr>
+<tr><td valign="top">Croatia:</td><td>297
+
+</td></tr>
+<tr><td valign="top">Cuba:</td><td>227
+
+</td></tr>
+<tr><td valign="top">Curacao:</td><td>102
+
+</td></tr>
+<tr><td valign="top">Cyprus:</td><td>106
+
+</td></tr>
+<tr><td valign="top">Czech Republic:</td><td>175
+
+</td></tr>
+<tr><td valign="top">Democratic Republic Congo:</td><td>411
+
+</td></tr>
+<tr><td valign="top">Denmark:</td><td>99
+
+</td></tr>
+<tr><td valign="top">Djibouti:</td><td>412
+
+</td></tr>
+<tr><td valign="top">Dominica:</td><td>287
+
+</td></tr>
+<tr><td valign="top">Dominican Republic:</td><td>145
+
+</td></tr>
+<tr><td valign="top">East Timor:</td><td>413
+
+</td></tr>
+<tr><td valign="top">Ecuador:</td><td>160
+
+</td></tr>
+<tr><td valign="top">Egypt:</td><td>121
+
+</td></tr>
+<tr><td valign="top">El Salvador:</td><td>195
+
+</td></tr>
+<tr><td valign="top">Equatorial Guinea:</td><td>414
+
+</td></tr>
+<tr><td valign="top">Eritrea:</td><td>395
+
+</td></tr>
+<tr><td valign="top">Estonia:</td><td>466
+
+</td></tr>
+<tr><td valign="top">Ethiopia:</td><td>168
+
+</td></tr>
+<tr><td valign="top">Falkland Islands:</td><td>416
+
+</td></tr>
+<tr><td valign="top">Faroe Islands:</td><td>417
+
+</td></tr>
+<tr><td valign="top">Federated States of Micronesia:</td><td>464
+
+</td></tr>
+<tr><td valign="top">Fiji:</td><td>418
+
+</td></tr>
+<tr><td valign="top">Finland:</td><td>200
+
+</td></tr>
+<tr><td valign="top">France:</td><td>84
+
+</td></tr>
+<tr><td valign="top">French Guiana:</td><td>419
+
+</td></tr>
+<tr><td valign="top">French Polynesia:</td><td>420
+
+</td></tr>
+<tr><td valign="top">Gabon:</td><td>312
+
+</td></tr>
+<tr><td valign="top">Georgia:</td><td>368
+
+</td></tr>
+<tr><td valign="top">Germany:</td><td>79
+
+</td></tr>
+<tr><td valign="top">Ghana:</td><td>85
+
+</td></tr>
+<tr><td valign="top">Gibraltar:</td><td>422
+
+</td></tr>
+<tr><td valign="top">Greece:</td><td>128
+
+</td></tr>
+<tr><td valign="top">Greenland:</td><td>423
+
+</td></tr>
+<tr><td valign="top">Grenada:</td><td>390
+
+</td></tr>
+<tr><td valign="top">Guam:</td><td>65
+
+</td></tr>
+<tr><td valign="top">Guatemala:</td><td>138
+
+</td></tr>
+<tr><td valign="top">Guinea:</td><td>424
+
+</td></tr>
+<tr><td valign="top">Guinea-Bissau:</td><td>425
+
+</td></tr>
+<tr><td valign="top">Guyana:</td><td>170
+
+</td></tr>
+<tr><td valign="top">Haiti:</td><td>226
+
+</td></tr>
+<tr><td valign="top">Honduras:</td><td>169
+
+</td></tr>
+<tr><td valign="top">Hong Kong:</td><td>69
+
+</td></tr>
+<tr><td valign="top">Hungary:</td><td>153
+
+</td></tr>
+<tr><td valign="top">Iceland:</td><td>285
+
+</td></tr>
+<tr><td valign="top">India:</td><td>68
+
+</td></tr>
+<tr><td valign="top">Indonesia:</td><td>166
+
+</td></tr>
+<tr><td valign="top">Iran:</td><td>232
+
+</td></tr>
+<tr><td valign="top">Iraq:</td><td>231
+
+</td></tr>
+<tr><td valign="top">Ireland:</td><td>178
+
+</td></tr>
+<tr><td valign="top">Isle Of Man:</td><td>469
+
+</td></tr>
+<tr><td valign="top">Israel:</td><td>136
+
+</td></tr>
+<tr><td valign="top">Italy:</td><td>86
+
+</td></tr>
+<tr><td valign="top">Jamaica:</td><td>77
+
+</td></tr>
+<tr><td valign="top">Japan:</td><td>75
+
+</td></tr>
+<tr><td valign="top">Jordan:</td><td>146
+
+</td></tr>
+<tr><td valign="top">Kazakhstan:</td><td>87
+
+</td></tr>
+<tr><td valign="top">Kenya:</td><td>67
+
+</td></tr>
+<tr><td valign="top">Kiribati:</td><td>426
+
+</td></tr>
+<tr><td valign="top">Kuwait:</td><td>110
+
+</td></tr>
+<tr><td valign="top">Kyrgyzstan:</td><td>427
+
+</td></tr>
+<tr><td valign="top">Laos:</td><td>472
+
+</td></tr>
+<tr><td valign="top">Latvia:</td><td>281
+
+</td></tr>
+<tr><td valign="top">Lebanon:</td><td>98
+
+</td></tr>
+<tr><td valign="top">Lesotho:</td><td>428
+
+</td></tr>
+<tr><td valign="top">Liberia:</td><td>429
+
+</td></tr>
+<tr><td valign="top">Libya:</td><td>430
+
+</td></tr>
+<tr><td valign="top">Liechtenstein:</td><td>431
+
+</td></tr>
+<tr><td valign="top">Lithuania:</td><td>271
+
+</td></tr>
+<tr><td valign="top">Luxembourg:</td><td>183
+
+</td></tr>
+<tr><td valign="top">Macau:</td><td>432
+
+</td></tr>
+<tr><td valign="top">Macedonia:</td><td>197
+
+</td></tr>
+<tr><td valign="top">Madagascar:</td><td>433
+
+</td></tr>
+<tr><td valign="top">Malawi:</td><td>251
+
+</td></tr>
+<tr><td valign="top">Malaysia:</td><td>103
+
+</td></tr>
+<tr><td valign="top">Maldives:</td><td>434
+
+</td></tr>
+<tr><td valign="top">Mali:</td><td>435
+
+</td></tr>
+<tr><td valign="top">Malta:</td><td>436
+
+</td></tr>
+<tr><td valign="top">Marshall Islands:</td><td>437
+
+</td></tr>
+<tr><td valign="top">Martinique:</td><td>438
+
+</td></tr>
+<tr><td valign="top">Mauritania:</td><td>439
+
+</td></tr>
+<tr><td valign="top">Mauritius:</td><td>143
+
+</td></tr>
+<tr><td valign="top">Mexico:</td><td>109
+
+</td></tr>
+<tr><td valign="top">Moldova:</td><td>294
+
+</td></tr>
+<tr><td valign="top">Monaco:</td><td>204
+
+</td></tr>
+<tr><td valign="top">Mongolia:</td><td>440
+
+</td></tr>
+<tr><td valign="top">Montenegro:</td><td>473
+
+</td></tr>
+<tr><td valign="top">Morocco:</td><td>74
+
+</td></tr>
+<tr><td valign="top">Mozambique:</td><td>441
+
+</td></tr>
+<tr><td valign="top">Myanmar:</td><td>94
+
+</td></tr>
+<tr><td valign="top">Namibia:</td><td>229
+
+</td></tr>
+<tr><td valign="top">Nauru:</td><td>442
+
+</td></tr>
+<tr><td valign="top">Nepal:</td><td>120
+
+</td></tr>
+<tr><td valign="top">Netherlands:</td><td>147
+
+</td></tr>
+<tr><td valign="top">Netherlands Antilles:</td><td>372
+
+</td></tr>
+<tr><td valign="top">New Zealand:</td><td>90
+
+</td></tr>
+<tr><td valign="top">Nicaragua:</td><td>105
+
+</td></tr>
+<tr><td valign="top">Niger:</td><td>393
+
+</td></tr>
+<tr><td valign="top">Nigeria:</td><td>149
+
+</td></tr>
+<tr><td valign="top">North Korea:</td><td>444
+
+</td></tr>
+<tr><td valign="top">Northern Ireland:</td><td>217
+
+</td></tr>
+<tr><td valign="top">Northern Mariana Islands:</td><td>182
+
+</td></tr>
+<tr><td valign="top">Norway:</td><td>76
+
+</td></tr>
+<tr><td valign="top">Oman:</td><td>164
+
+</td></tr>
+<tr><td valign="top">Pakistan:</td><td>141
+
+</td></tr>
+<tr><td valign="top">Palau:</td><td>358
+
+</td></tr>
+<tr><td valign="top">Palestine:</td><td>421
+
+</td></tr>
+<tr><td valign="top">Panama:</td><td>124
+
+</td></tr>
+<tr><td valign="top">Papua New Guinea:</td><td>311
+
+</td></tr>
+<tr><td valign="top">Paraguay:</td><td>203
+
+</td></tr>
+<tr><td valign="top">Peru:</td><td>95
+
+</td></tr>
+<tr><td valign="top">Philippines:</td><td>83
+
+</td></tr>
+<tr><td valign="top">Poland:</td><td>89
+
+</td></tr>
+<tr><td valign="top">Portugal:</td><td>142
+
+</td></tr>
+<tr><td valign="top">Qatar:</td><td>154
+
+</td></tr>
+<tr><td valign="top">Republic of the Congo:</td><td>445
+
+</td></tr>
+<tr><td valign="top">Romania:</td><td>119
+
+</td></tr>
+<tr><td valign="top">Russia:</td><td>78
+
+</td></tr>
+<tr><td valign="top">Rwanda:</td><td>446
+
+</td></tr>
+<tr><td valign="top">Saint Kitts and Nevis:</td><td>447
+
+</td></tr>
+<tr><td valign="top">Saint Vincent and the Grenadines:</td><td>448
+
+</td></tr>
+<tr><td valign="top">Samoa:</td><td>449
+
+</td></tr>
+<tr><td valign="top">San Marino:</td><td>450
+
+</td></tr>
+<tr><td valign="top">Sao Tome and Principe:</td><td>451
+
+</td></tr>
+<tr><td valign="top">Saudi Arabia:</td><td>104
+
+</td></tr>
+<tr><td valign="top">Senegal:</td><td>201
+
+</td></tr>
+<tr><td valign="top">Serbia:</td><td>286
+
+</td></tr>
+<tr><td valign="top">Seychelles:</td><td>452
+
+</td></tr>
+<tr><td valign="top">Sierra Leone:</td><td>453
+
+</td></tr>
+<tr><td valign="top">Singapore:</td><td>70
+
+</td></tr>
+<tr><td valign="top">Slovakia:</td><td>212
+
+</td></tr>
+<tr><td valign="top">Slovenia:</td><td>295
+
+</td></tr>
+<tr><td valign="top">Solomon Islands:</td><td>454
+
+</td></tr>
+<tr><td valign="top">Somalia:</td><td>455
+
+</td></tr>
+<tr><td valign="top">South Africa:</td><td>161
+
+</td></tr>
+<tr><td valign="top">South Korea:</td><td>88
+
+</td></tr>
+<tr><td valign="top">Spain:</td><td>114
+
+</td></tr>
+<tr><td valign="top">Sri Lanka:</td><td>158
+
+</td></tr>
+<tr><td valign="top">St. Lucia:</td><td>364
+
+</td></tr>
+<tr><td valign="top">Sudan:</td><td>299
+
+</td></tr>
+<tr><td valign="top">Suriname:</td><td>456
+
+</td></tr>
+<tr><td valign="top">Swaziland:</td><td>194
+
+</td></tr>
+<tr><td valign="top">Sweden:</td><td>148
+
+</td></tr>
+<tr><td valign="top">Switzerland:</td><td>80
+
+</td></tr>
+<tr><td valign="top">Syria:</td><td>163
+
+</td></tr>
+<tr><td valign="top">Taiwan:</td><td>97
+
+</td></tr>
+<tr><td valign="top">Tajikistan:</td><td>397
+
+</td></tr>
+<tr><td valign="top">Tanzania:</td><td>155
+
+</td></tr>
+<tr><td valign="top">Thailand:</td><td>73
+
+</td></tr>
+<tr><td valign="top">The Bahamas:</td><td>130
+
+</td></tr>
+<tr><td valign="top">The Gambia:</td><td>303
+
+</td></tr>
+<tr><td valign="top">Togo:</td><td>457
+
+</td></tr>
+<tr><td valign="top">Tonga:</td><td>458
+
+</td></tr>
+<tr><td valign="top">Trinidad and Tobago:</td><td>167
+
+</td></tr>
+<tr><td valign="top">Tunisia:</td><td>139
+
+</td></tr>
+<tr><td valign="top">Turkey:</td><td>82
+
+</td></tr>
+<tr><td valign="top">Turkmenistan:</td><td>459
+
+</td></tr>
+<tr><td valign="top">Tuvalu:</td><td>460
+
+</td></tr>
+<tr><td valign="top">Uganda:</td><td>202
+
+</td></tr>
+<tr><td valign="top">Ukraine:</td><td>219
+
+</td></tr>
+<tr><td valign="top">United Arab Emirates:</td><td>123
+
+</td></tr>
+<tr><td valign="top">Uruguay:</td><td>159
+
+</td></tr>
+<tr><td valign="top">US Virgin Islands:</td><td>131
+
+</td></tr>
+<tr><td valign="top">Uzbekistan:</td><td>113
+
+</td></tr>
+<tr><td valign="top">Vanuatu:</td><td>461
+
+</td></tr>
+<tr><td valign="top">Vatican City:</td><td>462
+
+</td></tr>
+<tr><td valign="top">Venezuela:</td><td>100
+
+</td></tr>
+<tr><td valign="top">Vietnam:</td><td>186
+
+</td></tr>
+<tr><td valign="top">Western Sahara:</td><td>463
+
+</td></tr>
+<tr><td valign="top">Yemen:</td><td>206
+
+</td></tr>
+<tr><td valign="top">Zambia:</td><td>192
+
+</td></tr>
+<tr><td valign="top">Zimbabwe:</td><td>151
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
+<pre>
+     <span class="ruby-comment cmt"># File facebook_bot/profile.rb, line 418</span>
+418:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_profile_info</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">params</span>
+419:     <span class="ruby-identifier">login</span>
+420:     
+421:     <span class="ruby-identifier">updated</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">keys</span>
+422: 
+423:     <span class="ruby-identifier">id_info</span> = <span class="ruby-identifier">get_profile_info</span> <span class="ruby-identifier">type</span>
+424:     
+425:     <span class="ruby-comment cmt">#some little nice fixes for people like you</span>
+426:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'contact'</span>
+427:       (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+428:         <span class="ruby-comment cmt">#are we trying to give sn's when we dont have them? gotta add new_!</span>
+429:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-node">&quot;sn_#{x}&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">id_info</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-node">&quot;sn_#{x}&quot;</span>)
+430:           <span class="ruby-identifier">params</span>[<span class="ruby-node">&quot;new_sn_#{x}&quot;</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-node">&quot;sn_#{x}&quot;</span>]
+431:         <span class="ruby-keyword kw">end</span>
+432:       <span class="ruby-keyword kw">end</span>
+433:     <span class="ruby-keyword kw">end</span>
+434:     
+435:     <span class="ruby-comment cmt"># merge randomly id_info with params</span>
+436:     <span class="ruby-identifier">id_info</span>.<span class="ruby-identifier">each_key</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">id</span><span class="ruby-operator">|</span>
+437:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>]
+438:         <span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>] = [<span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>]] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>].<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Array</span> <span class="ruby-comment cmt"># convert to array if necessary</span>
+439:       
+440:         <span class="ruby-comment cmt">#the only comma separated ones are personal, except for quote and about_me</span>
+441:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'personal'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'quote'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'about_me'</span>
+442:           <span class="ruby-identifier">id_info</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">id_info</span>[<span class="ruby-identifier">id</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;, &quot;</span>).<span class="ruby-identifier">merge_randomly</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>])
+443:         <span class="ruby-keyword kw">else</span>
+444:           <span class="ruby-identifier">id_info</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">id</span>] <span class="ruby-comment cmt">#overwrite</span>
+445:         <span class="ruby-keyword kw">end</span>
+446:       <span class="ruby-keyword kw">end</span>
+447:     <span class="ruby-keyword kw">end</span>
+448:     
+449:     <span class="ruby-comment cmt">#build the query string</span>
+450:     <span class="ruby-identifier">query</span> = <span class="ruby-identifier">build_profile_query_string</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">id_info</span>
+451:     
+452:     <span class="ruby-comment cmt">#post it!</span>
+453:     <span class="ruby-identifier">req</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">post2</span>(<span class="ruby-node">&quot;/editprofile.php?#{type}&quot;</span>, <span class="ruby-identifier">query</span>, <span class="ruby-ivar">@opts</span>[<span class="ruby-identifier">:headers</span>])
+454:     
+455:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">req</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">200</span>
+456:       <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Successfully updated '#{updated.join(&quot;','&quot;)}' in #{type} profile.&quot;</span>
+457:     <span class="ruby-keyword kw">else</span>
+458:       <span class="ruby-identifier">log</span> <span class="ruby-identifier">req</span>
+459:     <span class="ruby-keyword kw">end</span>
+460:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="#M000035" class="method-signature">
+          <span class="method-name">get_profile_info</span><span class="method-args">(type)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get all the profile information of given type. This works by grabbing all
+the form information. easy peasy lemon squeezy!
+</p>
+<table>
+<tr><td valign="top">Supported types:</td><td>basic, contact, personal, education, work, courses.
+
+</td></tr>
+</table>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
+<pre>
+     <span class="ruby-comment cmt"># File facebook_bot/profile.rb, line 490</span>
+490:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_profile_info</span> <span class="ruby-identifier">type</span>
+491:     <span class="ruby-identifier">login</span>
+492:     <span class="ruby-identifier">elements</span> = {}
+493:     <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">hpricot_get_url</span> <span class="ruby-node">&quot;/editprofile.php?#{type}&quot;</span>
+494:     
+495:     <span class="ruby-comment cmt">#search for all form elements on the page</span>
+496:     <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//form[@id='profile_form']//input[@name!='']&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span>
+497:       <span class="ruby-identifier">name</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'name'</span>]
+498:       <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] = [] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">nil?</span>
+499:       <span class="ruby-comment cmt">#checked checkbox?</span>
+500:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'checked'</span>)
+501:         <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'on'</span>
+502:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'value'</span>] <span class="ruby-comment cmt">#regular ol' input box</span>
+503:         <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'value'</span>]
+504:       <span class="ruby-keyword kw">end</span>
+505:     <span class="ruby-keyword kw">end</span>
+506:     
+507:     <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//form[@id='profile_form']//select&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">select</span><span class="ruby-operator">|</span>
+508:       <span class="ruby-identifier">name</span> = <span class="ruby-identifier">select</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'name'</span>]
+509:       <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] = []
+510: 
+511:       <span class="ruby-comment cmt">#facebook uses javascript to fill in the state, for some stupid reason.</span>
+512:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/region/</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/editor_two_level_set_subselector\(&quot;two_level_hometown_region&quot;, &quot;(\d+)&quot;\);/</span>
+513:         <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">$1</span>
+514:       <span class="ruby-keyword kw">else</span>
+515:         <span class="ruby-identifier">select</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;option&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+516:           <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'value'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'selected'</span>)
+517:         <span class="ruby-keyword kw">end</span>
+518:       <span class="ruby-keyword kw">end</span>
+519:     <span class="ruby-keyword kw">end</span>
+520:     
+521:     <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//form[@id='profile_form']//textarea&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">textarea</span><span class="ruby-operator">|</span>
+522:       <span class="ruby-identifier">elements</span>[<span class="ruby-identifier">textarea</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'name'</span>]] = [<span class="ruby-identifier">textarea</span>.<span class="ruby-identifier">inner_html</span>]
+523:     <span class="ruby-keyword kw">end</span>
+524:     
+525:     <span class="ruby-identifier">elements</span>
+526:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="#M000034" class="method-signature">
+          <span class="method-name">remove_profile_info</span><span class="method-args">(type, keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes profile information. Takes the same arguments as <a
+href="FacebookProfile.html#M000033">add_profile_info</a>, more or less. You
+pass it the type (one of: basic, contact, personal, education, work,
+courses) and an array of the items you want removed from your profile.
+</p>
+<pre>
+  fb.remove_profile_info 'basic', ['meeting_sex1','meeting_for1']
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
+<pre>
+     <span class="ruby-comment cmt"># File facebook_bot/profile.rb, line 467</span>
+467:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_profile_info</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">keys</span>
+468:     <span class="ruby-identifier">login</span>
+469:     <span class="ruby-identifier">updated</span> = <span class="ruby-identifier">keys</span>
+470:     <span class="ruby-identifier">id_info</span> = <span class="ruby-identifier">get_profile_info</span> <span class="ruby-identifier">type</span>
+471:     
+472:     <span class="ruby-comment cmt">#remove the keys specified</span>
+473:     <span class="ruby-identifier">id_info</span>.<span class="ruby-identifier">delete_if</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">id</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">id</span>) }
+474:     
+475:     <span class="ruby-comment cmt">#build the query string</span>
+476:     <span class="ruby-identifier">query</span> = <span class="ruby-identifier">build_profile_query_string</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">id_info</span>
+477:     
+478:     <span class="ruby-comment cmt">#post it!</span>
+479:     <span class="ruby-identifier">req</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">post2</span>(<span class="ruby-node">&quot;/editprofile.php?#{type}&quot;</span>, <span class="ruby-identifier">query</span>, <span class="ruby-ivar">@opts</span>[<span class="ruby-identifier">:headers</span>])
+480:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">req</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">200</span>
+481:       <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Successfully removed '#{updated.join(&quot;','&quot;)}' from #{type} profile.&quot;</span>
+482:     <span class="ruby-keyword kw">else</span>
+483:       <span class="ruby-identifier">log</span> <span class="ruby-identifier">req</span>
+484:     <span class="ruby-keyword kw">end</span>
+485:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

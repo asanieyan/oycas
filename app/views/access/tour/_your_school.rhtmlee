@@ -1,0 +1,18 @@
+<% content_for("right_pane") do %>   
+    <%= draw_maps('school_home',["school_logo","0 31 195 163","At Oycas, we try to create the virtual schools as real as possible for the students, so we've decided that adding school specific information and logos is the way to go. What do you think?"])%> <br><br>
+
+<%= draw_maps('school_reg',["school_courses","0 121 135 259","Every school has its own course calendar so you can actually register in your own courses."])%>    
+  
+    
+<% end %>
+
+<%content_for("left_pane") do %>
+    <div class='title-box title-div dark-bold-gray' style='padding:0px'>
+        Your School
+    </div>
+<p>All the schools in Oycas are semester based. That means your school at Oycas will follow the same study semester or term interval as your real school does. </p>
+<p>Also your school in Oycas contains all the instructors and all the courses from your real school. So you can register in the actual courses that you are taking in the current semester. </p>
+<p>Your can also interact with other students in your school either through live chat or discussion board. </p>
+
+<span class='normal-gray'>Put your mouse over the images to see some sections magnified </span>
+<%end%>

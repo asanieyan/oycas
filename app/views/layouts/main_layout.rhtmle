@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Oycas | Who's in your class</title>
+        <%=oycas_include_tags%>
+	</head>
+	<body style=''>			
+            
+            <%=
+				generate_oycas_layout("/my/home/") do  |context,constant|             
+                 constant <<  oycas_session_constant_menu
+                 context  << oycas_session_context_menu
+               end    
+            %> 
+            <%=@controller_custom%>                              
+	</body>	
+</html>      

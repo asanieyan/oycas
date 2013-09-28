@@ -1,0 +1,30 @@
+		<link href="/stylesheets/mainlayout.css" rel="Stylesheet" type="text/css" />
+		<link href="/stylesheets/elements.css" rel="Stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="/images/books3.gif" type="image/gif" />
+		<%=stylesheet_link_tag "vendor.css"%>
+		<%=stylesheet_link_tag "vendor/#{@browser.name.to_s.downcase}.css"%>
+        <%= javascript_include_tag :defaults,"nifty"%>    
+   <script>
+            sessionChecker = new PeriodicalExecuter(function(){
+                new Ajax.Request('<%=url_for(:action=>"chat_window",:no_stamp=>true,:check_session=>true)%>')
+            }, 60 * 5);
+            Event.observe(window,'unload',function(){
+                    new Ajax.Request('<%=url_for(params)%>')
+                    $(opener.document.getElementById('chatwindow<%=params[:id]%>')).show()
+            
+            })
+   </script>
+    <div id='chatarea'>
+        <div  class='status-box'>
+            <div id='chatclosebutton' class='' style='float:right'>
+                <div style='padding:5px'><%=button_to_function 'Close Chat',"window.close();return false"%></div>
+            </div>
+                   
+            <span class='dark-bold-gray' style='font-size:12pt'>This chat is powered by <a href='http://www.gabbly.com'>Gabbly.com</a></span>
+            <div>
+                <br>
+            </div>     
+            <iframe  id='oycasGabbly'  src='http://cw.gabbly.com/gabbly/cw.jsp?e=1&dnc=true&nick=<%=@my.full_name%>&t=<%=params[:id]%>' scrolling='no' style='width:<%=@browser.sel_for({:msie=>"95%"},"100%")%>;height:400px' frameborder='0'></iframe>                           
+            <div class='' style='color:red'> This chat facility is not designed to be secure. Do not pass sensetive information.</div>
+        </div>
+    </div>

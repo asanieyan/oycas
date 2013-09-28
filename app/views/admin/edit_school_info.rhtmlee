@@ -1,0 +1,16 @@
+<%=form_tag%>
+<table>
+<%@school.attributes.select{|k,v| !%w(id guid active created_on updated_on).include?(k)}.each do |k,v|%>
+    <tr>
+    <%if k == 'network_id'%>
+      <td>  Network :  </td> <td><%=select_tag "school[network_id]",options_for_select(Network.find(:all).map{|n| [n.name.titlecase,n.id]},v)%> </td>
+    <%elsif k == 'time_zone'%>
+        <td> Timezone :  </td> <td><%=select_tag "school[#{k}]",time_zone_options_for_select(v, nil, TZInfo::Timezone)  %> </td>
+    <%else%>
+        <td><%=k.humanize%> </td> <td><%=text_field_tag "school[#{k}]",v%> </td>
+    <%end%>
+    </tr>
+<%end%>
+</table>
+<%=submit_tag %>
+</form>

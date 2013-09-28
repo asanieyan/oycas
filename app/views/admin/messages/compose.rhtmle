@@ -1,0 +1,12 @@
+<div style='padding:20px'>
+    <div id='r_message'>
+    
+    </div>
+    <%=form_tag%>
+    
+    Subject: <%=text_field_tag "subject",nil,:maxlength=>IntranetMessage.size_of('subject'),:size=>60%> <br>
+    <br>
+    <%=text_area_tag "message",nil,:rich=>true,:size=>'600x300'%>
+    <%=submit_tag "Send Message"%>
+    </form>
+</div>

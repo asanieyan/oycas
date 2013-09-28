@@ -1,0 +1,23 @@
+<% content_for("right_pane") do %>   
+    <%
+        elements = [ "your_courses","0 156 195 299","",
+                     "your_binder","0 315 195 386",""
+                   ]
+    %>
+    <%= draw_maps('your_home',elements)%>
+<% end %>
+
+<%content_for("left_pane") do %>
+
+    <div class='title-box title-div dark-bold-gray' style='padding:0px'>
+        Your Home        
+    </div>
+<p>Your home is your central control panel to the site. In your home you can see your friends and classmates. Your home also contains your profile in which you can fill with your personal information. </p>
+
+<p>From anywhere in the site you have a quick access to your courses that you are registered in for the current semester. </p>
+
+</p>An important part of your home is your binder. This is where you keep all the notes that you have shared with each of your classes. Put your mouse over the binder section on the left image to magnify it. </p>
+
+<span class='normal-gray'>Put your mouse over the images to see some sections magnified </span>    
+
+<%end%>

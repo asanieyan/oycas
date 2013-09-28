@@ -1,0 +1,83 @@
+<div id='folder' style='background-color:white'>
+
+<div class='' style=''>
+<div id='actionLinks'>            
+    <%=select_tag "s",options_for_select(["----","None","All","Read","Unread"]),:onchange=>'MailBox.selectMessages(this)'%>
+    <%= link_to 'Delete','',:confirm=>["","Are you sure you want to delete the selected messages ?",{:onconfirm=>'MailBox.delMessages()'}]%>
+    <%=link_to_function('Save','MailBox.saveMessages()') if @folder == 'in'%>
+    <%=link_to_function('Mark Read','MailBox.markRead(true)') unless @folder == 'si'%>
+    <%=link_to_function('Mark UnRead','MailBox.markRead(false)') unless @folder == 'si'%>    
+</div>
+<%if @messages.empty?%>
+    <br>
+    <%=content_tag(:div,"There are no messages",:class=>"blue-box title-div")%>
+<%else%>
+<div  class='status-box' style=''>    
+    
+    <%= show_pagination :object=>"message",:folder=>@folder %>
+
+    <form method='POST' id='actionForm'>
+    <%=hidden_field_tag 'folder',@folder%>
+        <table class='top-v-align' style=';font-size:12pt; !important' cellspacing=0 cellpadding=0 >       
+        <% @messages.each do |record| %>                              
+                <% css_class = record.is_read ? 'read' : 'not-read'%>                          
+                <tr id='message<%=record.id%>'class="<%=css_class%>" onmouseover="this.style.backgroundColor='#FAEC8E';" onmouseout="if (!Pop.isOpen){this.style.backgroundColor=''}" >
+					
+                    
+                    <td style='vertical-align:middle;' class="one-message ">
+                        <div style='float:left;margin-right:5px;'>               
+                            <%=check_box_tag 'msg_ids[]',record.id,false,:read=>"#{css_class}",:onclick=>'MailBox.showMessageOptions()',:style=>'cursor:default !important'%>
+                        </div>                         
+                         
+                         <table class='<%=css_class%>' style='' cellspacing=0 cellpadding=0  onclick='redirect_to("<%=url_for({:action=>'messages',:folder=>record.folder,:id=>record.id})%>")'>
+                             <tr>                                                                 
+                                 <td class="message-person " style=';width:150px;'>                                                                     
+                                        <%=truncate( if @folder == 'si' 
+                                                                    record.recievers.map{|s| s.full_name}.join(", ")
+                                                                else
+                                                                     if record.sys_msg?
+                                                                        record.sender.full_name
+                                                                     else
+                                                                        record.sender.full_name
+                                                                     end
+                                                                end,20)
+
+                                        %>
+                                        
+                                 </td>                                 
+                                 <td class="" style='width:450px;text-align:left;'>                                                                                        
+                                        <%=truncate(record.subject || "(no subject)",30)%>
+                                        <span style='color:#808080;font-weight:normal'> 
+                                            <%=truncate(strip_tags(record.body))%>          
+                                         </span>
+                                </td>
+                                <td class="message-date" style='text-align:right;width:110px'>
+                                      <%=message_listing_date(record.created_on)%>
+                                </td>
+
+                              </tr>
+                         </table>
+                       
+                    </td>
+                    <td class='small-link-div one-message' style=';padding-right:10px;text-align:right;width:50px' >
+                            <div style='font-weight:normal;'>                                                        
+                                <%=links = []%>
+                                <%links << link_to('Reply',:action=>'compose',:m=>record.id,:page=>params[:page],:folder=>record.folder) unless record.folder == 'si' or record.sys_msg? %>
+                                <%links << link_to('X',{:action=>'delete_message',"msg_ids[]"=>record.id,:folder=>@folder},:confirm=>["","Are you sure you want to delete this message ?",
+                                    {:onclose=>"$('message#{record.id}').style.backgroundColor=''"}])%>                                
+                                <%=links.join("<span class='normal-gray'> | </span>")%>                                    
+                            </div>                                                   
+                    </td>                    
+               </tr>       
+            
+               
+           <% end %>
+        </table>
+    </form>      
+    
+    
+</div>
+<%end%>
+</div>
+</div>
+<%=javascript_tag "MailBox.showMessageOptions()"%>

@@ -1,0 +1,20 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+<form name="invite_new_member" id="invite_new_member" action="commit_invite_new_member">
+<select name="guid[]" multiple="multiple" size="5" width="30">
+    <% klassmates.each do |klassmate| %>
+        <option value="<%=klassmate%>"><%=get_name_by_guid(klassmate)%>
+    <% end %>
+</select>
+<br><br>
+<input type="submit" value="Invite Selected Users">
+<input type="button" value="Cancel">
+</form>
+</div>

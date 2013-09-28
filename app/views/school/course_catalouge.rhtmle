@@ -1,0 +1,83 @@
+<%=javascript_include_tag 'timetable'%>
+
+<div class='title-div title-box' style='margin-bottom:0'>
+     <div class='title-div' >
+        <%=link_to image_tag(@school.logo,:style=>'margin-right:20px;position:absolute;height:70px'),url_for_school(@school)%>
+        <span style='margin-left:70px'><%=@school.name%> Courses</span>
+     </div>         
+   
+
+</div>
+<a name="i"></a>  
+<table cellspacing=0 cellpadding=0 style='height:100%;width:100%;clear:left;'>
+    <tr>
+        <td class='right-side-box' style='float:none;width:300px;vertical-align:top;' >
+
+               <div style=''>
+                        <br><br>
+
+                        <%=form_tag({:anchor=>"i"},{:method=>:get}) %>
+                        
+                        <%=search_box "q",params[:q],:size=>47,
+                                        :banner=>"Enter partial name of the course"            
+                                    %>
+                        <%if @subject%>
+                            <%=check_box_tag "s",@subject.id,true%> Search within <%=@subject.code%> courses only.
+                        <%end%>
+                        
+                        </form>
+                    
+                </div>  
+               
+                 <div class='side-search-filter-title'>
+                      <%=image_tag '/images/books2.gif'%> <%=@school.current_semester.name%> Courses:
+                </div>
+                <div id='list-of-my-courses'>
+                    <%=render_p 'current_klasses_partial_shown_in_course_catalouge'%>
+              
+                </div>                             
+            <div class='side-search-filter-title'>
+                Select a Subject
+            </div>
+             <%=form_tag({:action=>'course_catalouge',:anchor=>"i"},{:method=>:get,:id=>"select-subject",:style=>"margin-bottom:0;padding-bottom:0"})%>
+             <%=select_tag "s",
+                options_for_select([[" ","space"]] + @school.subjects.map{|s| [s.code+" - "+s.name,s.id]},params[:s].to_i),
+                :onchange=>"$('select-subject').submit()",:id=>"subjects-select-box"%>
+             </form>              
+               <div id='courses-div' style='border-bottom:1px solid #C0C0C0;padding-bottom:10px;margin-bottom:10px'>
+                    <%if @courses %>
+                        <%=render_p  'school/courses_of_subject' %>
+                                        
+                    <%elsif @query_results%>   
+                            <br><br>
+                            <div class='side-search-filter-title'>Search Result</div>
+                            <%if @query_results.empty? %>                            
+                                Found no course to match '<%=escape_once(params[:q])%>'
+                            <%else%>    
+                                <%=show_pagination nil,:method=>:get,:anchor=>"i",:q=>params[:q],:object=>'search result'%>                          
+                                <%=render_p 'school/show_courses_partial',{'courses'=>@query_results}%>
+                            <%end%>
+                    <%end%>                                                       
+               </div>                                               
+                 
+        </td>
+        <td  style='vertical-align:top;padding:20px'>
+                    <div class='status-box dark-gray' style='clear:left;'>
+                      <div class='title-div dark-gray'>
+                            It's so easy to register in your class just 
+                                <ol>
+                                    <li>Select a subject from the course catalouge</li>
+                                    <li>Click on the course you are taking </li>
+                                    <li>Enter your class time and click register</li>
+                                </ol>
+                        </div>
+                       <div class='small-link-div' style='font-size:8pt'>
+                            Need more help? <%=link_to_help 'click here','h1',:topic=>"Courses"%>
+                       </div>         
+                   </div> 
+                   <div   id='course-desc-div'>
+                   
+                   </div>
+        </td>
+    </tr>
+</table>    

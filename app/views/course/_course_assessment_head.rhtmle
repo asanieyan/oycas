@@ -1,0 +1,37 @@
+<div id='c2' style='display:none'>
+    <%=form_remote_tag :update=>'panel1-body',:url=>{:action=>'overview'} %>    
+      <table cellspacing=0 style='width:100%'>
+        <tr> 
+            <td>  
+               <p>
+                This is the list of instructor who has taught this course in the past <br>
+                Select on them to see the rating for the instructor. <br>You can also select multiple to see the a comparison between the instructors
+               </p>
+            </td>
+            <td style='width:50%'> 
+                
+                 <% @course.instructors.each do |teacher|%>
+                        <table cellspacing=0> <tr> 
+                            <td>
+                                   
+                                    <%=check_box_tag "instructor_ids[#{teacher.guid}]" %> 
+                            </td>
+                            <td style='vertical-align:middle'>
+                                    <%=teacher.display_name%> 
+                            </td>
+                          </tr></table>
+                <%end%>
+                
+            </td>
+            </tr>
+        </table>
+       
+       
+        <div style='text-align:right;'> 
+             <%=link_to_function "cancel", 'switchContent("c2","c1")'%> 
+             <input type='submit' value="Filter" class='button-link' >
+        </div>
+    </form>
+</div>
+<script>  </script>
+<span id='c1'> <%=link_to_function "Compare this course instructors",'switchContent("c1","c2")'%> </span>

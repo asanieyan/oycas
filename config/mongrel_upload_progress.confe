@@ -1,0 +1,6 @@
+uri "/", 
+  :handler => plugin("/handlers/upload", 
+		:frequency=>0,
+		:drb => 'druby://127.0.0.1:2999',
+		:path_info => ['/my/add_more_files_to_album']), 
+  :in_front => true

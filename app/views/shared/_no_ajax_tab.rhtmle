@@ -1,0 +1,17 @@
+<div class='header'>
+    <ul >
+        <%tabs.each do |tab|
+                     
+           is_current =  if block then block.call(tab) else (tabs.first == tab) end
+        %> 
+            <%if is_current%> 
+                <li class='on'><span><%=tab.name%></span></li>                      
+            <%else%>
+                <li class='off'><%=link_to tab.name,tab.url%></li>
+                
+            <%end%>
+        <%end%>
+        
+    </ul>
+</div>
+<div class='tab-updatable' style='clear:left;' > </div>

@@ -1,0 +1,41 @@
+<div style='margin-bottom:10px;text-align:right;border-bottom:1px #909090 solid'>             
+        <%=link_to 'Prev',:a=>@album.guid,:p=>@prev_photo.guid,:anchor=>"i"%> |
+        <%=link_to 'Next',:a=>@album.guid,:p=>@next_photo.guid,:anchor=>"i" %>
+</div>
+<table class='top-v-align' style='margin-left:10px;'>
+    <tr>
+        <td style=''>
+            <div class='image-border2' style=''>
+                <%=link_to image_tag(@album.get_large_photo(@photo)),:a=>@album.guid,:p=>@next_photo.guid,:anchor=>"i"%>   
+            </div>
+         </td>
+         <td class='small-link-div bold-link-div'>            
+            <div id='photo-caption'> <%=break_down(@photo.caption || "",40)%></div>
+             <%if @I.am? @photo_owner %>  
+                <br><br>
+                <%=link_to 'Edit Caption',"",:id=>'caption-setter'%>
+             <%end%>
+         </td>
+   </tr>
+</table>   
+<a name='i' />
+<br><br>
+<%if @I.am? @photo_owner %>  
+<%= update_page_tag {|page| 
+                    base_url = {:action=>'do_photo_caption',:a=>@album.guid,:escape=>false,:photo=>@photo.guid}
+                    url = url_for(base_url.update(:do=>:save_caption,:truncate=>false))
+                    options = {:highlightendcolor=>'"#EEEEEE"',:formId=>"'caption-form'",:externalControl=>"'caption-setter'",:submitOnBlur=>false, :cols=>25,:rows=>8,
+                            :loadTextURL=>("'" + url_for(base_url.update(:do=>:get_caption)) + "'")}
+                    java_options = options_for_javascript(options)
+                    page << <<-"end_script" 
+                                    Ajax.InPlaceEditor.defaultHighlightColor = "#EEEEEE";
+                                    new Ajax.InPlaceEditor('photo-caption','#{url}',#{java_options})
+                                    
+                                    
+                            end_script
+                    
+                   }         
+          
+          %> 
+          
+<%end%>          

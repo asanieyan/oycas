@@ -1,0 +1,42 @@
+<%if levels.size > 0 %>
+    <% level,selected_node_id = levels.shift%>
+        <% selected_id = nil%>
+        <% id = Time.now.to_i * rand(10000000) #"#{levels.size}"%>
+                
+        <%options = ((first_level rescue false) ? level : level.sort{|a,b| a.category.name <=> b.category.name}).map {|node|                
+        
+                node.category.select_name += " >" if node.children.size > 0                
+                selected_id = node.category.id if node.id == selected_node_id; 
+                [node.category.select_name,node.category.id] 
+           }
+        %>
+            <%=select_tag "select-#{id}", options_for_select(options,selected_id),:size=>10,:style=>'height:200px;width:200px',
+                    :onchange=>  remote_function(
+                                               :success=>"Form.enable($('category-select'))",
+                                               :loading=>"Form.disable($('category-select'))",
+                                               :with=>"'category_id='+$('select-#{id}').value",
+                                               :url=>{:action=>'update_sub_categories',:update_div=>"update-#{id}"})
+                    %>    
+            <div id='<%="update-#{id}"%>' style='display:inline'> 
+                <%=render :partial=>'classifieds/same_level_categories', :locals=>{'levels'=>levels,'selected_leaf'=>selected_leaf}%>
+            </div> <!-- end of div for <%="update-#{id}"%> -->
+<%else%>
+       <%if selected_leaf %>                      
+        <table cellpadding=0; cellspacing=0 style='width:200px;display:inline';>                       
+            <tr><td  style=';;vertical-align:top'>
+                <div style='background-color:#F9F9F9;height:195px;width:195px !important;border:1px solid #693334' >
+                    <div style='padding:10px;font-size:10pt;font-weight:bold'>
+                        <br>You have finished selecting a category. 
+                        <div style=';margin-top:80px'>
+                            <%=button_to( 'Continue To Post >',"/classifieds/network/#{params[:network]}/posting_item/#{selected_leaf.id}",:method=>:post)%>
+                        </div>
+                    </div>
+                </div>
+            </td></tr>          
+       </table>
+       <%end%> 
+
+      
+<%end%>    
+
+            

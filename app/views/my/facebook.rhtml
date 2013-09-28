@@ -1,0 +1,51 @@
+<div style='padding:10px;'>
+<%=form_tag({},{:method=>:post})%>
+
+
+    <div class='title-div' style='color:#3E5594;border-bottom:1px solid #C0C0C0'>
+        
+		Invite from facebook
+    </div>	
+    <br>
+	<div id='imessage'></div>	
+    <div class='dark-bold-gray' style='font-size:10pt'>
+        <p>In order to invite your friends and classmates to oycas you must login to your facebook account from oycas.
+        You can enter your personal invite message. This invite message 
+         will appear as both a wall message and a private message to your friends.  </p>
+
+        Your Invite Message: 
+    </div>   
+    <%=text_area_tag "invite_message","",:size=>"40x5"%><br><br>
+<% if false %>    <%=select_tag "invite_type",options_for_select([["Send Private Message Only",""],["Send Both Private and Wall Message","both"]],params[:invite_type])%><% end %>
+    <br><br>
+    <table class='bold-gray'>
+        <tr>
+            <td>
+                Facebook Username:
+            </td>
+            <td>
+                <%=text_field_tag "username",params[:username]%>
+            </td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>
+                Facebook Password:
+            </td>  
+            <td>
+                <%=password_field_tag "password",params[:password]%>                
+            </td>                 
+            <td>
+                <span class='normal-gray'>We will not store this password. It is against our privacy policy to store this password</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 style='text-align:right'>
+                <%=submit_tag "Login Facebook"%>
+            </td>
+            <td></td>                 
+        </tr>        
+    </table>
+</form>
+</div>

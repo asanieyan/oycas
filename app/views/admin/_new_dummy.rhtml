@@ -1,0 +1,30 @@
+<%=form_tag%>
+<table class='top-v-align' style='width:400px;font-size:10pt'>
+    <tr>
+      <td>
+         
+         <%= link_to_function "Generate Names", 
+                        <<-"eof"
+                            new Ajax.Request("/admin/new_dummy?gen=20",{
+                                onSuccess: function(transport,json){                                      
+                                      json.each(function(name){                            
+                                            _n = name.join(" ")                                                                                             
+                                            $('names').value += _n + "\\n"
+                                      })
+                                }
+                            })
+                        eof
+         %>
+         <%=text_area_tag "names",nil, :size=>'30x20'%>                
+      </td>
+      <td>
+         <br>
+         <%=select_tag "school_id",options_for_select(@schools.map{|s| [s.name,s.id]},@schools.first.id),:size=>10%>
+      </td>
+   </tr>
+</table>
+<div style='text-align:right'>
+    <%=close_pop%>
+    <%=submit_tag "Create Names"%>
+</div>
+</form>

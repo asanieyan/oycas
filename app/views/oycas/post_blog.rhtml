@@ -1,0 +1,25 @@
+<%=form_tag%>
+<%@preview = capture do%>
+    <%=link_to_function "Preview","updateTextArea('blog[text]');CAlert({message:'<div class=\"status-box\">' + $('blog[text]').value + '</div>'})"%>
+<%end%>    
+
+<div class='status-box' id='centered' style='width:95%'>
+    <div id='blog_error'></div>    
+    Subject:
+    <div>
+        <%=text_field_tag "blog[subject]",@blog.subject,:size=>OycasBlog.size_of('subject')%>
+    </div>
+    <br>
+    <div style='float:right'>
+        <%=@preview%>
+    </div>
+    Message:     
+    <div style='clear:right'>
+       <%=text_area_tag "blog[text]",@blog.text,:rich=>true,:size=>"600x300"%>
+    </div>
+    <%=@preview%> or 
+    <%=submit_tag "Post blog"%>
+
+</div>
+
+</form>

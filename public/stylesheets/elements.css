@@ -1,0 +1,128 @@
+.compact-center {        
+        padding-left: 20px;
+        padding-right:20px;
+        padding-top:20px;
+        margin:0 auto;
+
+}
+.button-link, .editor_ok_button { 
+    font-weight:700;    
+    padding:3px;
+    border:1px outset black;
+    padding-left:10px;
+    padding-right:10px;
+    font-family: 'tahoma';
+    font-size:8pt;
+    color:white;
+    background-color:#606060;
+
+}
+.button-link:active{
+    border-style:inset;
+}
+
+/***********THUMBNAIL*******************/
+.thumb {
+    padding-top:5px;
+    padding-bottom:5px;
+    
+}
+.thumb div {
+     background-color:white;
+}
+.thumb img, img.thumb{
+    border: 1px solid white;
+    cursor: pointer;
+}
+.thumb-selected img { 
+    border: solid 1px #FF8837;
+}
+.thumb-selected div {
+   background-color: #394E8B;
+ /*  padding-top:3px;*/
+/*   padding-bottom:3px;*/
+}
+.thumb-selected A,.thumb-selected A:hover {
+     color:white !important; 
+}
+/***********PAGINATION******************/
+.paginator img {
+    border:none;
+}
+.paginator {
+    color: #394E8B;
+    border-bottom: 1px #C0C0C0 solid;
+    padding-bottom:6px;
+    margin-bottom:10px;
+}
+/******************************/
+
+  div.autocomplete {
+      position:absolute;
+      width:250px;
+      background-color:white;
+      border:1px solid #888;
+      margin:0px;
+      padding:0px;
+    }
+    div.autocomplete ul {
+      list-style-type:none;
+      margin:0px;
+      padding:0px;
+    }
+    div.autocomplete ul li.selected { background-color: #ffb;}
+    div.autocomplete ul li {
+      list-style-type:none;
+      display:block;
+      margin:0;
+      padding:2px;
+      height:32px;
+      cursor:pointer;
+    }
+
+/******************************/
+
+
+.textfield {
+    font-size: 8pt; 
+    height:23px;
+    padding-top:3px;
+    padding-left:2px;   
+    float:left;
+}
+
+/************************************************************************************/
+    .gray-div {
+        border:1px solid #C0C0C0;
+        
+    }
+    .stn-div {
+        border:1px solid #FF7400;
+        padding:10px;
+        background-color:white;
+    }
+    .background-div {   
+           
+            background-color: #D15600;       
+            padding:10px;
+            width:75%;
+            margin: 0 auto;
+            margin-top:20px;
+            margin-bottom:20px;  
+            border: 1px solid #000000;           
+    }   
+    .foreground-div { 
+          
+        background-color: white;
+        padding:15px;
+   
+    }
+    .with-no-margin {
+        margin-left:0;
+    }
+    .title1 {
+        font-size: 9pt;       
+        border-bottom:1px solid #C0C0C0;
+        font-weight:bolder;
+    }
+    

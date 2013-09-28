@@ -1,0 +1,65 @@
+== Hello from FacebookBot!
+
+FacebookBot is a blast from the future! Basically, it can (will? might?) turn the
+beloved Facebook into some sort of monster. It allows for completely 
+automated control of your Facebook profile. Now with less MySpace!
+
+FacebookBot allows you to destroy Facebook via:
+
+* Posting Profile Pictures
+* Tagging Pictures
+* Changing your Status
+* Posting Wall Comments
+* Changing Personal Profile Information
+* A system for generating random sentences (rather simply)
+* And much more...
+
+== Downloading
+
+You can obtain the hot-off-the-press-brand-spanking-new FacebookBot and
+loads of pretty examples from http://rubyforge.org/frs/?group_id=3643 !
+
+== License
+
+FacebookBot is provided to you kindly under the MIT license.
+A copy of the MIT license can be found in the LICENSE file.
+
+== Setup
+
+FacebookBot is just a simple Ruby program. So, obviously you'll need
+ruby installed. It would probably be a good idea if you actually
+knew ruby too. However, there is at least one module you
+should probably install, if you want the program to work.
+
+Here's a list:
+
+* Hpricot (see http://code.whytheluckystiff.net/hpricot/)
+
+Wasn't that a short list? The following should already be installed,
+but are also used rigorously:
+
+* Net::HTTP
+* Net::HTTPS
+* CGI
+* OptParse
+* URI
+
+To install these, you can try `gem install gemnamehere` -- worked for me!
+
+== Usage
+
+Please use FacebookBot for good, not evil. We don't want another
+Myspace on our hands. Look at the EXAMPLES file for examples.
+
+== Support
+
+You can try emailing me. Or maybe ask a kind neighbor?
+A friend from the past? An ex-lover? You can also check out
+the FacebookBot Rubyforge page, located at 
+http://rubyforge.org/projects/facebookbot/
+
+Enjoy, and don't forget your smile!
+
+==Contact the lovely guy who made this for y'alls
+
+Chris McClelland:: mcclelland.c at gmail ddddot com

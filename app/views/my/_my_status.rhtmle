@@ -1,0 +1,42 @@
+<style>
+     .mood-status {
+        text-align:left;
+     }
+     .mood-status input{
+        font-size:10pt;
+     }
+     .editor_ok_link {
+        font-size: 10pt;
+     }
+     .editor_field {
+        display:block;
+        background-color:white !important;
+        
+     }
+
+</style>
+
+<div id='stats'>
+<%if false%> 
+<div class='normal-gray'>
+    <%
+        values = Student.values_of('online_status').map{|s| 
+            text = case s.to_s
+                when "Online"
+                    image_tag('http://www.projectopus.com/images/icons/fan-stat_offline.gif') + " Online"
+                else
+                    image_tag('http://www.projectopus.com/images/icons/fan-stat_offline.gif') + " Appear Offline"               
+            end
+            [text,s]
+        
+        }
+        callback = "new Ajax.Request('/my/set_online_status/' + value)"
+        concat(custom_select_tag(values,@my.online_status,callback),binding)
+    %>
+    
+</div>
+<%end%>
+<%= render_component :controller=>'my',:action=>'my_mood_status'
+    %> 
+</div>
+

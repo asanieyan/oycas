@@ -1,0 +1,45 @@
+   <%blog = @blog%>
+    <%=dashboard do |links|
+            links << link_to("Post New",:action=>"post_blog") if @admin
+            links << link_to("Back to Blogs",:action=>"blogs")
+    
+       end
+    %>
+    
+   <div >
+     <div style='float:right'>
+        <%if @admin%>
+            <%=link_to 'edit',"/oycas/post_blog/#{blog.id}"%> | 
+            <%=link_to 'delete',"/oycas/delete_blog/#{blog.id}"%>
+        <%end%>
+     </div>
+     <div class='dark-bold-gray bold-link-div ' style='padding:0;border-width:0 0 1 0'><%=link_to blog.subject,"/oycas/blog/#{blog.id}"%>     </div>
+     <div class='status-box' style='margin-bottom:20px;' >
+        <%=blog.text%>
+     </div>
+   </div> 
+   <%blog.comments.each do |comment|%> 
+
+        <div class='blue-title-underline ' style=''>
+            <%if @admin or comment.student == @me%>
+                <div class='small-link-div' style='float:right'>
+                    <%=link_to 'delete post',:action=>"delete_comment",:id=>comment.id%>
+                </div>
+            <%end%>
+            <%=image_tag comment.student.thumb_image,:style=>"float:left;margin-right:10px"%>
+            <%=link_to_student comment.student%>
+        </div>
+        <div style=';width:500px;float:left;' class='status-box'>
+            <%=comment.comment%>
+        </div>
+        <div style='clear:left;margin-bottom:50px' >
+        </div>
+   <%end%>
+    <%=hr%><br>
+        <%=form_tag(:action=>"post_comment",:id=>blog.id)%>
+        <div id='' class='bold-gray' style='display:table'>
+            Comment:<%=content_tag(:span," (comment must be at least 100 characters)",:class=>'normal-gray')%><br>
+            <%=text_area_tag("comment","",:size=>"50x7",:maxlength=>Comment.size_of("comment"))%>
+            <div style='text-align:right'><%=submit_tag "Submit Comment"%></div>
+        </div>
+        </form>

@@ -1,0 +1,44 @@
+<%max ||= 5%>
+<%create_flex_box(context + " Albums",false,:border=>true) do |css,links,label|
+             if not @studentb 
+                links << link_to('Create new',{:action=>'create_album',:id=>'create'},:pop=>true,:pop_options=>{:title=>"Create New Album"})
+             end
+             if not albums.empty?
+                links << link_to('View all',:action=>'photo')    
+             end
+
+            l = if albums.empty?
+                    ""
+                elsif albums.size == 1
+                         "Showing the only photo album"
+                elsif albums.size <= max
+                        "Showing " + pluralize(albums.size,"photo album")
+                else    
+                    "Showing #{max} of #{albums.size} photo albums"
+                end
+            label << l    
+
+%>
+
+         <div class='dark-bold-gray' >                        
+         <%albums[0..max-1].each do |album|%>
+            <div class='list-item-div'>
+            <div class='dark-bold-gray'>
+                <table class='bold-link-div top-v-align' cellspacing=0 cellpadding=0><tr>
+                    <td>                     <%=link_to image_tag(album.cover,:style=>"width:70px;margin-right:10px;"),:action=>'view_album',:a=>album.guid%> </td>
+                    <td> 
+                            <div class='normal-gray'>                        
+                                Created <%=time_helper(@my.time(album.created_on),@my.tz,:date_only=>true)%>
+                            </div>
+                            <%=link_to break_down(album.title,48),:action=>'view_album',:a=>album.guid%>
+                            <div class='normal-gray'>
+                                <%=truncate(break_down(album.description,40),200)%>
+                            </div>
+                    </td>
+                </tr></table>       
+            </div>
+            </div>                
+         <%end%>       
+             <%="<div class='bold-gray' >No albums created yet. </div>" if albums.empty?%>         
+         </div>
+<%end%>

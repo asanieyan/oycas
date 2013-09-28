@@ -1,0 +1,38 @@
+                        <script>    
+                                    ThumbSelector.initialize("get_album_info",'panel2','album')                                                            
+                        </script>                                        
+                                                                                                                   
+                        <table style='width:100%'>                 
+                        <tr>                             
+                            <td colspan=10>                                       
+                                    <%=show_pagination paginator,'page','content-panel'%> 
+                            </td>
+                         </tr>                        
+                        <% i = 0%>      
+                        <% first_album = albums[0] %>
+                        <% while i < albums.size %>                            
+                                <tr> 
+                                 <%for j in 0..1%>  
+                                     <td style='text-align:center'>  
+                                          <div>
+                                               <table> 
+                                               
+                                               <tr> 
+                                                    <td>                                               
+                                               <% html_class = (albums[i] == first_album ? "thumbnail-selected" : "thumbnail-unselected") %>
+                                               <%= image_tag albums[i].get_album_cover, :id=>"#{albums[i].guid}",:class=>html_class       %>                  
+                                              </td></tr><tr>
+                                               <td style='text-align:center' id="t<%=albums[i].guid%>" class="<%='text-'+html_class%>" >   
+                                                       <%= link_to "#{albums[i].name}(#{albums[i].num_images})",{:action=>"album",:id=>albums[i].guid} %> </td>  
+                                              </tr>
+                                               </table>
+                                           </div>                                       
+                                           <%= javascript_tag "ThumbSelector.add('#{albums[i].guid}')"%>                                          
+                                            
+                                     </td> 
+                                    <% i = i + 1%>
+                                    <% break unless i <  albums.size%> 
+                                    <%end%>                                                                                                                                                                           
+                                </tr>                                                                   
+                        <% end%>
+                        </table>

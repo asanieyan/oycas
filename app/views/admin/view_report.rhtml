@@ -1,0 +1,60 @@
+<style>
+    #here.top-v-align td {
+        border:1px solid black;
+        padding:10px;
+    }
+
+</style>
+<div style='margin:20px'>
+    <div class='title-div'>
+        <strong> Students report of an violative     </strong> <%=@r.report_type%>
+    </div>
+    <div class='status-box' style='overflow:auto' >
+        <div style='float:right'>
+             <% action_url = {:id=>@r.id}
+                options = {:pop=>true}
+             %>
+             <%if not @r.is_resolved? %>
+                 <%if @r.report_type == :photo%>             
+                    <%=m_link 'Delete Photo',action_url.merge(:action=>'delete_photo'),options%>
+                <%elsif @r.report_type == :classified%>
+                    <%=m_link 'Delete Classified Post',action_url.merge(:action=>'delete_classified'),options%>                                    
+                <%end%>   
+                <%if @r.reported_student %>                            
+                        <%=m_link 'Suspend Account',action_url.merge(:action=>'suspend'),options%>
+                        <%=m_link 'Send Warning',action_url.merge(:action=>'send_warning'),options%>                                    
+                <%end%>
+                <%=m_link 'Mark Resolved',action_url.merge(:action=>'mark_resolved'),options%>
+            <%end%>
+             <%=m_link 'Send Message',{:action=>'send_msg',:id=>@r.reported_student.id},:pop=>true%>
+        </div> 
+        
+            <%if @r.report_type == :photo%>
+               <%=show_offensive_photo @r%>
+            <%elsif @r.report_type == :profile%>
+               <%=link_to_student "Profile of #{@r.item.full_name}",@r.item%>
+            <%else%>
+            
+            <%end%>
+   
+    </div>
+
+<br>
+<table id='here' class='top-v-align'>
+  <tr>
+        <th> Reporter </th>
+        <th> Reporter Time </th>
+        <th> Reason </th>
+        <th> Comments </th>
+  </tr>
+<%@r.flags.each do |flag|%>
+  <tr>
+        <td> <%= link_to_student flag.reporter%> </td>
+        <td> <%= flag.created_on%> </td>
+        <td> <%= flag.reason %> </td>
+        <td> <%= flag.comments %> </td>
+  </tr>        
+   
+<%end%>
+</table>
+</div>

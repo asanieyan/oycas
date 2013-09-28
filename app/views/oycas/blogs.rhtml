@@ -1,0 +1,41 @@
+<table class='top-v-align' style='width:100%'>
+    <tr><td style='width:110px;border-right:1px solid #C0C0C0' >
+        <div  class='dark-bold-gray' style=''>
+            <%OycasBlog.find(:all).group_by(&:year).sort{|a,b| b <=> a}.each do |year,yearly_blogs|%>
+                <div><%=year%></div>
+                <div class='small-link-div normal-gray' style='padding-left:5px;'>
+                    <%yearly_blogs.group_by(&:month).each do |month,blogs|%>
+                        <div><%=link_to month,{:m=>blogs.first.month_id},
+                            :class=>blogs.first.month_id == params[:m] ? "bold-link-div" : ""
+                        %> (<%=blogs.size%>)</div>
+                    <%end%>
+                </div>
+                <br>
+            <%end%>
+        </div>
+        </td>
+        <td style='padding-left:20px'>
+        <%=dashboard do |links|
+                links << link_to("Post New",:action=>"post_blog") if @admin
+             
+           end
+        %>
+        <%@blogs.each do |blog|%>
+               <div >
+                 <div style='float:right'>
+                    <%if @admin%>
+                        <%=link_to 'edit',"/oycas/post_blog/#{blog.id}"%> | 
+                        <%=link_to 'delete',"/oycas/delete_blog/#{blog.id}"%>
+                    <%end%>
+                 </div>
+                 <div class='dark-bold-gray bold-link-div ' style='padding:0;border-width:0 0 1 0'><%=link_to blog.subject,"/oycas/blog/#{blog.id}"%>     </div>
+                 <div class='status-box' style='margin-bottom:20px;' >
+                    <%=blog.text%>
+                 </div>
+               </div>        
+        <%end%>
+        <%if @blogs.empty?%>
+                <div class='title-div bold-gray blue-box'> No blog entry </div>
+        <%end%>
+    </td></tr>
+</table>    

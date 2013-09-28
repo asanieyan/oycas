@@ -1,0 +1,25 @@
+<div style='float:right'>    
+            <div class='bold-gray' style='float:left;margin-top:10px;'>
+                    <%rate = student.avg_rate %>
+                    <%=link_to_student student%> <%=number_with_precision(rate,1) if rate > 0 %>
+            </div>  
+            <div style='padding-top:6px;margin-bottom:8px;text-align:right;'>       
+     
+        
+                <% (1..5).each do |i|%>      
+                  <%= link_to_remote image_tag("/images/#{i}.gif"), 
+                        :url=>url_for_student(student,{:action=>"rate_student",:rating=>i}),
+                                                            :complete=>";thumbs.next();" %>
+                <%end%>
+            </div>  
+
+    
+    <div class='image-border2' style=''>
+        <%=link_to_student image_tag(student.rate_image),student%>
+    </div>
+
+</div>
+
+<div style='margin-top:10px;float:right;width:100px'>
+    <%=render_p 'student/action_links',{'student'=>student}%>
+</div>

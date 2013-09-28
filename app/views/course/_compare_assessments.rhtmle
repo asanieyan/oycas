@@ -1,0 +1,45 @@
+<%category_index = 0%>
+<table>
+        <tr> 
+                <td> </td>
+                <% attrb = {}%>
+                <%assessments.each do |assessment|%>
+                <td>
+                        <%= assessment.course.title(:small)%> <br>
+                        <%= assessment.instructor.display_name %>
+                        
+                </td>   
+                <%end%>
+         </tr>   
+                     
+         <% assessments[0].categories.each do |cat|%>
+         <tr>
+                <td> <%=cat.title %> <br> 
+                     <%= link_to_remote "comapre comments" ,:update=>'panel1-body',
+                     :url=>{:action=>'compare_comments',:field_name=>cat.field_name} %>
+                </td>
+                
+                <%assessments.each do |assessment|%>
+                <td>
+                        <% category = assessment.categories[category_index]%> 
+
+                        <%if category.choices.size > 0 %>
+                            <%category.choices.each do |choice_result|%>
+                                <div style='font-size:9pt'> 
+                                                <%=category.format(choice_result) %>
+                                </div>
+                            <%end%>
+                        <%else%>
+                                Not Rated
+                        <% end %>
+                       
+                                              
+                </td>   
+                <%end%>                
+         
+         
+         </tr>
+         <% category_index += 1 %>
+         <%end%>
+
+</table>

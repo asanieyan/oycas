@@ -1,0 +1,180 @@
+<div style='' id='message'>
+</div>
+<div id='thisdiv1' style='background-color:white'>
+<% today = @my.tz.utc_to_local(Time.now.gmtime).to_date %>
+<% box_size = @browser.sel_for({:msie=>"42x4"}, "42x2")%>
+<div  class='flex-in2'>
+    <% if @scrap_owner.can_student_post_scrap?(@me)  then %>
+            <div class='scrap-box' style='text-align:left' >
+                    <div style='margin-bottom:2px'>
+                        <%image_tag '/images/desk.gif',:style=>'float:left;margin-right:5px;;margin-bottom:10px;'%>
+                        <%link_name = if @I.am? @scrap_owner
+                                            "Write something on your desk"
+                                      elsif @studentb == @scrap_owner
+                                            "Write something on #{@studentb.f_name}'s desk"
+                                      else
+                                            "Write Something"
+                                      end
+                        %>  
+
+                        <%link_name%>
+						<%link_to_function link_name,update_page {|p|
+                                        p["new-message"].show()                      
+                                        p["new-message-box"].focus()
+                                        p << "Event.observe(document.body,'click',function(event){"                            
+                                        p <<   "switch(Event.element(event)){"
+                                            p <<     "case $('new-message-box'):"
+                                            p <<     "case $('create-message-link'):"
+                                            p <<     "case $('submit-tag'):"
+                                            p <<     "break;"
+                                            p <<     "default:"
+                                            p <<     "$('new-message').hide()"
+                                            p <<     "$('new-message-box').value = ''"
+                                            p <<   "}"
+                                            p << "})"
+                                            
+                                   },:id=>"create-message-link" 
+                           %>
+                    </div>                    
+                    <div id="new-message" style="">       
+                            <%=
+                                    form_remote_tag :url=>{:action=>'post_msg_to_desk'},:update=>'thisdiv1',                                          
+                                                :failure=>"Message.show({'Message' :'Internal Error. Please try again later.'},{hide:true})",
+                                                :loading=>"Message.show({'message' : 'Please Wait...'},{ type : 'info' })",
+                                                :success=>"Message.show({'message' : 'Desk Message Posted.'},{ type : 'success' })"
+                            
+                            %>
+                
+                                <%= text_area_tag "message",nil,:size=>box_size,:id=>"new-message-box"%>
+                            <div>
+                                <% link_to_function "Post it", "" %>
+                                <%= submit_tag "Post this", :id=>'submit-tag',:onclick=>"if ($('new-message-box').value.blank()){return false}"%>
+                            </div>                        
+                        </form>
+                    </div>
+          </div>  
+        <% end %> 
+        <div style='clear:left;height:2px'>&nbsp;</div>
+        
+            <table class='scrap-table' cellspacing=0 cellpadding=0 style='<%="border-bottom:1px solid #C0C0C0" if not @scraps.empty?%>'>
+                <tr>
+                    <td style='vertical-align:bottom'>
+                        <%= show_pagination 'thisdiv1',{:action=>'desk',:object=>'message',:border=>false} %>
+                    </td>
+            
+
+            <%if not @scraps.empty? and (@I.am? @scrap_owner) and not params[:oberving_my_own_profile]%>   
+                    <td style='width:1px'>
+                       <%=form_tag({:controller=>'my',:action=>'delete_scraps'},{:id=>'delete_scrap'})%>
+                       <%=select_tag "scraps_to_be_deleted",options_for_select(["Delete",["More than two weeks old",1],["All messages",0]]),
+                                    :onchange=>confirm("Delete your desk messages","Are you sure youw want to delete your desk messages?",{:form=>'delete_scrap'})%>
+                       </form>
+                    </td>
+            <%end%>         
+                </tr>
+            </table>                    
+       
+           
+        <%if @scraps.empty? %>  
+            <div class='dark-bold-gray' style='padding-top:20px'>
+                <%if @I.am? @scrap_owner%>
+                    You don't have any messages on your desk
+                <%elsif  @scrap_owner == @studentb%>            
+                   <%=@studentb.f_name%> doesn't have any messages on <%=@studentb.gender.to_s.possessive_pronoun%>  desk. 
+                <%else%>
+                    There are no messages
+                <%end%>
+             </div>
+        <%else%>
+    <% @scraps.each do |scrap| %>
+    <div id="scrap-message<%=scrap.id%>" style=''> &nbsp;</div>
+    <div id="scrap<%= scrap.id %>" class='one-scrap' >
+        <table class='scrap-table' cellpadding=0 cellspacing=0> 
+        <tr>
+            <td> &nbsp; </td>
+            <td style='padding-left:5px'>
+                      <span style='font-size:7pt;color:#808080'>
+                        <%timestamp = @my.tz.utc_to_local(scrap.created_on)%>                       
+                        At <%= timestamp.strftime("%I:%M%p").downcase.gsub(/^0/,'') %>                        
+                        
+                        <%unless today == timestamp.to_date%>
+                            on <%= timestamp.strftime("%B") + " " + timestamp.day.ordinalize() + ", " + timestamp.year.to_s
+                                      
+                                    
+                                    %>
+                        <%end%><%= link_to_student scrap.sender.name(:full),scrap.sender,:my_name=>"You"%> wrote: 
+
+                   </span>                                     
+            </td>
+          </tr>
+          <tr>
+            <td style='width:1px;vertical-align:top'>                                     
+                    <%link_to_block url_for_student(scrap.sender) do %>
+                        <%=image_tag scrap.sender.thumb_image%>                          
+                    <%end%>
+                   
+            </td>
+            <td  style='vertical-align:top;text-align:left;padding-left:5px'>                  
+                          <div class='status-box' style=''><%= break_down(scrap.message,45) %> </div>                
+                                                   
+            </td>
+            
+        </tr><tr>
+            <td>&nbsp</td>
+            <td colspan=1 style='text-align:right;padding-bottom:5px' class='small-link-div' >
+                   <%
+                        links = []
+                   
+                   %>             
+                   
+                    <%if not @I.am? scrap.sender    
+                            sender_possessive_pronoun = scrap.sender.gender.possessive_pronoun        
+                    %>                    
+                            <% links << link_to("Send Message",{:controller=>'my',:action=>'compose',:guid=>scrap.sender.guid})%>
+                    <%else
+                            sender_possessive_pronoun = 'your'                       
+                            
+                     end%>
+                    <%if @I.can_post_scrap_to? scrap.sender then%>                                   
+                        <% links << link_to_function("Reply",update_page {|p|
+                                    p["reply#{scrap.id}"].show()                      
+                                    p["box#{scrap.id}"].focus()
+									p << "$('reply#{scrap.id}').hideIfNotClickedOn(['replylink#{scrap.id}','submit#{scrap.id}','box#{scrap.id}'],function(){$('box#{scrap.id}').value = ''})"
+                                    
+                           },:id=>"replylink#{scrap.id}")
+                        %>  
+                        <div id="reply<%= scrap.id %>" style="display:none;">        
+                
+                                <%form_id = rand(10000000)%>
+								<%=  form_tag({},{:id=>form_id})%>                                
+                                <%=hidden_field_tag 'reciever',scrap.sender.guid%>
+                                <%=text_area_tag "message",nil,:size=>box_size,:id=>"box#{scrap.id}"%>
+                                <div>
+                                <%=link_to_function 'Cancel',""%> or
+                                <%=link_to_remote "Reply to #{@I.am?(scrap.sender) ?  'myself' : scrap.sender.f_name}" ,
+													:url=>{:action=>'post_msg_to_desk'},:update=>(@scrap_owner == scrap.sender ? 'thisdiv1' : nil),
+                                                    :with=>"$('#{form_id}').serialize()",
+													:failure=>"Message.show({'scrap-message#{scrap.id}' :'Internal Error. Please try again later.'},{hide:true})",
+                                                    :loading=>"Message.show({'scrap-message#{scrap.id}' : 'Please Wait...'},{ type : 'info' })",                                    
+                                                    :success=>"Message.show({'scrap-message#{scrap.id}' : 'Desk Message Replied.'},{ type : 'success' });" + 
+                                                                            "$('reply#{scrap.id}').hide();"  + "$('box#{scrap.id}').value = ''"													
+													
+													%>
+                                </div>
+                            </form>
+                        </div>                       
+                    <%end%>                                
+                    <%if @I.am?(@scrap_owner) || @I.am?(scrap.sender) %>                        
+                        <% links << link_to('Delete',{:action=>'delete_desk_msg',:id=>scrap.id},:confirm=>['Delete Desk Message','Are you sure you want to delete it?'])%>                            
+                    <%end%>
+                    <%=links.join(" | ")%>
+
+
+            </td>
+         </tr>            
+        </table> 
+    </div>    
+  <% end %>
+  <%end%>
+</div>
+</div>  

@@ -1,0 +1,42 @@
+<table cellspacing=0 cellpadding=0 class='' style='width:100%;height:100%'>
+   <tr>
+       <td class='' colspan=2 style=''>        
+             <div class='title-box title-div' style='padding-bottom:2px;margin-bottom:0;'>
+               <div><%=image_tag @album.cover,:style=>'height:40px;position:absolute;'%></div>
+               <span style='position:relative;left:64px'>
+               Viewing Album: 
+               <span class='link-color' > 
+                    <%=break_down(@album.name,30) %></span>            
+               </span>
+            </div>  
+       </td>
+   </tr>
+   <tr>
+        <td class='right-side-box'  style='padding:0;float:none;vertical-align:top;width:150px;height:100%'>                
+                <br><br>
+                <%if @photos%>
+                     <%=m_link 'View albums' ,:action=>'photo'%>
+                <%else%>
+                    <%=m_link 'View album' ,:action=>'view_album',:a=>@album.guid%> 
+                    <%if not @I.am? @photo_owner and not @I.am_pig? %>
+                        <%=m_link 'Report this photo',url_for_student(@photo_owner,:action=>'report_photo',:a=>@album.guid,:id=>@photo.id),{:pop=>true,:pop_options=>{:title=>"Report Photo"}}%>
+                    <%end%>
+                <%end%>
+                <%if @I.am? @photo_owner %>
+                    <%=m_link 'Edit album' ,:action=>'album',:a=>@album.guid%> 
+                <%end%>
+        </td>
+        <td style='vertical-align:top;padding-top:20px'>
+            <div class='centered' style='width:770px;display:table'>
+                <div class='' >
+                    <%if @photos %>
+                        <%=render_p 'albums/show_photos'%>    
+                    <%else @photo %>
+                        <%=render_p 'albums/show_photo'%>
+                    <%end%>
+                </div>            
+            </div>
+        </td>
+   </tr>
+</table>
+<%=javascript_tag "$('content-panel').style.paddingBottom = 0"%>

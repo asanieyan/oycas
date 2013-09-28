@@ -1,0 +1,48 @@
+
+<div class='title-box title-div'>
+    Editing My Profile
+</div>
+<div id='back-edit-link' class='bold-link-div' style='padding-left:10px;padding-bottom:2px;display:none'>
+  <%=link_to "<- Back to edit my profile" %>
+</div> 
+<div style='margin-left:10px;margin-bottom:0'>
+    <%=form_remote_tag(:update=>'profilePane',
+                    :url=>'/my/profile',
+                    :success=>"$('back-edit-link').show()",
+                    :html=>{:style=>'margin-bottom:0;padding-bottom:0',:id=>'checkProfile'})%>
+    How does my profile look like to <%=select_visibility("v",0,:min=>1,:max=>@my.profile_visibility){|s| s.gsub(/Only/,'').strip.capitalize } %>
+    <%link_to_function "Check","$('checkProfile').submit()",:style=>'margin-left:10px'%>
+    <%=submit_tag "Show"%>  
+    </form> 
+</div>
+<%if @browser.is :msie%>
+<style>
+    #home-table {
+        width:0px !important;
+    }
+     .flex {
+       background-color:#606060;
+       color:white;
+
+    }
+    
+</style>
+
+<%end%>
+<div id='profilePane'>
+<div id='editProfileTabs' > </div>
+<%= tabit "editProfileTabs",  
+                Tab.new("General",:action=>'edit_general_profile') ,
+                Tab.new("Personal",:action=>'edit_personal_profile'),
+                Tab.new("Contact",:action=>'edit_contact_profile'),
+                Tab.new("Profile Features",:action=>'edit_profile_add_ons'),
+                Tab.new("Profile Privacy",:action=>'edit_profile_privacy')                                                                
+               
+%>
+
+<style>
+    #editProfileTabs-updatable {
+        background-color:white;
+    }
+</style>
+</div>

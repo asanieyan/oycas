@@ -1,0 +1,55 @@
+<%=form_tag({},{:method=>:post,:onsubmit=>update_page{|p| 
+                                                p << <<-"end"
+                                                     if ($('title').value.blank()){
+                                                        Message.show({'create':'Please enter a title for your new album'})
+                                                        return false;
+                                                      }
+                                                      //Pop.close()
+                                                end
+                                           }})%>
+<div  class='status-box' style='width:500px'>  
+    <table  style='' cellspacing=0>                                              
+    <tr>
+        <td colspan=2> 
+            <div id='create'> </div>
+        </td>
+    </tr>
+    <tr> 
+            <td class='bold-gray' style='vertical-align:middle;width:300px'> Album Title:<%=indicator%> </td>                                
+            <td style=''>                 
+                <%= text_field_tag 'album[name]',nil,:maxlength=>StudentPhotoAlbum.size_of('name'),:id=>'title',:size=>45%>                                                                                          
+            </td>
+            
+    </tr>
+    <tr> 
+            <td class='bold-gray' style='vertical-align:middle;'> Location: </td>
+            <td> 
+                <%= text_field_tag 'album[location]',nil,:maxlength=>StudentPhotoAlbum.size_of('location') ,:size=>45%>
+                                                   
+            </td>
+    </tr>
+    <tr>    <td class='bold-gray' style='vertical-align:middle;'> Who can see this album: </td>
+            <td>
+                <%=select_visibility "album[visibility]",Student::Everyone,:min=>Student::Friend%>
+            </td>
+    <tr>     
+    <tr> 
+            <td class='bold-gray' style='vertical-align:top;'> Description: </td>
+            <td> 
+                <%= text_area_tag 'album[description]', nil,:size=>'34x7',:maxlength=>StudentPhotoAlbum.size_of('description') %>                          
+                 
+            </td>
+            
+    </tr> 
+
+    <td> </td>            
+   </table > 
+</div>    
+    <div style='width:500px;text-align:right'> 
+                                      
+                    <%=submit_tag "Create Album"%> or
+                    <%=link_to_function 'Cancel', "Pop.close()" %> 
+    </div> 
+                                                  
+</form>
+

@@ -1,0 +1,39 @@
+<%@replies.group_by(&:post_id).each do |post_id,replies|
+    post = ClassifiedPost.find(post_id)%>    
+
+    <fb:explanation><fb:message>         
+            <div class='dark-gray' style='font-size:10pt'>
+            <div class='normal-gray small-link-div' style='float:right'> 
+                    (posted <%=time_helper(@my.time(post.created_on),@my.tz)%>) <%=link_to_app 'view',"/classifieds/view_replies/#{post.id}"%>
+            </div>
+            <div  style='border-bottom:1px solid #C0C0C0'><%=break_down(post.title,50)%></div>
+            <ol>
+                <%replies.each do |reply|%>        
+                    <li class='blue-link-div' style='margin-bottom:5px' >
+                            <div class='normal-gray'>
+                                    <%=time_helper(@my.time(reply.created_on),@my.tz)%>
+                                    <%=link_to_app reply.replier.full_name,url_for_student(reply.replier)%> replied:
+                            </div>                            
+                            <div class='dark-gray'><%=truncate(reply.reply,150)%>                    </div>
+                    </li>     
+                <%end%>
+            </ol>
+            </div>
+  </fb:message></fb:explanation>                                                               
+           
+<%end%>
+
+<%if @replies.empty?%>
+
+         <fb:explanation>                                
+                <fb:message>
+    <div style='float:right'>
+        <%=link_to_app "Go to classifieds","/classifieds/network/#{@my.school.network.name}"%>
+    </div>              
+<% if false %>                    <div class='normal-gray'><% end %>
+                        You don't have any replies.
+<% if false %>                    </div>        <% end %>
+                </fb:message>                                                               
+           </fb:explanation>
+
+<%end%>

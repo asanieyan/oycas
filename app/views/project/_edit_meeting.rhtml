@@ -1,0 +1,157 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+<form name="edit_meeting" id="edit_meeting" action="commit_edit_meeting" method="post">
+
+Title:&nbsp;<input type="text" value="<% if title != nil then %><%= title %><% else %><%= meeting.title %><% end %>" name="title"><br><br>
+
+Scheduled by:&nbsp;<%=get_name_by_guid(meeting.scheduled_by)%><br><br>
+
+
+
+<script>
+function add_participant() {
+    src = document.getElementById('selection_list')
+    dest = document.getElementById('participant_list')
+    obj = new Option(src[src.selectedIndex].text,src[src.selectedIndex].value)
+    if (does_not_contain(dest, obj)) {
+        dest[dest.length]=obj
+    } else { alert("this person is already a participant"); }
+}
+
+function does_not_contain(dest, obj) {
+    for (x=0; x < dest.length; x++) {
+        if (dest[x].value==obj.value && dest[x].text==obj.text) return false;
+    }
+    return true;
+}
+
+function remove_participant() {
+    src = document.getElementById('participant_list')
+    src[src.selectedIndex]=null
+}
+
+function select_all_selected_participants() {
+    src = document.getElementById('participant_list')
+    for (x=0; x<src.length; x++) {
+        src[x].selected=true;
+    }
+    src = document.getElementById('selection_list')
+    for (x=0; x<src.length; x++) {
+        src[x].selected=true;
+    }
+
+}
+</script>
+<table><tr><td>
+Project Members:<br>
+(click to add)<br>
+<select multiple="multiple" name="projectmembers[]" id="selection_list" onclick="add_participant()">
+    <% memberlist.each do |member| %>
+    <option value="<%=member.guid%>"><%=get_name_by_guid(member.guid)%>
+    <% end %>
+</select>
+</td><td>
+Active Participants:<br>
+(click to remove)<br>
+<select multiple="multiple" name="members[]" id="participant_list" onclick="remove_participant()">
+    <% meeting.participants.each do |member| %>
+    <option value="<%=member.guid%>"><%=get_name_by_guid(member.guid)%>
+    <% end %>
+</select>
+</td></tr></table>
+
+<br><br>
+
+
+Date:&nbsp;
+<select name="month" id="datemonth">
+<option value="1">January
+<option value="2">February
+<option value="3">March
+<option value="4">April
+<option value="5">May
+<option value="6">June
+<option value="7">July
+<option value="8">August
+<option value="9">September
+<option value="10">October
+<option value="11">November
+<option value="12">December
+</select>
+<script>document.getElementById('datemonth').selectedIndex=<% if month != nil then %><%= month.to_i-1 %><% else %><%= meeting.scheduled_on.month-1 %><% end %>;</script>
+
+
+<select name="day" id="dateday">
+<% for x in 1..31 %>
+    <option value="<%= x %>"><%= x %>
+<% end %>
+</select>
+<script>document.getElementById('dateday').selectedIndex=<% if day != nil then %><%= day.to_i-1 %><% else %><%= meeting.scheduled_on.day-1 %><% end %>;</script>
+
+<select name="year" id="dateyear">
+<option value="2007">2007
+<option value="2008">2008
+</select>
+<script>document.getElementById('dateyear').selectedIndex=<% if year != nil then %><%= year.to_i-Time.now.year %><% else %><%= meeting.scheduled_on.year-Time.now.year %><% end %>;</script>
+
+<br><br>
+
+Time:&nbsp;
+<select name="hour" id="timehour">
+<% for x in 0..11 %>
+    <option value="<%= x+1 %>"><%= x+1 %>
+<% end %>
+</select>
+
+<% if hour != nil then %>
+<% temphour = hour.to_i %>
+<% else %>
+<% temphour = meeting.scheduled_on.hour %>
+<% end %>
+
+<% if temphour > 11 then %>
+<% temphour = temphour-12 %>
+<% tempampm = 1 %>
+<% else %>
+<% temphour = temphour %>
+<% tempampm = 0 %>
+<% end %>
+<script>document.getElementById('timehour').selectedIndex=<%= temphour-1 %>;</script>
+:
+<select name="minute" id="timeminute">
+<% for x in 0..59 %>
+    <option value="<%= x %>"><%= x %>
+<% end %>
+</select>
+<script>document.getElementById('timeminute').selectedIndex=<% if minute != nil then %><%= minute.to_i %><% else %><%= meeting.scheduled_on.min %><% end %>;</script>
+
+
+
+<select name="ampm" id="timeampm">
+<option value="am">AM
+<option value="pm">PM
+</select>
+<script>document.getElementById('timeampm').selectedIndex=<% if ampm != nil then %><% if ampm == 'am' then%><%= 0 %><% else %><%= 1 %><% end %><% else %><%= tempampm %><% end %>;</script>
+
+
+<input type="hidden" name="scheduled_by" value="<%=meeting.scheduled_by%>">
+<input type="hidden" name="meeting_id" value="<%=meeting.id%>">
+
+
+<br><br>
+
+<input type="submit" value="Save Changes" onclick="select_all_selected_participants()">
+
+</form>
+</div>

@@ -1,0 +1,20 @@
+--- 
+:school: 
+  city: vancouver
+  name: University of British Columbia
+  website: http://www.ubc.ca
+  email_domain: ubc.ca
+  short_name: UBC
+:semester_seasons: 
+- name: Winter Session Term 1
+  start_month: 9
+  end_month: 12
+- name: Winter Session Term 2
+  start_month: 1
+  end_month: 4
+- name: Summer Session Term 1
+  start_month: 5
+  end_month: 6
+- name: Summer Session Term 2
+  start_month: 7
+  end_month: 8

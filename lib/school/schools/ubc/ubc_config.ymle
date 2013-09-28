@@ -1,0 +1,80 @@
+school:
+ name: University of British Columbia
+ short_name: UBC 
+ city: vancouver
+ website: http://www.ubc.ca
+ email_domain: ubc.ca
+  
+semester_seasons:
+ - 
+  name: Winter Session Term 1
+  start_month: 9
+  end_month: 12
+ - 
+  name: Winter Session Term 2
+  start_month: 1
+  end_month: 4
+ - 
+  name: Summer Session Term 1
+  start_month: 5
+  end_month: 6
+ - 
+  name: Summer Session Term 2
+  start_month: 7
+  end_month: 8   
+ 
+courses:
+ -
+  url: https://courses.students.ubc.ca/cs/main?pname=subjarea&tname=subjareas&req=0
+  parse_options:
+   :body_tag: tbody
+   :pattern:    
+    - !ruby/regexp /<tr class=section\d>.*?<\/tr>/m
+    - !ruby/regexp /<a href=\"(.*)\">(\w+)<\/a>/m: [:next_link, :code] 
+    - !ruby/regexp /<td nowrap>(.*?)<\/td>/: :subject_name     
+ -
+  parse_options:
+   :body_tag: tbody
+   :pattern:    
+    - !ruby/regexp /<tr class=section\d>.*?<\/tr>/m
+    - !ruby/regexp /<td nowrap><a href="(.*)">(\w+) (\d+\w?)<\/a><\/td>/m: [:next_link, :code, :number] 
+    - !ruby/regexp /<td nowrap>(.*?)<\/td>/: :name    
+ -    
+  parse_options:     
+   :body_tag: <table border="0" width="625">
+   :strip_tags: <table border="0" cellpadding="2" cellspacing="0" width="100%">
+   :pattern: 
+    - !ruby/regexp /course=\d+">[A-Z]+ \d+\w?.*?<br><br>.*?<br><br>/m
+    - !ruby/regexp /course=\d+">([A-Z]+) (\d+\w?).*?<br><br>(.*?)<br><br>/m: [:code, :number, :desc]
+
+teachers_1:    
+ -
+  #business
+  url: http://www.sauder.ubc.ca/faculty/directory/index.cfm
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<a href=".faculty.directory.faculty\/.*?">.*?<\/a>/
+    - !ruby/regexp /<a href="(.faculty.directory.faculty\/.*?)">.*?<\/a>/: :next_link
+ -
+  #business
+  parse_options:
+   :prepend_url: :photo
+   :pattern:    
+    - !ruby/regexp /END SIDE NAV.*/m
+    - !ruby/regexp /<div class="copy"><span class="header">(.*?)</span>/: :name    
+    - !ruby/regexp /"mailto:(.*?)"/: :email
+    - !ruby/regexp /<img src="(.faculty.directory.images\/.*?)"/: :photo    
+
+teachers_2:    
+ -
+  #botany
+  url: http://www.botany.ubc.ca/people/faculty.htm
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /<font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="\w+.htm"/m
+    - !ruby/regexp /<font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="(\w+.htm)"/: :next_link
+ -
+  parse_options:
+   :pattern:    
+    - !ruby/regexp /html.*/m
+    - !ruby/regexp /<strong>(.*?)<\/strong>/m: :name

@@ -1,0 +1,28 @@
+<%=stylesheet_link_tag "facebooklayout.css"%>
+<fb:header decoration="shorten">
+        <div class='dark-bold-gray' style='font-size:10pt;'>
+            <div class='normal-link-div small-link-div' style='float:right'>            
+                <%=link_to_app 'Go to Oycas','/my/home'%> 
+<% if false %>                | <%=link_to_app 'Help','/my/home'%>            <% end %>
+            </div>        
+            Stuff you've missed since <%
+                    distance = distance_of_time_in_words(@my.time(@my.logout_time),@my.time(Time.now.utc))
+                    distance = case distance
+                                when '1 day'
+                                    'yesterday.'
+                                else
+                                    distance + ' ago.'
+                               end 
+                    concat(distance , binding)
+            %>
+        </div>
+</fb:header>
+<br>
+<fb:tabs> 
+    <fb:tab_item title="My Classes" href="http://apps.facebook.com/oycasmini/my_classes" selected="<%=controller.action_name == 'my_classes'%>"/>
+    <fb:tab_item title="My Classifieds Replies" href="http://apps.facebook.com/oycasmini/my_classifieds" selected="<%=controller.action_name == 'my_classifieds'%>"/>
+    <fb:tab_item title="My Messages" href="http://apps.facebook.com/oycasmini/my_messages" selected="<%=controller.action_name == 'my_messages'%>"/>
+</fb:tabs>
+<div style='padding:10px;padding-top:10px'>    
+    <%=yield%>
+</div>

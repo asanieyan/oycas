@@ -1,0 +1,145 @@
+<style>
+    .flex {
+       background-color:#008CB3;
+       color:white;
+    }
+
+</style>
+
+<%if true%>
+<table cellspacing=0 cellpadding=0 class='' style='height:100%;width:100%;margin-bottom:20px;'> 
+    <tr> 
+        <td class='left-col' style=';vertical-align:top;'>             
+            <div style='border-bottom:1px solid #C3D9FF;background-color:white;padding:10px;padding-bottom:0;'>
+                <table class='' cellspacing=0 cellpadding=0  style='padding-bottom:10px;'><tr>                            
+                    <td style='width:1px;text-align:left;'>
+      
+                        <div style='font-size:16pt;font-weight:bold'>
+                        </div>
+                        <div class='image-border2' style='' >                           
+							<%=image_tag @school.logo %>							
+                         </div>
+                    </td>
+                    <td style='padding-left:10px;vertical-align:top;' class=''> 
+				                    <%=content_tag :div,@school.name,:class=>"title-div"%>
+				                    <%=@school.city.titlecase%>, <%=@school.network.sub_region.name.titlecase%><br>
+									    <%=@school.current_semester.name%> 	<br><br>			                    
+									<div id='' style='font-size:10pt;' class=''>
+	
+										<%big = small = s = ""%>
+										<%if @school.has_important_dates_set? and @school.classes_started?
+											if not @school.classes_ended? 
+												if difference_of_time_in_days(@school.current_time,@school.class_end) > 1
+													big = difference_of_time_in_days(@school.current_time,@school.class_end)
+													small = "days left to the end of classes"	
+												elsif difference_of_time_in_days(@school.current_time,@school.class_end) == 1
+													big = "Tomorrow"			
+													small = "is last day of classes"													
+												else
+													big = "Today"	
+													small = "is last day of classes"													
+												end
+
+												s = "Classes end on " + @school.current_semester.class_end.strftime("%A %B, %d")
+
+											elsif @school.exams_started? and !@school.exams_ended? 
+												big = "Final Exam Period" 
+												small = "Exams end in " + distance_of_time_in_words(@school.current_time,@school.exam_end)
+											end
+										%>																																	
+												<%=s%>
+												<%=semester_count_down(big,small)%>
+										<%end%>
+				                    </div>
+									
+				                                   
+
+																    												                             
+                    </td>
+                </tr>
+				<tr><td colspan=2><br>	
+					  <%=what_to_do_box do |items|
+						if @my.klasses_at(@school).size == 0
+							items << "#{link_to 'Register for ' + @school.current_semester.name ,:action=>'course_catalouge'} in your courses and start interacting with your classmates." 
+						end
+						items << "Discuss school issues on the #{link_to 'discussion board',:action=>'forum_topics'}."
+						items << "Find cool stuff on the #{link_to 'classifieds',:controller=>'classifieds',:network=>@school.network.name,:action=>'browse'}."
+					   end%>					
+					
+				</td></tr>
+				</table>    
+            </div>    							
+                <%=render_p 'forums/embeded_discussion_box',
+                        {
+                            'discussions'=>@school.discussions,'max'=>3,
+                            'can_start'=>@school.has_student?(@me),
+                            'context'=>"School"                        
+                        }                
+                %> 
+            
+             <%create_flex_box "Most Active Classes" do |css_options,links,label|
+             
+                        links << link_to("Courses Catalouge",:action=>"course_catalouge")         
+             %>   
+                <%=render_p 'school/class_list_partial',{'klasses'=>@school.most_active_classes}%>
+            
+             <%end%>
+         </td>
+        <td  style='vertical-align:top;'>
+				
+				<%=form_tag({:action=>'students'},{:style=>'margin:0;',:method=>:get})%>
+                 <div class='flex-in'>
+                     <div style=''>                    
+                      
+                        <%=search_box "q",nil,:size=>50,:banner=>"Search #{@school.short_name} Students"%>
+                    </div> 
+                 </div>
+                </form>  
+					<%create_flex_box "School Headlines",false,:if=>(@school.news_feed != nil) do |css,links,label|						   
+							rss = @school.news_feed
+							show_items = 1
+							items = StringCounter.sort(rss.channel.items,&:link)
+							visible_items = items[0..show_items]
+							in_visible_items = items[show_items+1..-1] || []
+							unless in_visible_items.empty?
+									links << link_to_function("Show All","if (!$('invisible_headlines').visible()){new Effect.BlindDown('invisible_headlines')}else{$('invisible_headlines').hide()}") 
+							end
+							label << rss.channel.title + (rss.channel.date ? "<small> (Updated on #{rss.channel.date.strftime('%m/%d/%Y')}) </small>" : "" )
+					%>
+						<div  class='' style='color:#303030;font-size:10pt' >
+							<%news_item = Proc.new{|item| 
+								"<div>" +  
+								content_tag(:h3,item.title,:style=>"margin:0;display:inline") + 
+										link_to('read',{:action=>"read_rss",:id=>(rss.channel.items.index(item)+1)*@school.guid}, :target=>:blank) + 																							 										
+								content_tag(:div,"Published on " +  item.date.strftime("%A %B,%d %Y"),:class=>"normal-gray") + 
+								(item.num_reads > 0 ? content_tag(:div,"read #{pluralize(item.num_reads,'time')}.",:class=>"normal-gray") : "") + 
+								"</div>" + hr
+							}%>
+							
+							<%visible_items.each do |item|%>
+								<%=news_item.call(item)%>
+							<%end%>
+							<div id='invisible_headlines' style='display:none'>
+								<%in_visible_items.each do |item|%>
+									<%=news_item.call(item)%>
+								<%end%>
+							</div>					
+						</div>
+				<%end%>
+				<%create_flex_box "#{@school.short_name} Students" do%>
+                    <%=render_component :controller=>'school',:action=>'students_in_tab',
+                            :params=>{:schid=>@school.guid,:code=>@school.short_name}%>
+				<%end%>
+                <%=render_p 'shared/chatter_box',{'popup_title'=>"#{@school.name} Chat",'title'=>'School Chat','chat_topic'=>generate_chat_topic(@school.guid)} if @school.has_student?(@me)%>                      
+ 
+				<%create_flex_box "The Desk" do %>                     
+				         <%=render_component :controller=>'school',:action=>'desk',
+				                :params=>{:schid=>@school.guid,:code=>@school.short_name}%>
+				<%end%>                    
+                </div>
+
+            </td>
+               
+            </tr>
+    </table>    
+<%end%>

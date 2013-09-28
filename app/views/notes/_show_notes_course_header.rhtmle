@@ -1,0 +1,13 @@
+<div class='title-div title-box'  style='padding-bottom:2px'>
+<%=image_tag '/images/shared_notes.gif',:style=>'float:left;margin-right:15px;'%>    
+    <div style=''> <span class='title-div'><%=@course.full_title  %>   Course Binder </span> </div>
+</div>
+<br>
+<div class='status-box dark-gray' style='margin-left:10px;margin-right:10px;font-size:10pt'>
+        <%count = CourseNote.count("course_id = #{@course.id} AND owner_id = #{@my.id} ")%>
+        <%if count > 0%>
+            You have shared <%= pluralize(count,'note')%> in this course.
+        <%else%>
+            You haven't shared any notes in this course yet.
+        <%end%>   
+</div>  

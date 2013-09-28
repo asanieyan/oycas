@@ -1,0 +1,11 @@
+require 'rake/rdoctask'
+
+Rake::RDocTask.new do |rdoc|
+  files = ['README', 'LICENSE', 'EXAMPLES', '*bot.rb', 'facebook_bot/*.rb', 'lib/*.rb']
+  rdoc.rdoc_files.add(files)
+  rdoc.main = "README" # page to start on
+  rdoc.title = "FacebookBot Documentation"
+  #rdoc.template = "allison/allison.rb"
+  rdoc.rdoc_dir = 'doc' # rdoc output folder
+  rdoc.options << '--line-numbers' << '--inline-source'
+end

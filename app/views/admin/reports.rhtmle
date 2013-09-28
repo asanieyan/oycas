@@ -1,0 +1,85 @@
+<style>
+    #here.top-v-align td {
+        border:1px solid black;
+        padding:10px;
+    }
+
+</style>
+<div style='padding:20px'>
+<div>
+    <%if @student%>
+       <%=link_to 'Back',:action=>'reports' %>
+       <div class='title-div'> Viewing All Violations from <%=link_to_student @student%></div>
+       <%=text_area_tag "stat",render_violation_summary_for(@student).gsub(/\t/,' '),:size=>'80x5',:onpaste=>"return false",:oncut=>"return false",:onkeydown=>'return false'%>
+       <%=link_to_function 'Select Stat',"$('stat').select()"%>
+       
+    <%else%>
+    <%=form_tag({},{:method=>'GET'})%>
+        Report Type:     <%=select_tag "item",options_for_select([["All Reports"]] + ReportType.find(:all).map{|r| [r.to_s.capitalize + " Reports",r.id]},@r_type_id)%>        
+    <%=submit_tag "show"%>
+    <br><%=check_box_tag "show_resolved",true,params[:show_resolved]=="true"%>&nbsp;&nbsp;Show the resolved reports as well.
+    </form>
+    <%end%>
+</div>
+<br>
+<%=show_pagination :object=>'report'%>
+<table  cellspacing=1 cellpadding=4 id='here' class='top-v-align status-box'>
+    <tr>
+        
+        <th> Report Type </th> 
+        <th> Reported item </th>   
+        <th> Violator Student </th>
+        <th > Last Reported Time </th>
+        <%if  @student%>
+            <th> Resolved </th>            
+        <%end%>
+        <th> &nbsp;</th> 
+    </tr>
+            
+<%@reports.each do |r|%>
+    <tr>
+       <td>
+            <%=r.report_type.to_s.capitalize%>
+            (<%=r.num_reports%>)
+       </td>
+       <td>
+
+            <%if r.item%>
+                <%if r.report_type == :profile%>
+                    <%=link_to_student("Profile of #{r.item.full_name}",r.item)%>        
+                <%elsif r.report_type == :photo %>    
+                    <%=show_offensive_photo r%>                          
+                <%elsif r.report_type == :classified %>
+                    <%=link_to_classified r.item%>
+                <%end%>
+            <%end%>
+       </td>
+       <td>
+            <%if r.reported_student %>
+                <%=link_to "#{r.reported_student.full_name} (#{r.reported_student.violations.inject(0){|s,i| s += i.num_reports}})",:v=>r.reported_student.id %>
+            <%end%>
+       </td>
+       <td>
+        <%=r.last_report_time%> 
+       </td>
+       <%if  @student%>
+       <td>
+                <%=r.is_resolved? ? "Resolved on #{to_admin_time(r.resolved_time)}":"<span style='color:red'>Reported Not Resolved Yet</span>"%><br>
+                <%=r.resolved_comments%>
+       </td>
+       <%end%>
+       <td>
+            <%=m_link "View Report",{:action=>'view_report',:id=>r.id}%>            
+            <%=m_link "View All Violations",{:v=>r.student_id} unless @student%>            
+            <%if r.report_type == :photo and r.item%>
+               <%=m_link "View Album",album_url(r.reported_item)%>            
+               <%=m_link 'Delete Photo',{:action=>'delete_photo',:id=>r.id},:pop=>true%>               
+            <%end%>                   
+       </td>
+       
+    
+    </tr>
+    
+<%end%>
+</table>
+</div>

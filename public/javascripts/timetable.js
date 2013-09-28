@@ -1,0 +1,278 @@
+var TimeSaver = Class.create();
+var ScheduleDay = Class.create();
+var Period = Class.create();
+Period.parse = function(periodStr) {
+    try{    
+        
+        start = periodStr.split(" to ",2)[0];
+        end = periodStr.split(" to ",2)[1];
+        shour = parseInt(start.split(":")[0]);
+        if(start.include("pm"))
+            shour += 12;
+        smin = parseInt(start.split(":")[1]);    
+        ehour = parseInt(end.split(":")[0]);
+        if(end.include("pm"))
+            ehour += 12;            
+        emin = parseInt(end.split(":")[1]);
+        
+        from = new Date();
+        to = new Date();
+        from.setHours(shour,smin,0,0);
+        to.setHours(ehour,emin,0,0);
+/*        (from = new Date()).setHours(start.split(":",2)[0],start.split(":",2)[1])
+        (to = new Date()).setHours(end.split(":",2)[0],end.split(":",2)[1])
+        alert(from)*/
+        return new Period(from,to);
+        
+    }catch(e){}
+}
+Period.prototype = {
+    initialize : function(start,end) {       
+        start.setSeconds(0);
+        start.setMilliseconds(0);
+
+        end.setSeconds(0);
+        end.setMilliseconds(0);
+ 
+        
+        if (start.getTime() >= end.getTime()) {
+            throw ""
+        }           
+      
+        this.start = start;
+        this.end = end;
+
+    },    
+    join : function(c,hour24) {
+        start = this.format(this.start,hour24);
+        end = this.format(this.end,hour24);   
+        return start + c + end;
+    },
+    format : function(time,hour24) {           
+           med = "am";
+           hour = time.getHours();          
+           if (hour >= 12){                
+                hour = hour - 12  ;                 
+                med = "pm"; 
+           }
+           if (hour == 0)
+                 hour = 12;           
+           min = time.getMinutes();
+           if (min == 0)
+                min = "00";
+           if (hour24)
+               return time.getHours() + ":" + min;
+           else     
+               return hour + ":" + min + " " + med;
+    },    
+    conflicts : function(period) {
+         if ((this.start.getTime() <= period.end.getTime() && this.end.getTime() >= period.end.getTime()) ||
+             (period.start.getTime() <= this.end.getTime() &&  period.end.getTime() >= this.end.getTime())){
+                 
+                    return true;                                        
+            }        
+            else if ((period.start.getTime() >= this.start.getTime() && period.end.getTime() <= this.end.getTime())||
+                     (period.start.getTime() <= this.start.getTime() && period.end.getTime() >= this.end.getTime())) {
+     
+                    return true ;                   
+            }        
+            else 
+                    return false;                         
+    },
+    toString : function(){
+        return this.join("-",true);
+        
+    },    
+    eql : function(period) {
+        return period.join("-") == this.join("-");
+    
+    }
+}
+ScheduleDay.prototype = {
+    initialize : function(day,time) {
+       
+        this.day = day;
+        this.times = new Array();
+        this.addTime(time);      
+    },
+    getPeriods : function() {
+        return this.times.map(function(p){
+                return p.toString();       
+        })
+    
+    },
+    addTime : function(time) {
+        newPeriod = time
+        if (this.times.length == 0)
+            this.times.push(newPeriod);            
+         else {
+            this.times.each(function(period) {
+                 if (newPeriod.conflicts(period))
+                     throw "";                        
+            })
+        }
+        this.times.push(newPeriod);   
+        this.times = this.times.uniq();      
+        
+    }
+}
+TimeSaver.prototype = {        
+    dayKeyHash: null,
+    initialize : function(){
+
+         this.dayKeyHash = new Hash();
+         
+    },
+    removeTime : function(event,periodString) {       
+       
+        period = Period.parse(periodString);
+        this.dayKeyHash.each(function(pair){                
+                day = pair.value;   
+                tmpArray = [];            
+                day.times.each(function(p){                      
+                    if (!p.eql(period)) {
+                        tmpArray.push(p);                       
+                    }
+                });                                                  
+                if (tmpArray.size()==0) {
+                    try{
+                        this.dayKeyHash.remove(pair.key);
+                    }catch(e){}
+                }else {
+                    day.times = tmpArray;
+                }                        
+        }.bind(this));    
+        this.constructTable(this.dayKeyHash);
+        return false;
+    },
+    constructTable : function(dayKeyHash) {
+            this.dayKeyHash = dayKeyHash;           
+            this.timeKeyHash = new Hash();
+            inputs = "";
+            this.dayKeyHash.each(function(pair){
+                    day = pair.key; 
+                    timesForDay = pair.value;                    
+                    inputs += "<input type='hidden' name='day["+day+"]' value='";                  
+                    timesForDay.times.each(function(period){                                   
+                        if (period instanceof Period){
+                            pstr = period.join(" to ");
+                            if (this[pstr])
+                                this[pstr].push(day);
+                            else
+                                this[pstr] = [day];                   
+                            this[pstr] = this[pstr].uniq();
+                        }
+                        
+                    }.bind(this));
+                    inputs += timesForDay.getPeriods().join(",") + "' /> ";                
+             }.bind(this.timeKeyHash));
+             $('new-timetable').update("");
+             this.timeKeyHash.each(function(pair) {
+                    //key : period time
+                    //value : [day1,day2,...]
+                    
+                    div = $('new-timetable').append("div");
+                    div.update(pair.value.join(", ") + "&nbsp;&nbsp;&nbsp;" +  pair.key + "&nbsp;&nbsp;&nbsp;");
+                    alink = div.append("a");
+                    alink.href = '#';
+                    alink.update("remove");
+                    alink.onclick = function(){return false;}
+                    Event.observe(alink,'click',this.removeTime.bindAsEventListener(this,pair.key));                                 
+             }.bind(this));
+             if ($('new-timetable').innerHTML != "") {
+                 new Insertion.Bottom($('new-timetable'),inputs);
+                 new Insertion.Bottom($('new-timetable'),"<input type='submit' class='button-link' style='margin-top:10px' value='Register'>");
+             }
+    },
+    saveNewTimeTableFor : function(id) {
+         timeselects = new Array();
+         dayselects = new Array()  ;       
+         $$(".day").each(function(e){
+               if (e.checked){
+                   e.checked = false;
+                   dayselects.push(e.value);
+               }
+         });
+         if ($('start[time]').value.blank() || $('end[time]').value.blank()) {
+                Message.show({'message':'Please enter start and the finish time for the class.'},{hide:true});
+                return;
+         }      
+         start_hour = parseInt($('start[time]').value.split(":")[0]);
+         start_min = parseInt($('start[time]').value.split(":")[1]);     
+         end_hour =   parseInt($('end[time]').value.split(":")[0]);
+         end_min =   parseInt($('end[time]').value.split(":")[1]);
+                 
+         if (start_hour == 12 && $('ms').value == "am") {
+            start_hour = 0
+         }else if (start_hour < 12 && $('ms').value == "pm")
+               start_hour += 12;  
+        
+         if (end_hour == 12 && $('me').value == "am") {
+            end_hour = 0
+         }else if (end_hour < 12 && $('me').value == "pm")
+               end_hour += 12;                 
+               
+         start = new Date();
+         start.setHours(start_hour,start_min);
+         end = new Date();
+         end.setHours(end_hour,end_min);
+
+         try {
+             time = new Period(start,end) ;
+             dayselects.each(function(day){
+                     if (this.dayKeyHash.size == 0 || !this.dayKeyHash[day])
+                     {                    
+                          this.dayKeyHash[day] = new ScheduleDay(day,time); //raises and exception if the times in a day conflicts
+                     }
+                     else {
+                            this.dayKeyHash[day].addTime(time);            
+                     }
+                     
+             }.bind(this));            
+             this.constructTable(this.dayKeyHash);
+         }catch(e){   
+            Message.show({'message':'The time you selected is either invalid or conflics with other selected times.'},
+                            {hide : true});
+         }
+         return;          
+    },
+    validateTime : function(textField,meridiem) {
+        meridiem = $(meridiem);
+        time = textField.value;
+        time = time.gsub(/[^0-9]/,'');
+        
+        if (time.length == 0 ) {
+            textField.value = "";
+            return;
+        }
+        else if (time.length <= 2 ) {
+            time += "00";
+        }else if (time.length == 5) {           
+            time = time.sub(/\d$/,'');
+        }
+        min = parseInt(time.sub(/\d+?(\d{2}$)/,'#{1}'));
+        hour = parseInt(time.sub(/\d{2}$/,''));
+        if (min % 5 <= 2) {
+            min = min - (min % 5);
+        }else {
+            min = min + (5 - (min % 5));
+        }
+        if(min >= 60)
+            min = 0;
+        if (min < 10)
+            min = "0" + min;
+        
+        if (hour >= 24 || hour == 0) {
+            textField.value = "";
+            return;
+        }
+        else if (hour >= 12) {
+            hour = hour % 12;
+            if(hour == 0)
+                hour = 12;
+            meridiem.setOptionByValue('pm') ;   
+        }
+        textField.value = [hour,min].join(":");
+    }
+    
+}

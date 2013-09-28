@@ -1,0 +1,24 @@
+<%unless @students.empty?%>
+<div id='students-tab-view'>
+    <%= show_pagination 'students-tab-view',{:object=>@student_object_name,:action=>'students_in_tab',:full_view=>[{:action=>'students_in_full'},'View All ' + @student_object_name.pluralize.titlecase]},@student_display_paginator %>
+    <table>
+        <%@students.in_groups_of(4,nil) do |one_row|%>
+            <tr>
+                <%one_row.each do |student|%>                       
+                    <%next unless student%>
+                    <td class='small-link-div' style='padding-left:10px;vertical-align:top;text-align:center'>
+            			    <%=link_to image_tag(student.thumb_image) ,url_for_student(student)%> <br>			    
+            				
+            				<%= link_to_student student%>    
+        			</td>        
+                <% end %>
+            </tr>    
+        <%end%>      
+    </table>
+</div>
+<%else%>
+     <div  style='font-size:10pt'>
+        <%=render_p 'student/no_student_partial'%>
+    </div>
+
+<%end%>

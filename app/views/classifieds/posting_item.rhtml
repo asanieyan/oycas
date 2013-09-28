@@ -1,0 +1,180 @@
+<%=javascript_include_tag 'classifieds'%>
+
+<style>    
+        
+        .title {
+              margin-top: 10px;
+              margin-bottom: 10px; 
+              font-weight: bold;
+        }        
+        .desc {
+                font-size:8pt;color: #909090;
+                width:500px;
+                font-weight: bold;
+        }
+        div.section {
+               padding:10px;
+               padding-left:10px;
+               font-size:10pt;
+               
+        }
+        input, select  { font-size:10pt}
+
+        div.section-heading {
+              font-weight: bold;
+              font-size:12pt;
+              margin-left:30px;
+              padding-bottom:5px;
+        }        
+        .attribute-value {
+                margin-bottom: 10px;
+        }
+
+</style>
+<div class='title-box ' style='padding-bottom:2px;'>
+   
+     <%=image_tag '/images/classified.gif',:style=>'float:left;margin-right:8px;'%>
+     <div style='float:right'> <%=link_to "< Change category",:action=>"select_category_to_post",:category=>@category.name%></div>
+     <div>      
+        <span class='bold-link-div underline-link' style=''>Posting to <%=bread_crumb %> </span>      
+     </div>
+    
+</div>
+<%=form_tag "/classifieds/network/#{@network.name}/commit_posting_item" ,:id=>'myPostForm'%>
+
+<%=hidden_field_tag "category_id",@category.id%>
+<%=(hidden_field_tag "post_id",@post.id) if @post.id %>
+
+<div class='section-heading'>  Describe Your Post
+</div>
+<div class='status-box' style='margin-left:30px;margin-right:30px'>
+
+    <%if @category.node.root.category.name == "Fiendship/Dating"%>
+        <div class=' dark-bold-gray status-box' style='font-size:10pt'>
+                This category is provided to help the students to form relatinship. 
+                Posting pornographic materials will result in your removal from the site.
+        </div>        
+    <%end%>
+    <div id='post-messags'>
+    
+    </div>
+    <div  id='post-title' class='title'> 
+        Title
+    </div>      
+    <div  class='attribute-value'>      
+         <%=text_field_tag "title" ,@post.title,:size=>60,:maxlength=>@post.size_of('title')%>
+    </div>                          
+
+     <% @category.generic_attributes.each do |attrb| %>
+            <% attrb_value = begin 
+                                flash[:saved_params]['attributes'][attrb.id.to_s]
+                             rescue
+                                if @post.id
+                                     @post.get_attribute_value attrb
+                                else
+                                    ""
+                                end
+                             end
+                              %>
+            <%= render :partial=>'attribute', :locals=>{'attrb'=>attrb,'attrb_value'=>attrb_value} %>
+     <%end %>
+     
+<%if false %>     
+    <% unless  @category.associable_to%> 
+    <div class='title'> Select your school 
+        <div class='desc'>
+            Only select your school if this posting is specific to your school and it is no use for other schools in the region. 
+            Selecting a school will not prevent others from different schools to view this post.
+        </div>
+    </div>   
+
+    <div class='attribute-value'>
+        <% select_values = options_for_select( [["-",0]] + (@my_schools.map{|school| [ school.name ,school.id] }),@post.school_id) %>
+        <%= select_tag "school_id", select_values%>
+
+    </div>
+    <% else %>
+    <% target_name = pluralize(@max_course_select,@category.associable_to.to_s)%>      
+    <div class='title' id='subjectsAndCourses' > 
+         Select a <%=@category.associable_to%>
+        <div class='desc'>
+            For <%=@category.name%> type of posting you can also select up to  <%=target_name%> that are specific to your post.
+            Again, doing so will not prevent other from seeing your post, however it will enable students to find your post much for easier            
+        </div> 
+    </div>
+    <div  class='attribute-value' style='/*border:1px solid green*/'>            
+         <span id='courses'> 
+                <%= (@post.associated_names || "").split(",").map { |name| 
+                       if @post.associable_to == :subject
+                            code,name = name.split(";;;") 
+                            name =  "<strong>#{code}</strong>(#{name})"
+                       end 
+                       name
+                   }.join(", ")    
+                %>                
+                <%= hidden_field_tag "school_id" , @post.school_id%>
+                <%= hidden_field_tag "ids", @post.associated_ids %>
+         </span>
+         <%= link_to (@post.associable_to ? "edit" : "click here to add a #{@category.associable_to.to_s}"),"#", 
+                                                    :id=>'course-edit-link',
+                                                    :onclick=>popup({:height=>"500", :title=>"Add a #{@category.associable_to.to_s}" , :action=>'select_cands',
+                                                    :select=>@category.associable_to.to_s,:school_ids=>@my_schools.map{|s| s.id}.join(",") } )%>    
+        
+    </div>
+    <%end%>        
+<%end%>
+    <div  id='post-description' class='title'> 
+        Description
+    </div>      
+    <%=wysi_area 'message',@post.description,"760x600" %>  
+     
+</div>
+<div class='section-heading'>  Add Pictures To your Post      
+</div>
+<div class='status-box' style='margin-left:30px;margin-right:30px'>
+    <br>
+    <div > 
+          <%=link_to_popup 'Add pictures to your post' ,{:action=>'attach_images_to_post',:post_id=>@post.id},:pop_options=>{:title=>"Add Picture To Post"}   %> <br>
+          <span class='desc'> (To remove images drag the picture and drop it on the bin) </span> 
+            
+    </div>   
+    <a name='i'> </a> 
+    <table  syle='margin-top:5px;'>
+            <tr>
+                <td id='image-place' style='width:600px;vertical-align:middle;height:100px;background-color: white;border: 1px solid #C0C0C0'> 
+                            &nbsp;
+                </td>                     
+                <td id='wasetbin' style='width:100px;'> 
+                    <img id=''  src='/images/trash.gif' width=25> 
+                        
+                </td>
+            
+            </tr>
+            
+            
+     </table>
+</div>   
+
+    <div style='text-align:right;margin-right:30px'>         
+         <%unless @post.id%>             
+            <%=link_to 'Cancel',"/classifieds/network/#{@network.name}/browse"%>                 
+            <input type='submit' id='submit-button' value='Post This Item' class='button-link' onclick=''>
+         <%else%>
+             <%=link_to 'Cancel',"/classifieds/#{@network.name}/#{@category.name}/postings"%>                 
+            <input type='submit' id='submit-button' value='Save Changes' class='button-link' onclick=''>     
+         <%end%>
+    </div>
+</form>
+<%if @post.id 
+        post_image_ids = @post.images.map{|i| i.id}.join(",")
+%>
+    <script>
+        Classified.getPostPictures('<%=post_image_ids%>','<%=@post.id%>')
+    </script>
+
+<%end%>
+<%if flash[:attached_images_to_post_in_flash]%>
+    <script>
+        Classified.getPostPictures('<%=flash[:attached_images_to_post_in_flash].keys.join(",")%>')
+    </script>
+<%end%>

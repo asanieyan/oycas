@@ -1,0 +1,39 @@
+<div class='status-box' style=''>
+    <%=form_tag()%>
+       <table style='font-size:10pt;width:420px'> 
+            <%unless @post.poster.can_send_message_to? @me %>
+            <tr>
+                <td colspan=2>
+                    <div class='server-alert-message' style='font-weight:normal;text-align:justify'>
+                        Because of your profile privacy settings <%=@post.poster.full_name%> can't send you a message.
+                        That's why your contact email will be disclosed in your message so  <%=@post.poster.f_name%> can contact your.
+                        If you don't want your email to show, you must enable sending message option in your mini-profile.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class='bold-gray'> From: </td> 
+                <td>
+                    <%=select_tag "email",options_for_select(@my.emails.confirmed.map{|e| [e.address,e.id]})%>                
+                </td>
+            </tr>
+            <%end%>
+            <tr> 
+               <td class='bold-gray'> To:  </td>
+                <td> <%=@post.poster.full_name%></td>
+            </tr>
+            
+            <tr> 
+               <td class='bold-gray'>  Subject:   </td>
+                <td> <%=text_field_tag "subject",@post.category.name,:size=>50%></td>
+            </tr>
+        </table>
+        <br>
+        <%=text_area_tag "reply_message","",:size=>"50x10" %>
+   
+    <div style='margin-top:20px;text-align:right;'>
+        <%=link_to_function "Cancel","Pop.close()"%>
+        <%=submit_tag "Reply"%>
+    </div>
+</form>    
+</div>

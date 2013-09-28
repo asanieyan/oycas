@@ -1,0 +1,100 @@
+<div class='status-box' id='' style='overflow:auto;margin-left:10px;margin-right:10px;margin-top:20px;'>
+<div class='bold-link-div' style='border-bottom:1px solid #C3D9FF;background-color:white;padding:15px;'>
+<%if @teacher.new_record? %>
+     <span class='title-div'> Add New Instructor to Class </span>
+    
+    <p> The first name and last name are optional, but make sure you enter the instructor school email.</p>
+<%else%>
+    <span class='title-div'> Edit Class Instructor </span>
+    
+<%end%>
+</div>
+
+<%= form_tag({:action=>'add_new',:teacher_id=>@teacher.id},{:method=>:post})%>
+   <div id='msg2' style='margin-top:10px'>
+    
+    </div>
+     <%if @suggestive_teachers and not @suggestive_teachers.empty?%>
+        <div class='server-alert-message'>
+            We found instructors with similar emails
+        </div>
+        <div class='status-box' style='' >            
+            <table class='top-v-align' >
+            <%@suggestive_teachers.in_groups_of(6,false) do |teachers|%>
+             <tr>
+                <%teachers.each do |s_teach|%>                
+                        <td> <%=image_tag s_teach.profile_img,:style=>"width:40px"%></td>
+                        <td>                             
+                            <%=link_to s_teach.email,{:teacher_id=>s_teach.id}%><br>
+                            <%=s_teach.first_name%>  <%=s_teach.last_name%>
+                        </td>                 
+                <%end%>                
+            </tr>
+            <%end%>
+            </table>
+        </div>
+    <%end%>
+    <table class='stn-div' id='centered' style='width:60%;background-color:white'>
+      <tr>
+
+        <td style='width:90%'> 
+            <table cellspacing=0 cellpadding=0 style='margin:20px'>
+                <tr>
+                    <td class='bold-gray' >
+                         Email:                <%if @teacher.new_record?%>   <span style='color:red'>*</span> <%end%>
+                    </td>
+                    <td >
+                           <%if !@teacher.new_record?%>
+                               <%=@teacher.email%>                        
+                           <%else%>
+                               <%=text_field_tag "email",@teacher.email,:maxlength=>Instructor.size_of('email_address')%>
+                           <%end%>
+                    </td>            
+                </tr>     
+                <tr>
+                    <td  style='width:80px' class='bold-gray'>
+                            First name:
+                    </td>
+                    <td>
+                            <%=text_field_tag "first_name",@teacher.first_name,:maxlength=>Instructor.size_of('first_name')%>
+                    </td>            
+                </tr>
+                <tr>
+                    <td class='bold-gray' >
+                           Last name:                           
+                    </td>
+                    <td>
+                           <%=text_field_tag "last_name",@teacher.last_name,:maxlength=>Instructor.size_of('first_name')%>        
+                    </td>            
+                </tr>        
+               
+                <tr>
+                    <td colspan=2 style='text-align:right'>
+                    <br>            <br>            <br>
+                     <%=link_to 'Cancel',url_for_klass(@klass)%>&nbsp;&nbsp;
+                        <%=submit_tag (!@teacher.new_record? ? "Save Changes" : "Add Instructor") %>
+                    </td>
+                </tr>
+             </table>
+           </td>
+            <td class='bold-link-div' style='padding-right:20px;' >
+                <%
+                    #only show the picture link if 
+                    #teacher has not profile image 
+                %>
+                <%if !@teacher.has_profile_image? %>
+                    <%=link_to_popup 'Picture',{:controller=>"instructor",	:action=>'image_input',:school_id=>@school.id},:pop_options=>{:title=>'Adding Instructor Image'}%>
+                <%end%>
+                <%
+                    url = if flash[:image]
+                            url_for({:action=>'flash_image',:format=>""})
+                          else
+                            @teacher.profile_img
+                          end  
+                %>                            
+                <%=image_tag url,:style=>'padding:10px;border:1px solid #C0C0C0',:id=>'teacher_image'%>
+            </td>           
+        </tr>
+    </table>
+</form>
+</div>

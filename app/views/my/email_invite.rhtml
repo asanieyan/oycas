@@ -1,0 +1,19 @@
+<div style='padding:10px;'>
+    <div class='title-div' style='color:#3E5594;border-bottom:1px solid #C0C0C0'>
+        
+		Invite from email
+    </div>
+	<%=form_tag({},{:multipart => true })%>
+    <br>
+	<div id='imessage'></div>
+    <div class='dark-bold-gray' style='font-size:10pt'>
+        <p>In order to invite your friends and classmates to oycas from your email enter your friends email addresses 
+			in the provided box below. You can also upload a text file containing these email addresses.<span class='normal-gray'> (make sure the emails are seperated)</span>
+        </p>      
+		 <%=file_field_tag "file"%><br>
+		 <%=text_area_tag "addrs","",:size=>"40x5"%><br><br>
+    </div>
+	<%=submit_tag "Invite"%>		 
+	</form>
+
+</div>

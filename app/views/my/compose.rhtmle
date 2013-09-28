@@ -1,0 +1,85 @@
+<div class='centered' style='margin:10px;'>
+<%=javascript_include_tag "mailbox"%>
+<div id='compose_err_msg'></div>
+<%=dashboard do |links| 
+	if (params[:id] == params[:m]) != nil and @replied_msg 
+		links << link_to('Back to Message',{:action=>'messages',:id=>@replied_msg.id,:folder=>@replied_msg.folder})
+	else
+		links << link_to('Back to Messages',url_for_back !~ /messages/ || url_for_back =~ /messages\/\d+/ || url_for_back =~/compose/ ? 
+                                    "/my/messages" : url_for_back("/my/messages"))
+	end
+  end
+%>
+
+  <div class='status-box' style='background-color:white'>
+      <table class='top-v-align'>  
+        <tr>
+            <td style='padding-right:30px'>                           
+                <table class='top-v-align'>
+                <tr>
+                    <td>       
+                    <%=search_box 'search_friend',nil,:banner=>'search for friend',:onkeypress=>'if(event.keyCode == Event.KEY_RETURN) {MailBox.moveFriendFromSelect()}',:onkeyup=>"$('left').searchByElimination(this)",:size=>30%>
+                    <%=hr%>   
+                    <select id='left' style='width:195px' multiple='multiple' size=7 onkeypress='if(event.keyCode == Event.KEY_RETURN) {MailBox.moveFriendFromSelect()}'>
+                            <%@my.friends.active.map do |s|%>
+                                <option object='<%={:id=>s.id,:fullName=>s.full_name}.to_json%>'id='<%=s.id%>' value='<%=s.id%>'><%=s.full_name%></option>                                
+                            <%end%>
+                    </select>                    
+                    
+                        
+                    </td>     
+                    <td style=''>
+
+
+                        <%= button_to_function(">>","MailBox.moveFriendFromSelect()",{:class=>'button-link',:style=>'padding:0'}) %>
+                        
+                    </td>
+                 </tr>
+                </table>
+            </td>
+            <td>
+                <%=form_tag({:action=>'create_message'},{:method=>:post,:onsubmit=><<-"eof"
+                                                                            if(!MailBox.anyRecipientSelected()) {
+                                                                                Message.show({no_recipient:'You must specifiy at least one recipient for this message.'},{hide:true})
+                                                                                return false
+                                                                            }
+                                                                            
+                                                                        eof
+                                                                        })%>                
+                <div id='no_recipient'></div>
+                <table cellspacing=0 cellpadding=0 id=''> 
+                    <tr>
+                         <td id='to-title'> To: &nbsp; </td>
+                         <td id='to' style='width:500px'>                            
+                            <%=link_to 'a',nil,:style=>'visibility:hidden'%>
+                        </td>
+                        
+                    </tr>                       
+                    
+                </table>
+               
+                <%=javascript_tag "MailBox.addName(" + @recipients.map{|s| {:id=>s.id,:fullName=>s.full_name} }.to_json + ")"%>
+                <%=hr%>
+                <br>                
+                <div id='message_subject'> Subject: </div>
+                <%=text_field_tag 'subject',@message.subject,:size=>60,:maxlenght=>IntranetMessage.size_of('subject') %>
+            
+                    <br><br>   
+               
+                <div id='message_body'> Message: </div>  
+                    <%=text_area_tag "message",@message.body,:rich=>true,:size=>'430x300'%>             
+
+                <div style='text-align:right'>
+                  <br>
+                 <%= submit_tag "Send Message"  %>    
+               </div>
+            </form>
+         </td>
+       </tr>
+     </table>
+ </div>
+</div>
+
+
+
+

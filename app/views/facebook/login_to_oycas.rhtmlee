@@ -1,0 +1,32 @@
+<%=stylesheet_link_tag "facebooklayout.css"%>
+<fb:header decoration="add_border">Welcome to Oycas-Mini</fb:header>
+<%if @login_failed%>
+    <fb:error> 
+       <fb:message>  The username or password your provided are not valid. Please enter them again.
+        If you don't have an oycas account yet get one at <%=link_to "oycas.com","http://www.oycas.com",:target=>"_blank"%>   
+       </fb:message>        
+    </fb:error>             
+<%else%>
+    <fb:explanation>
+       <fb:message>
+            <div class='dark-bold-gray blue-link-div bold-link-div' style=';font-size:10pt'>
+                Please enter your oycas username and password. 
+                you only need to this once so we can register your facebook account with your oycas account.
+                If you don't have an oycas account yet get one at <%=link_to "oycas.com","http://www.oycas.com/access/register",:target=>"_blank"%>   
+                <span class='normal-gray'>(It is against the policy of both facebook and oycas.com to store facebook information on oycas.com)</span>
+            </div>
+       </fb:message>
+        
+    </fb:explanation>
+<%end%>
+
+<fb:editor action="login" labelwidth="100">
+  <fb:editor-text label="Oycas Username" name="username" value=""/>
+  <fb:editor-custom label="Oycas Password"  value="" >
+        <%=password_field_tag "password",""%>
+  </fb:editor-custom>
+  <fb:editor-buttonset>
+    <fb:editor-button value="Login to oycas"/>
+    <fb:editor-cancel />
+  </fb:editor-buttonset>
+</fb:editor>    

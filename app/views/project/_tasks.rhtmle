@@ -1,0 +1,50 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+
+<div class="projectGeneral">
+<% if tasklist != nil then %>
+<% if tasklist.length > 0 %>
+
+Tasks:
+<%= link_to '[ assign_new_task ]', :action=>'assign_new_task' %>
+<br><br>
+
+<% tasklist.each do |task| %>
+
+<div style="background-color:dddddd;padding:5px;border: 1px solid black;">
+Title:&nbsp;<%= task.title %>&nbsp;&nbsp;
+&nbsp;<%= link_to '[ remove task ]', {:action=>'remove_task', :task_id=>task.id}, :confirm => "Are you sure you want to remove this task?" %>
+<br><br>
+Start Date:&nbsp;<%= format_datetime(task.start_date) %><br>
+Completion Date:&nbsp;<%= format_datetime(task.completion_date) %>
+<br><br>
+Task Assigner:&nbsp;<%= get_name_by_guid(task.task_assigner) %><br>
+Created on:&nbsp;<%= format_datetime(task.created_on) %><br>
+<br>
+Assignees:<br>
+    <% task.assignees.each do |assignee| %>
+        <%= get_name_by_guid(assignee.guid) %><br>
+    <% end %>
+</div><br>
+<% end %>
+
+
+<% else %>
+There are no assigned tasks.<br><br>
+
+Click <%= link_to 'here', :action=>'assign_new_task' %> to assign a new task.
+
+
+<% end %>
+<% end %>
+</div>

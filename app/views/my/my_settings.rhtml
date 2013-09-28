@@ -1,0 +1,85 @@
+
+<style>
+        
+        .desc { 
+             width: 40%;           
+        
+        }
+        .data {
+            width: 50%;
+            /*padding-left:10%;            */
+          
+        }
+        .title { 
+            font-weight : bold;  
+            border-bottom: 1px #C0C0C0 solid;         
+            margin-bottom: 10px;
+            text-align:left !important;
+        }
+        
+        .section { 
+           
+            
+            margin-top:10px;
+           /*border: 1px solid black;*/
+           
+            
+        }   
+        .label {
+            font-weight: bold;
+            color:#909090;
+            text-align:right;
+            width:100px;
+            padding-right:20px;
+            
+        }
+        .notice {
+/*            margin-left: 30px;*/
+            margin: 0 auto;
+            margin-bottom:10px;
+            padding:15px;
+            padding-bottom:5px;
+            background-color: #FAFAFA;
+            width: 90%;
+            border: 1px solid #C0C0C0;
+            
+        
+        }
+        input#email-text {
+            color: gray;
+            
+        } 
+        select { 
+            font-size:9pt;
+        }        
+        td { 
+            vertical-align:top;
+        }
+        .notice_school {
+/*            margin-left: 30px;*/
+            margin: 0 auto;
+            padding-bottom:5px;
+
+        
+        }
+        #settingsTabs {
+            background-color:white;
+        }
+        .school,.notice_school {
+/*            margin-left: 30px;*/           
+            margin-bottom:10px;
+            padding:15px;            
+            background-color: #FAFAFA;                        
+            border: 1px solid #C0C0C0;
+                    
+        }        
+
+</style>
+
+<%=create_tabbed_page "My Account Settings" do |tab_set|
+	tab_set.add	"Account",{:t=>'account'},'my/settings/account'
+	tab_set.add "My Schools", {:t=>'myschools'},'my/settings/school_settings'
+	tab_set.add "Notifications",  {:t=>'notifications'},'my/settings/notifications'	
+   end
+%>
+

@@ -1,0 +1,53 @@
+<html>
+	<head> 
+		<title><%= @title %> </title>
+		<link href="/stylesheets/loginlayout.css" rel="Stylesheet" type="text/css" />
+        <%=oycas_include_tags%>
+        <%=javascript_include_tag "tooltip"%>          
+	</head>
+	<body style=''>	
+  		            
+            <%=generate_oycas_layout("/access") do  |context,constant|             
+                    constant << oycas_access_constant_menu                 
+               end    
+            %>  
+	        <style>
+	        	#content-panel{	        	 
+	        	  padding:20px;
+	        	  background-color:white !important;
+	        	  height:200px;	 
+	        	  border-top:1px solid #C0C0C0;       	  	        	  
+	        	}            
+    	    </style>                                           
+	</body>	
+
+</html>
+
+
+	<%if false%>
+	<body style='background-color:#EEEEEE'>
+
+            <div class='centered vendor-width' style=''>
+                            <div id='access-top-link' class='small-link-div' style='float:right;'>
+									<%=link_to 'login',"/access/login"%>
+                                    <%=link_to 'register',"/access/register"%>
+                                    <%=link_to 'tour',"/access/tour"%>
+                                    <%=link_to_help 'help','h0'%>
+                            </div>  
+                            <div class='' style='font-size:8pt;color:white;display:table;width:100px;padding:10 10 5 10'>                            
+                                <%=link_to image_tag('oycasbig.gif'),"/access"%>(beta)                                                          
+                            </div>    
+                        <div class='status-box' style='padding:0;margin:0;padding:0'>
+                             <div class='status-box' style='background-color:white !important;margin:10;padding:20px;'>    
+                                <%=yield%>                       
+                            </div>                    
+                        </div>                                  
+                            
+            </div>
+
+    <%=               
+        generate_msg            
+    %>    	
+	
+	</body>
+	<%end%>

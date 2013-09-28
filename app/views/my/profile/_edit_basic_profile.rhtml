@@ -1,0 +1,122 @@
+<div class='profile-box'  >
+<div class='status-box'>
+<%@profile = @me.profile %>
+    <div id='message'>  </div>
+    <form action='/my/edit_general_profile' method='post' >            
+        <style>
+            .thistable td {
+                    padding-bottom:10px;
+                    padding-left:10px;
+            }
+            .form1_q {
+                width:100px;
+                padding-left:0;
+
+            }
+            select {font-size:8pt;}
+        </style>
+       
+        <table class='thistable'>
+                <tr> 
+                        <td class='form1_q'> My Gender: </td>
+                        <td> 
+                            <%=select_tag 'my[gender]',options_for_select(Student.values_of('gender'),(@my.gender.to_sym rescue " ".to_sym))%>
+                        </td>
+                         <td> &nbsp;</td>       
+                </tr>                
+ 
+                <tr> 
+                       <td class='form1_q'> My Sexual Orientation: </td>
+                        <td>  <%= input 'my', 'sexual_orientation'  %></td>   
+                         <td> Visible to:  <%=select_visibility "my[sexual_orientation_visibility]",
+                         @my.sexual_orientation_visibility,:max=>@my.profile_visibility%> </td>                                                    
+                </tr>                
+
+                <tr> 
+                        <td class='form1_q'>My Relationship Status: </td>
+              
+                       
+                        <td> <%= input 'my', 'relationship_status'  %></td> 
+                        <%if @my.relationship_status_option %>
+                                <td> <p>                    
+                                In your <strong> <%=link_to_mini%> </strong> You have made your relationship status public.
+                                If you want to hide this, go to the profile privacy tab
+                                
+                                    </p>    
+                                </td>
+                          <%else%>   
+                         <td> Visible to:  <%=select_visibility "my[relationship_status_visibility]",
+                         @my.relationship_status_visibility,:max=>@my.profile_visibility%> </td>                                                            
+                        <%end%>                         
+                </tr>                
+        </table><table class='thistable'>
+                <tr> 
+                        <td  class='form1_q' style='vertical-align:top'> My Birthday:                              
+                        </td>
+                        <td>                                           
+                        <%=select_date(@my['birthdate'] ,:order=>[:month,:day,:year],:start_year => Date.today.year - 15, :end_year => Date.today.year - 50)
+                        %>
+                        <div>
+                        <%= select_tag "my[birthdate_show_format]", options_for_select([
+                                            ["Show my full birthdate", 'full'], 
+                                            ["Show only the month and day", 'partial']
+                                           
+                                            ],@my.birthdate_show_format.to_s),:style=>'margin-top:5px'  
+                        %>
+                        </dir>                   
+                        </td>
+                         <td style='vertical-align:top'> 
+                          <%if @my.birthdate_option %>
+                            <p>                    
+                                In your <strong> <%=link_to_mini%> </strong> You have made your birthdate public.
+                                If you want to hide this, go to the profile privacy tab
+                                
+                             </p>                                    
+                           <%else%>  
+                         Visible to:  <%=select_visibility "my[birthdate_visibility]",
+                         @my.birthdate_visibility,:max=>@my.profile_visibility%> 
+                         
+                         <%end%>
+                         </td>                               
+                                                
+                </tr>                
+       
+
+        </table>
+             <div style='text-align:right'><%=submit_tag %> </div>   
+                
+</form>
+   
+    <%= form_tag({:action=>'edit_profile_picture'},{:multipart=>true,
+            :onsubmit=>"if (!$('certify').checked){CAlert({message:'Please certify that this picture does not violate the Terms of Use. '});return false}"})%>   
+        <div class='title1'> My Profile Picture </div>
+
+        <p>You can upload a JPG, GIF or PNG file.</p>
+        <table style='width:90%'>
+                <tr> 
+                        <td class='form1_q'> 
+                            <%if @my.profile_image_set%>
+                            Your Current Picture <br>  <br>                                                                     
+                             <%= image_tag @me.get_image(:medium) ,:style=>'padding:5px;border:1px solid black'%>
+                            <%end%>
+                         </td>
+                        <td style='padding:15px;vertical-align:top'><br>
+                        <p>File size limit 4 MB. If your upload does not work, try a smaller picture.</p>
+                            <%= file_field_tag "picture_file" %>
+                        <p>
+                        <div style='float:left;margin-right:6px'><%=check_box_tag "certify","1" %></div>
+                        I certify that I have the right to distribute this picture and that it does not violate the Terms of Use.</p>                        
+<p>                        
+    <%=submit_tag "Upload",:id=>'uploadb'%></p>
+    
+                        <td>
+                </tr>                
+
+                     
+       
+
+        </table>             
+                
+</form>
+</div>
+</div>

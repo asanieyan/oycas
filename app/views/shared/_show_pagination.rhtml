@@ -1,0 +1,103 @@
+<%style =  !show_border ? "border:none" : ""%>
+
+<div id='<%=container%>-paginator' class='paginator ' style=';width:100%;<%=style%>'> 
+<style>
+	div.paginator table A {
+
+		font-size:8pt !important;
+	}
+</style>
+
+<% if paginator %>
+    <%if full_view 
+        if full_view.is_a? Array
+            full_view_link_name = full_view[1] 
+            full_view_link = url_for(full_view[0])
+        else
+            full_view_link_name = 'View All'
+            full_view_link = url_for(full_view)
+        end
+    %>
+      <div class='small-link-div' style='float:right'> <%=link_to full_view_link_name, full_view_link%> </div>
+    <%end%> 
+    <table class='' cellspacing=0 cellpadding=0>
+    <tr>
+    <%if paginator.current.previous %>
+     <td style='padding-right:3px;width:14px'>       
+            <%if method == :xml_http_request %>
+                     <%= link_to_remote "prev", 
+                        {:url=> (url.merge(name=>paginator.current.previous.number)),
+                        :update=>container},
+                        :style=>( paginator.current.previous ? "" : "display:none")                
+                    
+                    %> 
+            <%else%>
+                <%= link_to "prev",
+                            url.merge(name=>paginator.current.previous.number)
+                            
+        
+            %>
+            <%end%>                
+      </td>
+    <%end%>
+    <td>
+    <% pagination_links_each (paginator,{:window_size=>1,:always_show_anchors=>false,:link_to_current_page=>true}) do |page|%>
+        <% if paginator.page_count > 1%>
+            
+            <%css_class = page == paginator.current.number ?  "underline-link" : ""%> 
+             <span class='bold-link-div <%=css_class%> '>
+             <%if method == :xml_http_request %>
+                <%= link_to_remote (page), 
+                                :url=>(url.merge({name=>page})),
+                                :update=>container                
+                                %>        
+             <%else%>
+                <%= link_to page,(url.merge(name=>page))%>                   
+             <%end%>
+             </span>
+           
+        <%end %>
+    
+    <% end %>
+    </td>    
+    <%if paginator.current.next %>
+    <td style='padding-left:3px;width:14px'>
+            <%if method == :xml_http_request %>
+               <%= (link_to_remote "next", 
+                                {:url=> (url.merge(name=>paginator.current.next.number)),
+                                :update=>container},
+                                :style=>( paginator.current.next ? "" : "display:none"))
+                                
+                                
+                    %> 
+            <%else%>
+                <%= link_to "next",
+                            url.merge(name=>paginator.current.next.number)
+                            
+        
+            %>
+            <%end%>                
+    </td>
+     <%end%>
+    <td>
+    <%  text = if paginator.item_count == 1 
+                "Showing the only #{object}."
+               elsif paginator.page_count == 1  
+                "Showing all " + paginator.item_count.to_s + " #{object.pluralize}."
+               else
+                "Showing #{paginator.current.first_item}-#{paginator.current.last_item} out of #{paginator.item_count} #{object.pluralize}."
+               end 
+               
+       
+      
+    %>
+    <% paginator.current.first_item.to_s +  "-" + paginator.current.last_item.to_s%>
+    
+        <span id='pagination-line' style='color:#808080;font-weight:bold;font-size:8pt;padding-left:5px;'><%= text%> </span>
+    </td>        
+ </tr>
+ </table>
+ <%end %>
+
+</div>
+

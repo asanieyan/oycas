@@ -1,0 +1,58 @@
+<div id='error'>
+
+</div>
+
+<table>
+    <tr>
+    <td style='vertical-align:top'>
+        <% if @school_list != nil then %>
+            <form name="schoolsform" id="schoolsform" action="schools">            
+            List of Schools<br>
+            <select name="schid" id="schid" onclick="document.getElementById('schoolsform').submit();" size="10">
+                <% @school_list.each do |school| %>
+                    <option value="<%=school.guid%>"<%if params[:schid].to_s == school.guid.to_s then%>selected<%end%>><%= school.name %><br>
+                <% end %>
+            </select>
+            </form>
+        <% end %>
+    </td>
+     <td style='vertical-align:top'>
+
+<% if @selected_school != nil then %>
+    Name: <%= link_to @selected_school.name, url_for_school(@selected_school) %>&nbsp;<br>
+    Short Name: <%= @selected_school.short_name %><br>
+    City: <%= @selected_school.city %><br>
+    Web Site: <%= @selected_school.website %><br>
+    Email Domain: <%= @selected_school.email_domain %><br>  
+    School Area : <%=@selected_school.network.name.capitalize%><br>
+    Number of real accounts: <%=number_with_delimiter(@selected_school.students.real.size)%> <br>
+    Number of fake accounts: <%=number_with_delimiter(@selected_school.students.fake.size)%> <br>
+    Number of registering students : <%=link_to number_with_delimiter(@selected_school.registrations.size),:action=>"registrations"%> <br>
+    Active Since: <%=@selected_school.created_on.to_date%>
+    <hr>
+	<%=link_to_popup "Set important dates",:action=>"set_school_dates",:id=>@selected_school.id%><br>  	
+	School current time: <%=@selected_school.current_time%><br> 
+	School timezone: <%=@selected_school.tz.name%><br> 
+    Semester Seasons: <%=@selected_school.seasons.map{|s| s.name}.join(", ")%><br>
+    Current Semester: <%=@selected_school.current_semester.name%><br>    
+    <hr>
+
+    <%link_to_popup 'Edit school info',:id=>@selected_school.id,:action=>'edit_school_info'%><br><br>
+         
+    <br><br>
+    
+    <%if not @selected_school.active%>
+        <%=v_menus link_to("Activate School","/admin/school_op/#{@selected_school.id}?activate=true")%>
+    <%elsif @selected_school.students.size == 0 and @selected_school.registrations.size == 0 %>
+        <%=v_menus link_to("DeActivate School","/admin/school_op/#{@selected_school.id}?deactivate=true") %>        
+    <%end%>                            
+    <%=v_menus link_to("Delete School","/admin/school_op/#{@selected_school.id}?delete=true") if @selected_school.students.size == 0 and  @selected_school.registrations.size == 0  %>        
+
+
+<% end %>
+
+
+
+
+</td>
+</tr></table>

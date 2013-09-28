@@ -1,0 +1,106 @@
+<%
+    logout_time = @my.logout_time
+
+%>
+<style>
+
+    .highlight {
+        background-color:#EEEEEE;
+        
+     
+    }    
+    .highlight td,.dehighlight td {
+        padding:10px;
+    }
+    .dehighlight {
+    
+    }
+    
+</style>
+
+<table style='width:100%' class='top-v-align' id='yay' cellspacing=0 cellpadding=0>
+<%@my.schools.each do |school|%>
+    <%@my.klasses_at(school).each do |klass|%>                                                
+            <tr>
+              <td colspan=10 class='dark-bold-gray small-link-div normal-link-div' style='margin-bottom:5px;border-bottom:1px solid #C0C0C0'>
+                <div style='float:right'>
+                     <%=link_to_app "go to class","/class/#{klass.guid}/main"%>                   
+                </div>
+                <%=klass.name%> <span class='normal-gray'>(<%=klass.course.name%>)</span>
+              </td>                   
+            </tr>                       
+
+            <%klass.course.notes.since(logout_time).each do |note|%>
+             <tr class='<%=cycle("highlight","dehighlight")%>'>                                  
+               <%
+                 if note.owner.is? @me
+                    name = note.is_anonymous? ? "You anonymously" : "You"
+                 elsif note.is_anonymous?                  
+                     name = "Someone"
+                 else                                     
+                     name = link_to_app note.owner.full_name,url_for_student(note.owner) 
+                 end
+               %> 
+               <td style='width:1px;padding-right:10px;'>  
+                    <%=image_tag '/images/shared_notes_news_icon.gif'%>     
+               </td>
+               <td>
+                   <div class='normal-gray'><%=time_helper(@my.time(note.created_on),@my.tz)%></div>
+                   <div class='' style='padding-bottom:10px;'>                                                                            
+                            <div class='dark-gray'><span><%=name%> uploaded a <%=note.note_type%> </span>
+                            <br>Title: <%=note.title%></div>
+                             <%=link_to_app 'download note',"/course/#{klass.course.id}/download?note=#{note.guid}",:target=>'_self'%>                                                                
+                   </div>
+                   
+               </td>
+            </tr>
+            <%end%>  
+            <%klass.forum_topics_since(logout_time).each do |topic|%>
+             <tr class='<%=cycle("highlight","dehighlight")%>' >
+               <td style='width:1px;padding-right:10px;'>  
+                    <%=image_tag '/images/forums_news_icon.gif'%>     
+               </td>
+                <td>                           
+                     <div class='normal-gray'><%=time_helper(@my.time(topic.created_on),@my.tz)%></div>
+                     <div class='dark-gray' style='padding-bottom:10px;'>
+                            <%
+                                creator = @I.am?(topic.creator) ? "You" : link_to_app(topic.creator.full_name,url_for_student(topic.creator))
+                                
+                            %>
+                            <%= creator %> started a class discussion about <br><%=link_to_app(break_down(topic.topic,100),url_for_klass(klass,{:action=>'view_topic',:id=>topic.id}))%>                     
+                     </div>                    
+
+                </td>
+               </tr>           
+            <%end%> 
+            <%if klass.forum_topics_since(logout_time).empty? and klass.course.notes.since(logout_time).empty? %>
+             <tr>
+                <td colspan=10>
+                     <fb:explanation>                                
+                            <fb:message>
+                                <div class='normal-gray'>
+                                    Nothing has happened in this class.
+                                </div>        
+                            </fb:message>                                                               
+                       </fb:explanation>
+                 </td>
+              </tr>
+             <%end%>
+             <tr><td colspan=10 style='padding-top:15px'> </td></tr>                                        
+    <%end%>
+   <%if @my.klasses_at(school).empty?%>                                                
+            <tr>
+              <td colspan=10 >
+                      <fb:explanation>                                
+                            <fb:message>
+                                <div class='blue-link-div dark-gray small-link-div normal-link-div'>
+                                    You are not taking any classes at <%=link_to_app school.name,"/school/#{school.guid}/#{school.short_name}/main"%> for the <%=school.current_semester.name%>.
+                                    <span class='blue-link-div'> <%=link_to_app 'register now!',"/school/#{school.guid}/#{school.short_name}/course_catalouge"%></span>
+                                </div>                                
+                            </fb:message>                                                               
+                       </fb:explanation>               
+              </td>                   
+            </tr>  
+     <%end%>           
+<%end%>   
+</table>

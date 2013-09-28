@@ -1,0 +1,36 @@
+<style>
+    .hello td {
+        vertical-align:top;
+        border:1px solid black;
+       
+    }
+</style>
+<div style='padding:20px'>
+
+<%=form_tag({},{:method=>:get,:id=>'school-form'}) %>
+<%=select_tag "school_id",options_for_select(School.find(:all).map{|s| [s.name,s.id.to_s]},params[:school_id]),:onchange=>"$('school-form').submit()"%>
+</form>
+<%=show_pagination :object=>'dummy student'%> 
+<table class='top-v-align'><tr>
+<%@dummies.in_groups_of(10,false).each do |dummies|%>
+   <td>
+      <table cellpadding=2 class='hello'>
+          <tr>
+           <th> </th>
+           <th> name </th>      
+           <th> # logins </th>
+           <th> status </th>           
+          </tr>           
+          <%dummies.each do  |dummy_student|%> 
+           <tr> 
+                <td  class="bold-link-div">  </td>
+                <td style='width:150px'> <%=link_to dummy_student.full_name,{:action=>'login_dummy_student',:id=>dummy_student.id},{:post=>true}%>(<%=dummy_student.username%>) </td>
+                <td> <%=dummy_student.login_times%></td>
+                <td style='width:60px'> <%=dummy_student.account_status%></td>                
+           </tr>
+           <%end%>
+      </table>
+   </td>
+<%end%>
+</table></tr>
+</div>

@@ -1,0 +1,16 @@
+<%note_url = if @context.is_a? Klass
+               url_for_klass @context,:action=>'show_notes'
+            elsif @context.is_a? Course
+               
+            end  %>
+<%if @note.is_anonymous?%>
+
+    A note created anonymously about <br><%=link_to break_down(@note.title,50),note_url%> 
+
+<%else%>
+
+    <%=link_to_student @me%> created a new note.<br>
+    <span class='bold-link-div'><%=link_to break_down(@note.title,50),note_url%> </span>
+
+
+<%end%>

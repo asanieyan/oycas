@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>real_connect (Contacts::Yahoo)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/contacts/yahoo.rb, line 10</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">real_connect</span>
+      <span class="ruby-identifier">postdata</span> =  <span class="ruby-value str">&quot;.tries=2&amp;.src=ym&amp;.md5=&amp;.hash=&amp;.js=&amp;.last=&amp;promo=&amp;.intl=us&amp;.bypass=&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;&amp;.partner=&amp;.u=4eo6isd23l8r3&amp;.v=0&amp;.challenge=gsMsEcoZP7km3N3NeI4mX&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;kGB7zMV&amp;.yplus=&amp;.emailCode=&amp;pkg=&amp;stepid=&amp;.ev=&amp;hasMsgr=1&amp;.chkP=Y&amp;.&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;done=#{CGI.escape(URL)}&amp;login=#{CGI.escape(login)}&amp;passwd=#{CGI.escape(password)}&quot;</span>
+      
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span> = <span class="ruby-identifier">post</span>(<span class="ruby-constant">LOGIN_URL</span>, <span class="ruby-identifier">postdata</span>)
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;Invalid ID or password&quot;</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AuthenticationError</span>, <span class="ruby-value str">&quot;Username and password do not match&quot;</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;Sign in&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;to Yahoo!&quot;</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AuthenticationError</span>, <span class="ruby-value str">&quot;Required field must not be blank&quot;</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">cookies</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">forward</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-constant">LOGIN_URL</span>)
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">code_type</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPOK</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-ivar">@cookies</span> = <span class="ruby-identifier">cookies</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

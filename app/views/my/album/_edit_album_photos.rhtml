@@ -1,0 +1,109 @@
+<div style='height:100%;background-color:white;padding:5px;display:table;width:100%'>
+    <%unless params[:set_cover]%>
+           <div id='uploadbutton' class='bold-link-div' style='display:table;margin-top:10px;margin-bottom:10px'><%=  link_to_popup image_tag('/images/uploadphoto.gif',:style=>'float:left') + "<div style='position:relative;top:3px'>Upload New Photos</div>" ,{:action=>'add_more_files_to_album',:a=>@album.guid},
+                                                :ajax=>{:with=>"'java=' + navigator.javaEnabled()"},
+                                                :pop_options=>{:fixed=>true,:title=>"Adding Photos to Album"}%>
+           </div>
+<% if false %>           <%roundedDIV '#uploadbutton',"#FFFFFF","#606060"%><% end %>
+    <%end%>
+    <% if @photos.empty? %>
+       <div class='title-div status-box normal-gray' style='margin:20px'>
+           No photos in the album.
+       </div>
+    <% else %>            
+        <%= show_pagination :object=>"photo",:a=>@album.guid%>           
+        <%=form_tag({:action=>'edit_photo_settings',:a=>@album.guid},{:method=>:post,:id=>'albumForm'}) %>       
+
+            <%unless params[:set_cover]%>
+                <%=select_tag "selectAction",options_for_select(["Select Photos","All","None"]),:onchange=>"Album.selectPhoto(this)"%>
+                <span id='photoActionLinks' class='small-link-div' style='padding-left:10px'>
+                    <%=link_to 'Delete',"#",:confirm=>["","Are you sure you want to delete the selected pictures?",
+                        {:onconfirm=>'Album.deletePhotos();'}]%> 
+
+                  <% other_albums = @my.albums.inject([]) do |arr,a| 
+                        if  a.guid != @album.guid
+                                arr << [truncate(a.name,40),a.guid]
+                        end
+                        arr                    
+                      end
+                     if !other_albums.empty?%>
+                         | 
+                        <%=link_to 'Move to album',"",:confirm=>['','Are you sure you want to move the selected pictures to the new album?',
+                            {:onconfirm=>'Album.movePhotos();'}]%> 
+                        <%= select_tag 'new_album', 
+                            options_for_select(other_albums)%>
+                     <%end%>
+                                  
+                </span>
+                <%=javascript_tag "Album.disableActions()"%>
+                <%=hidden_field_tag "photo_action",""%>
+                
+            <%end%>                           
+           
+            <br>
+            <div class='status-box'>
+            <table class=' top-v-align'  style='width:100%' cellpadding=0 cellspacing=0 >
+            <%@photos.in_groups_of(2,false) do |row|%>
+                <tr>        
+                    <%row.each do |photo|%>                                   
+                                
+                                <td style='text-align:left;width:120px' >                                               
+                                  <div id='<%=photo.guid%>' class='image-border3' style='margin:5px'>
+                                        <%= link_to image_tag(@album.get_small_photo(photo)), {:action=>'view_album',:a=>@album.guid,:p=>photo.guid}  %>
+                                  </div>                            
+                                </td>
+                                <td style='' >                                   
+                                  <table cellpadding=0 cellspacing=0 style='margin:5px;margin-left:0;margin-right:0'>
+                                    <tr>
+                                    
+                                        <td  style=''>
+                                        <%unless params[:set_cover]%>
+                                              <div><input type='checkbox' name="pictures[]" value="<%=photo.id%>" onclick="Album.showOptions()"> Select this picture. </div>
+                                              <div>&nbsp;&nbsp;<%=link_to 'Delete this picture',{:photo_action=>'Delete',:action=>'edit_photo_settings',:a=>@album.guid,'pictures[]'=>photo.id},                                                       
+                                                        :confirm=>["Delete Photo","Are you sure you want to delete this photo", {:onclose=>"Album.dehighlighThumb('#{photo.guid}')",:onpop=>"Album.highlightThumb('#{photo.guid}')"}]%>
+                                                        
+                                               </div>
+                                        <%else%>
+                                             <div><input type='radio' name="album_cover" value="<%=photo.guid%>" /> Set as album cover. </div>
+                                        <%end%>                                                   
+                                        <%unless params[:set_cover]%>
+                                              <div style='padding-left:5px'>
+                                              <% if photo.caption and photo.caption.size > 1 %>                         
+                                                  <div class='small-photo-caption' id='b<%=photo.guid%>' style=''> <%= break_down(truncate(photo.caption),10)%></div>
+                                              <% else %>
+                                                  <div class='small-photo-caption'id='b<%=photo.guid%>' style=';background-color:white'> <span style='color:#A0A0A0'> Click here to set caption </span> </div>                                            
+                                              <%end%>
+                                              <%=  update_page_tag {|page| 
+                                                        base_url = {:action=>'do_photo_caption',:a=>@album.guid,:escape=>false,:photo=>photo.guid}
+                                                        url = url_for(base_url.update(:do=>:save_caption,:truncate=>true))
+                                                                                                                
+                                                        options = {:submitOnBlur=>true, :cols=>19,:rows=>8,
+                                                        :loadTextURL=>("'" + url_for(base_url.update(:do=>:get_caption)) + "'")}
+                                                        java_options = options_for_javascript(options)
+                                                        page << <<-"end_script"                                                                         
+                                                                        var pic#{photo.id} = new Ajax.InPlaceEditor('b#{photo.guid}','#{url}',#{java_options})
+                                                                end_script
+                                                        
+                                                       }         
+                                              
+                                              %> 
+                                            </div>
+                                           <%end%> 
+                                       </td>
+                                    </tr>
+                                 </table>
+                                </td>               
+                    <% end %>     
+                </tr>
+              <%end%>
+             </table >
+             </div>
+             <%if params[:set_cover]%>
+                 <div style='text-align:right'>
+                    <%=submit_tag 'Set  Album Cover'%>
+                 </div>
+             <%end%>
+        </form>
+
+    <%end%>
+</div>

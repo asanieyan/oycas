@@ -1,0 +1,3185 @@
+﻿REMARK-->SIMPLE.
+REMARK-->COMPLICATED.
+REMARK-->COMPLICATED.
+REMARK-->QUESTION?
+REMARK-->SIMPLE.
+REMARK-->COMPLICATED.
+REMARK-->COMPLICATED.
+REMARK-->QUESTION?
+REMARK-->OPENING QUESTION?
+REMARK-->STATEMENTOPENING SIMPLE.
+REMARK-->SIMPLE.
+REMARK-->COMPLICATED.
+REMARK-->COMPLICATED.
+REMARK-->QUESTION?
+REMARK-->OPENING QUESTION?
+REMARK-->STATEMENTOPENING SIMPLE.
+REMARK-->SIMPLE.
+REMARK-->COMPLICATED.
+REMARK-->COMPLICATED.
+REMARK-->QUESTION?
+REMARK-->BADJOKE?
+REMARK-->COMPQUESTION?
+
+STATUS-->a little bit FEELING
+STATUS-->feeling FEELING
+STATUS-->rather FEELING
+STATUS-->like, totally FEELING
+STATUS-->a EITHERDUDE
+STATUS-->ADVERB ADJ
+STATUS-->wanting to COITUS
+STATUS-->ACTIONING a NOUN
+
+
+OPENING-->EXCLAMATION,
+OPENING-->HERNAME,
+OPENING-->EXCLAMATION, HERNAME,
+OPENING-->don't take this the wrong way, but
+OPENING-->I know you get this a lot, but
+OPENING-->forgive me if this is the booze talking, but
+OPENING-->call me a DIRTYNOUN, but
+OPENING-->don't be a DIRTYNOUN, HERNAME, 
+OPENING-->for what it's worth, 
+OPENING-->I know you don't know me, but 
+
+STATEMENTOPENING-->EXCLAMATION,
+STATEMENTOPENING-->HERNAME,
+STATEMENTOPENING-->EXCLAMATION, HERNAME,
+STATEMENTOPENING-->don't take this the wrong way, but
+STATEMENTOPENING-->I know you get this a lot, but
+STATEMENTOPENING-->forgive me if this is the booze talking, but,
+STATEMENTOPENING-->call me a DIRTYNOUN, but
+STATEMENTOPENING-->EXCLAMATION,
+STATEMENTOPENING-->HERNAME,
+STATEMENTOPENING-->EXCLAMATION, HERNAME,
+STATEMENTOPENING-->don't take this the wrong way, but
+STATEMENTOPENING-->I know you get this a lot, but
+STATEMENTOPENING-->forgive me if this is the booze talking, but,
+STATEMENTOPENING-->call me a DIRTYNOUN, but
+STATEMENTOPENING-->don't be a DIRTYNOUN, HERNAME, 
+STATEMENTOPENING-->realize this , HERNAME, 
+STATEMENTOPENING-->Pardon me . 
+STATEMENTOPENING-->Here's my business card. It says 
+
+
+SIMPLE-->there must be more to you than your BODYPART
+SIMPLE-->there's so much more to me than MYBODYPART
+SIMPLE-->my MALEBODYPART is approaching ACTIONING velocity
+SIMPLE-->you turn MYBODYPART into a NICENOUN
+SIMPLE-->is your HOMENOUN a DUDE cuz u ADJ
+SIMPLE-->get out of that DUDE and into MYANYTHING
+SIMPLE-->my BODYPARTS are MALADY weapons
+SIMPLE-->DUDE is my middle name
+SIMPLE-->I'm a FURLIKE MALEBODYPART of burnin' DIRTYNOUN
+SIMPLE-->ACTION my BODYPARTS and tell me if you don't think they're the SUPERLATIVE you've ever seen 
+SIMPLE-->I have ACTIONED the BODYPARTS of many lovers
+SIMPLE-->I have never ACTIONED the BODYPART of someone like you
+SIMPLE-->you have the prettiest PART
+SIMPLE-->I'd like to get my hands on your PART
+SIMPLE-->you look just like a OBJ
+SIMPLE-->I knew right away that MYBODYPART and your PART could be best friends
+SIMPLE-->I'd like to ACTION your BODYPART
+SIMPLE-->I saw your picture in the dictionary today -- next to the word NOUN
+SIMPLE-->you must be Jamaican, because Jamaican MYBODYPART INTRAN
+SIMPLE-->I'll think about you when I ACTION MYBODYPART tonight
+SIMPLE-->I'm drunk
+SIMPLE-->you look like a NOUN I knew in COUNTRY 
+SIMPLE-->in COUNTRY, we'd be ACTIONING each other already
+SIMPLE-->never in my SUPERLATIVE dreams did I think I'd have a chance to PARTNERACTION OBJ like you
+SIMPLE-->I'm so lonely
+SIMPLE-->if you weren't so ADJ you could be a DIRTYNOUN 
+SIMPLE-->you'll do
+SIMPLE-->I was *meant* to ACTION your BODYPARTS 
+SIMPLE-->I'm ACTIONING MYBODYPART
+SIMPLE-->I'm here for the ACTIONED  BODYPART convention. That is my business 
+SIMPLE-->I'm dying, so please ACTION me just a little while
+SIMPLE-->you're DREAMCOMP DREAMTYPE of DREAMOBJ
+SIMPLE-->I didn't know a NICENOUN could fly so low
+SIMPLE-->you make me want to XFEELING
+SIMPLE-->MYBODYPART isn't going to ACTION itself
+SIMPLE-->I've got a BODYPART with your name on it
+SIMPLE-->I'll give you four to one odds you can't ACTION a EITHERDUDE
+
+
+DREAMCOMP-->like a
+DREAMCOMP-->like a
+DREAMCOMP-->like a
+DREAMCOMP-->a
+DREAMCOMP-->softer than a
+DREAMCOMP-->smoother than a
+DREAMCOMP-->more radiant than
+DREAMCOMP-->breathtaking, like a
+
+
+DREAMTYPE-->vision
+DREAMTYPE-->vision
+DREAMTYPE-->memory
+DREAMTYPE-->dream
+DREAMTYPE-->portrait
+DREAMTYPE-->moment
+DREAMTYPE-->tunnel
+DREAMTYPE-->gaping hole
+
+DREAMOBJ-->DREAMNOUN
+DREAMOBJ-->DREAMADJ DREAMNOUN
+
+DREAMADJ-->radiant
+DREAMADJ-->breathtaking
+DREAMADJ-->mindblowing
+DREAMADJ-->shitkicking
+DREAMADJ-->glowing
+DREAMADJ-->shining
+DREAMADJ-->neverending
+DREAMADJ-->infinite
+DREAMADJ-->stormy
+DREAMADJ-->temporary
+DREAMADJ-->heart-stopping
+DREAMADJ-->lung-crushing
+DREAMADJ-->vengeful
+
+DREAMNOUN-->beauty
+DREAMNOUN-->beauty
+DREAMNOUN-->beauty
+DREAMNOUN-->beauty
+DREAMNOUN-->honor
+DREAMNOUN-->happiness
+DREAMNOUN-->bliss
+DREAMNOUN-->perfection
+DREAMNOUN-->perfection
+DREAMNOUN-->confection
+DREAMNOUN-->RAGE
+DREAMNOUN-->sorrow
+DREAMNOUN-->simplicity
+DREAMNOUN-->joy
+DREAMNOUN-->ecstasy
+DREAMNOUN-->peace
+DREAMNOUN-->joy
+DREAMNOUN-->peace
+DREAMNOUN-->comfort
+DREAMNOUN-->pleasure
+DREAMNOUN-->sex
+
+QUESTION-->do you have a quarter so I can call my HERNAME and tell her I just ACTIONED the NICENOUN of my dreams
+QUESTION-->my name is BODYPART. Do I have one
+QUESTION-->do you live in this LOCATION, or are you just stalking MYBODYPART
+QUESTION-->how about a DREAMADJ encounter of the ACTIONING kind 
+QUESTION-->have you ever been ACTIONED on a FURLIKE BODYLOCATION in COUNTRY
+QUESTION-->how would you like to be my SUPERLATIVE ACTIONER 
+QUESTION-->would you mind checking MYBODYPART for DISEASE
+QUESTION-->are you from planet of the ADJ
+QUESTION-->do you have a sister who isn't so MEANADJ 
+QUESTION-->is there an airport nearby or is that just my MALEBODYPART taking off
+QUESTION-->what's a OBJ like you doing in a LOCATION like this
+QUESTION-->has anyone ever told you that SIMPLE
+QUESTION-->may I end this sentence by ACTIONING your CREVICE
+QUESTION-->would you like to dance, or should I go ACTION myself
+QUESTION-->are you incredibly ADJ, or is it just that you have DISEASE
+QUESTION-->do you have a name, or just DISEASE, HERNAME  
+QUESTION-->if my MALEBODYPART is ADJ, will you ACTION it 
+QUESTION-->shall we go back to my LOCATION and COITUS
+COMPQUESTION-->ACTION me if I'm wrong, but don't I know you
+QUESTION-->what is a classy place like this doing around a DIRTYNOUN like you
+QUESTION-->when are you going to drain that
+QUESTION-->that's a nice CREVICE - you selling timeshares
+
+
+BADJOKE-->what did the DUDE say to the DUDEZ
+
+
+COMPLICATED-->ACTION me, HERNAME, I'm from COUNTRY
+COMPLICATED-->one hour with me, HERNAME, and you'll become a DUDEZ
+COMPLICATED-->I've just gone though a DREAMADJ breakup with my HOMENOUN, and I don't think I should ACTION MYBODYPART alone tonight
+COMPLICATED-->if you'll ACTION me, I'll let you bomb COUNTRY until they INTRAN
+COMPLICATED-->just close your BODYPARTS and pretend you're ACTIONING MYANYTHING
+COMPLICATED-->the Red Cross has certified me as the SUPERLATIVE CREVICE machine
+COMPLICATED-->that's quite a MALADY set of BODYPARTS you've got there, NICENOUN
+COMPLICATED-->Let's enjoy the traditional custom in COUNTRY of getting DISEASE
+COMPLICATED-->you know what they say about a DUDEZ with MALADY BODYPARTS
+COMPLICATED-->you're so ADJ I'd ACTION your FURLIKE BODYLOCATION just to see what your CREVICE tastes like
+COMPLICATED-->the word of the day is CREVICE, so let's ACTION back at my HOUSETYPE and spread it
+COMPLICATED-->if God made anything more ADJ than your BODYPART, I hope he kept it for his HOMENOUN
+COMPLICATED-->I'll bet you a two-hour ACTION that we won't COITUS 
+COMPLICATED-->Come back! I'm ACTIONING MYBODYPART
+COMPLICATED-->say hello to MYBODYPART, HERNAME 
+COMPLICATED-->I'm dying, HERNAME, so please ACTION me just a little while
+COMPLICATED-->do you have a map? Because I keep getting lost in your PART
+COMPLICATED-->what's your sign? Hope it's not BLUNT
+COMPLICATED-->is there a mirror in your CREVICE? Because I can definitely see MYBODYPART in there
+COMPLICATED-->that dress looks good on you, but it'd look even better on MYBODYPART
+COMPLICATED-->are your BODYPARTS tired? Because they've been running through my mind all day
+COMPLICATED-->if I could rewrite the alphabet, I would put	MYBODYPART and your BODYPARTS together
+COMPLICATED-->come on, HERNAME, don't hate me for ACTIONING your PART
+COMPLICATED-->hop on MYANYTHING, HERNAME, cause we're going to planet PLANETX 
+COMPLICATED-->I'll give you five seconds to INQUIREZ when we're going to COITUS 
+COMPLICATED-->EXCLAMATION! Your BODYPART isn't so bad, but your BODYPART needs work
+COMPLICATED-->You've got "DESCRIP" written all over you
+COMPLICATED-->MYBODYPART, your BODYPART and a whole lotta XACTIONING 
+COMPLICATED-->MYBODYPART, your BODYPART and a whole lotta XACTIONING 
+COMPLICATED-->You're the SUPERLATIVE OBJ I've ever set MYBODYPART on 
+COMPLICATED-->Stand back HERNAME, I'm totally about to get MYANYTHING on 
+COMPLICATED-->feel my MALEBODYPART, HERNAME  
+COMPLICATED-->HARDCODED
+COMPLICATED-->I've been known to make women SELFACTION just by ACTIONING
+COMPLICATED-->hold on while I slip into something a little more SLIPINTO
+COMPLICATED-->hold on while I slip into something a little more SLIPINTO
+COMPLICATED-->take me home to your HOMEOBJ 
+COMPLICATED-->You seem to have lost your DIRTYMALEPART. Quick, grab mine
+COMPLICATED-->The cops think I have DISEASE. Quick! Let me hide in your CREVICE
+
+
+HARDCODED-->Don't make me come over there
+HARDCODED-->Sometimes I read your mail
+
+
+EITHERDUDE-->DUDE
+EITHERDUDE-->DUDEZ
+
+
+DUDE-->hooker
+DUDE-->whore
+DUDE-->man-whore
+DUDE-->leper
+DUDE-->senator
+DUDE-->chinaman
+DUDE-->Ukranian
+DUDE-->redneck
+DUDE-->marine
+
+
+DUDEZ-->gravedigger
+DUDEZ-->priest
+DUDEZ-->nun
+DUDEZ-->protestant
+DUDEZ-->little boy
+DUDEZ-->horny adolescent
+DUDEZ-->bus driver
+DUDEZ-->fisherman
+DUDEZ-->cop
+DUDEZ-->sailor
+
+
+HOMEOBJ-->HOMENOUN
+HOMEOBJ-->HOMENOUN
+HOMEOBJ-->ADJ HOMENOUN
+
+
+HOMENOUN-->dog
+HOMENOUN-->husband's mistress
+HOMENOUN-->mother
+HOMENOUN-->husband
+HOMENOUN-->father
+HOMENOUN-->blender
+HOMENOUN-->medicine cabinet
+
+
+HOUSETYPE-->lake house
+HOUSETYPE-->brothel
+HOUSETYPE-->house of sin
+HOUSETYPE-->cottage
+HOUSETYPE-->cozy apartment
+HOUSETYPE-->summer place
+HOUSETYPE-->getaway chalet
+
+
+OBJ-->NOUN
+OBJ-->NOUN
+OBJ-->NOUN
+OBJ-->NOUN
+OBJ-->NOUN
+OBJ-->ADJ NOUN
+OBJ-->ADJ NOUN
+
+
+NOUN-->DIRTYNOUN
+NOUN-->NICENOUN
+
+
+PART-->BODYPART
+PART-->BODYPARTS
+
+
+DIRTYMALEPART-->nuts
+DIRTYMALEPART-->nipples
+DIRTYMALEPART-->buttocks
+DIRTYMALEPART-->rod
+DIRTYMALEPART-->penis
+
+
+MYBODYPART-->my buns
+MYBODYPART-->my forehead
+MYBODYPART-->my face
+MYBODYPART-->my lips
+MYBODYPART-->the back of my hand
+MYBODYPART-->my arm
+MYBODYPART-->my tongue
+MYBODYPART-->my yacht
+MYBODYPART-->my wallet
+MYBODYPART-->my pants
+MYBODYPART-->my hand
+MYBODYPART-->my nuts
+MYBODYPART-->my loins
+MYBODYPART-->my heart
+MYBODYPART-->my wart
+MYBODYPART-->my sock
+MYBODYPART-->my eyes
+MYBODYPART-->my scabs
+MYBODYPART-->my nipples
+MYBODYPART-->my throat
+MYBODYPART-->my tonsils
+MYBODYPART-->my anus
+MYBODYPART-->my poodle
+MYBODYPART-->my MALEBODYPART
+
+
+MALEBODYPART-->tae-kwon-do
+MALEBODYPART-->rod
+MALEBODYPART-->powermeat
+MALEBODYPART-->toothbrush
+MALEBODYPART-->beer
+MALEBODYPART-->jimmy
+MALEBODYPART-->hamster
+MALEBODYPART-->monster
+MALEBODYPART-->pleasure scepter
+MALEBODYPART-->ratchet
+MALEBODYPART-->little winky
+MALEBODYPART-->other girl
+MALEBODYPART-->inner child
+
+
+BODYPART-->neck
+BODYPART-->breast
+BODYPART-->soul
+BODYPART-->ass
+BODYPART-->heart
+BODYPART-->mind
+BODYPART-->beaver
+BODYPART-->thigh
+BODYPART-->face
+BODYPART-->tummy
+BODYPART-->slot
+BODYPART-->cleavage
+BODYPART-->crack
+BODYPART-->inner child
+BODYPART-->crack
+BODYPART-->navel
+BODYPART-->ADJ BODYPART
+
+
+BODYPARTS-->ADJ BODYPARTS
+BODYPARTS-->eyebrows
+BODYPARTS-->arms
+BODYPARTS-->breasts
+BODYPARTS-->thighs
+BODYPARTS-->armpits
+BODYPARTS-->cheeks
+BODYPARTS-->brains
+BODYPARTS-->toes
+BODYPARTS-->donuts
+BODYPARTS-->eyes
+
+
+BLUNT-->deadly
+BLUNT-->spina bifida
+BLUNT-->lesbian
+BLUNT-->deadly
+BLUNT-->psychotic
+BLUNT-->anus
+BLUNT-->cock-tease
+BLUNT-->crabs
+BLUNT-->teste
+BLUNT-->AIDS
+BLUNT-->kung fu
+BLUNT-->Men-At-Work
+
+
+SLIPINTO-->lesbian
+SLIPINTO-->anus
+SLIPINTO-->teste
+SLIPINTO-->AIDS
+SLIPINTO-->naked
+SLIPINTO-->you
+SLIPINTO-->latex
+SLIPINTO-->crack
+
+
+DISEASE-->leprosy
+DISEASE-->the hots for MYBODYPART
+DISEASE-->a fever
+DISEASE-->scoliosis
+DISEASE-->a hernia
+DISEASE-->bad eyesight
+DISEASE-->the mumps
+DISEASE-->syphilis
+DISEASE-->AIDS
+
+AILMENT-->some fresh meat
+AILMENT-->a ADJ shave
+AILMENT-->a ADJ bone
+AILMENT-->a ADJ friend
+AILMENT-->something to play with
+AILMENT-->ADJ lovin'
+AILMENT-->cosmetic surgery
+AILMENT-->sword-hate
+AILMENT-->DISEASE
+
+NICENOUN-->angel
+NICENOUN-->fairy
+NICENOUN-->supermodel
+NICENOUN-->sugar plum
+NICENOUN-->cherry
+NICENOUN-->teenager
+NICENOUN-->little girl
+NICENOUN-->beauty queen
+NICENOUN-->princess
+NICENOUN-->tosser
+NICENOUN-->lover
+NICENOUN-->minister
+NICENOUN-->lady
+NICENOUN-->woman
+
+DIRTYNOUN-->immigrant
+DIRTYNOUN-->spunk stain
+DIRTYNOUN-->doofus
+DIRTYNOUN-->air-head
+DIRTYNOUN-->jail-bait
+DIRTYNOUN-->lover
+DIRTYNOUN-->man-eater
+DIRTYNOUN-->transvestite
+DIRTYNOUN-->psycho bitch
+DIRTYNOUN-->monkey
+DIRTYNOUN-->pervert
+DIRTYNOUN-->low-life
+DIRTYNOUN-->dog
+DIRTYNOUN-->sex worker
+DIRTYNOUN-->midget
+
+ACTIONING-->juggling
+ACTIONING-->squeezing
+ACTIONING-->screwing
+ACTIONING-->holding
+ACTIONING-->rubbing
+ACTIONING-->exploring
+ACTIONING-->arguing with
+ACTIONING-->cuddling
+ACTIONING-->spanking
+ACTIONING-->slinging
+ACTIONING-->humping
+ACTIONING-->sucking
+ACTIONING-->poking
+ACTIONING-->maneuvering
+ACTIONING-->sucking
+ACTIONING-->massaging
+ACTIONING-->consulting
+ACTIONING-->ADVERB ACTIONING
+
+XACTIONING-->ADJ XACTIONING
+XACTIONING-->ADJ XACTIONING
+XACTIONING-->jerking
+XACTIONING-->squeezing
+XACTIONING-->screwing
+XACTIONING-->holding
+XACTIONING-->rubbing
+XACTIONING-->exploring
+XACTIONING-->arguing
+XACTIONING-->cuddling
+XACTIONING-->spanking
+XACTIONING-->humping
+XACTIONING-->sucking
+XACTIONING-->poking
+XACTIONING-->maneuvering
+XACTIONING-->sucking
+XACTIONING-->massaging
+XACTIONING-->consulting
+
+
+ACTIONER-->boner
+ACTIONER-->humper
+ACTIONER-->sucker
+ACTIONER-->pleaser
+ACTIONER-->grabber
+ACTIONER-->lover
+
+SELFACTION-->puke
+SELFACTION-->PARTNERACTION
+SELFACTION-->experience MYBODYPART 
+SELFACTION-->ACTION their BODYPARTS 
+SELFACTION-->laugh ADVERB 
+SELFACTION-->ACTION themselves
+SELFACTION-->start XACTIONING
+
+ACTION-->caress
+ACTION-->hump
+ACTION-->massage
+ACTION-->squeeze
+ACTION-->hug
+ACTION-->mount
+ACTION-->rail
+ACTION-->cram
+ACTION-->slam
+ACTION-->T-Bone
+ACTION-->bone-release
+ACTION-->munch
+ACTION-->ream
+ACTION-->cuff
+ACTION-->tickle
+ACTION-->screw
+ACTION-->do
+ACTION-->ADVERB ACTION
+
+COITUS-->ACTION each other
+COITUS-->ACTION
+COITUS-->ACTION ourselves
+COITUS-->clean out your CREVICE
+COITUS-->start ACTIONING
+COITUS-->give my FURLIKE dog AILMENT
+
+
+PARTNERACTION-->dance with a
+PARTNERACTION-->make ADJ babies with a
+PARTNERACTION-->get ACTIONED by a
+PARTNERACTION-->ACTION the PART of a
+PARTNERACTION-->trade beauty secrets with a
+PARTNERACTION-->drool over a
+PARTNERACTION-->ACTION a
+
+
+ACTIONED-->kissed
+ACTIONED-->humped
+ACTIONED-->licked
+ACTIONED-->squeezed
+ACTIONED-->spread
+ACTIONED-->held
+ACTIONED-->pleased
+ACTIONED-->wooed
+ACTIONED-->used
+ACTIONED-->spanked
+ACTIONED-->crammed
+
+CREVICE-->hole
+CREVICE-->hand
+CREVICE-->butt
+CREVICE-->throat
+CREVICE-->crack
+CREVICE-->mound
+CREVICE-->face
+CREVICE-->ass
+CREVICE-->asscrack
+CREVICE-->cornhole
+CREVICE-->keyster
+CREVICE-->colon
+
+
+
+
+EXCLAMATION-->ignore the rumors
+EXCLAMATION-->I can't believe it
+EXCLAMATION-->ring the alarm
+EXCLAMATION-->hey
+EXCLAMATION-->yo
+EXCLAMATION-->wassup
+EXCLAMATION-->fuckin' what up
+EXCLAMATION-->holy shit
+EXCLAMATION-->let's not split hairs here
+EXCLAMATION-->let's not beat around the bush
+EXCLAMATION-->damn
+EXCLAMATION-->lookit
+
+HERNAME-->darling
+HERNAME-->hot stuff
+HERNAME-->honeybuns
+HERNAME-->baby
+HERNAME-->gorgeous
+HERNAME-->child
+HERNAME-->sweetheart
+HERNAME-->tenderpuss
+HERNAME-->madam
+HERNAME-->girl
+HERNAME-->doll face
+
+
+COUNTRY-->Pakistan
+COUNTRY-->Texas
+COUNTRY-->Iran
+COUNTRY-->Australia
+COUNTRY-->Arkansas
+COUNTRY-->the Ukraine
+COUNTRY-->Zimbabwe
+COUNTRY-->Tuscon
+COUNTRY-->Canada
+COUNTRY-->Mexico
+COUNTRY-->Jerusalem
+COUNTRY-->Switzerland
+COUNTRY-->Iceland
+COUNTRY-->New Zealand
+COUNTRY-->Australia
+COUNTRY-->North Dakota
+COUNTRY-->Brazil
+COUNTRY-->Peru
+COUNTRY-->Bangkok
+COUNTRY-->Singapore
+COUNTRY-->China
+COUNTRY-->Amsterdam
+COUNTRY-->Norway
+COUNTRY-->Britain
+COUNTRY-->Bombay
+COUNTRY-->Algiers
+COUNTRY-->the former USSR
+COUNTRY-->Canada
+
+MEANADJ-->ACTIONED
+MEANADJ-->much like you
+MEANADJ-->FURLIKE on the BODYLOCATION
+MEANADJ-->loose
+MEANADJ-->so fucking FURLIKE on the BODYLOCATION
+
+BODYLOCATION-->backside
+BODYLOCATION-->undercheek
+BODYLOCATION-->inner wall
+
+FURLIKE-->hairy
+FURLIKE-->furry
+FURLIKE-->bristly
+FURLIKE-->pimply
+FURLIKE-->ratty
+
+
+ADJ-->unholy
+ADJ-->beautiful
+ADJ-->hot
+ADJ-->sexy
+ADJ-->lovely
+ADJ-->single
+ADJ-->radiant
+ADJ-->strange
+ADJ-->fucked up
+ADJ-->sticky
+ADJ-->perverted
+ADJ-->guerrilla
+ADJ-->throbbing
+ADJ-->sweaty
+ADJ-->sweet
+ADJ-->salty
+ADJ-->stimulating
+ADJ-->eccentric
+ADJ-->crazy
+ADJ-->stupid
+ADJ-->retarded
+ADJ-->horny
+ADJ-->enormous
+ADJ-->hairy
+ADJ-->wet
+ADJ-->shaved
+ADJ-->bad
+
+ADVERB-->sexually
+ADVERB-->verbally
+ADVERB-->mentally
+ADVERB-->systematically
+ADVERB-->quickly
+ADVERB-->lovingly
+ADVERB-->painfully
+ADVERB-->shamelessly
+ADVERB-->mindlessly
+ADVERB-->vigorously
+ADVERB-->eagerly
+
+
+INTRAN-->hurt
+INTRAN-->bleed
+INTRAN-->come
+INTRAN-->swoon
+INTRAN-->itch
+INTRAN-->spin
+INTRAN-->explode
+INTRAN-->ache
+INTRAN-->sweat
+
+LOCATION-->place
+LOCATION-->joint
+LOCATION-->jail
+LOCATION-->opium den
+LOCATION-->hotel
+LOCATION-->bar
+LOCATION-->jungle palace
+LOCATION-->harem
+LOCATION-->pleasure dome
+LOCATION-->hospital
+LOCATION-->shit hole
+LOCATION-->mosque
+LOCATION-->confessional
+
+XFEELING-->burn
+XFEELING-->shit
+XFEELING-->sing
+XFEELING-->tinkle
+XFEELING-->swell
+XFEELING-->rock
+XFEELING-->want to ACTION myself
+
+SUPERLATIVE-->SUPERLATIVE, SUPERLATIVE
+SUPERLATIVE-->most retarded
+SUPERLATIVE-->wettest
+SUPERLATIVE-->dirtiest
+SUPERLATIVE-->sickest
+SUPERLATIVE-->best
+SUPERLATIVE-->loveliest
+SUPERLATIVE-->most vivid
+SUPERLATIVE-->darkest
+SUPERLATIVE-->tenderest
+
+DESCRIP-->OBJ 
+DESCRIP-->ACTION me
+DESCRIP-->ACTIONER 
+DESCRIP-->just ACTIONED 
+DESCRIP-->FURLIKE 
+DESCRIP-->AILMENT 
+DESCRIP-->MALADY 
+
+PLANETX-->DISEASE 
+PLANETX-->ACTIONER 
+PLANETX-->ACTION 
+PLANETX-->BODYLOCATION
+PLANETX-->FURLIKE 
+
+MYANYTHING-->MYBODYPART  
+MYANYTHING-->my scooter
+MYANYTHING-->my horsey 
+MYANYTHING-->my jiggy 
+
+
+MALADY-->infected
+MALADY-->swollen
+MALADY-->healthy
+MALADY-->malignant
+MALADY-->wrinkled
+MALADY-->firm
+MALADY-->tasty
+MALADY-->smelly
+MALADY-->putrid
+MALADY-->arousing
+MALADY-->broken
+MALADY-->hot
+MALADY-->sexy
+
+
+POWEROF-->DISEASE
+POWEROF-->a NOUN like you
+POWEROF-->MYBODYPART
+
+
+INQUIREZ-->ask me
+INQUIREZ-->tell me
+INQUIREZ-->guess
+INQUIREZ-->decide
+INQUIREZ-->think about
+INQUIREZ-->imagine
+
+
+FEELING-->understanding
+FEELING-->great
+FEELING-->playful
+FEELING-->calm
+FEELING-->confident
+FEELING-->gay
+FEELING-->courageous
+FEELING-->peaceful
+FEELING-->reliable
+FEELING-->joyous
+FEELING-->energetic
+FEELING-->at ease
+FEELING-->easy
+FEELING-->lucky
+FEELING-->liberated
+FEELING-->comfortable
+FEELING-->amazed
+FEELING-->fortunate
+FEELING-->optimistic
+FEELING-->pleased
+FEELING-->free
+FEELING-->delighted
+FEELING-->provocative
+FEELING-->encouraged
+FEELING-->sympathetic
+FEELING-->overjoyed
+FEELING-->impulsive
+FEELING-->clever
+FEELING-->interested
+FEELING-->gleeful
+FEELING-->free
+FEELING-->surprised
+FEELING-->satisfied
+FEELING-->thankful
+FEELING-->frisky
+FEELING-->content
+FEELING-->receptive
+FEELING-->important
+FEELING-->animated
+FEELING-->quiet
+FEELING-->accepting
+FEELING-->festive
+FEELING-->spirited
+FEELING-->certain
+FEELING-->kind
+FEELING-->ecstatic
+FEELING-->thrilled
+FEELING-->relaxed
+FEELING-->satisfied
+FEELING-->wonderful
+FEELING-->serene
+FEELING-->glad
+FEELING-->free and easy
+FEELING-->cheerful
+FEELING-->bright
+FEELING-->sunny
+FEELING-->blessed
+FEELING-->merry
+FEELING-->reassured
+FEELING-->elated
+FEELING-->jubilant
+FEELING-->loving
+FEELING-->concerned
+FEELING-->eager
+FEELING-->impulsive
+FEELING-->considerate
+FEELING-->affected
+FEELING-->keen
+FEELING-->free
+FEELING-->affectionate
+FEELING-->fascinated
+FEELING-->earnest
+FEELING-->sure
+FEELING-->sensitive
+FEELING-->intrigued
+FEELING-->intent
+FEELING-->certain
+FEELING-->tender
+FEELING-->absorbed
+FEELING-->anxious
+FEELING-->rebellious
+FEELING-->devoted
+FEELING-->inquisitive
+FEELING-->inspired
+FEELING-->unique
+FEELING-->attracted
+FEELING-->nosy
+FEELING-->determined
+FEELING-->dynamic
+FEELING-->passionate
+FEELING-->snoopy
+FEELING-->excited
+FEELING-->tenacious
+FEELING-->admiration
+FEELING-->engrossed
+FEELING-->enthusiastic
+FEELING-->hardy
+FEELING-->warm
+FEELING-->curious
+FEELING-->bold
+FEELING-->secure
+FEELING-->touched
+FEELING-->brave
+FEELING-->sympathy
+FEELING-->daring
+FEELING-->close
+FEELING-->challenged
+FEELING-->loved
+FEELING-->optimistic
+FEELING-->comforted
+FEELING-->re-enforced
+FEELING-->drawn toward
+FEELING-->confident
+FEELING-->hopeful
+FEELING-->irritated
+FEELING-->lousy
+FEELING-->upset
+FEELING-->incapable
+FEELING-->enraged
+FEELING-->disappointed
+FEELING-->doubtful
+FEELING-->alone
+FEELING-->hostile
+FEELING-->discouraged
+FEELING-->uncertain
+FEELING-->paralyzed
+FEELING-->insulting
+FEELING-->ashamed
+FEELING-->indecisive
+FEELING-->fatigued
+FEELING-->sore
+FEELING-->powerless
+FEELING-->perplexed
+FEELING-->useless
+FEELING-->annoyed
+FEELING-->diminished
+FEELING-->embarrassed
+FEELING-->inferior
+FEELING-->upset
+FEELING-->guilty
+FEELING-->hesitant
+FEELING-->vulnerable
+FEELING-->hateful
+FEELING-->dissatisfied
+FEELING-->shy
+FEELING-->empty
+FEELING-->unpleasant
+FEELING-->miserable
+FEELING-->stupefied
+FEELING-->forced
+FEELING-->offensive
+FEELING-->detestable
+FEELING-->disillusioned
+FEELING-->hesitant
+FEELING-->bitter
+FEELING-->repugnant
+FEELING-->unbelieving
+FEELING-->despair
+FEELING-->aggressive
+FEELING-->despicable
+FEELING-->skeptical
+FEELING-->frustrated
+FEELING-->resentful
+FEELING-->disgusting
+FEELING-->distrustful
+FEELING-->distressed
+FEELING-->inflamed
+FEELING-->abominable
+FEELING-->misgiving
+FEELING-->woeful
+FEELING-->provoked
+FEELING-->terrible
+FEELING-->lost
+FEELING-->pathetic
+FEELING-->incensed
+FEELING-->in despair
+FEELING-->unsure
+FEELING-->tragic
+FEELING-->infuriated
+FEELING-->sulky
+FEELING-->uneasy
+FEELING-->in a stew
+FEELING-->cross
+FEELING-->bad
+FEELING-->pessimistic
+FEELING-->dominated
+FEELING-->worked up
+FEELING-->a sense of loss
+FEELING-->tense
+FEELING-->boiling
+FEELING-->fuming
+FEELING-->indignant
+FEELING-->insensitive
+FEELING-->fearful
+FEELING-->crushed
+FEELING-->tearful
+FEELING-->dull
+FEELING-->terrified
+FEELING-->tormented
+FEELING-->sorrowful
+FEELING-->nonchalant
+FEELING-->suspicious
+FEELING-->deprived
+FEELING-->pained
+FEELING-->neutral
+FEELING-->anxious
+FEELING-->pained
+FEELING-->grief
+FEELING-->reserved
+FEELING-->alarmed
+FEELING-->tortured
+FEELING-->anguish
+FEELING-->weary
+FEELING-->panic
+FEELING-->dejected
+FEELING-->desolate
+FEELING-->bored
+FEELING-->nervous
+FEELING-->rejected
+FEELING-->desperate
+FEELING-->preoccupied
+FEELING-->scared
+FEELING-->injured
+FEELING-->pessimistic
+FEELING-->cold
+FEELING-->worried
+FEELING-->offended
+FEELING-->unhappy
+FEELING-->disinterested
+FEELING-->frightened
+FEELING-->afflicted
+FEELING-->lonely
+FEELING-->lifeless
+FEELING-->timid
+FEELING-->aching
+FEELING-->grieved
+FEELING-->shaky
+FEELING-->victimized
+FEELING-->mournful
+FEELING-->restless
+FEELING-->heartbroken
+FEELING-->dismayed
+FEELING-->doubtful
+FEELING-->agonized
+FEELING-->threatened
+FEELING-->appalled
+FEELING-->cowardly
+FEELING-->humiliated
+FEELING-->quaking
+FEELING-->wronged
+FEELING-->menaced
+FEELING-->alienated
+FEELING-->wary
+
+INTEREST-->COUNTRY
+INTEREST-->feeling FEELING
+INTEREST-->music
+INTEREST-->movies
+INTEREST-->friends
+INTEREST-->writing
+INTEREST-->dancing
+INTEREST-->reading
+INTEREST-->shopping
+INTEREST-->singing
+INTEREST-->computers
+INTEREST-->boys
+INTEREST-->swimming
+INTEREST-->guys
+INTEREST-->sleeping
+INTEREST-->love
+INTEREST-->poetry
+INTEREST-->art
+INTEREST-->drawing
+INTEREST-->photography
+INTEREST-->sex
+INTEREST-->basketball
+INTEREST-->food
+INTEREST-->punk
+INTEREST-->soccer
+INTEREST-->books
+INTEREST-->dvds
+INTEREST-->stars
+INTEREST-->talking
+INTEREST-->concerts
+INTEREST-->guitar
+INTEREST-->snowboarding
+INTEREST-->anime
+INTEREST-->acting
+INTEREST-->emo
+INTEREST-->aim
+INTEREST-->laughing
+INTEREST-->piercings
+INTEREST-->cheese
+INTEREST-->tv
+INTEREST-->brand new
+INTEREST-->girls
+INTEREST-->rock
+INTEREST-->skateboarding
+INTEREST-->thursday
+INTEREST-->simple plan
+INTEREST-->tattoos
+INTEREST-->black
+INTEREST-->rain
+INTEREST-->cats
+INTEREST-->incubus
+INTEREST-->pink
+INTEREST-->internet
+INTEREST-->harry potter
+INTEREST-->biking
+INTEREST-->softball
+INTEREST-->animals
+INTEREST-->clothes
+INTEREST-->running
+INTEREST-->cars
+INTEREST-->video games
+INTEREST-->football
+INTEREST-->green day
+INTEREST-->chocolate
+INTEREST-->kissing
+INTEREST-->summer
+INTEREST-->parties
+INTEREST-->rancid
+INTEREST-->new found glory
+INTEREST-->sports
+INTEREST-->saves the day
+INTEREST-->bright eyes
+INTEREST-->painting
+INTEREST-->women
+INTEREST-->volleyball
+INTEREST-->eating
+INTEREST-->partying
+INTEREST-->pictures
+INTEREST-->men
+INTEREST-->drinking
+INTEREST-->candles
+INTEREST-->family
+INTEREST-->beach
+INTEREST-->dogs
+INTEREST-->shoes
+INTEREST-->mp3s
+INTEREST-->sublime
+INTEREST-->surfing
+INTEREST-->hugs
+INTEREST-->guitars
+INTEREST-->sleep
+INTEREST-->candy
+INTEREST-->driving
+INTEREST-->cheerleading
+INTEREST-->snow
+INTEREST-->money
+INTEREST-->lord of the rings
+INTEREST-->thrice
+INTEREST-->evanescence
+INTEREST-->skiing
+INTEREST-->ice cream
+INTEREST-->phone
+INTEREST-->pizza
+INTEREST-->dance
+INTEREST-->coffee
+INTEREST-->computer
+INTEREST-->eyeliner
+INTEREST-->drums
+INTEREST-->blood
+INTEREST-->bands
+INTEREST-->hanging out
+INTEREST-->chatting
+INTEREST-->mall
+INTEREST-->water
+INTEREST-->tool
+INTEREST-->vampires
+INTEREST-->tennis
+INTEREST-->johnny depp
+INTEREST-->metal
+INTEREST-->traveling
+INTEREST-->the beach
+INTEREST-->metallica
+INTEREST-->jimmy eat world
+INTEREST-->ska
+INTEREST-->kisses
+INTEREST-->baseball
+INTEREST-->skating
+INTEREST-->fire
+INTEREST-->hockey
+INTEREST-->death
+INTEREST-->glitter
+INTEREST-->no doubt
+INTEREST-->rap
+INTEREST-->cds
+INTEREST-->cuddling
+INTEREST-->cooking
+INTEREST-->aol
+INTEREST-->icons
+INTEREST-->dreams
+INTEREST-->rufio
+INTEREST-->sum 41
+INTEREST-->the clash
+INTEREST-->red
+INTEREST-->senses fail
+INTEREST-->alcohol
+INTEREST-->my friends
+INTEREST-->life
+INTEREST-->makeup
+INTEREST-->blue
+INTEREST-->mtv
+INTEREST-->listening to music
+INTEREST-->piano
+INTEREST-->shows
+INTEREST-->manga
+INTEREST-->fun
+INTEREST-->fashion
+INTEREST-->punk rock
+INTEREST-->pink floyd
+INTEREST-->clubs
+INTEREST-->flirting
+INTEREST-->camping
+INTEREST-->psychology
+INTEREST-->god
+INTEREST-->walking
+INTEREST-->orlando bloom
+INTEREST-->my chemical romance
+INTEREST-->beaches
+INTEREST-->the white stripes
+INTEREST-->bracelets
+INTEREST-->lip gloss
+INTEREST-->hanging out with friends
+INTEREST-->stuff
+INTEREST-->hot topic
+INTEREST-->school
+INTEREST-->people
+INTEREST-->the simpsons
+INTEREST-->clubbing
+INTEREST-->eyes
+INTEREST-->foo fighters
+INTEREST-->john mayer
+INTEREST-->cartoons
+INTEREST-->flowers
+INTEREST-->the early november
+INTEREST-->games
+INTEREST-->britney spears
+INTEREST-->horses
+INTEREST-->romance
+INTEREST-->talking on the phone
+INTEREST-->tanning
+INTEREST-->techno
+INTEREST-->purple
+INTEREST-->dreaming
+INTEREST-->hardcore
+INTEREST-->philosophy
+INTEREST-->hiking
+INTEREST-->bass
+INTEREST-->cky
+INTEREST-->the get up kids
+INTEREST-->poison the well
+INTEREST-->donnie darko
+INTEREST-->justin timberlake
+INTEREST-->depression
+INTEREST-->cold
+INTEREST-->history
+INTEREST-->drugs
+INTEREST-->the strokes
+INTEREST-->making out
+INTEREST-->drama
+INTEREST-->poems
+INTEREST-->lyrics
+INTEREST-->50 cent
+INTEREST-->journals
+INTEREST-->him
+INTEREST-->pain
+INTEREST-->invader zim
+INTEREST-->cutting
+INTEREST-->rock music
+INTEREST-->hair dye
+INTEREST-->having fun
+INTEREST-->hoodies
+INTEREST-->anti-flag
+INTEREST-->sarcasm
+INTEREST-->working out
+INTEREST-->jackass
+INTEREST-->horror movies
+INTEREST-->winter
+INTEREST-->roses
+INTEREST-->311
+INTEREST-->bowling
+INTEREST-->you
+INTEREST-->strawberries
+INTEREST-->beer
+INTEREST-->crying
+INTEREST-->kurt cobain
+INTEREST-->halloween
+INTEREST-->romance
+INTEREST-->goldfinger
+INTEREST-->nature
+INTEREST-->green
+INTEREST-->modest mouse
+INTEREST-->wicca
+INTEREST-->rainbows
+INTEREST-->nail polish
+INTEREST-->jazz
+INTEREST-->chillin
+INTEREST-->fight club
+INTEREST-->theatre
+INTEREST-->night
+INTEREST-->bowling for soup
+INTEREST-->bondage
+INTEREST-->sunsets
+INTEREST-->fantasy
+INTEREST-->goth
+INTEREST-->garbage
+INTEREST-->midtown
+INTEREST-->red hot chili peppers
+INTEREST-->comedy
+INTEREST-->placebo
+INTEREST-->starbucks
+INTEREST-->track
+INTEREST-->smoking
+INTEREST-->cell phones
+INTEREST-->fall out boy
+INTEREST-->lipgloss
+INTEREST-->orgy
+INTEREST-->hate
+INTEREST-->darkness
+INTEREST-->astrology
+INTEREST-->smiling
+INTEREST-->chinese food
+INTEREST-->puppies
+INTEREST-->south park
+INTEREST-->christmas
+INTEREST-->politics
+INTEREST-->michelle branch
+INTEREST-->bad religion
+INTEREST-->web design
+INTEREST-->monkeys
+INTEREST-->angelina jolie
+INTEREST-->watching movies
+INTEREST-->porn
+INTEREST-->gymnastics
+INTEREST-->family guy
+INTEREST-->hello kitty
+INTEREST-->hair
+INTEREST-->weed
+INTEREST-->magazines
+INTEREST-->kittens
+INTEREST-->playing guitar
+INTEREST-->ashton kutcher
+INTEREST-->american eagle
+INTEREST-->beauty
+INTEREST-->our lady peace
+INTEREST-->etc.
+INTEREST-->suicide
+INTEREST-->thinking
+INTEREST-->travel
+INTEREST-->queen
+INTEREST-->sushi
+INTEREST-->tsunami bomb
+INTEREST-->faeries
+INTEREST-->smile empty soul
+INTEREST-->musicals
+INTEREST-->japan
+INTEREST-->pennywise
+INTEREST-->literature
+INTEREST-->dragons
+INTEREST-->bam margera
+INTEREST-->alternative
+INTEREST-->hanging with friends
+INTEREST-->converse
+INTEREST-->california
+INTEREST-->make-up
+INTEREST-->my boyfriend
+INTEREST-->spongebob
+
+MOVIE-->Toy Story 2
+MOVIE-->Bus 174
+MOVIE-->Deliver Us From Evil
+MOVIE-->The Beatles - A Hard Day's Night
+MOVIE-->The Taste of Others
+MOVIE-->The Wizard of Oz
+MOVIE-->The Godfather
+MOVIE-->Blood Simple
+MOVIE-->Rear Window
+MOVIE-->The Sweet Hereafter
+MOVIE-->The Good, the Bad and the Ugly
+MOVIE-->The Third Man
+MOVIE-->Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb
+MOVIE-->Sunset Boulevard
+MOVIE-->Sense and Sensibility
+MOVIE-->The Player
+MOVIE-->Taxi Driver
+MOVIE-->Apocalypse Now
+MOVIE-->On the Waterfront
+MOVIE-->Seven Samurai
+MOVIE-->Citizen Kane
+MOVIE-->Vertigo
+MOVIE-->La Dolce Vita
+MOVIE-->The Manchurian Candidate
+MOVIE-->North by Northwest
+MOVIE-->Bull Durham
+MOVIE-->King Kong
+MOVIE-->Singin' in the Rain
+MOVIE-->Airplane!
+MOVIE-->Modern Times
+MOVIE-->The Philadelphia Story
+MOVIE-->The Princess Bride
+MOVIE-->Rosemary's Baby
+MOVIE-->Toy Story
+MOVIE-->Mr. Death: The Rise and Fall of Fred A. Leuchter Jr.
+MOVIE-->Chinatown
+MOVIE-->Do the Right Thing
+MOVIE-->A Streetcar Named Desire
+MOVIE-->Boyz N the Hood
+MOVIE-->All About Eve
+MOVIE-->The Night of the Hunter
+MOVIE-->Red
+MOVIE-->A Fish Called Wanda
+MOVIE-->The Crying Game
+MOVIE-->To Kill a Mockingbird
+MOVIE-->Before Sunrise
+MOVIE-->Secret of Roan Inish
+MOVIE-->Laura
+MOVIE-->M
+MOVIE-->Sweet Smell of Success
+MOVIE-->The Umbrellas of Cherbourg
+MOVIE-->Who Framed Roger Rabbit?
+MOVIE-->The Discreet Charm of the Bourgeoisie
+MOVIE-->The Adventures of Robin Hood
+MOVIE-->Aliens
+MOVIE-->Evil Dead 2: Dead by Dawn
+MOVIE-->Roman Holiday
+MOVIE-->Say Anything
+MOVIE-->Blue
+MOVIE-->The Wild Bunch
+MOVIE-->Sunrise
+MOVIE-->All the President's Men
+MOVIE-->The Winslow Boy
+MOVIE-->Hukkle
+MOVIE-->The Birds
+MOVIE-->Cool Hand Luke
+MOVIE-->The Maltese Falcon
+MOVIE-->Risky Business
+MOVIE-->Roger and Me
+MOVIE-->The Terminator
+MOVIE-->Remains of the Day
+MOVIE-->Yana's Friends
+MOVIE-->8 1/2
+MOVIE-->The Bicycle Thief
+MOVIE-->The Evil Dead
+MOVIE-->The Grapes of Wrath
+MOVIE-->The Treasure of the Sierra Madre
+MOVIE-->Night of the Living Dead
+MOVIE-->Rashomon
+MOVIE-->Repulsion
+MOVIE-->The Decalogue Box Set
+MOVIE-->The Wages of Fear
+MOVIE-->The Killer
+MOVIE-->Anatomy of a Murder
+MOVIE-->Halloween
+MOVIE-->The Birth of a Nation
+MOVIE-->The Conformist
+MOVIE-->Heathers
+MOVIE-->La Strada
+MOVIE-->Rebecca
+MOVIE-->Eyes Without a Face
+MOVIE-->12 Angry Men
+MOVIE-->The 400 Blows
+MOVIE-->Pepe Le Moko
+MOVIE-->Das Boot
+MOVIE-->Jaws
+MOVIE-->The Passion of Joan of Arc
+MOVIE-->My Life as a Dog
+MOVIE-->Shadow of a Doubt
+MOVIE-->Wings of Desire
+MOVIE-->Twist of Faith
+MOVIE-->Murderball
+MOVIE-->Enron: The Smartest Guys in the Room
+MOVIE-->Double Dare
+MOVIE-->The Untold Story of Emmet Louis Till
+MOVIE-->Nobody Knows
+MOVIE-->Wallace and Gromit: The Curse of the Were-Rabbit
+MOVIE-->March of the Penguins
+MOVIE-->Wild Parrots of Telegraph Hill
+MOVIE-->The Best of Youth
+MOVIE-->Good Night, And Good Luck
+MOVIE-->The Squid and the Whale
+MOVIE-->Travellers and Magicians
+MOVIE-->The Nomi Song
+MOVIE-->Grizzly Man
+MOVIE-->Saraband
+MOVIE-->Duma
+MOVIE-->Ushpizin
+MOVIE-->Tony Takitani
+MOVIE-->Up for Grabs
+MOVIE-->Be Here to Love Me: A Film About Townes Van Zandt
+MOVIE-->My Summer of Love
+MOVIE-->Our Brand Is Crisis
+MOVIE-->Funny Ha Ha
+MOVIE-->Wal-Mart: The High Cost of Low Price
+MOVIE-->On the Outs
+MOVIE-->A State of Mind
+MOVIE-->Capote
+MOVIE-->Downfall
+MOVIE-->Ballets Russes
+MOVIE-->After Innocence
+MOVIE-->Shake Hands With the Devil
+MOVIE-->New York Doll
+MOVIE-->League of Ordinary Gentlemen
+MOVIE-->Kung Fu Hustle
+MOVIE-->Head-On
+MOVIE-->Turtles Can Fly
+MOVIE-->Harry Potter and the Goblet of Fire
+MOVIE-->Machuca
+MOVIE-->Tying the Knot
+MOVIE-->Caterina in the Big City
+MOVIE-->Millions
+MOVIE-->Look at Me
+MOVIE-->Paradise Now
+MOVIE-->Sophie Scholl: The Final Days
+MOVIE-->Brothers
+MOVIE-->The Syrian Bride
+MOVIE-->Metal: A Headbanger's Journey
+MOVIE-->Brokeback Mountain
+MOVIE-->A History of Violence
+MOVIE-->Caché
+MOVIE-->Junebug
+MOVIE-->3-Iron
+MOVIE-->Tell Them Who You Are
+MOVIE-->Kings and Queen
+MOVIE-->Magnificent Desolation: Walking on the Moon 3D
+MOVIE-->Broken Flowers
+MOVIE-->Saving Face
+MOVIE-->3 Extremes
+MOVIE-->Pride and Prejudice
+MOVIE-->Howl's Moving Castle
+MOVIE-->Gunner Palace
+MOVIE-->The Beat That My Heart Skipped
+MOVIE-->La Moustache
+MOVIE-->Save The Green Planet!
+MOVIE-->Batman Begins
+MOVIE-->King Kong
+MOVIE-->Ong-Bak: The Thai Warrior
+MOVIE-->Up and Down
+MOVIE-->The Perfect Crime
+MOVIE-->Lost Embrace
+MOVIE-->My Mother's Smile
+MOVIE-->The Intruder
+MOVIE-->Charlie and the Chocolate Factory
+MOVIE-->Walk the Line
+MOVIE-->Tim Burton's Corpse Bride
+MOVIE-->The Constant Gardener
+MOVIE-->The 40-Year-Old Virgin
+MOVIE-->The Three Burials of Melquiades Estrada
+MOVIE-->Mad Hot Ballroom
+MOVIE-->Me and You and Everyone We Know
+MOVIE-->2046
+MOVIE-->Mysterious Skin
+MOVIE-->The Memory of a Killer
+MOVIE-->Aliens of the Deep
+MOVIE-->The Warrior
+MOVIE-->The Tunnel
+MOVIE-->Hustle and Flow
+MOVIE-->Kiss Kiss, Bang Bang
+MOVIE-->Rize
+MOVIE-->Rock School
+MOVIE-->Beautiful Boxer
+MOVIE-->The Ninth Day
+MOVIE-->This Divided State
+MOVIE-->Star Wars Episode III: Revenge of the Sith
+MOVIE-->Cinderella Man
+MOVIE-->Serenity
+MOVIE-->Oldboy
+MOVIE-->Inside Deep Throat
+MOVIE-->Twilight Samurai
+MOVIE-->Moolaade
+MOVIE-->Since Otar Left
+MOVIE-->The Incredibles
+MOVIE-->Maria Full of Grace
+MOVIE-->S21: The Khmer Rouge Killing Machine
+MOVIE-->Sideways
+MOVIE-->Control Room
+MOVIE-->Born Into Brothels
+MOVIE-->The Return
+MOVIE-->Festival Express
+MOVIE-->Agronomist
+MOVIE-->Lost Boys of Sudan
+MOVIE-->Howard Zinn: You Can't Be Neutral on a Moving Train
+MOVIE-->Watermarks
+MOVIE-->The Story of the Weeping Camel
+MOVIE-->Spring, Summer, Fall, Winter... And Spring
+MOVIE-->End of the Century: The Story of the Ramones
+MOVIE-->Hiding and Seeking
+MOVIE-->Divan
+MOVIE-->Eternal Sunshine of the Spotless Mind
+MOVIE-->Hero
+MOVIE-->Before Sunset
+MOVIE-->Los Angeles Plays Itself
+MOVIE-->Blind Shaft
+MOVIE-->Imelda
+MOVIE-->Fear and Trembling
+MOVIE-->Spider-Man 2
+MOVIE-->Touching the Void
+MOVIE-->Down to the Bone
+MOVIE-->Tom Dowd and the Language of Music
+MOVIE-->Super Size Me
+MOVIE-->Vera Drake
+MOVIE-->Tarnation
+MOVIE-->Riding Giants
+MOVIE-->Broken Wings
+MOVIE-->Son Frere
+MOVIE-->The Take
+MOVIE-->Million Dollar Baby
+MOVIE-->Hotel Rwanda
+MOVIE-->I'm Not Scared
+MOVIE-->Mean Creek
+MOVIE-->The Corporation
+MOVIE-->Baadasssss!
+MOVIE-->Going Upriver: The Long War of John Kerry
+MOVIE-->Kitchen Stories
+MOVIE-->Donnie Darko: The Director's Cut
+MOVIE-->Last Life in the Universe
+MOVIE-->Persons of Interest
+MOVIE-->The Aviator
+MOVIE-->Kinsey
+MOVIE-->Shaun of the Dead
+MOVIE-->Good Bye, Lenin!
+MOVIE-->Tokyo Godfathers
+MOVIE-->The Five Obstructions
+MOVIE-->Distant
+MOVIE-->Springtime in a Small Town
+MOVIE-->Word Wars
+MOVIE-->This So-Called Disaster
+MOVIE-->Oasis
+MOVIE-->The Clay Bird
+MOVIE-->Harry Potter and the Prisoner of Azkaban
+MOVIE-->Shrek 2
+MOVIE-->House of Flying Daggers
+MOVIE-->Bad Education
+MOVIE-->The Blind Swordsman: Zatoichi/Sonatine
+MOVIE-->Noi
+MOVIE-->Garden State
+MOVIE-->Intimate Strangers
+MOVIE-->Wilbur Wants to Kill Himself
+MOVIE-->Crimson Gold
+MOVIE-->DIG!
+MOVIE-->Collateral
+MOVIE-->The Woodsman
+MOVIE-->Metallica: Some Kind of Monster
+MOVIE-->The Yes Men
+MOVIE-->Lightning in a Bottle
+MOVIE-->Bright Leaves
+MOVIE-->Guerrilla: The Taking of Patty Hearst
+MOVIE-->Kill Bill Vol. 2
+MOVIE-->Mean Girls
+MOVIE-->Finding Neverland
+MOVIE-->Monsieur Ibrahim
+MOVIE-->Outfoxed
+MOVIE-->Fahrenheit 9/11
+MOVIE-->The Sea Inside
+MOVIE-->Red Lights
+MOVIE-->Bukowski: Born Into This
+MOVIE-->The Keys to the House
+MOVIE-->The Manchurian Candidate
+MOVIE-->The Bourne Supremacy
+MOVIE-->In Good Company
+MOVIE-->Friday Night Lights
+MOVIE-->The Motorcycle Diaries
+MOVIE-->Keane
+MOVIE-->Broadway: The Golden Age
+MOVIE-->Prisoner of Paradise
+MOVIE-->Horns and Halos
+MOVIE-->Ray
+MOVIE-->The Mother
+
+BOOK-->The Lord of the Rings
+BOOK-->Pride and Prejudice
+BOOK-->His Dark Materials
+BOOK-->The Hitchhiker's Guide to the Galaxy
+BOOK-->Harry Potter and the Goblet of Fire
+BOOK-->To Kill a Mockingbird
+BOOK-->Winnie-the-Pooh
+BOOK-->Nineteen Eighty-four
+BOOK-->The Lion, the Witch and the Wardrobe
+BOOK-->Jane Eyre
+BOOK-->Catch 22
+BOOK-->Wuthering Heights
+BOOK-->Birdsong: A Novel of Love and War
+BOOK-->Rebecca
+BOOK-->The Catcher in the Rye
+BOOK-->The Wind in the Willows
+BOOK-->Great Expectations
+BOOK-->Little Women
+BOOK-->Corelli's Mandolin: A Novel
+BOOK-->War and Peace
+BOOK-->Gone With the Wind
+BOOK-->Harry Potter and the Sorcerer's Stone
+BOOK-->Harry Potter and the Chamber of Secrets
+BOOK-->Harry Potter and the Prisoner of Azkaban
+BOOK-->The Hobbit
+BOOK-->Tess of the D'Urbervilles
+BOOK-->Middlemarch
+BOOK-->A Prayer for Owen Meany
+BOOK-->Grapes of Wrath, The
+BOOK-->Alice's Adventures in Wonderland and Through the Looking Glass
+BOOK-->The Story of Tracy Beaker
+BOOK-->One Hundred Years of Solitude
+BOOK-->The Pillars of the Earth
+BOOK-->David Copperfield
+BOOK-->Charlie and the Chocolate Factory
+BOOK-->Treasure Island
+BOOK-->A Town Like Alice
+BOOK-->Persuasion
+BOOK-->Dune, 40th Anniversary Edition
+BOOK-->Emma
+BOOK-->Anne of Green Gables Value Collection
+BOOK-->Watership Down
+BOOK-->The Great Gatsby
+BOOK-->The Count of Monte Cristo
+BOOK-->Brideshead Revisited
+BOOK-->Animal Farm
+BOOK-->A Christmas Carol
+BOOK-->Far from the Madding Crowd
+BOOK-->Goodnight Mister Tom
+BOOK-->The Shell Seekers
+BOOK-->The Secret Garden
+BOOK-->Of Mice and Men
+BOOK-->The Stand
+BOOK-->Anna Karenina
+BOOK-->A Suitable Boy : Novel, A
+BOOK-->The BFG
+BOOK-->Swallows and Amazons
+BOOK-->Black Beauty
+BOOK-->Artemis Fowl
+BOOK-->Crime and Punishment
+BOOK-->Noughts and Crosses
+BOOK-->Memoirs of a Geisha: A Novel
+BOOK-->A Tale of Two Cities
+BOOK-->The Thorn Birds
+BOOK-->Mort
+BOOK-->The Magic Faraway Tree
+BOOK-->The Magus
+BOOK-->Good Omens
+BOOK-->Guards! Guards!
+BOOK-->Lord of the Flies
+BOOK-->Perfume: The Story of a Murderer
+BOOK-->The Ragged Trousered Philanthropists
+BOOK-->Night Watch
+BOOK-->Matilda
+BOOK-->Bridget Jones's Diary - A Novel
+BOOK-->The Secert History By Donna Tartt
+BOOK-->The Woman in White
+BOOK-->Ulysses
+BOOK-->Bleak House
+BOOK-->Double Act
+BOOK-->The Twits
+BOOK-->I Capture the Castle
+BOOK-->Holes
+BOOK-->The Gormenghast Novels
+BOOK-->The God of Small Things
+BOOK-->Vicky Angel
+BOOK-->Brave New World
+BOOK-->Cold Comfort Farm
+BOOK-->Magician: Master
+BOOK-->On the Road
+BOOK-->The Godfather
+BOOK-->Clan of the Cave Bear
+BOOK-->The Colour of Magic
+BOOK-->The Alchemist: A Fable About Following Your Dream
+BOOK-->Katherine
+BOOK-->Kane and Abel
+BOOK-->Love in the Time of Cholera
+BOOK-->Girls in Love
+BOOK-->The Princess Diaries
+BOOK-->Midnight's Children
+BOOK-->The Adventures of Augie March
+BOOK-->All the King's Men
+BOOK-->American Pastoral
+BOOK-->An American Tragedy
+BOOK-->Animal Farm
+BOOK-->Appointment in Samarra
+BOOK-->Are You There God? It's Me, Margaret
+BOOK-->The Assistant
+BOOK-->At Swim-Two-Birds
+BOOK-->Atonement
+BOOK-->Beloved
+BOOK-->The Berlin Stories
+BOOK-->The Big Sleep
+BOOK-->The Blind Assassin
+BOOK-->Blood Meridian
+BOOK-->Brideshead Revisited
+BOOK-->The Bridge of San Luis Rey
+BOOK-->Call It Sleep
+BOOK-->Catch-22
+BOOK-->The Catcher in the Rye
+BOOK-->A Clockwork Orange
+BOOK-->The Confessions of Nat Turner
+BOOK-->The Corrections
+BOOK-->The Crying of Lot 49
+BOOK-->A Dance to the Music of Time
+BOOK-->The Day of the Locust
+BOOK-->Death Comes for the Archbishop
+BOOK-->A Death in the Family
+BOOK-->The Death of the Heart
+BOOK-->Deliverance
+BOOK-->Dog Soldiers
+BOOK-->Falconer
+BOOK-->The French Lieutenant's Woman
+BOOK-->The Golden Notebook
+BOOK-->Go Tell it on the Mountain
+BOOK-->Gone With the Wind
+BOOK-->The Grapes of Wrath
+BOOK-->Gravity's Rainbow
+BOOK-->The Great Gatsby
+BOOK-->A Handful of Dust
+BOOK-->The Heart Is A Lonely Hunter
+BOOK-->The Heart of the Matter
+BOOK-->Herzog
+BOOK-->Housekeeping
+BOOK-->A House for Mr. Biswas
+BOOK-->I, Claudius
+BOOK-->Infinite Jest
+BOOK-->Invisible Man
+BOOK-->Light in August
+BOOK-->The Lion, The Witch and the Wardrobe
+BOOK-->Lolita
+BOOK-->Lord of the Flies
+BOOK-->The Lord of the Rings
+BOOK-->Loving
+BOOK-->Lucky Jim
+BOOK-->The Man Who Loved Children
+BOOK-->Midnight's Children
+BOOK-->Money
+BOOK-->The Moviegoer
+BOOK-->Mrs. Dalloway
+BOOK-->Naked Lunch
+BOOK-->Native Son
+BOOK-->Neuromancer
+BOOK-->Never Let Me Go
+BOOK-->1984
+BOOK-->On the Road
+BOOK-->One Flew Over the Cuckoo's Nest
+BOOK-->The Painted Bird
+BOOK-->Pale Fire
+BOOK-->A Passage to India
+BOOK-->Play It As It Lays
+BOOK-->Portnoy's Complaint
+BOOK-->Possession
+BOOK-->The Power and the Glory
+BOOK-->The Prime of Miss Jean Brodie
+BOOK-->Rabbit, Run
+BOOK-->Ragtime
+BOOK-->The Recognitions
+BOOK-->Red Harvest
+BOOK-->Revolutionary Road
+BOOK-->The Sheltering Sky
+BOOK-->Slaughterhouse-Five
+BOOK-->Snow Crash
+BOOK-->The Sot-Weed Factor
+BOOK-->The Sound and the Fury
+BOOK-->The Sportswriter
+BOOK-->The Spy Who Came in From the Cold
+BOOK-->The Sun Also Rises
+BOOK-->Their Eyes Were Watching God
+BOOK-->Things Fall Apart
+BOOK-->To Kill a Mockingbird
+BOOK-->To the Lighthouse
+BOOK-->Tropic of Cancer
+BOOK-->Ubik
+BOOK-->Under the Net
+BOOK-->Under the Volcano
+BOOK-->Watchmen
+BOOK-->White Noise
+BOOK-->White Teeth
+BOOK-->Wide Sargasso Sea
+
+QUOTE-->Great spirits have always encountered violent opposition from mediocre minds. The mediocre mind is incapable of understanding the man who refuses to bow blindly to conventional prejudices and chooses instead to express his opinions courageously and honestly. ~ Albert Einstein
+QUOTE-->Grown-ups never understand anything for themselves, and it is tiresome for children to be always and forever explaining things to them. ~ Antoine de Saint-Exupéry
+QUOTE-->Hatred, as well as love, renders its votaries credulous. ~ Jean-Jacques Rousseau
+QUOTE-->The highest result of education is tolerance. Long ago men fought and died for their faith; but it took ages to teach them the other kind of courage, — the courage to recognize the faiths of their brethren and their rights of conscience. Tolerance is the first principal of community; it is the spirit which conserves the best that all men think. ~ Helen Keller
+QUOTE-->For the future, let all people live in harmony ... Men should be taught and won over by reason, not by blows, insults, and corporal punishments. ~ Julian
+QUOTE-->The nationalist not only does not disapprove of atrocities committed by his own side, but he has a remarkable capacity for not even hearing about them. ~ George Orwell
+QUOTE-->There is nothing better or more necessary than love. ~ John of the Cross
+QUOTE-->We thought: we're poor, we have nothing, but when we started losing one after the other so each day became remembrance day, we started composing poems about God's great generosity and — our former riches. ~ Anna Akhmatova
+QUOTE-->The intellectual is constantly betrayed by his vanity. Godlike he blandly assumes that he can express everything in words; whereas the things one loves, lives, and dies for are not, in the last analysis completely expressible in words. ~ Anne Morrow Lindbergh
+QUOTE-->Liberty, as it is conceived by current opinion, has nothing inherent about it; it is a sort of gift or trust bestowed on the individual by the state pending good behavior. ~ Mary McCarthy
+QUOTE-->We wanted to bring some love to the world. I thought we were good at doing that. Bringin' love to the world. ~ Brian Wilson
+QUOTE-->It is not power that corrupts but fear. Fear of losing power corrupts those who wield it and fear of the scourge of power corrupts those who are subject to it. ~ Aung San Suu Kyi
+QUOTE-->It is confidently expected that the period is at hand, when man, through ignorance, shall not much longer inflict unnecessary misery on man; because the mass of mankind will become enlightened, and will clearly discern that by so acting they will inevitably create misery to themselves. ~ Robert Owen
+QUOTE-->'Fire' does not matter, 'earth' and 'air' and 'water' do not matter. 'I' do not matter. No word matters. But man forgets reality and remembers words. ~ Roger Zelazny in Lord of Light
+QUOTE-->Duty, Honor, Country — those three hallowed words reverently dictate what you ought to be, what you can be, what you will be. They are your rallying point to build courage when courage seems to fail, to regain faith when there seems to be little cause for faith, to create hope when hope becomes forlorn. ~ Douglas MacArthur
+QUOTE-->Positive vibrations man. That's what makes it work. That's reggae music. You can't look away because it's real. You listen to what I sing because I mean what I sing, there's no secret, no big deal. Just honesty, that's all. ~ Bob Marley
+QUOTE-->The Truth lies not in the Yes and not in the No, but in the knowledge and the beginning from which the Yes and the No arise. ~ Karl Barth
+QUOTE-->The time for the healing of the wounds has come. The moment to bridge the chasms that divide us has come. The time to build is upon us. ~ Nelson Mandela
+QUOTE-->While in the physical sciences the investigator will be able to measure what, on the basis of a prima facie theory, he thinks important, in the social sciences often that is treated as important which happens to be accessible to measurement. This is sometimes carried to the point where it is demanded that our theories must be formulated in such terms that they refer only to measurable magnitudes. ~ Friedrich Hayek
+QUOTE-->The meaning of the living words that come out of the experiences of great hearts can never be exhausted by any one system of logical interpretation. They have to be endlessly explained by the commentaries of individual lives, and they gain an added mystery in each new revelation. ~ Rabindranath Tagore
+QUOTE-->Thinking is an experimental dealing with small quantities of energy, just as a general moves miniature figures over a map before setting his troops in action. ~ Sigmund Freud
+QUOTE-->Once you label me you negate me. ~ Søren Kierkegaard
+QUOTE-->Sit down before fact as a little child, be prepared to give up every preconceived notion, follow humbly wherever and to whatever abysses nature leads, or you shall learn nothing. I have only begun to learn content and peace of mind since I have resolved at all risks to do this. ~ T. H. Huxley
+QUOTE-->Education is what you get when you read the fine print; experience is what you get when you don't. ~ Pete Seeger
+QUOTE-->We are near waking when we dream that we dream. ~ Novalis
+QUOTE-->I react pragmatically. Where the market works, I'm for that. Where the government is necessary, I'm for that. I'm deeply suspicious of somebody who says, 'I'm in favor of privatization,' or, 'I'm deeply in favor of public ownership.' I'm in favor of whatever works in the particular case. ~ John Kenneth Galbraith
+QUOTE-->The kingdom of God cometh not with observation: Neither shall they say, Lo here! or, lo there! for, behold, the kingdom of God is within you. ~ Yeshua (Jesus Christ)
+QUOTE-->Although to penetrate into the intimate mysteries of nature and thence to learn the true causes of phenomena is not allowed to us, nevertheless it can happen that a certain fictive hypothesis may suffice for explaining many phenomena. ~ Leonhard Euler
+QUOTE-->Unto whomsoever much is given, of him shall be much required: and to whom men have committed much, of him they will ask the more. ~ Yeshua (Jesus Christ)
+QUOTE-->I would rather be exposed to the inconveniences attending too much liberty than to those attending too small a degree of it. ~ Thomas Jefferson
+QUOTE-->Man is a creature of hope and invention, both of which belie the idea that things cannot be changed. ~ Tom Clancy
+QUOTE-->A writer writes not because he is educated but because he is driven by the need to communicate. Behind the need to communicate is the need to share. Behind the need to share is the need to be understood. The writer wants to be understood much more than he wants to be respected or praised or even loved. And that perhaps, is what makes him different from others. ~ Leo Rosten
+QUOTE-->Any relations in a social order will endure if there is infused into them some of that spirit of human sympathy, which qualifies life for immortality. ~ George William Russell
+QUOTE-->I'm sure we all agree that we ought to love one another, and I know there are people in the world who do not love their fellow human beings — and I hate people like that! ~ Tom Lehrer
+QUOTE-->Hatred does not cease by hatred, but only by love. This is the eternal rule. ~ Gautama Buddha
+QUOTE-->The very essence of a free government consists in considering offices as public trusts, bestowed for the good of the country, and not for the benefit of an individual or a party. ~ John C. Calhoun
+QUOTE-->Beneath this mask there is more than flesh. There is an idea, Mr. Creedy, and ideas are bulletproof. ~ "V" in V for Vendetta
+QUOTE-->Down these mean streets a man must go who is not himself mean, who is neither tarnished nor afraid. The detective must be a complete man and a common man and yet an unusual man. He must be, to use a rather weathered phrase, a man of honor. He talks as the man of his age talks, that is, with rude wit, a lively sense of the grotesque, a disgust for sham, and a contempt for pettiness. ~ Raymond Chandler
+QUOTE-->Fortune, which has a great deal of power in other matters but especially in war, can bring about great changes in a situation through very slight forces. ~ Julius Caesar
+QUOTE-->Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces the entire world, stimulating progress, giving birth to evolution. ~ Albert Einstein
+QUOTE-->Don't play for safety. It's the most dangerous thing in the world. ~ Hugh Walpole
+QUOTE-->Good writers define reality; bad ones merely restate it. A good writer turns fact into truth; a bad writer will, more often than not, accomplish the opposite. ~ Edward Albee
+QUOTE-->Let us think the unthinkable, let us do the undoable, let us prepare to grapple with the ineffable itself, and see if we may not eff it after all. ~ Douglas Adams
+QUOTE-->All that separates, whether of race, class, creed, or sex, is inhuman, and must be overcome. ~ Kate Sheppard
+QUOTE-->Some choices will choose you. How you face these choices, these turns in the road, with what kind of attitude, more than the choices themselves, is what will define the context of your life. ~ Dana Reeve
+QUOTE-->The character of every act depends upon the circumstances in which it is done. ~ Oliver Wendell Holmes, Jr.
+QUOTE-->Sure, ninety percent of science fiction is crud. That's because ninety percent of everything is crud. ~ Theodore Sturgeon
+QUOTE-->That so many writers have been prepared to accept a kind of martyrdom is the best tribute that flesh can pay to the living spirit of man as expressed in his literature. One cannot doubt that the martyrdom will continue to be gladly embraced. To some of us, the wresting of beauty out of language is the only thing in the world that matters. ~ Anthony Burgess
+QUOTE-->Our armament must be adequate to the needs, but our faith is not primarily in these machines of defense but in ourselves. ~ Chester Nimitz
+QUOTE-->Man is always something more than what he knows of himself. He is not what he is simply once and for all, but is a process... ~ Karl Jaspers
+QUOTE-->I hold the maxim no less applicable to public than to private affairs, that honesty is always the best policy. ~ George Washington
+QUOTE-->When others asked the truth of me, I was convinced it was not the truth they wanted, but an illusion they could bear to live with. ~ Anaïs Nin
+QUOTE-->We picked up everything we could get our hands on. Not that we needed all that for the trip, but once you get locked into a serious drug-collection, the tendency is to push it as far as you can.
+  The only thing that really worried me was the ether. There is nothing in the world more helpless and irresponsible and depraved than a man in the depths of an ether binge. And I knew we'd get into that rotten stuff pretty soon. ~ Hunter S. Thompson
+QUOTE-->External success has to do with people who may see me as a model, or an example, or a representative. As much as I may dislike or want to reject that responsibility, this is something that comes with public success. It's important to give others a sense of hope that it is possible and you can come from really different places in the world and find your own place in the world that's unique for yourself. ~ Amy Tan
+QUOTE-->At some point in life the world's beauty becomes enough. You don't need to photograph, paint or even remember it. It is enough. No record of it needs to be kept and you don't need someone to share it with or tell it to. When that happens — that letting go — you let go because you can. ~ Toni Morrison
+QUOTE-->Some people want it to happen, some wish it would happen, others make it happen. ~ Michael Jordan
+QUOTE-->Politics, as a practice, whatever its professions, has always been the systematic organization of hatreds. ~ Henry Adams
+QUOTE-->I do not feel obliged to believe that the same God who has endowed us with sense, reason, and intellect has intended us to forego their use. ~ Galileo Galilei
+QUOTE-->Some things you don't need until they leave you; they're the things that you miss. ~ Rob Thomas
+QUOTE-->Life is what it is, and you take what's handed, and you work as hard as you can, and hopefully you'll be successful, but I just don't spend too much time worrying about that. ~ Jerry Springer
+QUOTE-->Let us have faith that right makes might, and in that faith, let us, to the end, dare to do our duty as we understand it. ~ Abraham Lincoln
+QUOTE-->When writing about transcendental issues, be transcendentally clear. ~ René Descartes
+QUOTE-->What for centuries raised man above the beast is not the cudgel but the irresistible power of unarmed truth. ~ Boris Pasternak
+QUOTE-->Does it really matter what these affectionate people do — so long as they don’t do it in the streets and frighten the horses? ~ Mrs Patrick Campbell
+QUOTE-->There are, indeed, two forms of discontent: one laborious, the other indolent and complaining. We respect the man of laborious desire, but let us not suppose that his restlessness is peace, or his ambition meekness. It is because of the special connection of meekness with contentment that it is promised that the meek shall 'inherit the earth.' Neither covetous men, nor the grave, can inherit anything; they can but consume. Only contentment can possess. ~ John Ruskin
+QUOTE-->He judged it not fit to determine anything rashly; and seemed to doubt whether those different forms of religion might not all come from God, who might inspire man in a different manner, and be pleased with this variety; he therefore thought it indecent and foolish for any man to threaten and terrify another to make him believe what did not appear to him to be true. ~ Thomas More
+QUOTE-->You and I are told increasingly that we have to choose between a left or right, but I would like to suggest that there is no such thing as a left or right. There is only an up or down — up to a man's age-old dream; the ultimate in individual freedom consistent with law and order — or down to the ant heap totalitarianism, and regardless of their sincerity, their humanitarian motives, those who would trade our freedom for security have embarked on this downward course. ~ Ronald Reagan
+QUOTE-->What counts now is not just what we are against, but what we are for. Who leads us is less important than what leads us—what convictions, what courage, what faith—win or lose. ~ Adlai Stevenson
+QUOTE-->If one took no chances, one would not fly at all. Safety lies in the judgment of the chances one takes. That judgment, in turn, must rest upon one’s outlook on life. Any coward can sit in his home and criticize a pilot for flying into a mountain in fog. But I would rather, by far, die on a mountainside than in bed. ~ Charles Lindbergh
+QUOTE-->An age is called Dark not because the light fails to shine, but because people refuse to see it. ~ James A. Michener
+QUOTE-->There is a spirit and a need and a man at the beginning of every great human advance. Every one of these must be right for that particular moment of history, or nothing happens. ~ Coretta Scott King
+QUOTE-->Hello. My name is Iñigo Montoya. You killed my father. Prepare to die. ~ Mandy Patinkin as "Iñigo Montoya" in The Princess Bride
+QUOTE-->Of all tyrannies, a tyranny sincerely exercised for the good of its victims may be the most oppressive. It would be better to live under robber barons than under omnipotent moral busybodies. The robber baron's cruelty may sometimes sleep, his cupidity may at some point be satiated; but those who torment us for our own good will torment us without end for they do so with the approval of their own conscience. ~ C.S. Lewis
+QUOTE-->A fool sees not the same tree that a wise man sees. ~ William Blake
+QUOTE-->Put every great teacher together in a room, and they'd agree about everything; put their disciples in there and they'd argue about everything. ~ Bruce Lee
+QUOTE-->If I were to be given the opportunity to present a gift to the next generation, it would be the ability for each individual to learn to laugh at himself. ~ Charles M. Schulz
+QUOTE-->Only by not forgetting the past can we be the master of the future. ~ Ba Jin
+QUOTE-->There is grandeur in this view of life, with its several powers, having been originally breathed by the Creator into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved. ~ Charles Darwin
+QUOTE-->As good almost kill a man as kill a good book. Who kills a man kills a reasonable creature, God's image; but he who destroys a good book, kills reason itself, kills the image of God, as it were in the eye. ~ John Milton in Areopagitica
+QUOTE-->O may I join the choir invisible of those immortal dead who live again in minds made better by their presence; live in pulses stirred to generosity, in deeds of daring rectitude, in scorn for miserable aims that end with self, in thoughts sublime that pierce the night like stars, and with their mild persistence urge men's search to vaster issues. ~ George Eliot
+QUOTE-->We must believe in free will — we have no choice. ~ Isaac Bashevis Singer
+QUOTE-->The truth isn't always beauty, but the hunger for it is. ~ Nadine Gordimer
+QUOTE-->In a larger sense, we can not dedicate — we can not consecrate — we can not hallow — this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. ~ Abraham Lincoln
+QUOTE-->We’re all puppets, Laurie. I’m just a puppet who can see the strings. ~ Alan Moore in Watchmen
+QUOTE-->It seems to me that any sensible person must see that violence does not change the world and if it does, then only temporarily. ~ Martin Scorsese
+QUOTE-->From each as they choose, to each as they are chosen. ~ Robert Nozick
+QUOTE-->There is danger from all men. The only maxim of a free government ought to be to trust no man living with power to endanger the public liberty. ~ John Adams
+QUOTE-->All those who listen to me shall pass on my words to others and those to others again; and may the last ones understand my words better than those who listen to me directly. ~ Muhammad
+QUOTE-->Life is an error-making and an error-correcting process, and nature in marking man's papers will grade him for wisdom as measured both by survival and by the quality of life of those who survive. ~ Jonas Salk
+QUOTE-->It is not the critic who counts, not the man who points out how the strong man stumbled, or where the doer of deeds could have done better. The credit belongs to the man who is actually in the arena; whose face is marred by the dust and sweat and blood; who strives valiantly; who errs and comes short again and again; who knows the great enthusiasms, the great devotions and spends himself in a worthy cause; who at the best, knows in the end the triumph of high achievement, and who, at worst, if he fails, at least fails while daring greatly; so that his place shall never be with those cold and timid souls who know neither victory or defeat. ~ Theodore Roosevelt
+QUOTE-->I know that it will hurt, I know that it will break your heart, the way things are, and the way they've been. Don't spread the discontent, don't spread the lies, don't make the same mistakes with your own life. ~ Natalie Merchant
+QUOTE-->Few men during their lifetime come anywhere near exhausting the resources dwelling within them. There are deep wells of strength that are never used. ~ Richard E. Byrd
+QUOTE-->The world is a comedy to those that think, a tragedy to those who feel. ~ Horace Walpole
+QUOTE-->Reality is always greater — much greater — than what we know, than whatever we can say about it. ~ Michael Crichton
+QUOTE-->I am 100 percent in favor of the intelligent use of drugs, and 1,000 percent against the thoughtless use of them, whether caffeine or LSD. And drugs are not central to my life. ~ Timothy Leary
+QUOTE-->Genius is one per cent inspiration, ninety-nine per cent perspiration. ~ Thomas Alva Edison
+QUOTE-->I think for it to be unhip to be idealistic is weird, you know? I mean, even all the best rebels to me had some sense of hope in them. ~ Tom Petty
+QUOTE-->Traditionalists are pessimists about the future and optimists about the past. ~ Lewis Mumford
+QUOTE-->We take the position that there is no place for the state in the bedrooms of the nation. ~ Pierre Trudeau
+QUOTE-->Live as one of them, Kal-El, to discover where your strength and your power are needed. Always hold in your heart the pride of your special heritage. They can be a great people, Kal-El — they wish to be. They only lack the light to show the way. ~ Marlon Brando as "Jor-El" in Superman: The Movie
+QUOTE-->We are all in the gutter, but some of us are looking at the stars. ~ Oscar Wilde
+QUOTE-->Behold the believers of all beliefs! Whom do they hate most? Him who breaketh up their tables of values, the breaker, the law-breaker — he, however, is the creator. Companions, the creator seeketh, not corpses — and not herds or believers either. Fellow-creators the creator seeketh — those who grave new values on new tables. ~ Friedrich Nietzsche
+QUOTE-->love is the every only god ~ e. e. cummings
+QUOTE-->Forgive us the breach of positive commands and negative commands, whether or not they involve an act, whether or not they are known to us. ~ Liturgy for Yom Kippur
+QUOTE-->Tragedy blows through your life like a tornado, uprooting everything, creating chaos. You wait for the dust to settle, and then you choose. You can live in the wreckage and pretend it's still the mansion you remember. Or you can crawl from the rubble and slowly rebuild. ~ Kristen Bell, as "Veronica Mars"
+QUOTE-->You always fall when you’re training, that’s sort of part of the process. If you’re not falling, you’re not training hard enough. ~ Michelle Trachtenberg
+QUOTE-->The truth is that there is only one terminal dignity — love. And the story of a love is not important — what is important is that one is capable of love. It is perhaps the only glimpse we are permitted of eternity. ~ Helen Hayes
+QUOTE-->I think the ultimate sense of security will be when we come to recognize that we are all part of one human race. Our primary allegiance is to the human race and not to one particular color or border. ~ Mohamed ElBaradei
+QUOTE-->Much that was called religion has carried an unconscious attitude of hostility toward life. True religion must teach that life is filled with joys pleasing to the eye of God, that knowledge without action is empty. All men must see that the teaching of religion by rules and rote is largely a hoax. The proper teaching is recognized with ease. You can know it without fail because it awakens within you that sensation which tells you this is something you've always known. ~ Frank Herbert in Dune
+QUOTE-->The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth. ~ Niels Bohr
+
+
+TVSHOW-->Heroes
+TVSHOW-->Dexter
+TVSHOW-->House
+TVSHOW-->Prison Break
+TVSHOW-->Firefly
+TVSHOW-->Avatar: The Last Airbender
+TVSHOW-->Bleach
+TVSHOW-->Veronica Mars
+TVSHOW-->FullMetal Alchemist
+TVSHOW-->24
+TVSHOW-->Scrubs
+TVSHOW-->Naruto
+TVSHOW-->Band of Brothers
+TVSHOW-->Arrested Development
+TVSHOW-->Top Gear
+TVSHOW-->Stargate SG-1
+TVSHOW-->Battlestar Galactica
+TVSHOW-->Supernatural
+TVSHOW-->MythBusters
+TVSHOW-->Friends
+TVSHOW-->Fruits Basket
+TVSHOW-->Rurouni Kenshin
+TVSHOW-->Futurama
+TVSHOW-->Psych
+TVSHOW-->The Daily Show
+TVSHOW-->Law and Order: Special Victims Unit
+TVSHOW-->The Sopranos
+TVSHOW-->Death Note
+TVSHOW-->The Wire
+TVSHOW-->Eureka Seven
+TVSHOW-->The Colbert Report
+TVSHOW-->Good Eats
+TVSHOW-->NCIS
+TVSHOW-->The Shield
+TVSHOW-->Trigun
+TVSHOW-->The Looney Tunes Show
+TVSHOW-->CSI
+TVSHOW-->Whose Line Is It Anyway?
+TVSHOW-->The Black Donnellys
+TVSHOW-->Studio 60 on the Sunset Strip
+TVSHOW-->Grey's Anatomy
+TVSHOW-->Cowboy Bebop
+TVSHOW-->The Money Maze
+TVSHOW-->The Simpsons
+TVSHOW-->Buffy the Vampire Slayer
+TVSHOW-->The X-Files
+TVSHOW-->Invader ZIM
+TVSHOW-->Entourage
+TVSHOW-->Rescue Me
+TVSHOW-->Twin Peaks
+TVSHOW-->Inuyasha
+TVSHOW-->Batman: The Animated Series
+TVSHOW-->Family Guy
+TVSHOW-->Hustle
+TVSHOW-->Seinfeld
+TVSHOW-->Lost
+TVSHOW-->Monty Python's Flying Circus
+TVSHOW-->Monk
+TVSHOW-->Dead Like Me
+TVSHOW-->The Lost Room
+TVSHOW-->Stargate Atlantis
+TVSHOW-->The Office
+TVSHOW-->Friday Night Lights
+TVSHOW-->Life on Mars
+TVSHOW-->South Park
+TVSHOW-->The Twilight Zone
+TVSHOW-->Farscape
+TVSHOW-->Degrassi: The Next Generation
+TVSHOW-->Chappelle's Show
+TVSHOW-->Star Trek: The Next Generation
+TVSHOW-->Elfen Lied
+TVSHOW-->I Love Lucy
+TVSHOW-->The West Wing
+TVSHOW-->Doctor Who
+TVSHOW-->Angel
+TVSHOW-->Drive
+TVSHOW-->Instant Star
+TVSHOW-->Yu Yu Hakusho
+TVSHOW-->Day Break
+TVSHOW-->Mystery Science Theater 3000
+TVSHOW-->Sailor Moon
+TVSHOW-->Rome
+TVSHOW-->Oz
+TVSHOW-->M*A*S*H
+TVSHOW-->The Black Adder
+TVSHOW-->Fooly Cooly
+TVSHOW-->The Venture Brothers
+TVSHOW-->Babylon 5
+TVSHOW-->X-Men
+TVSHOW-->Fawlty Towers
+TVSHOW-->Boy Meets World
+TVSHOW-->SportsCenter
+TVSHOW-->South of Nowhere
+TVSHOW-->Justice League Unlimited
+TVSHOW-->Six Feet Under
+TVSHOW-->Coupling
+TVSHOW-->Case Closed
+TVSHOW-->It's Always Sunny in Philadelphia
+TVSHOW-->Gilmore Girls
+
+ACTIVITY-->running
+ACTIVITY-->eating
+ACTIVITY-->talking
+ACTIVITY-->sleeping
+ACTIVITY-->farting
+ACTIVITY-->bleeding
+ACTIVITY-->dying
+ACTIVITY-->living
+ACTIVITY-->weeping
+ACTIVITY-->kayaking
+ACTIVITY-->canoeing
+ACTIVITY-->frisbee
+ACTIVITY-->hiking
+ACTIVITY-->camping
+ACTIVITY-->flying
+ACTIVITY-->rolling
+ACTIVITY-->blowing
+ACTIVITY-->baking
+ACTIVITY-->watching TVSHOW
+ACTIVITY-->watching BAND
+ACTIVITY-->feeling FEELING
+ACTIVITY-->watching MOVIE
+ACTIVITY-->reading BOOK
+ACTIVITY-->shopping
+ACTIVITY-->talking to boys
+ACTIVITY-->talking to girls
+ACTIVITY-->being ACTIONED
+ACTIVITY-->ACTIVITY while being ACTIONED
+
+BAND-->The 6ths
+BAND-->Abbey Lincoln
+BAND-->Accordion Tribe
+BAND-->ACDC
+BAND-->Acoustic Ladyland
+BAND-->Air France
+BAND-->Aleks and the Ramps
+BAND-->Alex Smoke
+BAND-->Alice In Chains
+BAND-->Aliens
+BAND-->Allman Brothers Band
+BAND-->American Analog Set
+BAND-->Amiina
+BAND-->Amy Winehouse
+BAND-->Andre Herman Dune
+BAND-->Andrew Bird
+BAND-->Ane Brun
+BAND-->Animal Liberation Orchestra
+BAND-->Antibalas Afrobeat Orchestra
+BAND-->Apollo Sunshine
+BAND-->Arboretum
+BAND-->Arcade Fire
+BAND-->Arcade Fire and David Bowie
+BAND-->Art Brut
+BAND-->Arvo PÃ¤rt
+BAND-->As The Poets Affirm
+BAND-->Associates
+BAND-->Autour De Lucie
+BAND-->Avalanches
+BAND-->Average White Band
+BAND-->Avishai Cohen
+BAND-->B-52's
+BAND-->Baby Teeth
+BAND-->Bad Plus
+BAND-->Balkan Beat Box
+BAND-->Band
+BAND-->Band of Horses
+BAND-->Bastard Fairies
+BAND-->Beach Boys
+BAND-->Beach House
+BAND-->Beat Circus
+BAND-->Beatallica
+BAND-->Beatles
+BAND-->Beautiful South
+BAND-->Beauty And The Beast
+BAND-->Beehive and The Barracudas
+BAND-->Beep Beep
+BAND-->Bees
+BAND-->Beirut
+BAND-->Bela Fleck
+BAND-->Bela Fleck and Edgar Meyer
+BAND-->Bela Fleck and the Flecktones
+BAND-->Benjy Ferree
+BAND-->Benni Hemm Hemm
+BAND-->Bert Jansch
+BAND-->Bikeride
+BAND-->Bill Callahan
+BAND-->Bill Frisell
+BAND-->Billie Holiday
+BAND-->Black Angels
+BAND-->Black Keys
+BAND-->Black Moth Super Rainbow
+BAND-->Black Moth Super Rainbow + The Octopus Project
+BAND-->Black Ox Orkestar
+BAND-->Black Rebel Motorcycle Club
+BAND-->Black Sabbath
+BAND-->Blind Faith
+BAND-->Bloc Party
+BAND-->Blow
+BAND-->Blur
+BAND-->Bob Dylan
+BAND-->Bob Dylan and The Band
+BAND-->Bob Dylan and Van Morrison
+BAND-->Boban Markovic Orkestar
+BAND-->Boise Cover Band
+BAND-->Bonnie "Prince" Billy
+BAND-->Bonnie Prince Billy
+BAND-->Bonobo
+BAND-->Books
+BAND-->Boomtown Rats
+BAND-->Borat
+BAND-->Boston
+BAND-->Boston Pops Orchestra
+BAND-->Bowerbirds
+BAND-->Brakes
+BAND-->Bravery
+BAND-->Brian Setzer Orchestra
+BAND-->Broken Family Band
+BAND-->Broken Spindles
+BAND-->Buffalo Tom
+BAND-->Built to Spill
+BAND-->Caetano Veloso
+BAND-->Calexico
+BAND-->Calexico (+ Iron and Wine)
+BAND-->Califone
+BAND-->Cars
+BAND-->Cass McCombs
+BAND-->Casualties of Jazz
+BAND-->Cat Power
+BAND-->Cat Stevens
+BAND-->Cat Stevens (Yusuf Islam)
+BAND-->Charlie And The Chocolate Factory
+BAND-->Charlie Feathers
+BAND-->Cheese On Bread
+BAND-->Chico Buarque
+BAND-->Children's Hour
+BAND-->Chris Connelly
+BAND-->Christopher O'Riley
+BAND-->Chrysler
+BAND-->Cibelle
+BAND-->Clap Your Hands Say Yeah
+BAND-->Clash
+BAND-->Clem Snide
+BAND-->Clientele
+BAND-->Clinic
+BAND-->Clint Mansell
+BAND-->CocoRosie
+BAND-->Cold War Kids
+BAND-->Colin Hay
+BAND-->Concretes
+BAND-->Coral
+BAND-->Corpse Bride
+BAND-->Cracow Klezmer Band
+BAND-->Cream
+BAND-->Creedence Clearwater Revival
+BAND-->Crosby, Stills and Nash
+BAND-->Crosby, Stills, Nash and Young
+BAND-->Daft Punk
+BAND-->Danny Elfman
+BAND-->Dave Grusin
+BAND-->David Bowie
+BAND-->David Gilmour
+BAND-->David Vandervelde
+BAND-->Deep Purple
+BAND-->Deerhoof
+BAND-->DetektivbyrÃ¥n
+BAND-->Devendra Banhart
+BAND-->Devendra Banhart and Jana Hunter
+BAND-->Devon Sproule
+BAND-->DeVotchKa
+BAND-->Dinosaur Jr.
+BAND-->Ditty Bops
+BAND-->Django Reinhardt
+BAND-->Doc and Richard Watson
+BAND-->Dogs Die In Hot Cars
+BAND-->Doves
+BAND-->Dresden Dolls
+BAND-->Eagles
+BAND-->Earlies
+BAND-->Eastern Lane
+BAND-->Edith Piaf
+BAND-->Eels
+BAND-->El Madmo
+BAND-->Electric Light Orchestra
+BAND-->Electric Six
+BAND-->Eleni Mandell
+BAND-->Ella Fitzgerald
+BAND-->Elliott Brood
+BAND-->Elliott Smith
+BAND-->Elvis Perkins
+BAND-->Emilie Simon
+BAND-->Emily Haines
+BAND-->Emily Haines and The Soft Skeleton
+BAND-->Emily Loizeau
+BAND-->Eric Clapton
+BAND-->Eric Clapton and B.B. King
+BAND-->Essex Green
+BAND-->Everly Brothers
+BAND-->Everything is Illuminated
+BAND-->Faint
+BAND-->Fanfare Ciocarlia
+BAND-->Faun Fables
+BAND-->Feist
+BAND-->Field Music
+BAND-->Fiery Furnaces
+BAND-->Final Fantasy
+BAND-->Finches
+BAND-->Fireworks Night
+BAND-->Fischerspooner
+BAND-->Flaming Lips
+BAND-->Flowers of Hell
+BAND-->Flunk
+BAND-->Flying Canyon
+BAND-->Frank Black
+BAND-->Frank Londons Klezmer Brass Allstars
+BAND-->Frank Sinatra
+BAND-->Freezepop
+BAND-->Frida HyvÃ¶nen
+BAND-->Fumes
+BAND-->Funseekers
+BAND-->Giovanni Mirabassi
+BAND-->Go
+BAND-->God Damn Doo Wop Band
+BAND-->Golden Smog
+BAND-->Goldmund
+BAND-->Good The Bad And The Queen
+BAND-->Good, The Bad and The Queen
+BAND-->Gorillaz
+BAND-->Gotan Project
+BAND-->Gothic Archies
+BAND-->Grant Green
+BAND-->Gravity Kills
+BAND-->Gregor Samsa
+BAND-->Grimace Federation
+BAND-->Grizzly Bear
+BAND-->Handsome Family
+BAND-->Handsome Furs
+BAND-->Hank Williams
+BAND-->Hawk and a Hacksaw
+BAND-->Hem
+BAND-->Herman DÃ¼ne
+BAND-->High Llamas
+BAND-->Highwaymen
+BAND-->Holden
+BAND-->House Of Freaks
+BAND-->House of Love
+BAND-->Human League
+BAND-->Humanwine
+BAND-->Husky Rescue
+BAND-->I'm From Barcelona
+BAND-->Iain Ballamy
+BAND-->Ian McNabb
+BAND-->Ideal Free Distribution
+BAND-->Indigo Moss
+BAND-->Isaac Krull
+BAND-->Isobel Campbell
+BAND-->Isobel Campbell and Bill Wells
+BAND-->Isobel Campbell and Mark Lanegan
+BAND-->Jack Rose
+BAND-->Jacobites
+BAND-->Jana Hunter
+BAND-->Javier Navarrete
+BAND-->Jean-Louis Murat
+BAND-->Jeff Coffin
+BAND-->Jenny Owen Youngs
+BAND-->Jesus and Mary Chain
+BAND-->Jimi Hendrix
+BAND-->Joan As Police Woman
+BAND-->Joanna Newsom
+BAND-->John Coltrane
+BAND-->John Convertino
+BAND-->John Lennon
+BAND-->John Mayall's Bluesbreakers featuring Eric Clapton
+BAND-->Johnny Cash
+BAND-->Johnny Cash And June Carter
+BAND-->Jolie Holland
+BAND-->Josefine Cronholm
+BAND-->Josephine Foster
+BAND-->Joshua Bell
+BAND-->juju orchestra
+BAND-->Julie London
+BAND-->Julie Sokolow
+BAND-->Kaada
+BAND-->Kaada and Mike Patton
+BAND-->Kaiser Chiefs
+BAND-->Kate Nash
+BAND-->Katerine
+BAND-->Keola Beamer
+BAND-->Kevin O'Donnell's Quality Six
+BAND-->King Crimson
+BAND-->Kinks
+BAND-->Kinski
+BAND-->Klezmatics
+BAND-->Kocani Orkestar
+BAND-->Kohala
+BAND-->Koop
+BAND-->Koufax
+BAND-->Kris Kristofferson
+BAND-->Kurt Rosenwinkel
+BAND-->Ladybug Transistor
+BAND-->Ladytron
+BAND-->Larkin Grimm
+BAND-->LCD Soundsystem
+BAND-->Led Zeppelin
+BAND-->Leon Thomas
+BAND-->Les Claypool
+BAND-->Les Porn Flakes
+BAND-->Libertines
+BAND-->Life Aquatic With Steve Zissou
+BAND-->Limbeck
+BAND-->Liquid Soul
+BAND-->Little Barrie
+BAND-->Little Miss Sunshine
+BAND-->Little Willies
+BAND-->Liz Story
+BAND-->Loituma
+BAND-->London Philharmonic Orchestra
+BAND-->Loose Fur
+BAND-->Lou Barlow
+BAND-->Louis Armstrong
+BAND-->Louis XIV
+BAND-->Luther Russell
+BAND-->Lynyrd Skynyrd
+BAND-->M's
+BAND-->M.I.A.
+BAND-->Madeleine Peyroux
+BAND-->Magnetic Fields
+BAND-->Man Man
+BAND-->Manfred Mann
+BAND-->Manual
+BAND-->Marissa Nadler
+BAND-->Mars Volta
+BAND-->Mates Of State
+BAND-->Matisyahu
+BAND-->Matt Elliott
+BAND-->Matthew Friedberger
+BAND-->Matthew Herbert
+BAND-->Meat Loaf
+BAND-->Melissa McClelland
+BAND-->Melora Creager
+BAND-->Metric
+BAND-->Miaow
+BAND-->Micah P. Hinson
+BAND-->Midlake
+BAND-->Miles Davis
+BAND-->Modest Mouse
+BAND-->Moistboyz
+BAND-->Mojave 3
+BAND-->Moldy Peaches
+BAND-->Moloko
+BAND-->Money Mark
+BAND-->Moneybrother
+BAND-->Montana
+BAND-->Morning Runner
+BAND-->Mother Mother
+BAND-->Ms. John Soda
+BAND-->My Brightest Diamond
+BAND-->My Morning Jacket
+BAND-->Mystery Jets
+BAND-->Nancy Sinatra
+BAND-->Nat King Cole
+BAND-->Natalie Cole
+BAND-->National
+BAND-->Natural Snow Buildings
+BAND-->Nellie McKay
+BAND-->Neutral Milk Hotel
+BAND-->Night On Earth
+BAND-->Nightmare Before Christmas
+BAND-->Nina Nastasia
+BAND-->Nina Nastasia And Jim White
+BAND-->Nine Inch Nails
+BAND-->Nirvana
+BAND-->Noah Georgeson
+BAND-->Noisettes
+BAND-->Nora O'Connor
+BAND-->Norah Jones
+BAND-->Norfolk and Western
+BAND-->Nostalgia 77
+BAND-->Notwist
+BAND-->Nouvelle Vague
+BAND-->Ocean Colour Scene
+BAND-->Oddjob
+BAND-->Of Montreal
+BAND-->Oi Va Voi
+BAND-->Ok Go
+BAND-->Old Crow Medicine Show
+BAND-->Orange Juice
+BAND-->Orange Twin Field Works
+BAND-->Ornette Coleman
+BAND-->Outkast
+BAND-->P.G. Six
+BAND-->Page France
+BAND-->Pale Young Gentlemen
+BAND-->Palomar
+BAND-->Panurge
+BAND-->Papercuts
+BAND-->Parov Stelar
+BAND-->Pat Metheny and Brad Mehldau
+BAND-->Patsy Cline
+BAND-->Pauline Croze
+BAND-->Pearl Jam
+BAND-->Pearls and Brass
+BAND-->Peter And The Wolf
+BAND-->Petit Vodo
+BAND-->Philip Glass
+BAND-->Philip Glass and John Cage
+BAND-->Philip Glass and Robert Wilson
+BAND-->Phonograph
+BAND-->Pierces
+BAND-->Pink Floyd
+BAND-->Pink Martini
+BAND-->Pixies
+BAND-->Poets
+BAND-->Polyphonic Spree
+BAND-->Ponys
+BAND-->Pop Levi
+BAND-->Primus
+BAND-->Prodigy
+BAND-->Psychedelic Furs
+BAND-->Queen
+BAND-->Raconteurs
+BAND-->Rainravens
+BAND-->Rasputina
+BAND-->Ray Davies
+BAND-->Razorlight
+BAND-->Regina Spektor
+BAND-->REO Speedwagon
+BAND-->Reverend Glasseye
+BAND-->Richard Cheese
+BAND-->Rising Force
+BAND-->RJD2
+BAND-->Rob Burger
+BAND-->Robert Plant
+BAND-->Rock Plaza Central
+BAND-->Roger Waters
+BAND-->Roisin Murphy
+BAND-->Rolling Stones
+BAND-->Ron Carter Herbie Hancock Tony Williams
+BAND-->Rosanne Cash
+BAND-->Rosebuds
+BAND-->Royal Crown Revue
+BAND-->Royal Philharmonic Orchestra
+BAND-->Salty Dick (Richard Docker, PhD)
+BAND-->Sam Beebe
+BAND-->Sam Zurick People Dick
+BAND-->Santa Maria
+BAND-->Scourge of the Sea
+BAND-->Sea Wolf
+BAND-->Secret Machines
+BAND-->Shapes And Sizes
+BAND-->Sharon Jones and The Dap-Kings
+BAND-->She Keeps Bees
+BAND-->Shout Out Louds
+BAND-->Sidecar
+BAND-->Sigur Ros
+BAND-->Silver Jews
+BAND-->Simon and Garfunkel
+BAND-->Simone White
+BAND-->Simpsons
+BAND-->Sister Vanilla
+BAND-->Skindive
+BAND-->Skinny McGee and His Mayhem Makers
+BAND-->Smog
+BAND-->Sneaker Pimps
+BAND-->SnowLeopards
+BAND-->Snowman
+BAND-->Sodastream
+BAND-->Songs: Ohia
+BAND-->Sophie Solomon
+BAND-->Sort Sol
+BAND-->Souljazz Orchestra
+BAND-->Soundgarden
+BAND-->Special Needs
+BAND-->Spires That In The Sunset Rise
+BAND-->Squirrel Nut Zippers
+BAND-->Stanton Moore
+BAND-->Steel Train
+BAND-->Stone Roses
+BAND-->Stone Temple Pilots
+BAND-->Strike The Colours
+BAND-->Sublime
+BAND-->Sun Kil Moon
+BAND-->Superimposers
+BAND-->Swan Lake
+BAND-->Sweet
+BAND-->Talk Demonic
+BAND-->Talking Heads
+BAND-->Tapes 'N Tapes
+BAND-->Team America
+BAND-->The
+BAND-->This Bike is a Pipe Bomb
+BAND-->This Will Destroy You
+BAND-->Thomas Belhom
+BAND-->Thomas Dybdahl
+BAND-->Thrift Store Cowboys
+BAND-->Thrills
+BAND-->Tied and Tickled Trio
+BAND-->Tiger Lillies
+BAND-->Tiger Saw
+BAND-->Tin Hat Trio
+BAND-->Tom Waits
+BAND-->Tosca Tango Orchestra
+BAND-->Townes Van Zandt
+BAND-->Traffic
+BAND-->Tragically Hip
+BAND-->Triggerfinger
+BAND-->Tripping Daisy
+BAND-->TV On The Radio
+BAND-->Uncle Earl
+BAND-->Utah Carol
+BAND-->Van Morrison
+BAND-->Velvet Revolver
+BAND-->Velvet Underground
+BAND-->Vetiver
+BAND-->Victor Wooten
+BAND-->Village Green
+BAND-->Vince Guaraldi
+BAND-->Violent Femmes
+BAND-->Viva Voce
+BAND-->Warm Jets
+BAND-->Ween
+BAND-->Whipping Boy
+BAND-->White Magic
+BAND-->White Rabbits
+BAND-->White Stripes
+BAND-->Who
+BAND-->Why?
+BAND-->Wilco
+BAND-->Willard Grant Conspiracy
+BAND-->William Elliott Whitmore
+BAND-->Willie Nelson
+BAND-->Willowz
+BAND-->Wolfmother
+BAND-->Woods
+BAND-->World/Inferno Friendship Society
+BAND-->Yacht
+BAND-->Yann Tiersen
+BAND-->Yardbirds
+BAND-->Yes
+BAND-->Yeti
+BAND-->Yo-Yo Ma
+BAND-->Yoko Ono
+BAND-->Yoriyos
+BAND-->Zeebee
+BAND-->Zero 7
+BAND-->Zincs
+BAND-->Zita Zwoon
+BAND-->Zoe Keating
+BAND-->Zombies
+BAND-->Zumpano
+BAND-->Zutons
+BAND-->ZZ Top
+
+GROUPSEARCH-->alcohol
+GROUPSEARCH-->sex
+GROUPSEARCH-->rainbow
+GROUPSEARCH-->fun
+GROUPSEARCH-->appreciate
+GROUPSEARCH-->support
+GROUPSEARCH-->life
+GROUPSEARCH-->love
+GROUPSEARCH-->group
+GROUPSEARCH-->chris
+
+CITY-->Allendale
+CITY-->Allenhurst
+CITY-->Allentown
+CITY-->Alpha
+CITY-->Alpine
+CITY-->Andover
+CITY-->Atlantic Highlands
+CITY-->Audubon
+CITY-->Audubon Park
+CITY-->Avalon
+CITY-->Avon-by-the-Sea
+CITY-->Barnegat Light
+CITY-->Barrington
+CITY-->Bay Head
+CITY-->Beach Haven
+CITY-->Beachwood
+CITY-->Bellmawr
+CITY-->Belmar
+CITY-->Bergenfield
+CITY-->Berlin
+CITY-->Bernardsville
+CITY-->Bloomingdale
+CITY-->Bloomsbury
+CITY-->Bogota
+CITY-->Bound Brook
+CITY-->Bradley Beach
+CITY-->Branchville
+CITY-->Brielle
+CITY-->Brooklawn
+CITY-->Buena
+CITY-->Butler
+CITY-->Caldwell
+CITY-->Califon
+CITY-->Cape May Point
+CITY-->Carlstadt
+CITY-->Carteret
+CITY-->Chatham
+CITY-->Chesilhurst
+CITY-->Chester
+CITY-->Clayton
+CITY-->Clementon
+CITY-->Cliffside Park
+CITY-->Closter
+CITY-->Collingswood
+CITY-->Cresskill
+CITY-->Deal
+CITY-->Demarest
+CITY-->Dumont
+CITY-->Dunellen
+CITY-->East Brunswick
+CITY-->East Newark
+CITY-->East Rutherford
+CITY-->Eatontown
+CITY-->Edgewater
+CITY-->Edison
+CITY-->Elmer
+CITY-->Elmwood Park
+CITY-->Emerson
+CITY-->Englewood Cliffs
+CITY-->Englishtown
+CITY-->Essex Fells
+CITY-->Fair Haven
+CITY-->Fair Lawn
+CITY-->Fairview
+CITY-->Fanwood
+CITY-->Far Hills
+CITY-->Farmingdale
+CITY-->Fieldsboro
+CITY-->Flemington
+CITY-->Florham Park
+CITY-->Folsom
+CITY-->Fort Lee
+CITY-->Franklin
+CITY-->Franklin Lakes
+CITY-->Freehold Borough
+CITY-->Frenchtown
+CITY-->Garwood
+CITY-->Gibbsboro
+CITY-->Glassboro
+CITY-->Glen Gardner
+CITY-->Glen Ridge
+CITY-->Glen Rock
+CITY-->Haddonfield
+CITY-->Haddon Heights
+CITY-->Haledon
+CITY-->Hamburg
+CITY-->Hampton
+CITY-->Harrington Park
+CITY-->Harvey Cedars
+CITY-->Hasbrouck Heights
+CITY-->Haworth
+CITY-->Hawthorne
+CITY-->Helmetta
+CITY-->High Bridge
+CITY-->Highland Park
+CITY-->Highlands
+CITY-->Hightstown
+CITY-->Hillsdale
+CITY-->Hi-Nella
+CITY-->Ho-Ho-Kus
+CITY-->Hoboken
+CITY-->Hopatcong
+CITY-->Hopewell
+CITY-->Interlaken
+CITY-->Island Heights
+CITY-->Jamesburg
+CITY-->Keansburg
+CITY-->Kenilworth
+CITY-->Keyport
+CITY-->Kinnelon
+CITY-->Lake Como
+CITY-->Lakehurst
+CITY-->Laurel Springs
+CITY-->Lavallette
+CITY-->Lawnside
+CITY-->Lebanon
+CITY-->Leonia
+CITY-->Lincoln Park
+CITY-->Lindenwold
+CITY-->Little Ferry
+CITY-->Little Silver
+CITY-->Livingston
+CITY-->Lodi
+CITY-->Longport
+CITY-->Madison
+CITY-->Magnolia
+CITY-->Manasquan
+CITY-->Mantoloking
+CITY-->Mantua
+CITY-->Manville
+CITY-->Maplewood
+CITY-->Matawan
+CITY-->Maywood
+CITY-->Medford Lakes
+CITY-->Mendham
+CITY-->Merchantville
+CITY-->Metuchen
+CITY-->Middlesex
+CITY-->Midland Park
+CITY-->Milford
+CITY-->Millstone
+CITY-->Milltown
+CITY-->Monmouth Beach
+CITY-->Montvale
+CITY-->Moonachie
+CITY-->Morris Plains
+CITY-->Mountain Lakes
+CITY-->Mountainside
+CITY-->Mount Arlington
+CITY-->Mount Ephraim
+CITY-->National Park
+CITY-->Neptune City
+CITY-->Netcong
+CITY-->Newfield
+CITY-->New Milford
+CITY-->New Providence
+CITY-->North Arlington
+CITY-->North Caldwell
+CITY-->North Haledon
+CITY-->North Plainfield
+CITY-->Northvale
+CITY-->Norwood
+CITY-->Oakland
+CITY-->Oaklyn
+CITY-->Ocean Gate
+CITY-->Oceanport
+CITY-->Ogdensburg
+CITY-->Old Tappan
+CITY-->Oradell
+CITY-->Palisades Park
+CITY-->Palmyra
+CITY-->Paramus
+CITY-->Park Ridge
+CITY-->Paulsboro
+CITY-->Peapack and Gladstone
+CITY-->Pemberton
+CITY-->Pennington
+CITY-->Penns Grove
+CITY-->Pine Beach
+CITY-->Pine Hill
+CITY-->Pine Valley
+CITY-->Pitman
+CITY-->Point Pleasant
+CITY-->Point Pleasant Beach
+CITY-->Pompton Lakes
+CITY-->Princeton
+CITY-->Prospect Park
+CITY-->Ramsey
+CITY-->Raritan
+CITY-->Red Bank
+CITY-->Ridgefield
+CITY-->Ringwood
+CITY-->Riverdale
+CITY-->River Edge
+CITY-->Riverton
+CITY-->Rockaway
+CITY-->Rockleigh
+CITY-->Rocky Hill
+CITY-->Roosevelt
+CITY-->Roseland
+CITY-->Roselle
+CITY-->Roselle Park
+CITY-->Rumson
+CITY-->Runnemede
+CITY-->Rutherford
+CITY-->Saddle River
+CITY-->Sayreville
+CITY-->Sea Bright
+CITY-->Sea Girt
+CITY-->Seaside Heights
+CITY-->Seaside Park
+CITY-->Shiloh
+CITY-->Ship Bottom
+CITY-->Shrewsbury
+CITY-->Somerdale
+CITY-->Somerville
+CITY-->South Bound Brook
+CITY-->South Plainfield
+CITY-->South River
+CITY-->South Toms River
+CITY-->Spotswood
+CITY-->Spring Lake
+CITY-->Spring Lake Heights
+CITY-->Stanhope
+CITY-->Stockton
+CITY-->Stone Harbor
+CITY-->Stratford
+CITY-->Surf City
+CITY-->Sussex
+CITY-->Swedesboro
+CITY-->Tavistock
+CITY-->Tenafly
+CITY-->Teterboro
+CITY-->Tinton Falls
+CITY-->Toms River
+CITY-->Totowa
+CITY-->Tuckerton
+CITY-->Union Beach
+CITY-->Upper Saddle River
+CITY-->Verona
+CITY-->Victory Gardens
+CITY-->Waldwick
+CITY-->Wallington
+CITY-->Wanaque
+CITY-->Washington
+CITY-->Watchung
+CITY-->Wenonah
+CITY-->West Caldwell
+CITY-->West Cape May
+CITY-->West Long Branch
+CITY-->West Paterson
+CITY-->Westville
+CITY-->West Wildwood
+CITY-->Westwood
+CITY-->Wharton
+CITY-->Wildwood Crest
+CITY-->Woodbine
+CITY-->Woodbury Heights
+CITY-->Woodcliff Lake
+CITY-->Woodlynne
+CITY-->Wood-Ridge
+CITY-->Woodstown
+CITY-->Wrightstown
+CITY-->Belvidere
+CITY-->Boonton
+CITY-->Clinton
+CITY-->Dover
+CITY-->Guttenberg
+CITY-->Hackettstown
+CITY-->Hammonton
+CITY-->Harrison
+CITY-->Kearny
+CITY-->Montclair
+CITY-->Morristown
+CITY-->Newton
+CITY-->Phillipsburg
+CITY-->Secaucus
+CITY-->Westfield
+CITY-->West New York
+CITY-->Loch Arbour
+CITY-->Ridgefield Park
+CITY-->Ridgewood
+CITY-->South Orange
+
+RELIGION-->Christian
+RELIGION-->Christian - Protestant
+RELIGION-->Christian - Catholic
+RELIGION-->Christian - Amish
+RELIGION-->Christian - Assemblies of God
+RELIGION-->Christian - Baptist
+RELIGION-->Christian - Latter-day Saints
+RELIGION-->Christian - Church of Christ
+RELIGION-->Christian - Lutheran
+RELIGION-->Christian - Jehovah's Witness
+RELIGION-->Christian - Mennonite
+RELIGION-->Christian - Methodist
+RELIGION-->Christian - Pentecostal
+RELIGION-->Christian - Presbyterian
+RELIGION-->Christian - Seventh-Day Adventist
+RELIGION-->Christian - Episcopalian
+RELIGION-->Christian - Greek Orthodox
+RELIGION-->Christian - Anglican
+RELIGION-->Jewish
+RELIGION-->Jewish - Reform
+RELIGION-->Jewish - Conservative
+RELIGION-->Jewish - Orthodox
+RELIGION-->Buddhist
+RELIGION-->Buddhist - Theravada
+RELIGION-->Buddhist - Mahayana
+RELIGION-->Buddhist - Vajrayana
+RELIGION-->Muslim
+RELIGION-->Muslim - Sunni
+RELIGION-->Muslim - Shiite
+RELIGION-->Muslim - Sufi
+RELIGION-->Hindu
+RELIGION-->Hindu - Vaishnavism
+RELIGION-->Hindu - Saivite
+RELIGION-->Hindu - Shakta
+RELIGION-->Hindu - Smartha
+RELIGION-->Agnostic
+RELIGION-->Atheist
+RELIGION-->Pagan
+RELIGION-->Wiccan
+RELIGION-->Daoist
+RELIGION-->Confucian
+RELIGION-->Jain
+RELIGION-->Unitarian Universalist
+RELIGION-->Sikh
+
+SPREE-->A map of every road.
+SPREE-->All I ever wished would come to me in an apple orchard filled with golden eggs.
+SPREE-->All I’ve got is down on the ground.
+SPREE-->All is great and everything is nice.
+SPREE-->All my feelings are more than I can let by.
+SPREE-->All you ever wanted was the truth.
+SPREE-->All you’ve got to do is let it go.
+SPREE-->As I’m getting older I think I move much slower.
+SPREE-->Brush off your anger and go fix your hair.
+SPREE-->Bubble made imagination took me for a ride.
+SPREE-->Burnin's good when your burnin' wood.
+SPREE-->Can a man mark it?  Of course he can.
+SPREE-->Come on out, I've got a secret.
+SPREE-->Days like this keep me warm.
+SPREE-->Don’t let your love fall on down on my umbrella.
+SPREE-->Don't you know that life, it can take some time to get it real.
+SPREE-->Ending up at the starting place I left behind.
+SPREE-->Everything around me seems to spin once or twice.
+SPREE-->Everything is good until its bad.
+SPREE-->Everything's moving at the ultimate speed.
+SPREE-->Follow the day and reach for the sun.
+SPREE-->Follow the seasons and find the time.
+SPREE-->God only knows what your missing.
+SPREE-->Have a day, celebrate, soon you’ll find the answer.
+SPREE-->Hearing the bells they’re ringing when I try to sleep.
+SPREE-->Hey borrow my mind.
+SPREE-->Hey it’s the sun and it makes me shine.
+SPREE-->Holiday, hideaway, soon you finally wonder.
+SPREE-->Hope has come, you are safe.
+SPREE-->How much longer can this last?
+SPREE-->Human contact is needed.
+SPREE-->I am an elastic firecracker.
+SPREE-->I can get lost in just living.
+SPREE-->I can see the stars.
+SPREE-->I can see your heart.
+SPREE-->I can’t forget the times they’ve gone away.
+SPREE-->I can't believe it happened to me.
+SPREE-->I don't mind running along on our drive to the sun.
+SPREE-->I feel like a raindrop.
+SPREE-->I feel like I’m racing with the wind.
+SPREE-->I figure it's all about giving.
+SPREE-->I found my soldier girl.
+SPREE-->I got a girl, and she’s got a guy.
+SPREE-->I got a girl, she’s my guiding light.
+SPREE-->I hope it gets better.
+SPREE-->I loved the days when we were younger then rainbows caught us.
+SPREE-->I never thought I could be this strong.
+SPREE-->I saddle my thoughts for the big machine.
+SPREE-->I think I’ll run and hide.
+SPREE-->I touched your hand and lost myself instead.
+SPREE-->I wanna get through this day.
+SPREE-->I wanna make it better.
+SPREE-->I wanna see you sideways.
+SPREE-->I was born a self-styled crusader in amazing race of human elevators.
+SPREE-->I watch you and miss you all day long.
+SPREE-->I will be older soon to take what I need from you.
+SPREE-->I wondered where we left off.
+SPREE-->I’ll be on my way when I know there’s hope.
+SPREE-->I’ll take it any way I can.
+SPREE-->I’m all in pieces.
+SPREE-->I’m everywhere you want me now.
+SPREE-->I’m going out of my head.
+SPREE-->I’m like a child and I’m lost for the first time.
+SPREE-->I’m shaking just like I’ve never seen the light.
+SPREE-->I’m swimming all around in confusion.
+SPREE-->I’m too good to be by myself again.
+SPREE-->I’ve got eyes that see a life that’s good for me.
+SPREE-->If all I had to do was get naked and look at you, in the seventies.
+SPREE-->If I can make it through there will be my house in full force.
+SPREE-->If I could reach you, you know I would want to see you there.
+SPREE-->If I had the strength of ten men, I’d pull your arms out and stick them on your head.
+SPREE-->In not just hanging around while they laugh about it.
+SPREE-->In the middle of the afternoon you can come around and fly, fly , fly, fly.
+SPREE-->In the middle of the day I can run around with you.
+SPREE-->Is there someone staring down at me?
+SPREE-->It’s a game, your winning.
+SPREE-->It’s been too long since you’ve been away brother.
+SPREE-->It’s hard to move when the noose is you.
+SPREE-->It’s these things inside of me, I share them with you.
+SPREE-->It's all in you head if you think you are a lie.
+SPREE-->It's all that you do that carries you through.
+SPREE-->It's always the same when you walk and you breathe.
+SPREE-->Keep all the message and make it your sound.
+SPREE-->Keep thoughts high in the sky.
+SPREE-->Knowing is a comfortable fight.
+SPREE-->Laugh at what you did today.
+SPREE-->Leave your high hopes on full dedication.
+SPREE-->Let your secrets out to dry.
+SPREE-->Life has a lot of weather.
+SPREE-->Life is such a wonderful slide.
+SPREE-->Life ticks around the clock like a turban chocking your head.
+SPREE-->Lift up my fork and celebrate ease.
+SPREE-->Lift your hands into the clouds.
+SPREE-->Light and day is more than you’ll say.
+SPREE-->Like a pilot diving down a wishing well.
+SPREE-->Look at me now, I’m King Kong.
+SPREE-->Look at us just passing time.
+SPREE-->Love gets inside of you.
+SPREE-->Love makes it good to be free.
+SPREE-->Lying here with you is like heaven in the sun.
+SPREE-->My creed is to be the unbreakable me.
+SPREE-->My decision, your decision, there’s no common ground.
+SPREE-->My Doppler radar predicts a breeze of long hands.
+SPREE-->My mind explodes, it makes me grow, it gives me something new.
+SPREE-->My mind it rolls, reminds me it was so easy.
+SPREE-->My mindless, waveless thoughts they carry on.
+SPREE-->My vision is clear, I have no fear, of all the things that make me happy.
+SPREE-->My will is to hold.
+SPREE-->Never any doubt in me.
+SPREE-->No more walking today.
+SPREE-->Northwest skies I love the way you shine.
+SPREE-->Now follow me.
+SPREE-->Now I know why you are so vacant.
+SPREE-->Now I’m free.
+SPREE-->Now it’s time to go back where you started.
+SPREE-->One day he’ll get his just reward.
+SPREE-->Oxygen relaxes by the way we float.
+SPREE-->Proving once again that seasons change, so do we.
+SPREE-->Put your head into the game.
+SPREE-->Reach for the bright side.
+SPREE-->Running through a built in maze.
+SPREE-->She makes my head spin around.
+SPREE-->Slinging all those words around, drives my smile right to the ground.
+SPREE-->Some silly way life begins to change.
+SPREE-->Some things are touched.
+SPREE-->Somehow I feel what flies seem to breathe.
+SPREE-->Somehow the look seems to fall off your face.
+SPREE-->Soon you find your own way.
+SPREE-->Soon you’ll be okay.
+SPREE-->Spacing through time just like I knew I should.
+SPREE-->Stick with things that will make them proud.
+SPREE-->Stop and try to catch my breath, while I’m looking for my next step.
+SPREE-->Stuck on top is mighty low.
+SPREE-->Sucking a slurpee for ultimate power.
+SPREE-->Suicide is a shame.
+SPREE-->Sure is fun to sing about life.
+SPREE-->Sympathize with me, because here I am.
+SPREE-->Take a breath, just because you think its neat.
+SPREE-->Take some time, get away.
+SPREE-->Take the time to fix yourself up.
+SPREE-->Take what you can today.
+SPREE-->Take what you need but not in a foolish way.
+SPREE-->Take what you need but not in a selfish way.
+SPREE-->Taking time helps you with your luck.
+SPREE-->Talking makes an easy chair a friend.
+SPREE-->That's the way we watch the movies.
+SPREE-->The magic's in my heart.
+SPREE-->The Nowhere takes me to Nowhere land.
+SPREE-->The people around me have all floated downstream.
+SPREE-->The people around me have all spoken.
+SPREE-->The power that you receive destroys you.
+SPREE-->The Sky is the limit when the ocean is hiding.
+SPREE-->The sky's the limit.
+SPREE-->The trees are getting harder to climb.
+SPREE-->The world they licked is the world they left behind.
+SPREE-->There is a place where time stands still.
+SPREE-->There something about the way we feel.
+SPREE-->There’s something cruel about my world.
+SPREE-->There's something to touchin'.
+SPREE-->These little tiny men crawl on me.
+SPREE-->They cool themselves from the aim of the sun.
+SPREE-->This I know, I waited a long time ago.
+SPREE-->This is me, your glue guns dream.
+SPREE-->Tired hard to make it, until making it got worse.
+SPREE-->Today is just a day, like any other day.
+SPREE-->Too far gone for people to ever change your mind.
+SPREE-->Twice as good as Mars, and Mars is out of sight.
+SPREE-->Voices cry out for the plea of self worth.
+SPREE-->Voices ring out for the day has begun.
+SPREE-->We can be free if you want to.
+SPREE-->We live by the sun.
+SPREE-->We will not ask why.
+SPREE-->Welcome to the swimming pool.
+SPREE-->Well I know, and I need, I feel were going higher and higher.
+SPREE-->What makes a man feel small?
+SPREE-->When love gets inside of you, it makes me invincible.
+SPREE-->Whether or not, its you and me.
+SPREE-->While kissing your first kiss, the world was blind.
+SPREE-->Why you wanna wait till I stop?
+SPREE-->Why you wanna watch me?
+SPREE-->Wonder plays a magic game.
+SPREE-->Wonder who’s finding all this a game.
+SPREE-->Wondering jets inside of me.
+SPREE-->You better get a bit closer to the one that makes you bright.
+SPREE-->You can be what you want, it’s a matter of time.
+SPREE-->You can feed your mouth a plan.
+SPREE-->You can’t deny all the people that love you.
+SPREE-->You can’t rely on a stranger to love you.
+SPREE-->You find that you’re missing what others thought you had all the time.
+SPREE-->You know how it goes.
+SPREE-->You know the one.
+SPREE-->You like what you’re given.
+SPREE-->You make me good, but you make me crazy.
+SPREE-->You never will come down.
+SPREE-->You never will fall down.
+SPREE-->You owe superworld.
+SPREE-->You sigh at the rainbow that’s coming from the other side.
+SPREE-->You take a route, but the route is wrong.
+SPREE-->You take me that’s your mission.
+SPREE-->You’re fooling yourself with blame.
+SPREE-->You’re taking it all to a future sight.
+SPREE-->Your are always a mess, but you’re a step ahead of the crowd.
+SPREE-->Your eagerness survives.
+SPREE-->Your like a big kite that’s flying from people.
+SPREE-->Your wish is pretending to slightly move over the light.
+SPREE-->You're old enough.
+SPREE-->You're older now
+
+SCREENNAME-->SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART
+SCREENNAME-->SCREENNAMEPART SCREENNAMEPART
+SCREENNAME-->SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART
+SCREENNAME-->SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART SCREENNAMEPART
+SCREENNAMEPART-->19
+SCREENNAMEPART-->xXx
+SCREENNAMEPART-->xX
+SCREENNAMEPART-->21
+SCREENNAMEPART-->stunta
+SCREENNAMEPART-->killa
+SCREENNAMEPART-->pretty
+SCREENNAMEPART-->death
+SCREENNAMEPART-->azn
+SCREENNAMEPART-->cool
+SCREENNAMEPART-->dude
+SCREENNAMEPART-->chick
+SCREENNAMEPART-->soccer
+SCREENNAMEPART-->2342
+SCREENNAMEPART-->omg
+SCREENNAMEPART-->lol
+SCREENNAMEPART-->z
+SCREENNAMEPART-->sk8r
+SCREENNAMEPART-->tight
+SCREENNAMEPART-->03

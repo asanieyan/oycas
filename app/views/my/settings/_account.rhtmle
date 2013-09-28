@@ -1,0 +1,215 @@
+<div id='centered' class='status-box' style='width:700px;'>
+
+<div class='section'>
+    <div class='title' id='email-title'>
+        Change Contact Email    
+    </div>
+
+    <% @my.emails.unconfirmed.each do |email| %>
+        <div class='notice'>
+            You have requested <strong><%=email.contact_email%></strong> as your contact email. 
+            An email has been sent there to make sure it is a valid address.
+            <div style='margin-top:3px;text-align:right'>    
+                <%=link_to "Cancel Request",{:action=>"my_settings",:remove_email=>email.id},:style=>'font-size:8pt',:post=>true%>
+                |
+                <%=link_to "Resend Confirmation",{:action=>"my_settings",:resend_confirmation=>email.id },:style=>'font-size:8pt',:post=>true%>                
+            </div>
+        </div>    
+            
+    <%end%>
+
+    <table cellspacing=0 style='width:100%'><tr>
+    <td class='desc'> 
+            Your contact email is the address where we'll send you notifications. 
+            Your contact email must always be a valid address.    
+    </td>
+    <td class='data'> 
+          <form action="/my/my_settings" method="POST" >
+           
+            <table>
+                <tr>
+                    <td class='label'>
+                        Contact Email
+                    </td>
+                    <td> 
+                        <% @me.emails.confirmed.each do |email| %>
+                            <%if email.default_email %>                            
+                                    <%=radio_button_tag "email_change",email.id, true, :onfocus=>"$('email-text').style.color = '';$('email-text').value = 'Enter a new email'"%> <%= email.contact_email%> <br>
+
+                            <%else%>
+                                    <%=radio_button_tag "email_change",email.id, false, :onfocus=>"$('email-text').style.color = '';$('email-text').value = 'Enter a new email'"%> 
+                                    <%= email.contact_email%> 
+                                    <%=link_to "remove",{:action=>"my_settings",:remove_email=>email.id},:confirm=>["Remove Email","Are you sure you want to #{email.contact_email} as your contact email"]%><br>                                    
+                            <%end%>
+                        <%end%>
+                        <div style='margin-top:5px'> 
+                         <%=radio_button_tag "email_change","",false,:id=>"email-radio", :onfocus=>"$('email-text').value = '';$('email-text').focus()"%> 
+                         <%= text_field_tag "new_email","Enter a new email",:id=>"email-text", :size=>"30",:maxlength=>100,:onfocus=>"$('email-radio').checked = true;this.style.color = 'black';this.value = ''" %> 
+                        </div>                        
+                    </td>
+                </tr>
+                <tr> 
+                    <td> </td>
+                    <td > 
+                        <%=submit_tag "Change Contact Email"%>
+                    </td>
+                </tr>
+            </table>
+           </form>
+    </td>
+    </tr>
+  </table>
+    
+</div>    
+<div class='section'>
+    <div class='title' id='password-title'>
+        Change Password
+    </div>
+    <table cellspacing=0 style='width:100%'><tr>
+    <td class='desc'> 
+        <ul>
+                <li> Make sure your CAPS-lock key isn't on</li>
+                <a name="center"> </a>
+                <li> It must be at least <%=Student::PasswordLength%> characters long, but more is better</li>
+                <li> Using both letters and numbers is even better</li>
+                <li>'QUAils' isn't the same password as 'quails'</li>
+        </ul>                
+    
+    </td>
+    <td class='data'>   
+        <form action="/my/my_settings" method="POST" onsubmit=''>
+        <%=hidden_field_tag "password_change" ,"true"%>
+        <%=     xm = Builder::XmlMarkup.new
+                xm.table { 
+                    xm.tr {  
+                        xm.td("Old Password:", :class=>"label")
+                        xm.td { |xm| xm.input(:type=>"password", :name=>"password[old]") }
+                    }                                          
+                    xm.tr { 
+                        xm.td("New Password:", :class=>"label")
+                        xm.td { |xm| xm.input(:type=>"password", :name=>"password[new]") }
+                    }                                           
+                    xm.tr {  
+                        xm.td("Confirm:", :class=>"label")
+                        xm.td { |xm| xm.input(:type=>"password", :name=>"password[confirm]") }
+                    } 
+                    xm.tr {
+                        xm.td
+                        xm.td {
+                            xm.input( :type=>'submit',:value=>'Change Password', :class=>'button-link')
+                        }
+                    }                                                                   
+                }
+        %>           </form>
+    </td>
+    </tr>
+  </table>
+    
+</div>    
+<div class='section'>
+     
+    <div class='title' id='secure'>
+        Change Security Question
+    </div>
+    <table cellspacing=0 style='width:100%'><tr>
+    <td class='desc'> 
+            You can change your security question and answer here. We use these to help identify you as the owner of your account if you ever need to write us for help.    
+    </td>
+    <td class='data'>   <form action="/my/my_settings" method="POST" >
+        <%=hidden_field_tag "security_question" ,"true"%>    
+        <%= xm = Builder::XmlMarkup.new
+                xm.table { 
+                    xm.tr {  
+                        xm.td("Question:", :class=>"label")
+                        xm.td { |xm| xm.input(:value=>@me.security_question, :name=>"security[question]",:size=>40,:maxlength=>100) }
+                    }                                          
+                    xm.tr { 
+                        xm.td("Answer:", :class=>"label")
+                        xm.td { |xm| xm.input(:value=>@me.security_answer, :name=>"security[answer]",:size=>40,:maxlength=>100) }
+                    }
+                    xm.tr {
+                        xm.td
+                        xm.td {
+                            xm.input(:type=>'submit',:value=>'Change Security Question', :class=>'button-link')
+                        }
+                    }                           
+               }                
+        %>           </form>
+    </td>
+    </tr>
+  </table>
+    
+</div>
+<div class='section'>
+   
+    <div class='title' id='timezone'>
+        Change Time Zone
+    </div>
+    <table cellspacing=0 style='width:100%'><tr>
+    <td class='desc'> 
+           &nbsp;
+    </td>
+    <td class='data'>   <form action="/my/my_settings" method="POST" >
+        <%=hidden_field_tag "timezone" ,"true"%>        
+            <table>
+                <tr>
+                    <td class='label'>
+                            Time Zone:
+                    </td>
+                    <td>                     
+
+            <select name="timezone_name"> 
+               <%=time_zone_options_for_select  @me.time_zone, nil, TZInfo::Timezone  %>
+            </select>    
+                    </td>                    
+                </tr>
+                <tr> 
+                    <td> </td>
+                    <td > 
+                        <%=submit_tag "Change Time Zone"%>
+                    </td>
+                </tr>
+                
+            </table>             </form>      
+        </td>
+    </tr>
+  </table>
+    
+</div>
+<div class='section'>
+    <div class='title' id='change_name'>  
+        Change Name
+    </div>
+    <table cellspacing=0 style='width:100%'><tr>
+    <td class='desc'> 
+           You can request to change your name here. We confirm all name changes before they take effect. Sometimes this takes a little while, so please be patient.
+    </td>
+    <td class='data'> <form id='name-change' action="/my/my_settings" method="POST" >
+        <%=hidden_field_tag "name_change" ,"true"%>            
+           <%=%>
+           <%=
+                xm = Builder::XmlMarkup.new
+                xm.table { 
+                    xm.tr {  
+                        xm.td("New Name:", :class=>"label")
+                        xm.td { |xm| xm.input(:name=>'new_name',:maxLength=>ChangeNameRequest.size_of('requested_name'),
+                                                :id=>"new_name") }
+                    }                                          
+                    xm.tr {
+                        xm.td
+                        xm.td {
+                            xm.input(:type=>'submit',:value=>'Change Name',
+                                     :class=>'button-link'
+                                     
+                                     )
+                        }
+                    }                          
+               }      
+           %>
+           </form>    
+        </td>
+    </tr>
+  </table>    
+</div>
+</div>              
+

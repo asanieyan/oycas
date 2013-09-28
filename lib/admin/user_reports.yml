@@ -1,0 +1,26 @@
+profile:
+  - Inappropriate or pornographic picture
+  - Attacks individual
+  - Fake profile
+  - Doesn't belong in this network
+  - Obscene profile content
+photo:
+  - Nudity or pornography
+  - Drug use
+  - Violence
+  - Attacks individual 
+  - Obscene
+  - Photo is copyrighted
+note:
+  - Inappropriate or pornographic content
+  - Attacks individual 
+  - Obscene
+  - Note is copyrighted
+classified:  
+  - Spam
+  - Miscategorized 
+  - Inappropriate or pornographic content
+  - Illegal Item
+  - Attacks individual 
+  - Obscene
+  - Violates a copyright

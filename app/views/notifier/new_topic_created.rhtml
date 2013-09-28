@@ -1,0 +1,10 @@
+A new discussion has been created in your class <%=@klass.full_title%> about 
+<%=@discussion.topic%>
+to view this discussion click the link below 
+(If clicking on the link doesn't work, try copying and pasting it into your browser.)
+
+<%="#{Notifier::Host}/class/#{@klass.guid}/view_topic/#{@discussion.id}"%>
+
+Thanks,
+The Oycas Team
+

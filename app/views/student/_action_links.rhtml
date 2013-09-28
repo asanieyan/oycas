@@ -1,0 +1,25 @@
+
+<%unless @I.am? student%>
+    <% if @I.am_friend_with? student%>    
+         <div class='menu-like-links'  style=''>
+            <%=link_to_remove_friend student,"Remove As Friend" %>
+         </div>
+    <%elsif @I.can_add_as_friend?(student)%>     
+         <div class='menu-like-links'  style=''>
+            <%=link_to_add_friend(student,"Add As Friend")%> 
+         </div>
+    <% end %>
+    <% if @I.can_send_message_to?(student) %>
+         <div class='menu-like-links' id='send_msg_option' style=''>
+             <%=m_link 'Send Message',:controller=>'my',:action=>'compose',:id=>student.guid%> 
+         </div>                      
+    <% end %>
+ <%end%>
+<% if @I.can_see_friends_of?(student) %>
+     <div class='menu-like-links' id='send_msg_option' style=''>
+         <%=m_link "View Friends",
+            url_for_student(student,{:action=>'friends'}) %> 
+     </div>                      
+<% end %>
+<%=m_link "View Photos",url_for_student(student,{:action=>'photo'}) if student.visible_album_counts(@me) > 0%>
+ 

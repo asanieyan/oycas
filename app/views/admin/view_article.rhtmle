@@ -1,0 +1,14 @@
+<%= link_to "Return to articles list", :action => 'list_articles' %>
+
+
+<% if @article != nil then %>
+<div style="margin-top:20px;">
+Article ID: <%= @article.id %><br>
+Title: <%= @article.title %><br>
+Creation Date: <%= @article.created_on %>
+</div>
+
+<div style="border:1px solid black;padding:20px;margin-top:20px;">
+<%= @article.content %>
+</div>
+<% end %>

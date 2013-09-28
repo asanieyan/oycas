@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Dec 04 14:32:23 PST 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Welcome to <a href="../classes/Contacts.html">Contacts</a></h2>
+<p>
+<a href="../classes/Contacts.html">Contacts</a> is a universal interface to
+grab contact list information from various providers including Hotmail,
+Gmail and Yahoo.
+</p>
+<h2>Download</h2>
+<ul>
+<li>gem install contacts
+
+</li>
+<li><a
+href="http://rubyforge.org/projects/contacts">rubyforge.org/projects/contacts</a>
+
+</li>
+<li>svn co svn://rubyforge.org/var/svn/contacts
+
+</li>
+</ul>
+<h2>Background</h2>
+<p>
+For a long time, the only way to get a list of contacts from your free
+online email accounts was with proprietary PHP scripts that would cost you
+$50. The act of grabbing that list is a simple matter of screen scrapping
+and this library gives you all the functionality you need. Thanks to the
+generosity of the highly popular Rails website MOG (<a
+href="http://mog.com">mog.com</a>) for allowing this library to be released
+open-source to the world. It is easy to extend this library to add new free
+email providers, so please contact the author if you would like to help.
+</p>
+<h2>Usage</h2>
+<pre>
+        Contacts::Hotmail.new(login, password).contacts # =&gt; [[&quot;name&quot;, &quot;foo@bar.com&quot;], [&quot;another name&quot;, &quot;bow@wow.com&quot;]]
+        Contacts::Yahoo.new(login, password).contacts
+        Contacts::Gmail.new(login, password).contacts
+
+        Contacts.new(:gmail, login, password).contacts
+        Contacts.new(:hotmail, login, password).contacts
+        Contacts.new(:yahoo, login, password).contacts
+
+        Contacts.guess(login, password).contacts
+</pre>
+<p>
+Notice there are three ways to use this library so that you can limit the
+use as much as you would like in your particular application. The <a
+href="../classes/Contacts.html#M000002">Contacts.guess</a> method will
+automatically concatenate all the address book contacts from each of the
+successful logins in the case that a username password works across
+multiple services.
+</p>
+<h2>Examples</h2>
+<p>
+See the examples/ directory.
+</p>
+<h2>Authors</h2>
+<ul>
+<li>Lucas Carlson from MOG (<a href="mailto:lucas@rufy.com">lucas@rufy.com</a>)
+- <a href="http://mog.com">mog.com</a>
+
+</li>
+</ul>
+<p>
+This library is released under the terms of the BSD.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

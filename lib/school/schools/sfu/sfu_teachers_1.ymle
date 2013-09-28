@@ -1,0 +1,1684 @@
+--- 
+school: 
+  Simon Fraser University 
+teachers: 
+- :email: Neil_Alberding@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/alberding/facpic.jpg
+  :first_name: Neil
+  :last_name: Alberding
+- :email: boal@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/boal/facpic.jpg
+  :first_name: David
+  :last_name: Boal
+- :email: 
+  :photo: http://www.sfu.ca/physics/faculty/broun/Broun2.jpg 
+  :first_name: David
+  :last_name: Broun
+- :email: mxchen@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/chen/facpic.jpg
+  :first_name: Michael
+  :last_name: Chen
+- :email: 
+  :photo: http://www.sfu.ca/physics/faculty/clayman/facpic.jpg
+  :first_name: Bruce
+  :last_name: P
+- :email: 
+  :photo: 
+  :first_name: DeBenedictis
+  :last_name: 
+- :email: jsdodge@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/dodge/facpic.jpg
+  :first_name: J
+  :last_name: 
+- :email: eemberly@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/emberly/facpic.jpg
+  :first_name: Eldon
+  :last_name: Emberly
+- :email: nforde@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/forde/facpic.jpg
+  :first_name: Nancy
+  :last_name: Forde
+- :email: frisken@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/frisken/facpic.jpg
+  :first_name: Barbara
+  :last_name: Frisken
+- :email: frolov@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/frolov/facpic.jpg
+  :first_name: Andrei
+  :last_name: Frolov
+- :email: phaljan@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/haljan/facpic.jpg
+  :first_name: Paul
+  :last_name: Haljan
+- :email: mhayden@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/hayden/facpic.jpg
+  :first_name: Mike
+  :last_name: Hayden
+- :email: iherbut@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/herbut/facpic.jpg
+  :first_name: Igor
+  :last_name: Herbut
+- :email: sjohnson@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/johnson/facpic.jpg
+  :first_name: Sarah
+  :last_name: Johnson
+- :email: kavanagh@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/kavanagh/facpic.jpg
+  :first_name: Karen
+  :last_name: L
+- :email: malcolmk@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/kennett/facpic.jpg
+  :first_name: Malcolm
+  :last_name: Kennett
+- :email: kirczeno@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/kirczenow/facpic.jpg
+  :first_name: George
+  :last_name: Kirczenow
+- :email: jmcguirk@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/mcguirk/facpic.jpg
+  :first_name: Jeffrey
+  :last_name: McGuirk
+- :email: pmooney@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/mooney/facpic.jpg
+  :first_name: Pat
+  :last_name: Mooney
+- :email: plischke@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/Plischke/facpic.jpg
+  :first_name: Michael
+  :last_name: Plischke
+- :email: levon_pogosian@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/pogosian/facpic.jpg
+  :first_name: Levon
+  :last_name: Pogosian
+- :email: jeff_sonier@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/sonier/facpic.jpg
+  :first_name: Jeff
+  :last_name: Sonier
+- :email: jthewalt@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/thewaltJ/facpic.jpg
+  :first_name: Dr
+  :last_name: 
+- :email: thewalt@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/thewaltM/facpic.jpg
+  :first_name: Mike
+  :last_name: Thewalt
+- :email: trottier@sfu.ca
+  :photo: http://www.sfu.ca/physics/faculty/trottier/facpic.jpg
+  :first_name: Howard
+  :last_name: Trottier
+- :email: vetm@triumf.ca
+  :photo: http://www.sfu.ca/physics/faculty/vetterli/facpic.jpg
+  :first_name: M
+  :last_name: 
+- :email: 
+  :photo: 
+  :first_name: Simon
+  :last_name: Watkins
+- :email: allen@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/doug_allen.jpg
+  :first_name: Douglas
+  :last_name: Allen
+- :email: dandolfa@sfu.ca
+  :photo: 
+  :first_name: David
+  :last_name: Andolfatto
+- :email: arifovic@sfu.ca
+  :photo: 
+  :first_name: Jasmina
+  :last_name: Arifovic
+- :email: boland@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/larry_boland.jpg
+  :first_name: Larry
+  :last_name: Boland
+- :email: dcox@sfu.ca
+  :photo: 
+  :first_name: David
+  :last_name: Cox
+- :email: pcurry@sfu.ca
+  :photo: 
+  :first_name: Philip
+  :last_name: Curry
+- :email: devoretz@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/don_devoretz.jpg
+  :first_name: Don
+  :last_name: DeVoretz
+- :email: gdow@sfu.ca
+  :photo: 
+  :first_name: Greg
+  :last_name: Dow
+- :email: A0geoffrey_dunbar@sfu.ca
+  :photo: 
+  :first_name: Geoffrey
+  :last_name: Dunbar
+- :email: easton@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/steve_easton.jpg
+  :first_name: Stephen
+  :last_name: Easton
+- :email: friesen@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/jane_friesen.jpg
+  :first_name: Jane
+  :last_name: Friesen
+- :email: rharris@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/rick_harris.jpg
+  :first_name: Richard
+  :last_name: Harris
+- :email: heaps@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/terry_heaps.jpg
+  :first_name: Terry
+  :last_name: Heaps
+- :email: rjones@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/robbie_jones.jpg
+  :first_name: Robert
+  :last_name: Jones
+- :email: kennedy@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/peter_kennedy.jpg
+  :first_name: Peter
+  :last_name: Kennedy
+- :email: bkrauth@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/brian_krauth.jpg
+  :first_name: Brian
+  :last_name: Krauth
+- :email: fernando_martin@sfu.ca
+  :photo: 
+  :first_name: Fernando
+  :last_name: Martin
+- :email: mongrain@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/steeve_mongrain.jpg
+  :first_name: Steeve
+  :last_name: Mongrain
+- :email: gmmyers@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/gord_myers.jpg
+  :first_name: Gordon
+  :last_name: Myers
+- :email: olewiler@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/nancy_olewiler.jpg
+  :first_name: Nancy
+  :last_name: Olewiler
+- :email: pendakur@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/krishna_pendakur.jpg
+  :first_name: Krishna
+  :last_name: Pendakur
+- :email: reed@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/clyde_reed.jpg
+  :first_name: Clyde
+  :last_name: Reed
+- :email: schmitt@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/nic_schmitt.jpg
+  :first_name: Nicolas
+  :last_name: Schmitt
+- :email: schwindt@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/richard_schwindt.jpg
+  :first_name: Richard
+  :last_name: Schwindt
+- :email: spindler@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/zane_spindler.jpg
+  :first_name: Zane
+  :last_name: Spindler
+- :email: chant@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/john_chant.jpg
+  :first_name: John
+  :last_name: Chant
+- :email: jdean@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/james_dean.jpg
+  :first_name: James
+  :last_name: Dean
+- :email: maki@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/dennis_maki.jpg
+  :first_name: Dennis
+  :last_name: Maki
+- :email: jmunro@sfu.ca
+  :photo: http://www.sfu.ca/economics/faculty/jock_munro.jpg
+  :first_name: John
+  :last_name: Munro
+- :email: " yatasoy@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/atasoy.jpg
+  :first_name: Yildiz
+  :last_name: Atasoy
+- :email: " bogardus@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/bogardus.jpg
+  :first_name: John
+  :last_name: Bogardus
+- :email: " ignace@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/Ignace_web.jpg
+  :first_name: Marianne
+  :last_name: Boelscher Ignace
+- :email: " wchane@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/Chan.jpg
+  :first_name: Wendy
+  :last_name: Chan
+- :email: " chunn@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/Chunn_web.jpg
+  :first_name: Dorothy
+  :last_name: Chunn
+- :email: " culhane@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/culhane1.jpg
+  :first_name: Dara
+  :last_name: Culhane
+- :email: 
+  :photo: http://www.sfu.ca/sociology/images/portrets/DeMaio.JPG
+  :first_name: Fernando
+  :last_name: De Maio
+- :email: " pdossa@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/dosa.jpg
+  :first_name: Parin
+  :last_name: Dossa
+- :email: froschau@sfu.ca
+  :photo: http://www.sfu.ca/sociology/images/portrets/froschauer.jpg
+  :first_name: Karl
+  :last_name: Froschauer
+- :email: " gates@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/gates.jpg
+  :first_name: Marilyn
+  :last_name: Gates
+- :email: " mhoward@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/howard.jpg
+  :first_name: Michael
+  :last_name: Howard
+- :email: " kenny@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/kenny.jpg
+  :first_name: Michael
+  :last_name: Kenny
+- :email: " lacombe@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/lacombe.jpg
+  :first_name: Dany
+  :last_name: Lacombe
+- :email: " mclaren@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/mclaren.jpg
+  :first_name: Arlene
+  :last_name: Tigar McLaren
+- :email: " mitchelo@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/mitchell.jpg
+  :first_name: Barbara
+  :last_name: Mitchell
+- :email: " otero@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/otero.jpg
+  :first_name: Gerardo
+  :last_name: Otero
+- :email: " ckpatton@sfu.ca"
+  :photo: 
+  :first_name: Cindy
+  :last_name: Patton
+- :email: " pigg@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/pigg.jpg
+  :first_name: Stacy
+  :last_name: Pigg
+- :email: " pulkingh@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/%20pulkingham1.jpg
+  :first_name: Jane
+  :last_name: Pulkingham
+- :email: " teeple@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/teeple.jpg
+  :first_name: Gary
+  :last_name: Teeple
+- :email: " atravers@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/travers.jpg
+  :first_name: Ann
+  :last_name: Travers
+- :email: " whitwort@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/whitworth.jpg
+  :first_name: John
+  :last_name: Whitworth
+- :email: " hwittman@sfu.ca"
+  :photo: http://www.sfu.ca/sociology/images/portrets/Wittman_web.jpg
+  :first_name: Hannah
+  :last_name: Wittman
+- :email: tarchi@sfu.ca
+  :photo: http://www.math.sfu.ca/images/archibald_t.jpg
+  :first_name: Tom
+  :last_name: Archibald
+- :email: jpb@sfu.ca
+  :photo: ""
+  :first_name: Jason
+  :last_name: Bell
+- :email: pborwein@sfu.ca
+  :photo: http://www.math.sfu.ca/images/borwein_p.jpg
+  :first_name: Peter
+  :last_name: Borwein
+- :email: nbruin@sfu.ca
+  :photo: http://www.math.sfu.ca/images/bruin_n.jpg
+  :first_name: Nils
+  :last_name: Bruin
+- :email: 
+  :photo: ""
+  :first_name: Cedric
+  :last_name: Chauve
+- :email: ichen@sfu.ca
+  :photo: http://www.math.sfu.ca/images/chen_i.jpg
+  :first_name: Imin
+  :last_name: Chen
+- :email: choi@sfu.ca
+  :photo: http://www.math.sfu.ca/images/choi_s.jpg
+  :first_name: Stephen
+  :last_name: Choi
+- :email: choksi@sfu.ca
+  :photo: http://www.math.sfu.ca/images/choksi_r.jpg
+  :first_name: Rustum
+  :last_name: Choksi
+- :email: dubiel@sfu.ca
+  :photo: http://www.math.sfu.ca/images/dubiel_m.jpg
+  :first_name: Malgorzata
+  :last_name: Dubiel
+- :email: van@sfu.ca
+  :photo: http://www.math.sfu.ca/images/fetecau_r.jpg
+  :first_name: Razvan
+  :last_name: Fetecau
+- :email: goddyn@sfu.ca
+  :photo: http://www.math.sfu.ca/images/goddyn_l.jpg
+  :first_name: Luis
+  :last_name: Goddyn
+- :email: tgray@sfu.ca
+  :photo: http://www.math.sfu.ca/images/gray_j.jpg
+  :first_name: Justin
+  :last_name: Gray
+- :email: jed@sfu.ca
+  :photo: http://www.math.sfu.ca/images/jedwab_j.jpg
+  :first_name: Jonathan
+  :last_name: Jedwab
+- :email: vjungic@sfu.ca
+  :photo: http://www.math.sfu.ca/images/jungic_v.jpg
+  :first_name: Veselin
+  :last_name: Jungic
+- :email: 
+  :photo: ""
+  :first_name: Natalia
+  :last_name: Kouzniak
+- :email: mkropins@sfu.ca
+  :photo: http://www.math.sfu.ca/images/kropinski_m.jpg
+  :first_name: Mary
+  :last_name: Catherine Kropinski
+- :email: yoonjinl@sfu.ca
+  :photo: http://www.math.sfu.ca/images/lee_yj.jpg
+  :first_name: Yoonjin
+  :last_name: Lee
+- :email: plisonek@sfu.ca
+  :photo: http://www.math.sfu.ca/images/lisonek_p.jpg
+  :first_name: Petr
+  :last_name: Lisonek
+- :email: zhaosong@sfu.ca
+  :photo: ""
+  :first_name: Zhaosong
+  :last_name: Lu
+- :email: pmenz@sfu.ca
+  :photo: http://www.math.sfu.ca/images/menz_p.jpg
+  :first_name: Petra
+  :last_name: Menz
+- :email: mmishna@sfu.ca
+  :photo: ""
+  :first_name: Marni
+  :last_name: Mishna
+- :email: mohar@sfu.ca
+  :photo: http://www.math.sfu.ca/images/mohar_b.jpg
+  :first_name: Bojan
+  :last_name: Mohar
+- :email: 
+  :photo: http://www.math.sfu.ca/images/monagan_m.jpg
+  :first_name: Michael
+  :last_name: Monagan
+- :email: jtmulhol@sfu.ca
+  :photo: http://www.math.sfu.ca/images/mulholland_j.jpg
+  :first_name: Jamie
+  :last_name: Mulholland
+- :email: dmuraki@sfu.ca
+  :photo: http://www.math.sfu.ca/images/muraki_d.jpg
+  :first_name: David
+  :last_name: Muraki
+- :email: aoberman@sfu.ca
+  :photo: http://www.math.sfu.ca/images/oberman_a.jpg
+  :first_name: Adam
+  :last_name: Oberman
+- :email: 
+  :photo: http://www.math.sfu.ca/images/punnen_a.jpg
+  :first_name: Abraham
+  :last_name: Punnen
+- :email: rpyke@sfu.ca
+  :photo: http://www.math.sfu.ca/images/pyke_r.jpg
+  :first_name: Randall
+  :last_name: Pyke
+- :email: rdr@sfu.ca
+  :photo: http://www.math.sfu.ca/images/russell_r.jpg
+  :first_name: Robert
+  :last_name: Russell
+- :email: sruuth@sfu.ca
+  :photo: http://www.math.sfu.ca/images/ruuth_s.jpg
+  :first_name: Steven
+  :last_name: Ruuth
+- :email: lstacho@sfu.ca
+  :photo: http://www.math.sfu.ca/images/stacho_l.jpg
+  :first_name: Ladislav
+  :last_name: Stacho
+- :email: tamon@sfu.ca
+  :photo: ""
+  :first_name: Tamon
+  :last_name: Stephen
+- :email: stockie@sfu.ca
+  :photo: http://www.math.sfu.ca/images/stockie_j.jpg
+  :first_name: John
+  :last_name: Stockie
+- :email: mrt@sfu.ca
+  :photo: http://www.math.sfu.ca/images/trummer_m.jpg
+  :first_name: Manfred
+  :last_name: Trummer
+- :email: jfwillia@sfu.ca
+  :photo: http://www.math.sfu.ca/images/williams_j.jpg
+  :first_name: JF
+  :last_name: Williams
+- :email: ralfw@sfu.ca
+  :photo: http://www.math.sfu.ca/images/wittenberg_r.jpg
+  :first_name: Ralf
+  :last_name: Wittenberg
+- :email: 
+  :photo: http://www.math.sfu.ca/images/borwein_j.jpg
+  :first_name: Jonathan
+  :last_name: Borwein
+- :email: 
+  :photo: ""
+  :first_name: Anna
+  :last_name: Celler
+- :email: 
+  :photo: ""
+  :first_name: Loki
+  :last_name: Jorgenson
+- :email: ewl@sfu.ca
+  :photo: ""
+  :first_name: Edmond
+  :last_name: Lee
+- :email: 
+  :photo: ""
+  :first_name: Edgar
+  :last_name: Pechlaner
+- :email: 
+  :photo: ""
+  :first_name: Sandy
+  :last_name: Rutherford
+- :email: 
+  :photo: ""
+  :first_name: Gary
+  :last_name: Sabin
+- :email: 
+  :photo: ""
+  :first_name: Nessim
+  :last_name: Tariq
+- :email: jverner@sfu.ca
+  :photo: ""
+  :first_name: Jim
+  :last_name: Verner
+- :email: alspach@sfu.ca
+  :photo: http://www.math.sfu.ca/images/alspach_b.jpg
+  :first_name: Brian
+  :last_name: Alspach
+- :email: berggren@sfu.ca
+  :photo: http://www.math.sfu.ca/images/berggren_l.jpg
+  :first_name: Len
+  :last_name: Berggren
+- :email: 
+  :photo: http://www.math.sfu.ca/images/bojadziev_g.jpg
+  :first_name: George
+  :last_name: Bojadziev
+- :email: 
+  :photo: http://www.math.sfu.ca/images/brown_t.jpg
+  :first_name: Tom
+  :last_name: Brown
+- :email: 
+  :photo: http://www.math.sfu.ca/images/das_a.jpg
+  :first_name: Anadi
+  :last_name: Das
+- :email: harrop@sfu.ca
+  :photo: http://www.math.sfu.ca/images/harrop_r.jpg
+  :first_name: Ronald
+  :last_name: Harrop
+- :email: alistair@sfu.ca
+  :photo: http://www.math.sfu.ca/images/lachlan_a.jpg
+  :first_name: Alistair
+  :last_name: Lachlan
+- :email: 
+  :photo: http://www.math.sfu.ca/images/lardner_r.jpg
+  :first_name: Robin
+  :last_name: Lardner
+- :email: nreilly@sfu.ca
+  :photo: http://www.math.sfu.ca/images/reilly_n.jpg
+  :first_name: Norman
+  :last_name: Reilly
+- :email: 
+  :photo: http://www.math.sfu.ca/images/shen_c.jpg
+  :first_name: C
+  :last_name: Y Shen
+- :email: msingh@sfu.ca
+  :photo: http://www.math.sfu.ca/images/singh_m.jpg
+  :first_name: Manohar
+  :last_name: Singh
+- :email: thomson@sfu.ca
+  :photo: http://www.math.sfu.ca/images/thomson_b.jpg
+  :first_name: Brian
+  :last_name: Thomson
+- :email: gagnes@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/agnes.jpg
+  :first_name: George
+  :last_name: R. Agnes
+- :email: batchelo@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/batchelor/images/batchelor.jpg
+  :first_name: Raymond
+  :last_name: Batchelor
+- :email: bennet@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/bennet/images/bennet_2005_small.jpg
+  :first_name: Andrew
+  :last_name: J. Bennet
+- :email: nbranda@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/branda.jpg
+  :first_name: Neil
+  :last_name: R. Branda
+- :email: rbritton@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/britton.JPG
+  :first_name: Robert
+  :last_name: Andrew Britton
+- :email: brodovit@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/brodovitch.jpg
+  :first_name: Jean-Claude
+  :last_name: Brodovitch
+- :email: cornell@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/Bennet2/images/bennet.jpg
+  :first_name: Rosemary
+  :last_name: Cornell
+- :email: meikerli@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/eikerling.jpg
+  :first_name: Michael
+  :last_name: Eikerling
+- :email: bgates@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/gates.JPG
+  :first_name: Byron
+  :last_name: Gates
+- :email: batchelo@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/Bennet2/images/bennet.jpg
+  :first_name: Rebecca
+  :last_name: Goyan
+- :email: hanlan@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/hanlan.jpg
+  :first_name: Lee
+  :last_name: Hanlan
+- :email: rhill@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/hill.jpg
+  :first_name: Ross
+  :last_name: Hill
+- :email: holdcrof@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/holdcroft.jpg
+  :first_name: Steven
+  :last_name: Holdcroft
+- :email: ukreis@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/kreis.jpg
+  :first_name: Uwe
+  :last_name: Kreis
+- :email: slavieri@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/course%20websites/images_lecturers/sophie.jpg
+  :first_name: Sophie
+  :last_name: Lavieri
+- :email: gleach@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/leach.jpg
+  :first_name: Gary
+  :last_name: Leach
+- :email: dleznoff@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/leznoff.jpg
+  :first_name: "Daniel"
+  :last_name: "Leznoff"
+- :email: paulli@sfu.ca
+  :photo: http://cgi.sfu.ca/~chemweb/cgi-bin/faculty/images/200x_web/li_%20paul.jpg
+  :first_name: Paul
+  :last_name: Li
+- :email: garrym@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/Bennet2/images/bennet.jpg
+  :first_name: Mund
+  :last_name: 
+- :email: maoneill@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/oneill/images/ONeill.jpg
+  :first_name: Melanie
+  :last_name: O'Neill
+- :email: percival@sfu.ca
+  :photo: http://cgi.sfu.ca/~chemweb/cgi-bin/faculty/images/200x_web/percival.jpg
+  :first_name: Paul
+  :last_name: W. Percival
+- :email: bpinto@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Pinto.jpg
+  :first_name: B.
+  :last_name: Mario Pinto
+- :email: plettner@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/plettner.jpg
+  :first_name: Erika
+  :last_name: Plettner
+- :email: pomeroy@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/Bennet2/images/bennet.jpg
+  :first_name: Roland
+  :last_name: Pomeroy
+- :email: sen@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Sen.jpg
+  :first_name: Dipankar
+  :last_name: Sen
+- :email: rsharma@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Sharma.jpg
+  :first_name: Dev
+  :last_name: Sharma
+- :email: dvocadlo@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Vocadlo.jpg
+  :first_name: David
+  :last_name: Vocadlo
+- :email: cwalsby@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/cwalsby.jpg
+  :first_name: Charles
+  :last_name: Walsby
+- :email: wilkie@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Wilkie.jpg
+  :first_name: Joshua
+  :last_name: Wilkie
+- :email: vancew@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Vance.jpg
+  :first_name: Vance
+  :last_name: Williams
+- :email: pwilson@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Wilson.jpg
+  :first_name: Peter
+  :last_name: Wilson
+- :email: swolfe@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/wolfe.jpg
+  :first_name: Saul
+  :last_name: Wolf
+- :email: zye@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Ye.jpg
+  :first_name: Zuo-Guang
+  :last_name: Ye
+- :email: robert_young@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/young/images/clip_image002.gif
+  :first_name: Robert
+  :last_name: N. Young
+- :email: hzyu@sfu.ca
+  :photo: http://www.sfu.ca/chemistry/faculty/images/200x_web/Yu.jpg
+  :first_name: Hogan
+  :last_name: Yu
+- :email: beckenba@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/beckenbach_resize.jpg
+  :first_name: Andy
+  :last_name: Beckenbach
+- :email: bendell@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/lby-faculty.jpg
+  :first_name: Leah
+  :last_name: Bendell-Young
+- :email: sbisgrov@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/bisgrove192.jpg
+  :first_name: Sherryl
+  :last_name: Bisgrove
+- :email: breden@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Felix
+  :last_name: Breden
+- :email: julian_christians@sfu.ca
+  :photo: 
+  :first_name: Julian
+  :last_name: Christians
+- :email: imcote@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Isabelle
+  :last_name: C&ocirc;t&eacute;
+- :email: crespi@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/crespi_resize.jpg
+  :first_name: Bernard
+  :last_name: J. Crespi
+- :email: ldill@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Lawrence
+  :last_name: M. Dill
+- :email: eelle@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Elizabeth
+  :last_name: Elle
+- :email: djgreen@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: David
+  :last_name: J. Green
+- :email: gries@sfu.ca
+  :photo: 
+  :first_name: Gerhard
+  :last_name: J. Gries
+- :email: harestad@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Alton
+  :last_name: Harestad
+- :email: mike_hart@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/hart/mike.jpg
+  :first_name: Michael
+  :last_name: Hart
+- :email: hartwick@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Brian
+  :last_name: Hartwick
+- :email: haunerla@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/haunerland/haunerland.jpg
+  :first_name: Norbert
+  :last_name: H. Haunerland
+- :email: hutter@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Harald
+  :last_name: Hutter
+- :email: ckennedy@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Chris
+  :last_name: Kennedy
+- :email: kermode@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Allison
+  :last_name: Kermode
+- :email: francis_law@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/law.gif
+  :first_name: Francis
+  :last_name: C.P. Law
+- :email: lance_lesack@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/lesack.gif
+  :first_name: Lance
+  :last_name: F.W. Lesack
+- :email: mathewes@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/mathewes.jpg
+  :first_name: Rolf
+  :last_name: Mathewes
+- :email: jim_mattsson@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/mattsson.jpg
+  :first_name: Jim
+  :last_name: Mattsson
+- :email: amooers@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/amooers.jpg
+  :first_name: Arne
+  :last_name: Mooers
+- :email: mmoore@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/moore_resize.jpg
+  :first_name: Margo
+  :last_name: Moore
+- :email: nicholso@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Russell
+  :last_name: A. Nicholson
+- :email: " epalsson@sfu.ca"
+  :photo: 
+  :first_name: Eirikur
+  :last_name: Palsson
+- :email: aplant@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/plant_resize.jpg
+  :first_name: Aine
+  :last_name: L. Plant
+- :email: punja@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.jpg
+  :first_name: Zamir
+  :last_name: K. Punja
+- :email: 
+  :photo: 
+  :first_name: John
+  :last_name: D. Reynolds - Department of Biological Sciences
+- :email: 
+  :photo: 
+  :first_name: Gordon
+  :last_name: L. Rintoul
+- :email: roitberg@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/faculty_photo.gif
+  :first_name: Bernard
+  :last_name: D. Roitberg
+- :email: jvamosi@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/jana_resize.jpg
+  :first_name: Jana
+  :last_name: Vamosi
+- :email: tdwillia@sfu.ca
+  :photo: 
+  :first_name: Tony
+  :last_name: D. Williams
+- :email: winston@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/winston.jpg
+  :first_name: Mark
+  :last_name: L. Winston
+- :email: ydenberg@sfu.ca
+  :photo: http://www.sfu.ca/biology/faculty/yden_resize.jpg
+  :first_name: Ronald
+  :last_name: C. Ydenberg
+- :email: ibajic@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/ivan2.jpg
+  :first_name: Ivan
+  :last_name: V. Bajic
+- :email: mfbeg@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/mirza faisal beg.jpg
+  :first_name: Mirza
+  :last_name: Faisal Beg
+- :email: bird@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/JohnBird.jpg
+  :first_name: John
+  :last_name: S. Bird
+- :email: cavers@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/JimCavers.jpg
+  :first_name: James
+  :last_name: K. Cavers
+- :email: glennc@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/GlennChapman.jpg
+  :first_name: Glenn
+  :last_name: H. Chapman
+- :email: mfgolnar@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/FaridSM.jpg
+  :first_name: Farid
+  :last_name: Golnaraghi
+- :email: bgray@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/BonnieGray.jpg
+  :first_name: Bonnie
+  :last_name: Gray
+- :email: kamal@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/KamalGupta.jpg
+  :first_name: Kamal
+  :last_name: K. Gupta
+- :email: atousah@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/atousa_new.jpg
+  :first_name: Atousa
+  :last_name: HajShirMohammadi
+- :email: rhardy@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/hardy.bmp
+  :first_name: R.H.
+  :last_name: Stephen Hardy
+- :email: paul@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/ho.jpg
+  :first_name: Paul
+  :last_name: Ho
+- :email: rick@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/rick.jpg
+  :first_name: Rick
+  :last_name: Hobson
+- :email: jones@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/JohnJones.jpg
+  :first_name: John
+  :last_name: D. Jones
+- :email: kaminska@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/kaminskax.jpg
+  :first_name: Bozena
+  :last_name: Kaminska
+- :email: kkarim@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/karim.jpg
+  :first_name: Karim
+  :last_name: S. Karim
+- :email: dikim@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/dikim2_sfu.jpg
+  :first_name: Dong
+  :last_name: In Kim
+- :email: ""
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/dchlee.jpg
+  :first_name: Daniel
+  :last_name: C. Lee
+- :email: aleung@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/AlbertLeung.jpg
+  :first_name: Albert
+  :last_name: Leung
+- :email: pleung@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/leungp.gif
+  :first_name: Patrick
+  :last_name: Leung
+- :email: jiel@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/liang.jpg
+  :first_name: Jie
+  :last_name: Liang
+- :email: cmenon@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/fototessera.jpg
+  :first_name: Carlo
+  :last_name: Menon
+- :email: lucky@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/lucky1.jpg
+  :first_name: Lakshman
+  :last_name: One
+- :email: shahram@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/payandeh.gif
+  :first_name: Shahram
+  :last_name: Payandeh
+- :email: rawicz@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/AndrewRawicz.jpg
+  :first_name: Andrew
+  :last_name: Rawicz
+- :email: stever@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/Steve_R.jpg
+  :first_name: Stephen
+  :last_name: Robinovitch
+- :email: psaeedi@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/parvaneh.jpg
+  :first_name: Parvaneh
+  :last_name: Saeedi
+- :email: saif@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/saif.jpg
+  :first_name: Mehrdad
+  :last_name: Saif, PEng
+- :email: msarunic@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/Marinko_SM.jpg
+  :first_name: Marinko
+  :last_name: V. Sarunic
+- :email: wcs@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/Scratchley,CraigEng.jpg
+  :first_name: Craig
+  :last_name: Scratchley
+- :email: lshannon@ensc.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/slsm.jpg
+  :first_name: Lesley
+  :last_name: Shannon
+- :email: mhs@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/SJOERDSM1.jpg
+  :first_name: Mike
+  :last_name: Sjoerdsma
+- :email: shawn@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/stapleton.jpg
+  :first_name: Shawn
+  :last_name: Stapleton
+- :email: stevenso@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/SusanStevenson.jpg
+  :first_name: Susan
+  :last_name: Stevenson
+- :email: marek@cs.sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/syrzycki.gif
+  :first_name: Marek
+  :last_name: Syrzycki
+- :email: ljilja@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/ljilja.gif
+  :first_name: Ljiljana
+  :last_name: Trajkovic
+- :email: rvaughan@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/rodney.jpg
+  :first_name: Rodney
+  :last_name: Vaughan
+- :email: whitmore@sfu.ca
+  :photo: http://web.ensc.sfu.ca/images/website/faculty_staff/SteveWhitmore.jpg
+  :first_name: Steve
+  :last_name: Whitmore
+- :email: stella@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/stella.jpg
+  :first_name: M.
+  :last_name: Stella Atkins
+- :email: ggbaker@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/ggbaker.jpg
+  :first_name: Greg
+  :last_name: Baker
+- :email: bbart@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/bbart.jpg
+  :first_name: Bradley
+  :last_name: Bart
+- :email: petra@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/petra.jpg
+  :first_name: Petra
+  :last_name: Berenbrink
+- :email: dbeyer@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/dbeyer.jpg
+  :first_name: Dirk
+  :last_name: Beyer
+- :email: binay@cs.sfu.ca
+  :photo: 
+  :first_name: Binay
+  :last_name: Bhattacharya
+- :email: abulatov@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/abulatov.jpg
+  :first_name: Andrei
+  :last_name: Bulatov
+- :email: burton@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/burton.jpg
+  :first_name: Warren
+  :last_name: Burton
+- :email: cameron@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/cameron.jpg
+  :first_name: Robert
+  :last_name: D. Cameron
+- :email: diana@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/diana.jpg
+  :first_name: Diana
+  :last_name: Cukierman
+- :email: veronica@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/veronica.jpg
+  :first_name: Veronica
+  :last_name: Dahl
+- :email: jim@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/jim.jpg
+  :first_name: James
+  :last_name: P. Delgrande
+- :email: dixon@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/dixon.jpg
+  :first_name: Tony
+  :last_name: Dixon
+- :email: tjd@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/tjd.jpg
+  :first_name: Toby
+  :last_name: Donaldson
+- :email: mark@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/mark.jpg
+  :first_name: Mark
+  :last_name: S. Drew
+- :email: johnwill@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/johnwill.jpg
+  :first_name: John
+  :last_name: Edgar
+- :email: funda@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/funda.jpg
+  :first_name: Funda
+  :last_name: Ergun
+- :email: ester@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/ester.jpg
+  :first_name: Martin
+  :last_name: Ester
+- :email: evans@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/SolarizedExtruded.jpg
+  :first_name: Mike
+  :last_name: Evans
+- :email: fedorova@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/fedorova.jpg
+  :first_name: Alexandra
+  :last_name: Fedorova
+- :email: 
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/funt.jpg
+  :first_name: Brian
+  :last_name: Funt
+- :email: glaesser@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/glaesser.jpg
+  :first_name: Uwe
+  :last_name: Gl&auml;sser
+- :email: qgu@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/qgu.jpg
+  :first_name: Qianping
+  :last_name: Gu
+- :email: arvind@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/arvind.jpg
+  :first_name: Arvind
+  :last_name: Gupta
+- :email: hadley@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/hadley.jpg
+  :first_name: Robert
+  :last_name: F. Hadley
+- :email: lou@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/lou.jpg
+  :first_name: Lou
+  :last_name: Hafer
+- :email: hamarneh@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/hamarneh.jpg
+  :first_name: Ghassan
+  :last_name: Hamarneh
+- :email: havens@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/havens.jpg
+  :first_name: William
+  :last_name: S. Havens
+- :email: mhefeeda@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/mhefeeda.jpg
+  :first_name: Mohamed
+  :last_name: Hefeeda
+- :email: pavol@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/pavol.jpg
+  :first_name: Pavol
+  :last_name: Hell
+- :email: kabanets@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/kabanets.jpg
+  :first_name: Valentine
+  :last_name: Kabanets
+- :email: hskhangu@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/hskhangu.jpg
+  :first_name: Harinder
+  :last_name: Singh Khangura
+- :email: ted@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/ted.jpg
+  :first_name: Arthur
+  :last_name: (Ted) Kirkpatrick
+- :email: ramesh@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/ramesh.jpg
+  :first_name: Ramesh
+  :last_name: Krishnamurti
+- :email: alavergn@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/alavergn.jpg
+  :first_name: Anne
+  :last_name: Lavergne
+- :email: li@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/li.jpg
+  :first_name: Ze-Nian
+  :last_name: Li
+- :email: art@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/art.jpg
+  :first_name: Arthur
+  :last_name: L. Liestman
+- :email: woshun@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/woshun.jpg
+  :first_name: Wo-Shun
+  :last_name: Luk
+- :email: mitchell@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/mitchell.jpg
+  :first_name: David
+  :last_name: G. Mitchell
+- :email: mori@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/mori.jpg
+  :first_name: Greg
+  :last_name: Mori
+- :email: torsten@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/torsten.jpg
+  :first_name: Torsten
+  :last_name: M&ouml;ller
+- :email: stevenp@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/stevenp.jpg
+  :first_name: Steven
+  :last_name: Pearce
+- :email: jpei@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/jpei.jpg
+  :first_name: Jian
+  :last_name: Pei
+- :email: peters@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/peters.jpg
+  :first_name: Joseph
+  :last_name: G. Peters
+- :email: popowich@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/popowich.jpg
+  :first_name: Fred
+  :last_name: Popowich
+- :email: jregan@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/jregan.jpg
+  :first_name: Janice
+  :last_name: Regan
+- :email: cenk@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/cenk.jpg
+  :first_name: S.
+  :last_name: Cenk Sahinalp
+- :email: anoop@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/anoop.jpg
+  :first_name: Anoop
+  :last_name: Sarkar
+- :email: oschulte@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/oschulte.jpg
+  :first_name: Oliver
+  :last_name: Schulte
+- :email: shermer@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/shermer.jpg
+  :first_name: Thomas
+  :last_name: C. Shermer
+- :email: tamaras@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/tamaras.jpg
+  :first_name: Tamara
+  :last_name: Smyth
+- :email: tardos@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/tardos.jpg
+  :first_name: G&aacute;bor
+  :last_name: Tardos
+- :email: ter@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/ter.jpg
+  :first_name: Evgenia
+  :last_name: (Eugenia) Ternovska
+- :email: vaughan@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/vaughan.jpg
+  :first_name: Richard
+  :last_name: T. Vaughan
+- :email: weiskopf@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/weiskopf.jpg
+  :first_name: Daniel
+  :last_name: Weiskopf
+- :email: wiese@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/wiese.jpg
+  :first_name: Kay
+  :last_name: C. Wiese
+- :email: haoz@cs.sfu.ca
+  :photo: http://www.cs.sfu.ca/people/images/Faculty/haoz.jpg
+  :first_name: Richard
+  :last_name: (Hao) Zhang
+- :email: anderson@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/anderson_p/images/anderson_p.jpg
+  :first_name: Peter
+  :last_name: Anderson
+- :email: 
+  :photo: 
+  :first_name: Robert
+  :last_name: S. Anderson
+- :email: ellenb@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/balka_e/images/balka_e.jpg
+  :first_name: Ellen
+  :last_name: Balka
+- :email: 
+  :photo: 
+  :first_name: Alison
+  :last_name: C.M. Beale
+- :email: 
+  :photo: 
+  :first_name: Peter
+  :last_name: Chow-White
+- :email: 
+  :photo: 
+  :first_name: "ZoAB"
+  :last_name: Druick
+- :email: feenberg@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/feenberg_a/images/feenberg_a.jpg
+  :first_name: Andrew
+  :last_name: Feenberg
+- :email: 
+  :photo: 
+  :first_name: Richard
+  :last_name: S. Gruneau
+- :email: sgunster@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/gunster_s/images/gunster_s.jpg
+  :first_name: Shane
+  :last_name: Gunster
+- :email: 
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/gutstein_d/images/gutstein_d.jpg
+  :first_name: Donald
+  :last_name: Gutstein
+- :email: 
+  :photo: 
+  :first_name: Robert
+  :last_name: A. Hackett
+- :email: 
+  :photo: 
+  :first_name: Linda
+  :last_name: M. Harasim
+- :email: 
+  :photo: 
+  :first_name: Patricia
+  :last_name: M. Howard
+- :email: djin@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/jin_d-y/images/jin_d-y.jpg
+  :first_name: Dal
+  :last_name: Yong Jin
+- :email: kline@sfu.ca
+  :photo: 
+  :first_name: Stephen
+  :last_name: Kline
+- :email: laba@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/laba_m/images/laba_m.jpg
+  :first_name: Martin
+  :last_name: Laba
+- :email: 
+  :photo: 
+  :first_name: Brian
+  :last_name: S. Lewis
+- :email: 
+  :photo: 
+  :first_name: Rowland
+  :last_name: M. Lorimer
+- :email: jmaronta@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/marontate_j/images/marontate_j.jpg
+  :first_name: Jan
+  :last_name: Marontate
+- :email: kmcallis@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/mcallister_k/images/mcallister_k.jpg
+  :first_name: Kirsten
+  :last_name: McAllister
+- :email: gmccarro@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/mccarron_g/images/mccarron_g.jpg
+  :first_name: Gary
+  :last_name: McCarron
+- :email: davidcot@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/murphy_d/images/murphy_d.jpg
+  :first_name: David
+  :last_name: Murphy
+- :email: 
+  :photo: 
+  :first_name: Catherine
+  :last_name: A. Murray
+- :email: 
+  :photo: 
+  :first_name: William
+  :last_name: D. Richards
+- :email: 
+  :photo: 
+  :first_name: Richard
+  :last_name: K. Smith
+- :email: 
+  :photo: 
+  :first_name: Barry
+  :last_name: D. Truax
+- :email: yzhao@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/zhao_y/images/zhao_y.jpg
+  :first_name: Yuezhi
+  :last_name: Zhao
+- :email: randerso@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/anderson_r/images/anderson_r.jpg
+  :first_name: Robert
+  :last_name: Anderson
+- :email: beale@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/beale_a/images/beale_a.jpg
+  :first_name: Alison
+  :last_name: Beale
+- :email: petercw@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/chow-white_p/images/chow-white_p.jpg
+  :first_name: Peter
+  :last_name: Chow-White
+- :email: druick@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/druick_z/images/druick_z.jpg
+  :first_name: Zo&euml;
+  :last_name: Druick
+- :email: gruneau@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/gruneau_r/images/gruneau_r.jpg
+  :first_name: Richard
+  :last_name: Gruneau
+- :email: hackett@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/hacket_r/images/hackett_r.jpg
+  :first_name: Robert
+  :last_name: Hackett
+- :email: harasim@sfu.ca
+  :photo: 
+  :first_name: Linda
+  :last_name: Harasim
+- :email: phoward@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/howard_p/images/howard_p.jpg
+  :first_name: Pat
+  :last_name: Howard
+- :email: bslewis@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/lewis_b/images/lewis_b.jpg
+  :first_name: Brian
+  :last_name: Lewis
+- :email: lorimer@sfu.ca
+  :photo: 
+  :first_name: Rowland
+  :last_name: Lorimer
+- :email: 
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/murray_c/images/murray_c.jpg
+  :first_name: Catherine
+  :last_name: Murray
+- :email: richards@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/richards_b/images/richards_w.jpg
+  :first_name: Bill
+  :last_name: Richards
+- :email: smith@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/smith_r/images/smith_r.jpg
+  :first_name: Richard
+  :last_name: Smith
+- :email: truax@sfu.ca
+  :photo: http://www.sfu.ca/%7Ecmnsweb/people/faculty/truax_b/images/truax_b.jpg
+  :first_name: Barry
+  :last_name: Truax
+- :email: yashengc@sfu.ca
+  :photo: 
+  :first_name: Yasheng
+  :last_name: Chen
+- :email: dychung@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/dychung.jpg
+  :first_name: Dennis
+  :last_name: Chung
+- :email: emby@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/emby.jpg
+  :first_name: Craig
+  :last_name: Emby
+- :email: favere@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/favere.jpg
+  :first_name: Michael
+  :last_name: Favere-Marchesi
+- :email: fizzell@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/fizzell.jpg
+  :first_name: Maureen
+  :last_name: Fizzell
+- :email: gordon@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/gordon.jpg
+  :first_name: Irene
+  :last_name: M. Gordon
+- :email: jjermias@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/jjermias.jpg
+  :first_name: John
+  :last_name: Jermias
+- :email: amacdond@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/amacdond.jpg
+  :first_name: Anne
+  :last_name: Macdonald
+- :email: sspector@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/sspector.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Stephen
+  :last_name: Spector
+- :email: bick@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/bick.jpg
+  :first_name: Avi
+  :last_name: Bick
+- :email: blazenko@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/blazenko.jpg
+  :first_name: George
+  :last_name: Blazenko
+- :email: grauer@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/grauer.jpg
+  :first_name: Rob
+  :last_name: Grauer
+- :email: heaney@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/heaney.jpg
+  :first_name: John
+  :last_name: Heaney
+- :email: pklein@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/pklein.jpg
+  :first_name: Peter
+  :last_name: Klein
+- :email: apavlov@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/apavlov.jpg
+  :first_name: Andrey
+  :last_name: Pavlov
+- :email: cperigno@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/cperigno.jpg
+  :first_name: Chris
+  :last_name: Perignon
+- :email: poitras@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/poitras.jpg
+  :first_name: Geoffrey
+  :last_name: Poitras
+- :email: arubin@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/arubin.jpg
+  :first_name: Amir
+  :last_name: Rubin
+- :email: drsmith@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/drsmith.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Daniel
+  :last_name: Smith
+- :email: cveld@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/cveld.jpg
+  :first_name: Chris
+  :last_name: Veld
+- :email: rekhak@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/rekhak.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Rekha
+  :last_name: Krishnan
+- :email: mbl@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/mbl.jpg
+  :first_name: Mila
+  :last_name: Lazarova
+- :email: jingli@sfu.ca
+  :photo: 
+  :first_name: Jing
+  :last_name: Li
+- :email: hmerchan@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/hmerchan.jpg
+  :first_name: Hemant
+  :last_name: Merchant
+- :email: dcthomas@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/dcthomas.jpg
+  :first_name: David
+  :last_name: C. Thomas
+- :email: tung@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/tung.jpg
+  :first_name: Rosalie
+  :last_name: L. Tung
+- :email: jchangd@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/jchangd.jpg
+  :first_name: Jennifer
+  :last_name: Chang
+- :email: dodd@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/dodd.jpg
+  :first_name: Colleen
+  :last_name: Collins-Dodd
+- :email: francis@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/francis.jpg
+  :first_name: June
+  :last_name: Francis
+- :email: skates@sfu.ca
+  :photo: 
+  :first_name: Steve
+  :last_name: Kates
+- :email: rkrider@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/rkrider.jpg
+  :first_name: Bob
+  :last_name: Krider
+- :email: mauser@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/mauser.jpg
+  :first_name: Gary
+  :last_name: Mauser
+- :email: meredith@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/meredith.jpg
+  :first_name: Lindsay
+  :last_name: Meredith
+- :email: peloza@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/peloza.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: John
+  :last_name: Peloza
+- :email: lpitt@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/lpitt.jpg
+  :first_name: Leyland
+  :last_name: Pitt
+- :email: zaichkow@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/zaichkow.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Judy
+  :last_name: Zaichkowsky
+- :email: mjbrydon@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/mjbrydon.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Michael
+  :last_name: Brydon
+- :email: djcyr@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/djcyr.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Dianne
+  :last_name: Cyr
+- :email: gemino@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/gemino.jpg
+  :first_name: Andrew
+  :last_name: Gemino
+- :email: mparent@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/mparent.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Michael
+  :last_name: Parent
+- :email: drew@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/drew.jpg&w=175&h=&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Drew
+  :last_name: Parker
+- :email: breich@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/breich.jpg
+  :first_name: Blaize
+  :last_name: Reich
+- :email: nsaraf@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/nsaraf.jpg
+  :first_name: Nilesh
+  :last_name: Saraf
+- :email: tingling@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/tingling.jpg
+  :first_name: Peter
+  :last_name: Tingling
+- :email: ovolkoff@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/ovolkoff.jpg
+  :first_name: Olga
+  :last_name: Volkoff
+- :email: bushe@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/bushe.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Gervase
+  :last_name: Bushe
+- :email: egri@sfu.ca
+  :photo: 
+  :first_name: Carolyn
+  :last_name: Egri
+- :email: drhannah@sfu.ca
+  :photo: 
+  :first_name: David
+  :last_name: Hannah
+- :email: riverson@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/riverson.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Rick
+  :last_name: Iverson
+- :email: shaunaj@sfu.ca
+  :photo: 
+  :first_name: Shauna
+  :last_name: Jones
+- :email: blautsch@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/blautsch.jpg
+  :first_name: Brenda
+  :last_name: Lautsch
+- :email: tblawren@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/tblawren.jpg
+  :first_name: Tom
+  :last_name: Lawrence
+- :email: kstewart@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/kstewart.jpg
+  :first_name: Kevin
+  :last_name: Stewart
+- :email: wagenhei@sfu.ca
+  :photo: 
+  :first_name: Gary
+  :last_name: Wagenheim
+- :email: wexler@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/wexler.jpg
+  :first_name: Mark
+  :last_name: Wexler
+- :email: czatzick@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/czatzick.jpg
+  :first_name: Chris
+  :last_name: Zatzick
+- :email: nbzhao@sfu.ca
+  :photo: 
+  :first_name: Natalie
+  :last_name: Zhao
+- :email: nabramso@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/nabramso.jpg
+  :first_name: Neil
+  :last_name: Abramson
+- :email: bukszar@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/bukszar.jpg&w=175&h=&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Ed
+  :last_name: Bukszar
+- :email: markm@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/markm.jpg
+  :first_name: Mark
+  :last_name: Moore
+- :email: ruckman@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/ruckman.jpg
+  :first_name: Karen
+  :last_name: Ruckman
+- :email: dshapiro@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/dshapiro.jpg
+  :first_name: Daniel
+  :last_name: Shapiro
+- :email: sheppard@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/sheppard.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Jerry
+  :last_name: Sheppard
+- :email: smart@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/smart.jpg
+  :first_name: Carolyne
+  :last_name: Smart
+- :email: vining@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/vining.jpg
+  :first_name: Aidan
+  :last_name: Vining
+- :email: vonetc@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/vonetc.jpg
+  :first_name: Andrew
+  :last_name: von Nordenflycht
+- :email: ryates@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/ryates.jpg
+  :first_name: Richard
+  :last_name: Yates
+- :email: choo@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/choo.jpg&w=&h=200&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Eng
+  :last_name: Choo
+- :email: bcohen@sfu.ca
+  :photo: 
+  :first_name: Boyd
+  :last_name: Cohen
+- :email: sudheerg@sfu.ca
+  :photo: 
+  :first_name: Sudheer
+  :last_name: Gupta
+- :email: pjula@sfu.ca
+  :photo: 
+  :first_name: Payman
+  :last_name: Jula
+- :email: "pjula@sfu.ca"
+  :photo: 
+  :first_name: Paul
+  :last_name: Kedrosky
+- :email: love@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/love.jpg
+  :first_name: Ernie
+  :last_name: Love
+- :email: emaine@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/emaine.jpg
+  :first_name: Elicia
+  :last_name: Maine
+- :email: imccarth@sfu.ca
+  :photo: http://www.sfubusiness.ca/phplib/phpThumb/phpThumb.php?src=/fac_pix2/imccarth.jpg&w=175&h=&far=1&bg=000000&fltr[]=bord|1|0|0|111111
+  :first_name: Ian
+  :last_name: McCarthy
+- :email: jills@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/jills.jpg
+  :first_name: Jill
+  :last_name: Shepherd
+- :email: warburto@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/warburto.jpg
+  :first_name: Art
+  :last_name: Warburton
+- :email: gzhang@sfu.ca
+  :photo: http://www.sfubusiness.ca/fac_pix/gzhang.jpg
+  :first_name: George
+  :last_name: Zhang

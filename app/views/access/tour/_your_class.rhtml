@@ -1,0 +1,21 @@
+<% content_for("right_pane") do %>   
+    <%
+        elements = [ "class_info","0 134 195 184","For your classes you can set an instructor and at the end of the semester you can rate your instructors.",
+                     "class_binder","0 192 195 269","As your own home page, each class has a binder that contains the notes that have been shared with this class by your classmates. You won't be able to see who the note owner is if the note is anonymous.",                    
+                     "class_discussions","0 276 195 370","The strongest aspect of a class is probably the class discussion board. You can discuss midterms, quizzes, assignments or whatever with your classmates.",
+                     "class_chat","214 143 405 355","Each class is equipped with a chat facility powered by Gabbly.com. This allows you to interact with your classmates live. You can also pop out the chat box so you can chat with your classmates while browsing the site."
+                   ]
+    %>
+    <%= draw_maps('class_home',elements)%>
+<% end %>
+
+<%content_for("left_pane") do %>
+    <div class='title-box title-div dark-bold-gray' style='padding:0px'>
+        Your Classes
+    </div>
+<p>The core of Oycas is that it provides the students with a class-like environment that mimics the students actual classes. </p>
+<p>Each class is equipped with a class chat room powered by Gabbly.com and a discussion board so you can can discuss everyday class topics such as assignments, quizzes, midterms or just gossip with your classmates.</p>
+<p>Also you can share your notes, assignment solutions, sample midterms and exams and a lot more with your classmates through the class binder. The class binder also allows you to create a note anonymously so no one can tell that the document is from you. </p>
+    
+<span class='normal-gray'>Put your mouse over the images to see some sections magnified </span>
+<%end%>

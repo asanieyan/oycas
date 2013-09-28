@@ -1,0 +1,25 @@
+<%if @I.am?(student) and school.student_can_register? @me%>
+    <div style='float:right'>
+
+            <%=link_to 'Register Courses',url_for_school(school,:action=>'course_catalouge') %>
+    </div>
+<%end%>
+<div class='bold-gray' style='border:none;border-bottom: 1px solid #C0C0C0;margin-bottom:5px;padding-bottom:5px;'>
+    <%=school.current_semester.name%> <span style='font-size:8pt;font-weight:normal'>(current)</span>
+    
+</div>
+
+<% if klasses.empty? %>                                
+            <%if @I.am? student %>
+                You are not taking any classes                
+            <%else%>
+                <%=student.f_name%> is not taking any classes 
+            <%end%>
+                 
+<% else
+   show_link = (@I.am?(student) || school.has_student?(@me))
+%>
+
+<%=render_p 'school/class_list_partial',{'klasses'=>klasses}%>   
+
+<%end%>    

@@ -1,0 +1,60 @@
+<table cellspacing=0 style='width:100%'> <tr><td style='padding-left:10px;width:70%'>
+    <div id='school-select' style=''> </div>
+    <% SchoolMember.find(:all,:conditions=>"student_id = #{@me.id} AND confirmed IS NULL").each do |rec| %>
+            <div class='notice_school'>
+                We sent a confirmation email to <strong><%=rec.registered_email%></strong>  
+                    Follow the confirmation link in that email and we'll add you to the <%=rec.school.name%>.                       
+                <div style='margin-top:3px;text-align:right'>    
+                    <%=link_to "Cancel Request",{:action=>"my_settings",:cancel_school_request=>rec.id},:style=>'font-size:8pt',:post=>true%>
+                    |
+                    <%=link_to "Resend Confirmation",{:action=>"my_settings",:school_email=>rec.registered_email,"join_school"=>rand(10000)},:style=>'font-size:8pt',:post=>true%>                
+                </div>
+            </div> 
+    <%end%>
+<% @my.schools.each do |school| %>
+    
+    <div class='school'> 
+        <table style=''> <tr><td>
+            <strong> <%=link_to image_tag(school.small_logo,:style=>'float:left;margin-right:10px') + school.name,url_for_school(school) %>  </strong> 
+             <%if school.is_primary %>  <span style='color:gray'>(default school)</span> 
+             
+             <%end%>
+                     <div> <%=school.city.titlecase%> </div> <br>
+
+            <br>
+            <%student_count = SchoolMember.count(:conditions=>"school_id = #{school.id}") %>
+            There are currently <%= link_to (number_with_delimiter(student_count) + " students"),url_for_school(school,:action=>'students_in_full'),:style=>'font-size:8pt' %> at <%=school.name%>
+          </td>
+          <td>  
+            <div>
+             <% if not school.is_primary%>    
+                <%=m_link 'Make Default',{:action=>"my_settings",:primary_school=>school.id},:post=>true %>
+                <%=m_link 'Leave School',{:action=>'my_settings',:remove_school=>school.id},:confirm=>["Leave #{school.name}",
+                        "If you leave #{school.name} you will be deregistered from all the courses you are currently registered in. Are you sure you want to leave #{school.name}?"
+                  ]%>                          
+             <%end%>
+            </div>    
+        </td></tr></table>
+    </div>
+<%end%>
+</td><td>
+    <div class='' style='padding-left:5px;padding-top:0;border:none;'>
+         <strong> Enrolling at a new school?</strong> <br>Enter your new email address to join the school's network.
+         <%= form_tag :action=>"my_settings"  %>
+                <br>
+                <%=hidden_field_tag "join_school", rand(10000) %>
+               
+                <%=text_field_tag "school_email","",:maxlength=>100 %> <br><br>
+                <div style=''>
+                    <%=submit_tag "Join school"%> 
+                </div>
+        </form>
+         
+            
+    </div> 
+
+</td></tr></table>
+
+
+
+

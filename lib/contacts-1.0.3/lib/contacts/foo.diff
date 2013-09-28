@@ -1,0 +1,156 @@
+Index: hotmail.rb
+===================================================================
+--- hotmail.rb	(revision 8)
++++ hotmail.rb	(working copy)
+@@ -1,13 +1,16 @@
+ class Contacts
+   class Hotmail < Base
+-    URL                 = "http://www.hotmail.com/"
+-    CONTACT_LIST_URL    = "http://%s/cgi-bin/addresses"
+-    COMPOSE_URL         = "http://%s/cgi-bin/compose?"
+-    PROTOCOL_ERROR      = "Hotmail has changed its protocols, please upgrade this library first. If that does not work, contact lucas@rufy.com with this error"
++    URL                  = "http://www.hotmail.com/"
++    OLD_CONTACT_LIST_URL = "http://%s/cgi-bin/addresses"
++    NEW_CONTACT_LIST_URL = "http://%s/mail/GetContacts.aspx"
++    COMPOSE_URL          = "http://%s/cgi-bin/compose?"
++    PROTOCOL_ERROR       = "Hotmail has changed its protocols - we'll need to change something on our end.  Please try back later."
+     PWDPAD = "IfYouAreReadingThisYouHaveTooMuchFreeTime"
+     MAX_HTTP_THREADS    = 8
+     
+     def real_connect
++      @use_new_contact_url = false
++      
+       data, resp, cookies, forward = get(URL)
+       data, resp, cookies, forward = get(forward, cookies, URL)
+       
+@@ -20,9 +23,9 @@
+       data, resp, cookies, forward = post(form_url, postdata, cookies)
+       
+       if data.index("The e-mail address or password is incorrect")
+-        raise AuthenticationError, "Username and password do not match"
++        raise AuthenticationError, "Username or password is incorrect"
+       elsif data != ""
+-        raise AuthenticationError, "Required field must not be blank"
++        raise AuthenticationError, "Username or password is incorrect"
+       elsif cookies == ""
+         raise ConnectionError, PROTOCOL_ERROR
+       end
+@@ -41,25 +44,33 @@
+       until forward.nil?
+         data, resp, cookies, forward, old_url = get(forward, cookies, old_url) + [forward]
+       end
+-      
++
+       if resp.code_type != Net::HTTPOK
+         raise ConnectionError, PROTOCOL_ERROR
++      elsif old_url.include?('login.live.com')
++        data, resp, cookies, forward, old_url = get("http://mail.live.com/mail", cookies)
++        data, resp, cookies, forward, old_url = get(forward, cookies)
++        old_url = forward
++        @use_new_contact_url = true
+       end
+       
+       @domain = URI.parse(old_url).host
+       @cookies = cookies
++      
+     rescue AuthenticationError => m
+       if @attempt == 1
+         retry
+       else
+         raise m
+       end
++
+     end
+     
+   private
+     
+     def contact_list_url
+-      CONTACT_LIST_URL % @domain
++      return OLD_CONTACT_LIST_URL % @domain unless @use_new_contact_url
++      return NEW_CONTACT_LIST_URL % @domain
+     end
+     
+     def follow_email(data, id, contacts_slot)
+@@ -82,42 +93,50 @@
+     end
+ 
+     def parse(data)
+-      chunks = data.split('id="hotmail"')
+-      prev = chunks.delete_at(0)
+-      
+-      queue = Queue.new
+-      threads = []
+-      @contacts = []
+-      chunks.each do |chunk|
+-        name = chunk.split('return false;">')[1].split('</a>')[0] rescue nil
+-        email = chunk.split('return false;">')[2].split('</a>')[0] rescue nil
+-        unless email && email != "more"
+-          prev = chunk
+-          next
+-        end
+-        next_slot = @contacts.size
+-        @contacts[next_slot] = [name, email]
+-        if email.match(/\.\.\.$/)
+-          if m = prev.match(/\s+id="([A-Za-z0-9\-]+)"/)
+-            queue.push([m[1], next_slot])
+-            if threads.size < MAX_HTTP_THREADS
+-              threads.push(Thread.new {
+-                  while x = queue.pop
+-                    follow_email(data, *x)
+-                  end
+-              })
++      unless @use_new_contact_url
++        chunks = data.split('id="hotmail"')
++        prev = chunks.delete_at(0)
++        
++        queue = Queue.new
++        threads = []
++        @contacts = []
++        chunks.each do |chunk|
++          name = chunk.split('return false;">')[1].split('</a>')[0] rescue nil
++          email = chunk.split('return false;">')[2].split('</a>')[0] rescue nil
++          unless email && email != "more"
++            prev = chunk
++            next
++          end
++          next_slot = @contacts.size
++          @contacts[next_slot] = [name, email]
++          if email.match(/\.\.\.$/)
++            if m = prev.match(/\s+id="([A-Za-z0-9\-]+)"/)
++              queue.push([m[1], next_slot])
++              if threads.size < MAX_HTTP_THREADS
++                threads.push(Thread.new {
++                               while x = queue.pop
++                                 follow_email(data, *x)
++                               end
++                             })
++              end
+             end
+           end
++          prev = chunk
+         end
+-        prev = chunk
++        
++        threads.each { queue.push(nil) }
++        threads.each { |t| t.join }
++        @contacts
++      else
++        data = CSV.parse(data)
++        col_names = data.shift
++        @contacts = data.map do |person|
++          [[person[1], person[2], person[3]].delete_if{|i|i.nil?}.join(" "), person[46]] unless person[46].nil?
++        end.compact      
+       end
+-      
+-      threads.each { queue.push(nil) }
+-      threads.each { |t| t.join }
+-      @contacts
+     end
+-    
+   end
+ 
+   TYPES[:hotmail] = Hotmail
+-end
+\ No newline at end of file
++end
++

@@ -1,0 +1,164 @@
+<style>
+        .search-box, .side-box {                      
+            padding:20px;
+            background-color:rgb(255,218,193);
+            border-top: 1px solid rgb(255,102,0);
+            /*border-bottom: 1px solid rgb(255,194,105);*/
+        }
+        .side-box {
+                border-top: none;
+                border-right: 1px solid rgb(255,194,105);
+                border-bottom:  1px solid rgb(255,194,105);
+                padding:0px;
+                
+        }
+        .listing-box {
+                
+                border-top:1px solid rgb(255,194,105);
+                padding:10px;
+                padding-top:20px;
+                
+                 
+        }
+    
+        .side-titles {
+                
+                background-color: rgb(255,102,0);
+                font-size:13;
+                color:white;
+                font-weight:bold;
+                padding-left:5px;
+                margin-bottom:10px;
+                
+        }
+        ul, li {
+        
+        }
+        
+</style>
+<div style='width:100%; background-color:white;display:table;height:500px;padding-bottom:20px;'>
+<div class='title-box title-div ' style='margin-bottom:0;padding-bottom:2px;'>
+
+    <%=image_tag '/images/classified.gif',:style=>'float:left;margin-right:8px;'%> Classifieds For Schools in <%=@network.name.cap %> Area
+
+</div>
+<%=          
+          no_ajax_tabs(@my_networks.map{|n| Tab.new(n.name.titlecase,{:network=>n.name,:category=>params[:category],:action=>'postings'})}) do |tab|
+                          tab.url[:network] == params[:network]
+          end    
+ %>  
+<div class='' style='clear:left;padding:10px;padding-left:10px;background-color:white;'>
+
+        <%=bread_crumb %> 
+        <span id='post-to-this' class='underline-link bold-link-div' style=';margin-left:30px'>
+            <%=button_to_function 'Post to this category',update_page{|p| p.redirect_to({:action=>'select_category_to_post',:category=>@category.name})},:class=>'button-link' %>
+        </span>        
+        
+</div>
+<form "/classifieds/<%=@network.name%>/postings" >
+
+<div class='search-box'>       
+        <%= text_field_tag "title",params[:title],:size=>60 %>
+        
+        <% (options = []) 
+          current_node = @category.node
+          root = current_node.root
+
+          unless current_node == root
+                options << [current_node.category.name,current_node.category.id]
+                current_node.ancestors.reverse.each do |ancestor|
+                        if ancestor == root
+                            options << [" > All #{root.category.name} Categories",root.category.id]
+                        else
+                            options << [ ">" +  ancestor.category.name ,ancestor.category.id]
+                       end
+                end
+                 options << ["-------------------",current_node.category.id]
+          else
+                options << ["All #{root.category.name} Categories",root.category.id]
+          end
+          
+          root.children.sort{|a,b| a.category.name<=>b.category.name}.each do |node|
+                    options << [node.category.name,node.category.id]      
+          end
+          unless current_node == root
+        
+                 options << ["-------------------",current_node.category.id]
+                 options << ["All #{root.category.name} Categories",root.category.id]
+          end
+        
+        %>
+        <%= select_tag "category_id", options_for_select(options)%>
+        <%= submit_tag "Search" , :class=>'button-link', :style=>'margin-left:0px'%> 
+</div>
+<table cellspacing=0 cellpadding=0 style='width:100%;height:10px'> <tr> 
+    <td   style='vertical-align:top;padding:0' >        
+     <div class='side-box'>  
+        <%if not (@category.searchable_attributes).empty? %>
+            <div class='side-titles'> Fast Finder </div>     
+            <div style='padding-left:10px'> 
+                <% @category.searchable_attributes.each do |attrb| %>                                    
+                     <div style='font-size:8pt;margin-bottom:10px;'> 
+                         <%=render :partial=>'search_by_attribute',:locals=>{'attrb'=>attrb} %>                
+                     </div>
+                <%end%>
+            </div>
+        <%end%>
+        <% if @category.node.children.size > 0%>          
+          <div class='side-titles'> Sub-Categories </div>
+          <ul style='margin-left:0;padding-left:20px;'>
+          <%@category.node.children.sort{|a,b| a.category.name<=>b.category.name}.each do |node|%>          
+               <li style=';color:gray;list-style-type: square;line-height:20px'> <%= link_to_postings_for node.category, :text=>"#{node.category.name} (#{node.category.count_posts_for(@network)})", 
+                    :html=>{:style=>"font-size:8pt"}%>  </li>
+           <%end%>        
+           </ul>
+        <%end%>
+        <div class='side-titles'> Show Postings From</div>
+
+        <% select_values = [["From All Schools",0]] + (@my_schools.map{|school| [ school.name + " Only" , school.id] }) %>
+          <div style=''> 
+          <%= select_tag "school_id", options_for_select(select_values,params[:school_id].to_i)  ,:style=>'width:100%'%>
+         </div>
+        
+        <div style='padding-left:5px;padding-top:20px;'>
+         <%= submit_tag "Show Items" , :class=>'button-link', :style=>'margin-left:0px'%>           
+         
+         </div>
+         <br>
+      </div>
+    </td>
+    <td class='listing-box' style='vertical-align:top;width:80%' rowspan=2> 
+            <%if params[:commit]%>
+                   <div class='status-box title-div bold-gray' style='font-weight:normal'>
+                    <% if @paginator.item_count == 0%>
+                       There are no postings in  <%=@category.name%> category to match your request. 
+                    <%elsif @paginator.item_count == 1%>
+                        Found one match for your request.
+                    <%else%>    
+                        Found <%=@paginator.item_count%> matches for your request.
+                    <%end%>                    
+                   </div>
+            <%end%>
+            <%if @posts.empty? and not params[:commit] %>
+                   <div class='status-box title-div bold-gray' style='font-weight:normal'>
+                        No posting for the <%=@category.name%> category yet.
+                        <% if @allowed_to_post%>
+                            <strong> <%=link_to 'Post something now! ', :action=>'posting_item'%> &nbsp;&nbsp;&nbsp;      </strong>
+                        <% end %>
+                  </div>                                                   
+            <%else%>  
+                                          
+                    <%= show_pagination nil,:method=>:get,:object=>'post' %>
+                    <div style='' cellpadding=0 cellspacing=0 >
+                        <%=render_p 'post_listings_partial',{'posts'=> @posts}%>
+                    </div>
+            <%end%>                                        
+                  
+                
+    
+    </td>
+</tr><tr><td style=''></td></tr></table>
+
+</form>
+</div>
+            

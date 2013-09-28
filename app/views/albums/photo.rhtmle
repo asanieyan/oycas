@@ -1,0 +1,58 @@
+<%=create_page_title { |title,image|
+	image << '/images/frame.gif'
+	title.push @I.am?(@photo_owner) ? "My Photos" : @photo_owner.full_name + "'s Photos"
+   }
+%>
+
+<div id='message'>
+
+</div>
+
+<div class='centered' style='width:750px'>
+    <%if @I.am? @photo_owner %>
+        <%=button_to_popup 'Create a new album', {:action=>'create_album',:id=>'create'},:pop_options=>{:title=>"Create New Album"}%>
+    <%end%>
+    <%if params[:c]%>
+       <%=javascript_tag popup :url=>{:action=>'create_album',:id=>'create'},:title=>"Create New Album"%>
+    <%end%>
+    <div class='status-box'>    
+    <%if @albums.empty?%>
+        <div class='title-div bold-gray' style='font-size:16 !important;font-weight:normal;padding-bottom:40px'> 
+                There are no albums. </div>
+        
+    <%end%>
+    <div><%=show_pagination :object=>'album' %></div>    
+    <% @albums.each do |album| %>
+    <div class='blue-box'>
+    <table style='width:700px'>
+        <tr>
+           <td  style='vertical-align:top;width:1px' >               
+               <%=link_to image_tag(album.cover),{:action=>'view_album',:a=>album.guid} %>              
+           </td>  
+           <td style=';vertical-align:top;padding-left:20px'>
+                <span class='title-div'> <%= link_to break_down(album.title,40),{:action=>'view_album',:a=>album.guid}%>  </span>                
+                <div class='bold-gray' style='font-weight:normal'>(<%=pluralize(album.num_images,"photo")%>) </div>                    
+                 <div class='bold-gray' style='font-weight:normal'>Created <%=time_helper(@my.time(album.created_on),@my.tz)%> </div>                                    
+                 <%if (album.location || "").size > 0%>
+                    <div><span class='bold-gray'> Location: </span> <%=album.location%>  </div>         
+                 <%end%>
+                <br>
+                <div> 
+                    <%=break_down(album.description,80)%>
+                    
+                </div>
+           </td>  
+           <td style='vertical-align:top;width:150px'>
+                <div class='menu-like-links'> <%=m_link 'View Album',:action=>'view_album',:a=>album.guid%></div>
+                <%if @I.am? @photo_owner %>
+                     <div class='menu-like-links'> <%=m_link 'Edit Album',:action=>"album",:a=>album.guid%></div>
+                     <div class='menu-like-links'> <%=m_link 'Delete Album',{:action=>'album',:a=>album.guid,:d=>true},:confirm=>["","Deleting an album will delete all the photos belonging to the album. <br>Are you sure you want to do this?"]%></div>                     
+                <%end%>
+           </td>
+        </tr>
+    </table> 
+    </div>  
+    <% end %>
+    
+    </div>
+</div>

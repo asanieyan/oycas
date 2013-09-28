@@ -1,0 +1,23 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+<form name="add_note" id="add_note" action="commit_add_note" method="post">
+
+Note:<br>
+<textarea name="message" rows="6" cols="25"></textarea><br>
+<input type="hidden" name="meeting_id" value="<%=meeting_id%>">
+<br>
+<input type="submit" value="add note">
+
+</form>
+</div>

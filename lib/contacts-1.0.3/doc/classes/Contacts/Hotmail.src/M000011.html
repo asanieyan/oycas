@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>real_connect (Contacts::Hotmail)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/contacts/hotmail.rb, line 11</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">real_connect</span>
+      <span class="ruby-ivar">@use_new_contact_url</span> = <span class="ruby-keyword kw">false</span>
+      
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span> = <span class="ruby-identifier">get</span>(<span class="ruby-constant">URL</span>)
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">forward</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-constant">URL</span>)
+      
+      <span class="ruby-identifier">postdata</span> =  <span class="ruby-node">&quot;PPSX=#{CGI.escape(data.split(&quot;&gt;&lt;&quot;).grep(/PPSX/).first[/=\S+$/][2..-3])}&amp;&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;PwdPad=#{PWDPAD[0...(PWDPAD.length-@password.length)]}&amp;&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;login=#{CGI.escape(login)}&amp;passwd=#{CGI.escape(password)}&amp;LoginOptions=2&amp;&quot;</span>
+      <span class="ruby-identifier">postdata</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;PPFT=#{CGI.escape(data.split(&quot;&gt;&lt;&quot;).grep(/PPFT/).first[/=\S+$/][2..-3])}&quot;</span>
+      
+      <span class="ruby-identifier">form_url</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;&gt;&lt;&quot;</span>).<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/form/</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>[<span class="ruby-value">5</span>][<span class="ruby-value">8</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>]
+      <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span> = <span class="ruby-identifier">post</span>(<span class="ruby-identifier">form_url</span>, <span class="ruby-identifier">postdata</span>, <span class="ruby-identifier">cookies</span>)
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;The e-mail address or password is incorrect&quot;</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AuthenticationError</span>, <span class="ruby-value str">&quot;Username and password do not match&quot;</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AuthenticationError</span>, <span class="ruby-value str">&quot;Required field must not be blank&quot;</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">cookies</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">form_url</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">forward</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span>, <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">forward</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">old_url</span>) <span class="ruby-operator">+</span> [<span class="ruby-identifier">forward</span>]
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">code_type</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPOK</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">forward</span> = <span class="ruby-value str">&quot;http://www.hotmail.msn.com/cgi-bin/sbox&quot;</span>
+
+      <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">forward</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span>, <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">forward</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">old_url</span>) <span class="ruby-operator">+</span> [<span class="ruby-identifier">forward</span>]
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">code_type</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPOK</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionError</span>, <span class="ruby-constant">PROTOCOL_ERROR</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">old_url</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'login.live.com'</span>)
+        <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span>, <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;http://mail.live.com/mail&quot;</span>, <span class="ruby-identifier">cookies</span>)
+        <span class="ruby-identifier">data</span>, <span class="ruby-identifier">resp</span>, <span class="ruby-identifier">cookies</span>, <span class="ruby-identifier">forward</span>, <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">forward</span>, <span class="ruby-identifier">cookies</span>)
+        <span class="ruby-identifier">old_url</span> = <span class="ruby-identifier">forward</span>
+        <span class="ruby-ivar">@use_new_contact_url</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-ivar">@domain</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">old_url</span>).<span class="ruby-identifier">host</span>
+      <span class="ruby-ivar">@cookies</span> = <span class="ruby-identifier">cookies</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">AuthenticationError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">m</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@attempt</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">retry</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">m</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

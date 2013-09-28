@@ -1,0 +1,10 @@
+This is an inquiry from <%=@inquirer.full_name%> <%if @post.owner.can_see_profile_of?(@inquirer)%>(<%=Notifier::Host + "/student/#{@inquirer.guid}/profile"%>)<%end%> with regards to your listing (<%=Notifier::Host + "/classifieds/posts/my_posts/show/#{@post.id}"%>) on Oycas Classifieds.
+to contact this person<%if @email %> you can send an email to <%=@email%><%else%> click on the this link <%="#{Notifier::Host}/my/compose/#{@inquirer.guid}"%> (if clicking doesn't work copy and paste the link into your browser.)<%end%>
+
+<%=@reply_message %>
+
+
+
+----------------------------
+Thanks,
+The Oycas Team

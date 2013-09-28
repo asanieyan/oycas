@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (Contacts::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/contacts/base.rb, line 21</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">connect</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">AuthenticationError</span>, <span class="ruby-node">&quot;Login and password must not be nil, login: #{@login.inspect}, password: #{@password.inspect}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@login</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">real_connect</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

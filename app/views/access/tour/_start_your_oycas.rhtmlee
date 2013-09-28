@@ -1,0 +1,25 @@
+<% content_for("right_pane") do %>   
+
+    <%= draw_maps('start')%>
+    
+    
+<% end %>
+
+<%content_for("left_pane") do %>
+    <div class='title-box title-div dark-bold-gray' style='padding:0px'>
+        Start Your Oycas
+    </div>
+    <p style=''>
+        Oycas is a web-based educational management tool for college & university students.
+        What that means is that we are combining the effectiveness of virtual learning environments such as 
+        WebCT and Blackboard with the fun environment of social communities. 
+    </p>
+    <p>
+        To join Oycas you need to use your school email address so 
+        we can verify that you are in fact from the selected school.
+        to see the list of the supported schools <%=link_to 'click here', '/access/schools'%>.
+    </p>        
+        
+
+
+<%end%>

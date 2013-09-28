@@ -1,0 +1,14 @@
+<div class='status-box'>
+<p class='dark-gray'>
+   Thank you for taking the time to send us a feedback.
+   This feedback is very valuable to us as it provides us a way to get know your needs.
+</p>
+<div id='bug-message'>
+
+</div>
+<%=form_tag({},{:onsubmit=>"if($('bug_report').value.length <= 10){Message.show({'bug-message':'Please give a descriptive feedback'},{'hide':true});return false;}"})%>
+    <%=text_area_tag "bug_report","",:size=>'30x10',:style=>'margin-bottom:10px'%>
+    <%=submit_tag "Send"%>
+</form>
+
+</div>

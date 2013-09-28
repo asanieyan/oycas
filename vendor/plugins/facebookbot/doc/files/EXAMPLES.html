@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: EXAMPLES</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>EXAMPLES</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>EXAMPLES
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue May 15 11:38:22 -0400 2007</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Primo Examples!</h2>
+<p>
+So you want to create your own <a
+href="../classes/FacebookBot.html">FacebookBot</a>, eh? Good plan, sir or
+madam! I have included three example bots for you, in order of difficulty
+here they are: basic_bot.rb, example_bot.rb, complex_bot.rb.
+</p>
+<h2>A solid example to get you started</h2>
+<p>
+Here&#8216;s a solid example to get you started:
+</p>
+<pre>
+  require 'facebook_bot/facebook_bot'
+  fb = FacebookBot.new({:email =&gt; 'ilove@you.edu', :password =&gt; 'imfat'})
+  fb.set_status 'I loves facebookbot!'
+</pre>
+<p>
+That&#8216;s all there is to it, folks! Isn&#8216;t that easy? Easy peasy
+lemon squeezy!
+</p>
+<h2>Basic Bot</h2>
+<p>
+You can take a gander at basic_bot.rb to see how a bot could login to your
+Facebook profile and update your status. Its basically the code I just
+shared with you above, plus some comments and lines and such.
+</p>
+<h2>Example Bot</h2>
+<p>
+This bot does a little bit more, but not too much. We didn&#8216;t want to
+overwhelm you with parenthesis and clauses and such.. yet. All this bot
+does is login to your profile, pokes one of your friends at random, and
+changes your status to a random phrase. Then it just goes to sleep for 15
+to 30 minutes, and perks right back up and starts the whole process over
+again. It is all pretty simple and easy to follow. I hope. You can ignore
+all that jibberish about OPTIONS and ARGV and debugging and such.
+</p>
+<h2>Complex Bot</h2>
+<p>
+Ut oh, you&#8216;re in for a treat with here, big guy or big girl! This is
+a very complicated bot that does all sorts of crazy things. better yet, I
+am constantly updating it to do more crazy nonsense! You can look at this
+for some great examples of how to do a certain thing. I wouldn&#8216;t
+actually run this for your own account, however, lest ye be asking for
+trouble! Well, I am asking for trouble.. which is why I run it on my
+Facebook profile. Yee-haw!
+</p>
+<h2>Still Confused?</h2>
+<p>
+Hark! C&#8216;mon fair child! Can you not try things out on your own for
+once? You need to pick up the reins and just go for it! Go for the gold!
+Gusto!
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

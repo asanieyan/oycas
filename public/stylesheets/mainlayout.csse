@@ -1,0 +1,422 @@
+
+/*******************************************tabs*********************************************/
+
+.flex_tab_div {
+        
+        BACKGROUND: url(/images/tabs/bg4.gif) repeat-x  50% bottom; 
+        FLOAT: left; 
+        WIDTH: 100%; 
+        LINE-HEIGHT: normal
+}
+.flex_tab_div UL {
+        PADDING-RIGHT: 10px; 
+        PADDING-LEFT: 0px; 
+        PADDING-BOTTOM: 0px; 
+        MARGIN: 0px; 
+        
+        LIST-STYLE-TYPE: none;
+        
+}
+.flex_tab_div LI {
+        PADDING-RIGHT: 0px; 
+        PADDING-LEFT: 9px; 
+        FLOAT: left; 
+        PADDING-BOTTOM: 0px; 
+        MARGIN: 0px; 
+        PADDING-TOP: 0px;   
+        
+}
+.flex_tab_div A, .flex_tab_div span{
+        font-size:8pt !important;
+        PADDING-RIGHT: 15px; 
+        DISPLAY: block; 
+        PADDING-LEFT: 6px; 
+        FLOAT: left; 
+        PADDING-BOTTOM: 4px;         
+        PADDING-TOP: 5px; 
+        TEXT-DECORATION: none;        
+}
+
+.flex_tab_div A {
+        FLOAT: none
+}
+.flex_tab_div A:hover {
+        COLOR: #333
+}
+.flex_tab_div .off { 
+     BACKGROUND:  no-repeat left top; 
+	             
+}
+.flex_tab_div .off A {
+    BACKGROUND:  no-repeat right top;  
+ 
+}
+.flex_tab_div .on {
+    BACKGROUND:  #394E8B no-repeat left top; 	
+	border-bottom:1px solid black; 
+	         
+}
+.flex_tab_div .on span{
+    BACKGROUND:  #394E8B no-repeat right top; 
+    PADDING-BOTTOM: 5px;         
+    color:white;  
+}
+/*********************************************************************/
+.header {
+       
+        BACKGROUND: url(/images/tabs/bg4.gif) repeat-x  50% bottom; 
+        FLOAT: left; 
+        WIDTH: 100%; 
+        LINE-HEIGHT: normal
+}
+.header UL {
+        PADDING-RIGHT: 10px; 
+        PADDING-LEFT: 0px; 
+        PADDING-BOTTOM: 0px; 
+        MARGIN: 0px; 
+        PADDING-TOP: 10px; 
+        LIST-STYLE-TYPE: none;
+        
+}
+.header LI {
+        PADDING-RIGHT: 0px; 
+        PADDING-LEFT: 9px; 
+        FLOAT: left; 
+        PADDING-BOTTOM: 0px; 
+        MARGIN: 0px; 
+        PADDING-TOP: 0px;   
+        
+}
+.header A, .header span{
+        font-size:8pt !important;
+        PADDING-RIGHT: 15px; 
+        DISPLAY: block; 
+        PADDING-LEFT: 6px; 
+        FONT-WEIGHT: bold; 
+        FLOAT: left; 
+        PADDING-BOTTOM: 4px;         
+        PADDING-TOP: 5px; 
+        TEXT-DECORATION: none;        
+}
+
+.header A {
+        FLOAT: none
+}
+.header A:hover {
+        COLOR: #333
+}
+.header .off { 
+     BACKGROUND: url(/images/tabs/left.gif) no-repeat left top;             
+}
+.header .off A {
+    BACKGROUND: url(/images/tabs/right.gif) no-repeat right top;             
+}
+.header .on {
+    BACKGROUND: url(/images/tabs/left_on.gif) no-repeat left top;             
+}
+.header .on span{
+    BACKGROUND: url(/images/tabs/right_on.gif) no-repeat right top; 
+    PADDING-BOTTOM: 5px;         
+    COLOR: #333
+}
+/*******************************TAB END****************************************/
+#top-menu2 {
+    background:  #00C8FF ;
+    padding-top:3px;    
+   
+    text-align:right;    
+}
+#top-menu2 .item {
+    padding:2px;    
+}
+#top-menu2 .item A {
+    font-size:8pt;
+    font-family: 'verdana';  
+    padding:5px 2px 5px 2px;
+    text-decoration: none !important;
+    color: #606060 !important;
+}
+.top-drop-down {        
+    border:1px solid #3E5594;
+    background-color:white !important;
+    padding:5px;
+    border-top:none;
+    width:150px;
+    z-index:20;   
+}
+.top-drop-down A {
+    color:#394E8B !important;
+    
+}
+.top-item-active {
+   background-color:#94A4D4 !important;
+ 
+}
+.top-item-hover{
+   background-color:#94A4D4 !important;   
+}
+.top-item-hover A,.top-item-active A {
+    color:#909090 !important;
+} 
+
+#main-menu-row {    
+    background-color: #3E5594;     
+    padding:0;
+    color:white;
+    font-family: 'tahoma';         
+}
+#main-menu-row A {
+
+    text-decoration:none;
+    color:    #394E8B;
+	font-weight:bold;  
+}
+.main-menu-item {        
+    padding:7px; 
+	padding-top:7px;
+	padding-bottom:7px;
+    margin:0;    
+}
+
+.main-menu-item A,.main-menu-item A:hover   {
+    font-family:"arial";
+	font-size:8pt !important;
+    color:black !important;  
+    text-decoration:none !important;    
+}
+.main-menu-item-hover , .main-menu-item-hover A, .main-menu-item-hover A:hover{
+    background-color:#008CB3 !important;
+	color:white !important;
+}
+.main-menu-item-active , .main-menu-item-active A , .main-menu-item-active A:hover{
+    background-color:#008CB3 !important;
+	color:white !important;
+}
+#main-menu-row .sub-menu {
+    background-color:white !important;
+    width:150px;
+    padding: 5px 2px 5px 2px;
+    display:table;
+    border:1px solid #C0C0C0;  
+    border-top:none;            
+}
+#main-menu-row .sub-menu A {
+   
+}
+#main-menu-row .sub-menu div {
+    padding: 5px;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+.sub-menu-item-hover {
+    background-color:#394E8B;
+      
+}
+.sub-menu-item-hover A {
+    color:white !important; 
+}
+.sub-menu-item-hover A:hover {
+    text-decoration:none !important;
+}
+.stn-background-color {
+    background-color:#F9F7ED;	
+}
+A {
+    font-size:10pt;
+    text-decoration:none;
+    color:    #394E8B;    
+
+}
+A:hover {
+    text-decoration:underline !important;
+    color:    #394E8B;	
+}
+.popup-container A{
+    font-family: tahoma,sans-serif;
+    font-size:8pt;
+    text-decoration:none;
+    color:    #394E8B;
+}
+
+.link-color {
+    color:  #394E8B;
+
+}
+
+.left-col {
+    width:400px;
+   
+}
+body  {    
+    background-color:#FFFFFF;   
+	font-size: 8pt;
+	font-family: 'tahoma';  
+}
+table {
+	font-size:8pt;
+}
+#content-panel /*the cell that contains everything*/
+{                 
+             
+     background-color:#F3F2FF;	 
+     border:solid #C0C0C0 1px;
+	 border-top:none;
+	 height:300px;
+	 
+	 width:850px; 
+	  
+	   
+}
+.outside-width {
+   width:850px; 
+}
+.vendor-width, #vendor-width {
+    width:850px; 
+}
+
+#messagepanel {
+    font-size:10pt;
+    font-family:verdana,sans serif;
+    border:0;
+}
+
+
+
+
+
+/*
+/*
+/* styles for projects section 
+.projectCalendarTable { 
+    background-color:dddddd;
+    border-collapse:collapse;
+    border: 1px black solid;
+}
+
+.projectCalendarDay { 
+    background-color:eeeeff;
+    height:100px;
+    width:100px;
+    border: 1px solid black;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+    vertical-align:top;
+}
+
+.projectCalendarCurrentDay { 
+    background-color:ffeeee;
+    height:100px;
+    width:100px;
+    border: 1px solid black;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+    vertical-align:top;
+}
+
+.projectCalendarSpan {
+    float:left;
+    height:20px;
+    width:20px;
+    background-color:bbbbff;
+    text-align:center;
+    vertical-align:middle;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+}
+
+.projectCalendarCurrentDaySpan {
+    float:left;
+    height:20px;
+    width:20px;
+    background-color:ffbbbb;
+    text-align:center;
+    vertical-align:middle;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+}
+
+
+.projectCalendarDayName {
+    font-size:11pt;
+    font-family:verdana,sans serif;
+}
+
+.projectCalendarMonthName {
+    font-size:14pt;
+    font-family:verdana,sans serif;
+}
+
+.projectCalendarOtherMonth {
+    background-color:eeeeee;
+    color:eeeeee;
+    font-family:verdana,sans serif;
+    border: 1px solid black;
+}
+
+.projectCalendarTooltip {
+    background-color:ffffff;
+    padding:10px;
+    color:000000;
+    font-family:verdana,sans serif;
+    border: 1px solid black;
+}
+
+div.projectGeneral {
+   font-family:verdana,sans serif;
+   font-size:10pt;
+}
+
+div.errorConfirm {
+   color:ff0000;
+   background-color:ffffee;
+   font-family:verdana,sans serif;
+   font-size:8pt;
+}
+
+/* small calendar special classes
+.projectCalendarDaySmall { 
+    background-color:eeeeff;
+    height:50px;
+    width:50px;
+    border: 1px solid black;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+    vertical-align:top;
+}
+
+.projectCalendarCurrentDaySmall { 
+    background-color:ffeeee;
+    height:50px;
+    width:50px;
+    border: 1px solid black;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+    vertical-align:top;
+}
+
+.projectCalendarSpanSmall {
+    float:left;
+    background-color:bbbbff;
+    text-align:center;
+    vertical-align:middle;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+}
+
+.projectCalendarCurrentDaySpanSmall {
+    float:left;
+    background-color:ffbbbb;
+    text-align:center;
+    vertical-align:middle;
+    font-size:10pt;
+    font-family:verdana,sans serif;
+}
+
+.project_document_display tr {
+    vertical-align:top;
+
+}
+.project_document_display td {
+    padding-right:20px;
+}
+*/

@@ -1,0 +1,45 @@
+<table class='show-profile' cellspacing=0 cellpadding=0 style=''>                      
+        <%if @studentb.profile.religious_views %>
+        <tr> 
+                <td class='bold-gray' style='width:100px'> Religious Views: </td>
+                <td> 
+                     <%=  @studentb.profile.religious_views  %>
+                </td>                                                                  
+        </tr>                
+        <%end%>
+         <%if @studentb.profile.political_views %>
+            <tr> 
+                    <td class='bold-gray'> Political Views: </td>
+                    <td> <%= @studentb.profile.political_views  %>
+                       
+                    </td>                                                                        
+            </tr>           
+        <%end%>          
+        <% ['Activities','Interests','Favorite Music','Favorite TV Shows','Favorite Movies','Favorite Books','Favorite Quotes','About Me'].each do |subject| %>                          
+          
+            <% data = @studentb.profile.send subject.downcase!.gsub(/ /,'_')%>
+            <% if data.length > 0%>
+            <tr style=''>
+                <td class='bold-gray' style='vertical-align:top'><%= subject %>: </td>
+                
+                <td style='vertical-align:top;text-align:justify;padding-right:5px;'><%= break_down(data,40) %>  </td>                              
+            </tr>  
+            <tr> 
+                <td colspan=10 style=''>
+                   &nbsp;
+                </td> 
+            </tr><tr>                    
+                <td colspan=10 style='border-top:1px solid #C0C0C0'>
+                   &nbsp;
+                </td>           
+            </tr>
+          
+            <% end %>
+   
+        <% end%>
+       
+   </table>   
+
+
+
+

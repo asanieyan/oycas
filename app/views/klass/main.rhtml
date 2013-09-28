@@ -1,0 +1,199 @@
+
+<style>
+    .flex {
+       background-color:#FFDBA8;
+       color:black;
+
+    }
+    .flex-close {
+        background-color:#F26B41 !important;
+    }
+  
+</style>
+ 
+<div style=''>
+    <table cellspacing=0 cellpadding=0 style='height:100%;width:100%;'> 
+        <tr> 
+            <td  class='left-col' style=';vertical-align:top;'>                 
+                <div style='border-bottom:1px solid #C3D9FF;background-color:white;padding:10px;padding-bottom:0;'> 
+                    <table cellspacing=0 cellpadding=0  >
+                      <tr>                            
+                        <td  class='title-div' style='vertical-align:top;width:230px' >                               
+                            <%image_tag '/images/books2.gif'%> 
+                            <%=@klass.name%>
+	 						
+                            <div class='dark-bold-gray' >
+                                <%=@klass.course.name %><br><%=pluralize(@klass.course.credit,"credit")%>
+                            </div>
+                            <%if not @klass.is_current?%>
+		                        <div class='title-div' style='vertical-align:top;color:#FF7400'>
+		                            Class offered in <%=@klass.semester.name%>
+		                        </div>
+	                        <%end%>								
+                        </td>   
+						<%if @klass.is_current?%>
+							<td style='padding-top:8px;padding-left:5px;vertical-align:top;width:190px' class=''>                            
+								<%if  @klass.has_student? @me %>                         
+	                                  <%=m_link 'Drop this class',url_for_school(@klass.school,{:action=>'deregister_from_course',:course_id=>@klass.course.id}),
+	                                                                        :confirm=>["Unregistering from #{@klass.name}","Are you sure you want to unregister from this class?"]%>                                                                                
+	                            <%elsif @klass.school.student_can_register?(@me)%>
+									  <%=m_link 'Register in this class',url_for_school(@klass.school,:action=>'register_for_course',:id=>@klass.course_id,:klass_id=>@klass.id),:post=>true%>
+								<%end%>   
+	                                <br>
+	                         </td>
+						 <%end%>
+                       </tr>
+                        <%if @klass.is_current?%>
+						<tr><td colspan=2><br>
+		                    <%=what_to_do_box do |items|
+								if @klass.has_student?(@me)
+									items << "Discuss exams and assignments on the class #{link_to 'discussion board',:action=>'forum_topics'}."
+									items << link_to("Invite",{:action=>"invite_to_register"},:pop=>true,:pop_options=>{:title=>"Invite Classmates"}) + " your classmates to this class." 
+								else
+									items << "View discussions about exams and assignments on the class #{link_to 'discussion board',:action=>'forum_topics'}."
+		
+								end
+								items << "#{link_to 'Share',:action=>'show_notes'} exams, midterms, assignments and notes with your classmates."
+							   end
+							%><br>										
+						</td></tr>
+                        <%else%>
+                            <td> <br> </td>
+                        <%end%>
+                     </table>                                            
+                </div>
+                  
+	
+                <div class='flex'> Class Info </div>
+                <div class='flex-in'>
+                <table >
+                            <tr>
+                                <td class='bold-gray' style='text-align:right;vertical-align:top' >Timetable:&nbsp;&nbsp;</td>
+                                <td><%=@klass.formated_schedule.join("<br>")%></td>
+                            </tr>                             
+                            <tr>
+                                <td class='bold-gray' style='text-align:right'> Instructor:&nbsp;&nbsp;</td>
+                                <td class='small-link-div'>
+                                    <% if @klass.student_can_change_teacher?(@me)%> 
+                                    <div  style=''>
+                                        <%name = @klass.teacher ? @klass.teacher.name1 : "Set the Instructor"%>
+                                        <%=link_to_popup name,{:action=>"set_teacher"},
+                                                    :pop_options=>{:size=>'500x330',
+                                                    :title=>"Set Instructor"}%>                                  
+                                    
+                                    <%else%>
+                                        <%= @klass.teacher.name1 rescue ""%> 
+                                    <%end%>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='bold-gray' style='vertical-align:top;text-align:right'> Room:&nbsp;&nbsp;</td>
+                                <td class='small-link-div'>
+                                      <% if  @klass.student_can_change_room?(@me) %> 
+                                            
+                                            <span  id='class_room' style=''>
+                                                <%=@klass.room %>
+                                            </span>                                            
+                                            <%name = (@klass.room ||"").size > 0 ? "Edit" : "Set Classroom"%>
+                                            <%=link_to name,{:action=>"set_room"},:id=>'room_setter',:style=>'' %>
+                                            <div id='class_room_auto_complete' class='auto_complete' style='display:none'> </div>
+                                            <script>
+                                                Ajax.InPlaceEditor.defaultHighlightColor = "#FFFFFF"
+                                                var roomSetting = new Ajax.InPlaceEditor('class_room','<%=url_for(:action=>"set_room")%>',
+                                                                {
+                                                                    externalControl:'room_setter'  ,                                                                  
+                                                                    okText: 'Save',
+                                                                    loadTextURL: '<%=url_for(:action=>'get_room')%>',
+                                                                    onComplete : function(request,e) {                                                                        
+                                                                        if (e.innerHTML.blank()) {
+                                                                            $('room_setter').update("Set Classroom")
+                                                                        }else {
+                                                                             $('room_setter').update("Edit")
+                                                                        }
+                                                                                                                                             
+                                                                    }
+                                                                }
+                                                            
+                                                            )                                                                                                                     
+                                                        Event.observe($('room_setter'),'click',function(){                                                   
+                                                        new Ajax.Autocompleter(roomSetting.editField,'class_room_auto_complete','<%=url_for(:s=>@klass.school.id,:action=>"suggest_room")%>',
+                                                                    {
+                                                                        afterUpdateElement : function(e1,e2) {
+                                                                         e1.value = e2.innerHTML.stripTags().strip();
+                                                                        }
+                                                                    }
+                                                        )
+                                                        });
+                                            </script>  
+                                                                                                                                                  
+                                      <%else%>
+                                      <span id='class_room'><%= @klass.room %></span>  
+                                      <%end%>  
+                                       
+                                                                                                                               
+                                </td>
+                            </tr>
+
+                        </table>
+                            
+                </div>
+                <%=render_p 'notes/embeded_note_box',
+                        {
+                            'notes'=>@klass.notes,
+                            'context'=>"Class"                        
+                        }                
+                %>                                      
+                <%=render_p 'forums/embeded_discussion_box',
+                        {
+                            'discussions'=>@klass.discussions,'max'=>3,
+                            'can_start'=> @klass.can_student_post_to_forum?(@me),
+                            'context'=>"Class"                        
+                        }                
+                %>
+                <div id='news'>
+                
+                        <%=render_component :controller=>'klass',:action=>'show_news',
+                                :params=>{:cid=>@klass.guid}%>
+                
+                </div>
+    
+    
+             </td>
+            <td  style='vertical-align:top;'>                
+                <%=form_tag({:action=>'students_in_full'},{:style=>'margin:0;',:method=>:get})%>
+                 <div class='flex-in'>
+                     <div style=''>                                          
+                        <%=search_box "q",nil,:size=>50,:banner=>'Search Class Students'%>
+                    </div> 
+                 </div>
+                </form>
+                <div id='welcome' style='padding-top:3px;'> </div>
+                <div style='margin-left:5px'>
+                    <div class='flex'> 
+                        Classmates
+                    </div>
+                    <div id='students' style='margin-top:5px;padding-left:10px;padding-right:10px;'>
+                      
+                        <%=render_component :controller=>'klass',:action=>'students_in_tab',
+                                :params=>{:cid=>@klass.guid}%>
+                        
+                    </div>
+                       <%=render_p 'shared/chatter_box',{'popup_title'=>"#{@klass.name} Class Chat",'title'=>'Class Chat',
+                            'chat_topic'=>generate_chat_topic(@klass.guid)} if @klass.student_can_chat?(@me)%>                      
+ 
+                    <br>  
+                    <div class='flex'>
+                        Class Desk
+                    </div>
+                    <div id='desk' class='flex-in' style='border-bottom:none;'>
+                         <%=render_component :controller=>'klass',:action=>'desk',
+                                :params=>{:cid=>@klass.guid}%>
+                    </div>
+                </div>
+
+            </td>
+               
+            </tr>
+    </table>    
+</div>

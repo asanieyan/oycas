@@ -1,0 +1,19 @@
+<%= form_tag({:action=>'login'}, {:method=>'post',:id=>'login-form'})%>
+                <table>    
+                   <tr>
+                        <td class='login-label' id='email-label'> Email: </td><td>	<%=text_field_tag 'username' %> </td>
+                    <tr>
+                     <tr>
+                        <td class='login-label' id='password-label'> Password: </td><td>      	<%=password_field_tag 'password' %> </td>
+                    </tr>
+                    <tr>
+                        
+                        <td colspan=2 class='small-link-div' style='text-align:right;padding-top:10px'> 
+                                <%=submit_tag "login"%><br><br> 
+                                <%=link_to 'forgot your password ?',"/access/reset_password"%>                        
+                        </td>
+                    </tr>
+                 </table>
+                 <%=javascript_tag "$('username').focus()"%>                 
+                 
+</form> 

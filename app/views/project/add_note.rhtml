@@ -1,0 +1,14 @@
+<div id="project_error"></div>
+
+<div class="projectGeneral">
+<%= form_tag({:action=>"commit_add_note"},{:method=>"post"})%>
+
+Note:<br>
+<textarea name="message" rows="6" cols="25"></textarea><br>
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="hidden" name="meeting_id" value="<%=params[:meeting_id]%>">
+<br>
+<input type="submit" value="add note">
+
+</form>
+</div>

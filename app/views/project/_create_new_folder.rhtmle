@@ -1,0 +1,14 @@
+
+<div id="project_error"></div>
+
+
+<div class="projectGeneral">
+<%= form_tag({:action=>"commit_create_new_folder"},{:method=>"post"})%>
+folder name:&nbsp;<input type="text" name="foldername" width="100">
+<br><br>
+
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="submit" value="Create Folder">
+<input type="button" value="Cancel" onclick="Pop.close()">
+</form>
+</div>

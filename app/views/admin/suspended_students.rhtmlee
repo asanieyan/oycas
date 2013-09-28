@@ -1,0 +1,28 @@
+<%if @students.empty?%>
+    No Student Suspended
+    
+<%else%>
+    <%=show_pagination :object=>'suspended student'%>
+    <table>
+        <tr>
+            <td style='font-weight:bold'> Suspended Student </td>
+            <td style='font-weight:bold'> Suspended Date </td>
+            <td style='font-weight:bold'>  </td>
+         </tr>
+    <%@students.each do |s|%>
+       <tr>
+            <td style='padding-right:60px'>
+                <%=link_to_student s%> 
+            </td>
+            <td style='padding-right:60px'> 
+                <%=s.account_status_change_date%>
+            </td>
+            <td>
+                <%=link_to '[UnSuspend Account]',{:action=>'unsuspend',:id=>s.id},:pop=>true%>
+                &nbsp;&nbsp;
+                <%=link_to '[View All Violations]',{:action=>'reports',:v=>s.id}%>
+            </td>
+        </tr>
+    <%end%>
+    </table>
+<%end%>

@@ -1,0 +1,78 @@
+<%is_reply ||= false%>
+<div class='stn-div' style='padding-top:30px;padding-bottom:30px' >
+
+<table id='discussion-table' cellspacing=0 style='width:<%=is_reply ? '80%' : '100%' %> !important;'>
+<%posts.each do |post| %>
+       <%unless is_reply%>
+           <tr>
+             <td colspan=10 style='padding-top:0px;border-top:1px solid #909090;'> &nbsp;</td>
+           </tr>
+       <%end%>
+       <tr>
+            <td rowspan=2 style=';width:75px;'>  
+                <a name='<%=post.id%>'></a>
+                <%=link_to_student image_tag(post.poster.thumb_image),post.poster %> <br>
+                 Post #<%=@discussion.posts.index(post)+1%>  
+            </td>
+            <td class='normal-gray' style='padding-left:0px;'>  
+                
+                  <div ><%=time_helper(@my.time(post.created_on),@my.tz)%></div>
+                  <%=link_to_student post.poster,:my_name=>'You'%> 
+
+                  <%if post.thread_replyee_id and not is_reply%>
+                    <% 
+                       thread_page = ((@discussion.posts.index(post.thread) + 1).to_f / @paginator.items_per_page.to_f).ceil 
+                       thread_url =  if (params[:page] || 1) == thread_page
+                                            {:anchor=>post.thread.id}
+                                     else
+                                            {:page=>thread_page,:anchor=>post.thread.id}
+                                     end       %>
+                    replied to <%=link_to (if post.thread.poster.is? @me 
+                                                "your post"
+                                          else
+                                                "#{post.thread.poster.name(:first).downcase}'s post"
+                                          end),
+                                                
+                            thread_url ,:style=>'font-size:8pt' if post.thread%>
+                  <%else%>
+                    wrote: 
+                  <%end%>
+                  <div class='dark-bold-gray' style=' font-style: italic;;margin-top:5px'> <%=break_down(post.subject,70)%> </div>                  
+                        
+            </td>
+            <td style='text-align:center;vertical-align:middle;'>
+               &nbsp;
+            </td>
+                    
+      </tr>
+      <tr style=''> 
+
+          <td  class='status-box'> 
+                 <%=break_down(post.message,80)%>          
+          </td>          
+          <td class='small-link-div' style=';width:100px;padding-left:5px;padding-bottom:20px;'>
+          <%if not is_reply and @controller.can_post_to_forum?%>
+                <%=m_link "Reply to " + (@I.am?(post.poster) ? "myself" : post.poster.name(:first)),:action=>"reply_post",:id=>post.id %> 
+                <%if @I.am? post.poster %>
+                        <%confirm = if post.is_header
+                                        ['Confirm Delete',
+                                            'By deleting the first post, you will delete the entire topic. <br> Are you sure want to delete your topic?']
+                                    else
+                                        ['Confirm Delete','Are you sure you want to delete your post']
+                                    end    
+                        
+                        %>   
+                        <%=m_link "Delete",{:action=>'delete_discussion_post',:id=>post.id},:confirm=>confirm %>                   
+                        <%=m_link "Edit",{:action=>'edit_discussion_post',:id=>post.id,:page=>params[:page]}%>                                             
+                 <%end%>
+
+            <%end%>
+
+            </td>    
+      </tr>
+      <tr>
+        <td colspan=10> <br></td>
+      <td>
+<%end%>
+</table>
+</div>

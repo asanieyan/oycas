@@ -1,0 +1,39 @@
+<%
+    begin
+        render_p 'access/tour/' + params[:id].underscore
+    rescue
+         params[:id] = "StartYourOycas"
+         render_p 'access/tour/start_your_oycas'
+    end
+%>
+<table class='top-v-align'  id='centered' cellspacing=0 cellpadding=0 style='width:726'>
+    <tr>
+        <td style='width:426px;'>
+            <%=yield :right_pane%>        
+        </td>
+        <td style='padding-left:25px;'>
+             <div class='title-div'>
+                <%=link_to "Register Now!","/access/register",:style=>'color:#FF7400'%><br><br>
+             </div>
+             <div style='margin-bottom:20px;'>
+                 <%
+                    menus = [   "start your Oycas","",
+                                "your home","classified",
+                                "your school","classified",
+                                "your class","classified",
+                                "classifieds","classified"
+                            ]
+                    menus.in_groups_of(2,false) do |menu_name,menu_image|
+                         id = menu_name.gsub(/ /,'_').camelize                          
+                         html = content_tag(:div, m_link(menu_name.capitalize ,:id=>id),:class=>(id == params[:id] ? 'bold-link-div' : ''))
+                         concat(html,binding) 
+                    end
+                 
+                 %>
+             </div>
+             <div style='font-size:9pt'>
+                 <%=yield :left_pane%> 
+             </div>
+        </td>
+    </tr>     
+</table>

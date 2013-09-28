@@ -1,0 +1,10 @@
+<%=show_pagination paginator,'page','panel1-body',:url=>{:field_name => @params[:field_name]}%>
+<%= link_to_remote 'back',:update=>'panel1-body', :url=>{:action=>'overview'}.merge(instructor_params)%>
+
+
+<% largest_set.size.times do |index| %>
+    <% comment_sets.each do |set| %>                    
+            <%=set[index].body + "|" rescue ""%>   
+    <% end %>
+    <br>
+<%end%>

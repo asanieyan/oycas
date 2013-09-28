@@ -1,0 +1,72 @@
+
+<% 
+    if @news_context.is_a? Klass
+        flex_title = "Class News"
+        no_news_msg = "There are no news for this class"
+    elsif @news_context.is_a? School
+        flex_title = "#{@news_context.short_name} News"
+        no_news_msg = "There are no news for #{@news_context.name}"        
+    else #my news
+        flex_title = "My News"
+        no_news_msg = "You don't have any news yet."
+    end
+        
+
+%>
+<%if @news.length > 0 %>
+	<div class='flex'>
+	    <%=flex_title%>
+	    
+	</div>
+	<div class='flex-in'>
+	<%time = ""%>
+	<%timestamp = ""%>
+    <%@news.each do |event| %>
+        <%if event.created_on.to_date == Time.now.utc.to_date  %>
+                <%day_timestamp = @my.time(event.created_on).strftime("Today %A, %B %d")%> 
+                <%timestamp = time_ago_in_words(event.created_on) +  " ago "%>
+        <%else%>
+               <%day_timestamp = @my.time(event.created_on).strftime("%A, %B %d")%> 
+               <%timestamp = "At " + @my.time(event.created_on).strftime("%l:%M %p")%>
+        <%end%>
+  
+        <%unless day_timestamp == time%>
+                  <%time = day_timestamp%>
+                  <div style='width:100%;border-bottom:1px solid #C0C0C0'> 
+                           <strong style='color:#707070;font-size:10pt'> <%=day_timestamp%>  </strong>
+                  </div>
+        <%else %>
+              <div id='e<%=event.id%>' style='width:80%;margin:0 auto;border-bottom:1px solid #C0C0C0'> </div> 
+        <% end %>  
+          <div style='font-size:10pt;width:100%;padding-top:10px;padding-bottom:10px;'> 
+             <table class='top-v-align' cellspacing=0 cellpadding=0>
+             <tr><td>
+              <%if event.icon_url %>
+                    <%=image_tag event.icon_url,:style=>'margin-right:5px'%>                                   
+               <%end%>
+               
+               </td>
+               <td>
+                <span style='font-size:8pt;color:#707070'>              
+                    <%=timestamp%>
+                </span>
+                <%=event.message%> 
+              </td>
+              </tr>
+              </table>
+              
+              
+        
+          </div>              
+    
+    <%end%>
+          <div style='width:80%;margin:0 auto;border-bottom:1px solid #C0C0C0'> </div> 
+	</div>
+<%else%>          
+	<%if false%>
+	    <div class='title-div bold-gray' style='font-weight:normal'>
+	        <%=no_news_msg%>
+	    </div>
+	<%end%>	
+<%end%>
+

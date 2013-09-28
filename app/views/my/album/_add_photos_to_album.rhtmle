@@ -1,0 +1,49 @@
+<div id='upload-form'>
+<%if params[:java] == "true"%>    
+    <div class='bold-link-div'>
+        <%=link_to_function "try the simple upload form","Album.renderSimpleUpload()"%>
+        <br>
+    </div>
+    <APPLET CODE="wjhk.jupload2.JUploadApplet" NAME="JUpload"  WIDTH="640" HEIGHT="300" MAYSCRIPT></XMP>   
+        <PARAM NAME="ARCHIVE" VALUE="jupload.jar">    
+        <PARAM NAME="CODEBASE" VALUE="<%=request.protocol + request.host + '/jserver'%>">  
+        <PARAM NAME="allowedFileExtensions" VALUE="jpg/png/gif">
+        <PARAM NAME="afterUploadURL" VALUE='<%="/my/album?a=#{@album.guid}"%>'>
+        <PARAM NAME="showStatusBar" VALUE="false">
+        <PARAM NAME="type" VALUE="application/x-java-applet;version=1.4">
+        <PARAM NAME="scriptable" VALUE="false">         
+        <PARAM NAME="postURL" VALUE="<%=request.protocol + request.host + url_for(:action=>'add_more_files_to_album',:a=>@album.guid)%>">
+        <param NAME="uploadPolicy" VALUE="PictureUploadPolicy" >   
+        <PARAM NAME="nbFilesPerRequest" VALUE="1"> 
+        To use this photo upload utility you need java 1.4 or higher 
+        you can download it from <%=link_to 'here',"http://www.java.com/en/download/manual.jsp"%>                
+    </APPLET>   
+<%end%>    
+    <div id='simple-upload' style='display:none'>
+    <%= form_tag( {:action=>'add_more_files_to_album',:a=>@album.guid},
+                          {:multipart => true} ) %>
+        <div class='status-box'>
+            <p class='dark-bold-gray'>
+                You can upload
+                JPG, GIF or PNG
+                files. <div class='small-link-div'> 
+                    <%=link_to_function "Add more file fields","Album.addFileFields()"%>
+                    </div>
+            </p>    
+            <div id='photo-files'>
+                <div style='margin-top:8px;'> <%=file_field_tag "File0"%> </div>
+                <div> <%=file_field_tag "File1"%> </div>
+                <div> <%=file_field_tag "File2"%> </div>
+                <div> <%=file_field_tag "File3"%> </div>
+                <div> <%=file_field_tag "File4"%> </div>
+                
+            </div>
+        </div>
+        <div style=';text-align:right'>                                       
+                        <%=submit_tag "Upload Photos"%> or
+                        <%=link_to_function 'Cancel', "Pop.close()" %> 
+        </div> 
+    </form>    
+    </div>
+</div>
+<%=javascript_tag "Album.renderSimpleUpload()" unless params[:java] == "true"%>

@@ -1,0 +1,222 @@
+<% student = @student%>
+<style>
+        .notice {
+            margin: 0 auto;
+            margin-bottom:10px;
+            padding:10px;
+            background-color: #FAFAFA;            
+            border: 1px solid #C0C0C0;
+        }
+</style>       
+<style>
+    .flex {
+       background-color:#DDDDDD;
+       color:black;
+
+    }
+	.flex-close {
+		color:white;
+		background-color:#404040 !important;
+	}
+	
+</style>
+<table id='home-table' cellspacing=0 cellpadding=0  style='width:100%;height:100%;'> 
+    <tr> 
+        <td class='left-col' style='vertical-align:top;'>             
+            <div style='border-bottom:1px solid #C3D9FF;background-color:white;padding:10px;padding-bottom:0;'> 
+                        
+                        <%if @admin  %>
+                            <%if not @I.am?(student)%>   
+                               <div class='bold-link-div'><%=link_to 'Login as this student',{:controller=>'admin',:action=>'login_dummy_student',:id=>student.id},:post=>true%></div>
+                            <%else%>
+                                You are logged in this account<br> 
+                                student rank <%=student.rank%>
+                                
+                            <%end%>   
+                        <%end%>
+                        <%if not @I.am? student and (req = @my.friend_request_to(student))%>                                            
+	                         <div class='status-box small-link-div'>
+	                             You have sent a friend request to <%=student.f_name %> <%=time_helper(@my.time(req.created_on),@my.tz)%>.
+	                             <br><br>
+	                             <div style='text-align:right'>
+	                                    <%=link_to 'Cancel Request',:action=>'cancel_friend_request'%>                                    
+	                             </div>
+	                         </div>
+                        <%end%>
+
+                <div>
+
+				</div>
+				<table class='' cellspacing=0 cellpadding=0  style=';padding-bottom:10px;'>
+				   <tr>                            
+                    <td style='text-align:left;width:100px'>
+      
+                        <div style='font-size:16pt;font-weight:bold'>
+                        </div>
+                        <div style='border:1px solid #C0C0C0;padding:5px;'>
+                            <%=image_tag student.profile_image %>
+                            <%if  @I.am? student and not @my.profile_image_set %>
+                               <div style=''> <%=link_to 'Set your profile <br>picture now!',{:action=>'profile'},:style=>''%></div>
+                            <%end%>
+                        </div>
+                    </td>
+                    <td style='padding-top:8px;padding-left:5px;vertical-align:top;' class=''> 
+                        <%unless @I.am_admin?%>
+                            <%if not @I.am? student %>                                                        
+                                <div class='title-div'> <%=student.full_name%></div>
+                                <%=m_link "Send message",{:controller=>'my',:action=>'compose',:id=>student.guid}%>
+                                                        
+                                <%if not @I.am_friend_of? student%>                                                        
+                                        <%=link_to_add_friend student,"Add as friend"                                 
+                                         %>                                
+                                 <%else%>                                                       
+                                        <%=link_to_remove_friend student,"Remove as friend"
+                                        
+                                        %>                              
+                                 <%end%>
+                                 <%=link_to_popup "<div> Report this student </div>",url_for_student(student,:action=>'report_person'),
+                                        :class=>'menu-like-links',:pop_options=>{:title=>"Reporting #{student.full_name}"}%>                                                        
+                            <%else%>							
+                                <div class='title-div'>Welcome<br> <%=student.full_name%></div><br>
+                                <%@box = what_to_do_box do |items|
+									#items << link_to('Set your profile picture now!',{:action=>'profile'}) if not @my.profile_image_set 
+									items << "#{link_to 'Invite',:action=>'invites'} your classmates and friends now! "
+									if @my.klasses_at(@my.school).size == 0
+										items << "#{link_to 'Register for ' + @my.school.current_semester.name ,url_for_school(@my.school,:action=>'course_catalouge')} in your courses and start interacting with your classmates." 
+									end			
+									items << "Have a facebook account? Use #{link_to 'oycas-mini','http://apps.facebook.com/oycasmini',:target=>'_blank'} to keep in touch!" 
+									items << "Check out your school's #{link_to 'homepage',url_for_school(@my.default_school)}."
+								   end
+   								%>		                                
+                            <%end%>
+                        <%end%> 
+                        <br>
+                    </td>                
+				</tr>
+				<tr><td colspan=2 style=''><br><div style='width:360px'><%=@box%></div></td></tr>
+				</table>    
+            </div> 	
+            <%if @I.am?(student) or @I.can_see_current_classes_of?(student)  %>
+                <%create_flex_box (@I.am?(student) ? "My" : "#{student.f_name}'s") + " Classes",false do%>
+					<%=create_tabbed_flex do |tab_set|
+							student.schools.each do |s|
+								tab_set.add("#{s.short_name}",
+                                    {:controller=>'student',:school_id=>s.id,:sid=>student.guid,:action=>'current_klasses',:rlevel=>@manual_rel_level})
+							end
+					   end
+					%>
+				<%end%>
+
+             
+            <%end%>
+            <%=render_p 'notes/embeded_note_box',
+                    {
+                        'notes'=>@I.am?(student) ? @my.notes : student.notes.not_anonymous,
+                        'context'=>@I.am?(student) ? "My" : "#{student.f_name}'s"
+                    }                
+            %>                                     
+            <div id='news' style='position:relative;z-index:100!important;'>                         	
+                <%if @I.am? student%>                             
+                    <%= render_component :controller=>'my',:action=>'show_news' %>                
+                <%else%>					
+	                <%create_flex_box "#{student.f_name}'s Profile",false do %>
+						<%if student.any_profile_info_set?%>
+							<%=create_tabbed_flex do |tab_set|
+									tab_set.add("General",:controller=>'student',:action=>'show_general',:sid=>student.guid,:rlevel=>@manual_rel_level) if student.has_general_info_set?
+									tab_set.add("Contact",:controller=>'student',:action=>'show_contact',:sid=>student.guid,:rlevel=>@manual_rel_level) if student.has_contact_info_set? 
+									tab_set.add("Personal",:controller=>'student',:action=>'show_personal',:sid=>student.guid,:rlevel=>@manual_rel_level) if student.has_personal_info_set?
+								end
+							%>
+						<%else%>
+	                       <div class='dark-gray' style="background-color:#FFFFFF!important;">
+	                            No profile information set yet.
+	                       </div>								
+						<%end%>
+					<%end%>
+                                     
+                <%end%>
+            </div>
+
+
+         </td>
+        <td  style='vertical-align:top;'>
+            <%if @I.am? student%>        
+                <div class='flex-in ' style='border-bottom:0;padding-bottom:5px'>                  
+                    <%= render_p 'my/my_status','student'=>student %>                                       
+                </div>
+            <%elsif student.mood_status%>
+              <div class='flex-in ' id='round-statusbox' style='border-bottom:0;padding-bottom:5px'>                  
+                    <%=render_p 'student/printout_status',{'student'=>student} %>               
+                </div>                         
+            <%end%>
+            <div style='padding-left:5px;'>       
+					<%create_flex_box "My Requests",false,
+								:if=>(@I.am?(student) and (@my.recieved_friend_requests.size > 0 or @my.sent_friend_requests.size > 0)) do %>
+						<%=create_tabbed_flex do |tab_set|
+							  if @my.recieved_friend_requests.size > 0 
+								tab_set.add("People Requests (#{@my.recieved_friend_requests.size})",{:action=>'recieved_friend_requests'},true) 
+							  end
+                              if @my.sent_friend_requests.size > 0
+                                 tab_set.add("My Requests (#{@my.sent_friend_requests.size})",{:action=>'sent_friend_requests'},true)
+                              end
+							end
+						%>						
+					<%end%>
+					<%create_flex_box "Friends",false,:forceOpen=>@observing_my_profile_from_another_perspective,
+													 :if=>@I.can_see_friends_of?(student) do%>
+	                        <%=form_tag({:action=>'friends'},{:style=>'margin:0;',:method=>:get}) %>
+		                        <div style='width:100%;border-bottom:1px solid #C3D9FF;padding-bottom:5px;margin-bottom:5px;'>                    
+		                            <%=search_box "q",nil,:size=>50,:banner=>'Search Friends'%>
+		                        </div> 
+	                        </form>
+                            <%if @observing_my_profile_from_another_perspective%>
+                                <%=render_component :controller=>'student',:action=>'students_in_tab' ,:params=>{:rlevel=>@manual_rel_level,:sid=>student.guid}%>
+                            <%else%>
+                               <%=render_component :action=>'students_in_tab' ,:params=>{:sid=>student.guid}%>
+                            <%end%>   					
+					<%end%>
+					<%create_flex_box "New Classfifieds",false,:if=>begin 
+													@I.am?(student) &&  
+									(new_posts = ClassifiedPost.find(:all,
+										:conditions=>"poster_id <> #{@my.id} AND network_id IN (#{@my.schools.map{|s| s.network_id}.join(',')})",
+								    	:limit=>3,:order=>"created_on DESC")).size > 0
+								end,
+								:forceOpen=>@observing_my_profile_from_another_perspective,
+								:border=>true do |css,links,label|
+						label << "Showing new classifieds"
+						links << link_to("Classifieds","/classifieds/network/#{@my.school.network.name}/browse")
+						links << link_to("Post New","/classifieds/network/#{@my.school.network.name}/select_category_to_post")
+						links << link_to("My Posts","/classifieds/my_posts")
+						%>
+						 
+							<%new_posts.each do |post|%>							
+							<%=table_tag :cols=>3,:table=>{:style=>"width:400px",:class=>"top-v-align bold-link-div"} do |elements|
+							    src = post.listing_image.src rescue '/images/classified.gif'
+								elements << [link_to(image_tag(src,:style=>"height:60px"),"/classifieds/network/#{post.network.name}/show/#{post.id}"),{:style=>"padding-right:10px"}]
+								text = link_to(truncate(post.title,60),"/classifieds/network/#{post.network.name}/show/#{post.id}") +
+									   content_tag(:div,truncate(strip_tags(post.description),60),:class=>"normal-gray")
+								elements << [text,{:style=>"text-align:left;width:280px;vertical-align:middle"}]
+								elements << [content_tag(:div,to_my_human_time(post.created_on,:date_only=>true),:class=>"normal-gray"),{:style=>"text-align:right;vertical-align:top"}]
+							   end
+							%>
+							<%=hr unless new_posts.last == post%>
+						<%end%>
+						
+					<%end%>				
+                <%=render_p 'albums/embeded_album_box',
+                        {
+                            'albums'=>@I.am?(student) ? @my.albums : student.visible_albums_to(@me),
+                            'context'=>@I.am?(student) ? "My" : "#{student.f_name}'s"
+                        }                
+                %>
+				<%create_flex_box "The Desk",:if=>@I.can_see_scrap_of?(student) do %>                     
+					 <%=render_component :action=>'desk',:params=>{:sid=>student.guid,:oberving_my_own_profile=>@observing_my_profile_from_another_perspective} %>				
+				<%end%>
+
+            </div>
+
+        </td>
+           
+        </tr>
+</table>    
+

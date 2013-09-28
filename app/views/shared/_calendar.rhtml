@@ -1,0 +1,48 @@
+<div class='status-box' id='calendar'>
+<%
+    month = (params[:m] || Time.now.utc.month).to_i
+    year =  (params[:y] || Time.now.utc.year).to_i
+    month = 1 unless month.between?(1,12)
+    year = Time.now.utc.year if year < Time.now.utc.year
+    today = @my.time(Time.now.utc).to_date
+%>
+<%= calendar(:year => year, :month => month) do |d| 
+            if d >= today
+                [link_to(d.mday,"#",:onclick=>"return false;"),{:class=>"normalDay",:onmouseout=>"Element.removeClassName(this,'normalDay-highlight');body.style.cursor='default'",
+                                    :onclick=>"$('#{params[:update]}').value='#{d.strftime('%m/%d/%y')}';Pop.close();return false",
+                                    :onmouseover=>"body.style.cursor='pointer';Element.addClassName(this,'normalDay-highlight')"}]
+            else
+                [d.mday,{:class=>"normalDay"}]            
+            end
+         
+
+end %>
+</div>
+<%= update_page_tag do |page|         
+        page << "monthDIV =  $('monthName')"                
+        if month  > today.month
+            prev_month = month-1 == 0 ?  12 : month-1;
+            prev_year = month-1 == 0 ? year-1 : year
+            prev_link = "<#{Date::MONTHNAMES[prev_month]}"
+            page << "new Insertion.Top(monthDIV,'#{link_to prev_link,'#',:id=>'prev'}' + '&nbsp;&nbsp;')"        
+            page << <<-"eof"
+                Event.observe('prev','click',function() {
+                        new Ajax.Updater(Pop.container,'#{url_for(:update=>params[:update],:action=>"calendar",:m=>month-1,:y=>prev_year)}',
+                                    {evalScripts:true});
+                        return false;
+                });
+            eof
+        end 
+        next_month = month+1 == 13 ?  1 : month+1;
+        next_year = month+1 == 13 ? year+1 : year        
+        next_link = "#{Date::MONTHNAMES[next_month]}>"
+        page << "new Insertion.Bottom(monthDIV,'&nbsp;&nbsp;' + '#{link_to next_link,'#',:id=>'next'}')"                          
+        page << <<-"eof"
+            Event.observe('next','click',function() {
+                    new Ajax.Updater(Pop.container,'#{url_for(:update=>params[:update],:action=>"calendar",:y=>next_year,:m=>month+1)}',
+                                {evalScripts:true});
+                    return false;
+            });
+        eof
+    end
+%>

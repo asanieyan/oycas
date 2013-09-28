@@ -1,0 +1,68 @@
+<script>
+   MyBinder = {        
+        searchAgain : function() {
+              $('upload').hide();
+              $('search').show();    
+        },
+        getCourseURL : function(link) {
+           link.href = "/course/"+ $('course_id').value +"/show_notes"            
+//           this.searchAgain();
+        },
+        getUploadURL : function() {
+            Pop.options.url = "/course/" + $('course_id').value + "/create_note"          
+        },
+        courseSelected : function(selected) {                           
+                            $('course_name').value = ""
+                            course =  $(selected).down("input[type='hidden']")
+                            $('course_id').value = course.value
+                            course.remove()                           
+                            $('course_label').update($(selected).innerHTML);                            
+                            $('upload').show();
+                            $('search').hide();   
+                                                    
+                        }
+   }
+   
+
+</script>
+<table class='' cellspacing=0 cellpadding=0 style='width:100%;height:100%'> 
+   <tr>
+    <td style='width:70%;vertical-align:top'>      
+            <%if @note_context.is_a? Klass %>
+                    <%=render_p 'notes/show_notes_klass_header'%>
+            
+            <%elsif @note_context.is_a? Course %>
+                   <%=render_p 'notes/show_notes_course_header' %>
+            <%elsif @note_context.is_a? Student %>
+                    <%=render_p 'notes/show_notes_student_header' %>
+            
+            <%end%>
+            <div id='message'></div>
+            <%=render_p 'notes/show_notes'%> 
+    </td> 
+    <td class='left-side-box'  style='height:400px;vertical-align:top;float:none' >
+            <%if @klass or @course%>
+                <%
+                 course_id,link_name =   if @klass
+                                            [@klass.course.id,@klass.name]
+                                         else
+                                            [@course.id,@course.short_title]
+                                         end
+                %>                    
+                <%= link_to_popup image_tag('/images/shared_notes_news_icon.gif',:style=>'float:left;margin-right:10px') + "New Note for #{link_name}",course_url({:controller=>'course',
+                                                :courseid=>course_id,
+                                                :action=>'create_note'}),
+                                                :class=>'bold-link-div underline-link',
+                        :pop_options=>{:title=>"Create New Note Document"}%>
+            <%end%>                        
+            <div style='clear:left'></div>
+            <div id='ntools'>
+            </div>
+            <%=tabit 'ntools', Tab.new("Search",params.update({:action=>'note_filters'})),
+                            Tab.new("Create New Note",{:action=>'create_new'})%>
+  
+
+  </td>
+ </tr>
+</table>
+           

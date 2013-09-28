@@ -1,0 +1,7 @@
+<%=form_tag%>
+<div id='password'>
+    Enter your password:
+</div>
+<%=text_field_tag  "password",params[:password]%>
+<%=submit_tag "Register"%>
+</form>

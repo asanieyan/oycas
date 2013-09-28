@@ -1,0 +1,29 @@
+
+
+
+
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+</div>
+
+
+<form name="create_new_project" id="create_new_project" action="commit_create_new_project">
+title (mandatory):<input type="text" name="title" width="100" value="<%= params[:title] %>">
+<br><br>
+
+description (optional):<textarea name="description"><%= params[:description] %></textarea>
+<br><br>
+
+project-specific email address (optional): <input type="text" name="project_email_address" width="100" value="<%= params[:project_email_address] %>">
+<br><br>
+
+<input type="hidden" name="klass_id" value="<%=klass_id%>">
+<input type="hidden" name="guid" value="<%=guid%>">
+<input type="submit" value="Create Project">
+<input type="button" value="Cancel">
+
+</form>

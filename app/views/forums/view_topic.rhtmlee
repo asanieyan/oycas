@@ -1,0 +1,24 @@
+<div style='background-color:white;padding-bottom:20px;' >
+<div id='discussion' >
+    <div class='small-link-div' style='margin-bottom:10px'>
+        <%=link_to "Back to discussion topics.",{:action=>'forum_topics'},:style=>'' %> 
+    </div>
+<div id='discussion-topic' style=''> 
+    <%= break_down(@discussion.topic,70)%>
+
+</div>   
+<div style=';text-align:right;margin-bottom:20px;'>
+    <%if @controller.can_post_to_forum?%>        
+        <%=link_to "Reply to topic",{:action=>'reply_to_topic',:id=>@discussion.id},:style=>'font-weight:bold'%> 
+        <%if @posts[0].is_header and @posts[0].poster.is? @me %> | 
+            <%=link_to "Delete topic",{:action=>'delete_discussion_post',:id=>@posts[0].id},
+                :confirm=>['Confim Delete',"Are you sure you want to delete the entire topic."],:style=>'font-weight:bold'
+            
+            %>
+        <%end%>
+    <%end%>        
+</div>   
+<%=show_pagination nil,:method=>:get%>
+    <%=render_p 'forums/posts_partial',{'posts'=>@posts}%>
+</div>
+</div>

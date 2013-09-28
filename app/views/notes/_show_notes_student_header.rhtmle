@@ -1,0 +1,19 @@
+<div class='title-div title-box' style='padding-bottom:2px'>
+
+    <%=image_tag '/images/binder.gif',:style=>'float:left;margin-right:10px'%>
+    <span style=''>
+    <%if @note_context.is? @me %>    
+        My 
+    <%else%>   
+        <%=@note_context.full_name%>
+    <%end%>
+    
+      Binder</span>
+
+</div>
+<br>
+<%if @note_context.is? @me %>  
+    <div class='status-box dark-gray' style='margin-left:10px;margin-right:10px;font-size:10pt'>
+        Your binder keeps  and organizes the class notes that you have created.<br>        
+    </div> 
+<%end%>

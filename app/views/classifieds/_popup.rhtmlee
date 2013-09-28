@@ -1,0 +1,71 @@
+<span id='this-container'>
+<%  
+    target_name = pluralize(@max_course_select,params[:select])
+    school_select = nil
+    if @my_schools.size > 1
+        params[:school_id] = nil
+        school_select = select_tag "school_id",options_for_select(@my_schools.map{|sc| [ sc.name ,sc.id] },@school.id),
+                :onchange=> remote_function( 
+                                            :url=>params,
+                                            :update=>'this-container',
+                                            :with=>"'school_id='+$('school_id').value"
+                                   )
+                
+        school_select_label = "Select the school of which you are a member to see its subjects"
+    end 
+%>
+<% select_options = @school.course_subjects.map{|s| [s.code+" - "+s.name,s.id]}%>
+<p> 
+You can select <%= target_name %>. 
+
+<%if params[:select] == "course"%>
+To Select courses click on a subject below and when the list of courses for <br>
+that subject appears then select the courses. 
+<% if school_select %>
+    <br><br>
+    <%= school_select_label %> <div style='padding:10px'> <%= school_select%> </div>
+<%end%>
+<%
+  select_tag = select_tag "subject_id",options_for_select(select_options),
+        :onchange=>remote_function(:update=>'select-courses',
+                                   :loading=>"$('subject_id').disabled = true",
+                                   :success=>"$('subject_id').disabled = false;for(i=0;i<$('subject_id').options.length;i++){" +
+                                                           "$('subject_id').options[i].selected = false" + 
+                                                           "};$('subject_id').blur()",                                       
+                                   :position=>'bottom',
+                                   :with=>"'subject_id='+$('subject_id').value",
+                                   :url=>{:action=>"select_cands"}
+                                   
+                                   ),
+         :size=>6
+            
+      %>
+<%else%>
+Select the subjects and then click Add 
+ <% if school_select %>
+    <br><br>
+    <%= school_select_label %> <div style='padding:10px'> <%= school_select%> </div>
+<%end%>
+<%
+  select_tag = select_tag "subject_ids[]",options_for_select(select_options),
+         :size=>10,:multiple=>true
+        
+    
+  %>
+<%end%>
+</p>
+<%= form_remote_tag :url=>{:action=>'select_cands',:phandler=>params[:pophandler],:select=>params[:select]} %>
+<div style='padding:10px'>
+
+    <%=select_tag%>
+
+    <div id='select-courses'> 
+    
+    
+    </div>
+</div>
+<%=link_to_function 'cancel',"#{params[:pophandler]}.close()"%>
+<%=submit_tag 'Add'%>
+</form>
+
+</span>

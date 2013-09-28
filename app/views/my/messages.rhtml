@@ -1,0 +1,54 @@
+<%=javascript_include_tag "mailbox"%>
+<style>   
+    #actionLinks A {
+        padding:5px;
+        font-size:8pt;
+    }
+    .link-to-read-msg td {
+        font-size:10pt !important;
+        color:black !important;
+        cursor:pointer;
+    }
+    .link-to-read-msg:hover {
+        text-decoration:none !important;
+
+    }
+    .one-message {
+        border-bottom:1px solid #C0C0C0;
+        cursor:pointer;
+    }    
+    tr.read {
+        background-color:white;
+    }
+    tr.not-read {
+        background-color:#FFDFBB;
+    }
+    .not-read{
+        font-weight: bold !important;
+    }  
+    .read {
+        font-weight: normal !important;
+    }
+    .message-person {
+        
+    }    
+	.message-hover-in {
+		
+	}
+	.message-hover-out {
+			
+	}
+
+  
+  
+</style>
+<%=create_tabbed_page "My Inbox" do |tab_set|
+	tab_set.add	"Inbox",{:action=>"messages",:folder=>"in"},'my/messages/folder'
+	tab_set.add "Saved Messages", {:action=>'messages',:folder=>'sm'},'my/messages/folder'
+	tab_set.add "Sent Messages", {:action=>'messages',:folder=>'si'},'my/messages/folder'
+	tab_set.add "Compose", {:action => 'compose', :page => params[:page]}
+   end
+%>
+
+ 
+ 

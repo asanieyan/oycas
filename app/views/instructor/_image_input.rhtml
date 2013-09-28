@@ -1,0 +1,13 @@
+<div id='message'></div>
+
+    
+<p> Enter the image url below starting with http. </p>
+<p> 
+    <strong> 
+        Note that we only accept the image url from the school website. 
+    </strong>    
+</p>
+<%= form_remote_tag(:url=>{:action=>params[:action],:school_id=>(@school.id rescue nil),:rand=>rand(1000)}) %>    
+    <%=text_field_tag "image_url","",:size=>50%> <%=submit_tag "Get Image"%> or <%=close_pop %>
+    
+</form>

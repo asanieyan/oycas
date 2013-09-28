@@ -1,0 +1,17 @@
+<% schools = student.student_profile_schools  %>
+<% schools = (Array.new << StudentProfileSchool.new) if schools.empty?%>
+
+<div class='form1'>
+
+    <form name='education_form' action='/my/profile' method='post'>
+        <input type='hidden' name='tab' value='education_tab' />
+         <% schools.each do |school| %>    
+               <%= render :partial=>'one_school_partial', :locals=>{'school_index'=>schools.index(school), 'school'=>school,'last_school'=>(school == schools.last),'more_schools'=>(schools.index(school)< StudentHelper::NUM_JOBS) }%>   
+         <% end %>
+         <%= submit_tag %>   
+                
+    </form>
+
+</div>
+
+

@@ -1,0 +1,24 @@
+
+body , table{
+    font-family: 'verdana';   
+    font-size:10pt;    
+   
+
+}
+
+body A {
+    font-size:10pt;
+    text-decoration:none;
+    color:    #4F6CBD;    
+
+}
+#access-top-link A {   
+    color:white;    
+    padding: 2 5 2 5;
+    
+}
+#access-top-link A:hover {   
+      background-color:white; 
+      color:#606060;
+      text-decoration:none !important;
+}

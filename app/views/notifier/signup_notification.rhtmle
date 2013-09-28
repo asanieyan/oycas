@@ -1,0 +1,14 @@
+Hey <%=@reg.name%>, 
+
+You recently registered for the oycas service.  To activate your account please follow
+the link below: 
+<%=Notifier::Host%>/access/activate/<%=@reg.guid%>r<%=@reg.random_number%>
+(If clicking on the link doesn't work, try copying and pasting it into
+your browser.)
+
+If you did not register for this service, please disregard this message.
+Please contact info@oycas.com with any questions.
+
+Thanks,
+The Oycas Team
+

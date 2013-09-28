@@ -1,0 +1,17 @@
+<% jobs = student.student_jobs  %>
+<% jobs = (Array.new << StudentJob.new) if jobs.empty?%>
+
+<div class='form1'>
+
+    <form name='job_form' action='/my/profile' method='post'>
+        <input type='hidden' name='tab' value='work_tab' />
+         <% jobs.each do |job| %>    
+               <%= render :partial=>'one_job_partial', :locals=>{'job_index'=>jobs.index(job), 'job'=>job,'last_job'=>(job == jobs.last),'more_jobs'=>(jobs.index(job)< StudentHelper::NUM_JOBS) }%>   
+         <% end %>
+          <%= submit_tag %>   
+                
+    </form>
+
+</div>
+
+

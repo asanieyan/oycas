@@ -1,0 +1,84 @@
+<div id='upload-div' style='width:500px;display:table' >
+
+
+ <div id='upload-message'>
+
+ </div>
+ <div id='upload-form'>
+ <div class='dark-bold' style='font-size:10pt'>
+  <%if @klass%>
+    You are creating a note document for the class <%=@klass.name%>    
+  <%else%>
+    You are creating a note document for the course <%=@course.short_title%>
+  <%end%>
+ </div>
+ 
+  <p>
+    To create a note document enter the title and comment (if any) and then
+    select one or more files and click upload.
+     (<span class='link-color' style='font-weight:bold'> Are file types are accepted except the executable files </span>)
+  </p>  
+
+<%=form_tag({},{:multipart=>true,:onsubmit=>(<<-eof
+                    
+                     errorMsg = []
+                     if ($('title').value.blank()) 
+                       errorMsg.push('Please enter a title for your note document.')
+                     else if ($('title').value.strip().length <= 6)
+                       errorMsg.push('Please enter a longer and more descriptive title for your note document.')                    
+                     noFile = true
+                     $(this).getInputs('file').each(function(fileInput){                    
+                       if(fileInput.value.length > 0)
+                           noFile = false
+                     })
+                     if (noFile) 
+                         errorMsg.push('You must select at least one file.')
+                     Message.show({'upload-message':errorMsg},{hide:false})                    
+                     if (errorMsg.length > 0)                    
+                         return false;                         
+                     Message.showUpload('upload-form');
+                     eof
+                )})%>
+<table> 
+    <tr>
+        <td class='bold-gray' style='vertical-align:top;'>
+            
+            Title:<span style='color:red'>*</span>
+            <div> <%=text_field_tag "title","",:maxlength=>CourseNote.size_of('title'),:size=>@browser.sel_for({:msie=>'46'},'49')%> </div>
+            <br>
+            <div> Note Type: <%=select_tag "note_type",options_for_select(CourseNote.values_of('note_type').map{|s| [s.to_s.titlecase,s]})%></div>
+            <br>Comment:            
+            <div> <%=text_area_tag "comment","",:size=>"30x5",:maxlength=>CourseNote.size_of('comment')%> </div>              
+        </td>
+        
+        <td style='padding-left:30px;margin-top:8px;'>
+            <%CourseNote::MaxAllowedFiles.times do %>
+               <div style='margin-bottom:5px'> <%=file_field_tag "files[]"%> </div>
+            <%end%>
+
+        </td>
+    </tr>
+</table>
+<table style=';width:520px;background-color:#EEEFEF;border:1px #C3D9FF solid;padding:5px;margin-top:10px;margin-bottom:10px;'>
+    <tr>    
+    
+        <td style='vertical-align:top;margin-right:5px;'>
+          <%=check_box_tag "anon",1,true %> 
+        </td>
+    <td style=''>
+        <strong>This is an Anonymous Note.</strong> 
+        <span style='font-size:10pt'>
+        By checking this box no one will know that this document belongs to you.
+        </span>
+        </td>
+    </tr>
+</table>
+<div style='text-align:right;width:520px;margin-bottom:10px;'>
+    
+    <%=link_to_function 'Cancel',"Pop.close()"%>
+    <%=submit_tag "Upload"%>
+</div>
+</form>
+</div>
+
+</div>

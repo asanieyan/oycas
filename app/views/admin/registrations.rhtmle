@@ -1,0 +1,11 @@
+<%Registration.find(:all).each do |reg| %>
+	<%=table_tag :cols=>4,:table=>{:style=>"width:500px"} do |elements|
+				elements << reg.school_status
+				elements << reg.name
+				elements << reg.created_on
+				elements << link_to('resend signup',{:id=>reg.id},{:post=>true})
+		end
+	%>
+
+
+<%end%>

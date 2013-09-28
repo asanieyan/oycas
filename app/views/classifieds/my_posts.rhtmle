@@ -1,0 +1,37 @@
+<table class='top-v-align' cellspacing=0 cellpadding=0 style='width:100%;height:100%'> 
+    <tr>
+        <td colspan=2 style='height:1px'>
+            <div class='title-box' style='margin-bottom:0'>
+                <div class='title-div' style='margin-bottom:0'> My Classified Posts </div> 
+            </div>
+        </td>
+     </tr>
+     <tr>
+        <td style=''>
+            <br>
+            <div style='margin-left:10px'  >
+                <%if @my_posts.empty?%>
+                    <div class='status-box title-div dark-gray'>You don't have any posts yet.</div>
+                <%else%>
+    
+                  <%=show_pagination nil,:method=>:get,:object=>'post'%>  
+                  <%=render_p 'post_listings_partial',{'posts'=> @my_posts}%>
+                <%end%>         
+           </div>
+        </td>
+        <td class='left-side-box' style='float:normal;width:150px'>           
+            <%=form_tag({},{:method=>:get,:id=>'filter'})%>
+                <div class='side-search-filter-title'>
+                    Filter By Categories
+                </div>
+                <%=select_tag "cat",options_for_select([["Show All",""]] + 
+                                                @my_categories.map{|c| [c.name,c.id.to_s]},params[:cat]),
+                        :onchange=>"$('filter').submit()" %>                        
+            </form>
+
+        </td>        
+    </tr>
+</table>    
+           
+
+

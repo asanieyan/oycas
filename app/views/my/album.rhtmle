@@ -1,0 +1,91 @@
+<%=javascript_include_tag 'album'%>
+<table class='top-v-align' cellspacing=0 cellpadding=0 style='height:500px;width:100%'>
+    <tr>
+        <td>
+            <div class='title-box title-div' style='padding-bottom:2px;margin-bottom:0'>
+               <div><%=image_tag @album.cover,:style=>'height:40px;margin-right:10px;float:left;'%></div>Editing Album: 
+               <span class='link-color'> <%=break_down(@album.name,40) %></span>            
+            </div>        
+            <div id='albumTabs' style='clear:left;'>
+   
+            </div>
+            
+            <%params[:m] = %w(edit_photo_settings edit_album_info).include?(params[:m]) ? params[:m] : "edit_photo_settings"%>
+ 			 <%
+			 	if false
+					create_tabbed_page do |tab_set|
+					tab_set.add	"Edit Photos",{:m=>'edit_photo_settings',:a=>@album.guid},'my/album/edit_album_photos'
+					tab_set.add "Edit Album Info",{:m=>'edit_album_info',:a=>@album.guid},"my/album/edit_album_info"
+					tab_set.add "View Album",{:action=>'view_album',:a=>@album.guid}	
+					tab_set.add "My Albums",{:action=>'photo'}
+				    end
+				end
+			%>           
+            <%=no_ajax_tabs(Tab.new("Edit Photos",:m=>'edit_photo_settings',:a=>@album.guid) ,
+                            Tab.new("Edit Album Info",:m=>'edit_album_info',:a=>@album.guid),
+                            Tab.new("View Album",{:action=>'view_album',:a=>@album.guid}),
+                            Tab.new("My Albums",{:action=>'photo'})) { |tab|
+                                    tab.url[:m] == params[:m]                                  
+                            } 
+                            
+             %>                         
+             <%if @photos%>
+                <%=render_p 'my/album/edit_album_photos'%>
+             <%else%>
+                  <%=render_p "my/album/edit_album_info"%>
+             <%end%>
+                
+             
+        </td>
+        <%albums = @my.albums.select{|a| a != @album}%>
+        <%if albums.size > 0%>        
+        <td style='width:30%'>
+            <div class='left-side-box' style='background-color:#EEEEEE;float:none;'>
+
+                <div class=' title-div bold-gray' style='margin-bottom:10px;padding-bottom:2px;border-bottom:1px solid #C0C0C0'>
+                   My Other Albums
+                </div>    
+                <div  class='status-box'>
+                    <%albums.each do |album|%>
+                       
+                        <div  style='float:right'>
+                            <%=m_link 'View',{:action=>'view_album',:a=>album.guid}%>  
+                            <%=m_link 'Edit',{:action=>'album',:a=>album.guid}%>
+                            <%=m_link 'Delete',{:action=>'album',:a=>album.guid,:d=>true},
+                                {:confirm=>["",
+                                    "Deleting an album will delete all the photos belonging to the album. <br>Are you sure you want to do this?",
+                                    {:onclose=>"Album.dehighlighThumb('a#{album.guid}')",:onpop=>"Album.highlightThumb('a#{album.guid}')"}
+                                ]}%>                            
+                        </div>
+                        <span class='bold-gray'><%=truncate(album.title,20)%></span>
+                        <div id='a<%=album.guid%>' class='image-border2' style='margin-bottom:10px'>                            
+                            <%=image_tag album.cover%>
+                        </div>                        
+        
+                    <%end%>
+                </div>
+  
+                        
+            </div> 
+         </td>
+         <%end%>
+      </tr>
+</table>      
+
+
+<style>
+    .editor_field  {
+        position:absolute;  
+          
+    }
+     .small-photo-caption {
+        width:115px;
+        font-size:8pt;
+    }
+
+    #photo-files div {
+        margin-bottom:5px
+    }
+
+</style>
+

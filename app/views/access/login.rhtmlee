@@ -1,0 +1,26 @@
+    <%if flash[:post_login_params]%>
+        <div class='server-alert-message' style='width:400px'>
+            You must login to see this page.
+        </div>
+    <%end%>
+   <div id='login-message' >
+      
+   </div>        
+<div class='centered' style='width:400px;display:table;margin-top:20px;'>
+
+    <%=render_p 'login_form'%>
+    <%=javascript_tag <<-eof
+            $$(".login-label").each(function(e){
+                    $(e)
+                    .addClassName("bold-gray")            
+            });
+            
+            ['username','password'].each(function(e){
+                    $(e).size = 40
+            
+            })
+    
+    
+    eof
+    %>
+</div>

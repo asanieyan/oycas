@@ -1,0 +1,34 @@
+<%if not menu.has_submenus? %>
+    <td class='<%=main[:class]%>' style=''>                     
+           <%= link_to (menu.name,menu.url,menu.html)  %>                                                          
+    </td>
+<%else%>  
+    <td style=''>                                                                          
+        <%subID = randID %>
+        <table cellspacing=0 cellpadding=0 class='top-v-align'>
+           <tr>
+                
+                <td class='<%=main[:class]%>' group='<%=subID%>' submenu='<%=menu.url ? "" : subID%>' style='padding-right:0'>
+                    <%= link_to menu.name,menu.url || "#",menu.html%> 
+                </td>
+                <td class='<%=main[:class]%>' group='<%=subID%>' submenu='<%=subID%>' style='vertical-align:middle;'>
+                    <%= link_to image_tag("#{options[:s_indicator]}"),"#",:style=>''%>
+                </td>
+            </tr>
+            <tr>
+                <td  colspan=2>
+                  <div id='<%=subID%>' class='<%=options[:s_class]%>' style='z-index:10;position:absolute' >   
+                     <%menu.sub_menus.each do |sub_menu| %>                       
+                            <%if sub_menu.name == "-"%>
+                               <%=hr%>
+                            <%else%> 
+                                <div class='<%=sub[:class]%>'><%=link_to sub_menu.name,sub_menu.url,sub_menu.html%></div>
+                            <%end%>
+                        
+                     <%end%>                                                          
+                   </div>
+                </td>
+            </tr>                                                
+         </table>                                                    
+     </td>
+<%end%>                                                                                                   

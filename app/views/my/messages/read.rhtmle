@@ -1,0 +1,54 @@
+<div style='background-color:white;height:100%;'>
+<div class='title-box title-div' style=';margin:0;padding:5px;padding-bottom:10px;'>
+   
+    <%=link_to '< Back to my messages', url_for_back =~/compose/ || url_for_back =~/messages\/\d+/ ? "/my/messages?folder=#{params[:folder]}" : url_for_back =~ /facebook/ ? "/my/messages/" : url_for_back("/my/messages?folder=#{params[:folder]}"),:style=>'font-size:8pt !important;font-weight:normal'%>
+
+    <div style='float:right' class='compose'>         
+        <%=button_to 'Compose new message', {:action => 'compose', :page => params[:page]}%> 
+    </div>
+    <div style=''> <%=break_down(@message.subject || "(no subject)",60) %></div>
+    
+    <style>
+        div.compose form {
+            padding:0;
+            margin:0;
+        }
+    </style>
+   
+</div>
+<br>
+<div class='centered' style=''>
+    <div class='status-box' style='border:none;background-color:white;padding-bottom:10px;'>
+    <div>
+        <% if @folder == 'si' %>
+            <span class='bold-gray'>Me to </span> <%=@message.recievers.map{|r| link_to_student(r)}.join(", ")%>
+        <%else%>
+            <span class='bold-gray'>From </span> <%=link_to_student @message.sender%>
+        <%end%>        
+    </div>
+    <div class='blue-box' style=''>
+        <div class='message-top-menu' style='margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid black;'>
+            <div style='float:right'>
+                <span class='bold-gray' style='font-weight:normal'>
+                    <%=@folder == 'si' ? "message sent " : "message recieved "%>
+                </span>
+                <%=time_helper(@my.time(@message.created_on),@my.tz)%>
+            </div>
+            <%  m = []
+                m << link_to('Delete',{"msg_ids[]"=>@message.id,:folder=>@folder,:action=>'delete_message'},
+                    :confirm=>['Delete Message','Are you sure you want to delete this message?'])
+                m << link_to('Reply',:action=>'compose',:m=>@message.id,:id=>@message.id) unless @folder == 'si' or @message.sys_msg? 
+                m << link_to('Save',{"msg_ids[]"=>@message.id,:folder=>@folder,:action=>'save_message'}) if @folder == 'in'
+             %>
+             <%= m.join(" | ")%>                    
+            
+        </div>        
+        <div style='padding-bottom:20px;;margin-bottom:5px;overflow:auto;width:800px;'>
+            <%=break_down(@message.body,132)%>
+        </div>
+
+        
+    </div>
+   </div>
+</div>
+</div>

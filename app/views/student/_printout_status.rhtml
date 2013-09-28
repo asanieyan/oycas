@@ -1,0 +1,69 @@
+<div class='bold-gray' style='font-weight:normal;margin-bottom:5px;'> 
+    <%if @I.am? student%>    
+        <div class='bold-link-div' style='float:left'>
+        <%image_tag '/images/status.gif'%>
+<% if false %>            <span id="status-updater" class='bold-gray' style=';font-weight:normal;font-variant:small-caps'><% end %>
+<% if false %>                What's up<% end %>
+<% if false %>            </span><% end %>
+        </div>
+    <%end%>
+    <div  style='text-align:right;'>
+        <%if student.mood_status%>  
+                Updated <%=time_helper(student.time(student.status_updated_on),student.tz)%> 
+        <%else%>
+           &nbsp;&nbsp; 
+        <%end%>            
+    </div>    
+    
+</div>
+<%
+    bg = ""
+%>
+<div style=''>
+<div id='my-status' class='status-box' style='background-color:<%=bg%>'>
+<div style='margin:5px'>
+    
+    <table cellspacing=0 cellpaddind=0><tr>
+     <td><%=image_tag '/images/status.gif',:style=>'margin-right:5px'%> </td> 
+     <td> <strong>     <%=break_down(student.mood_status || "<span class='dark-bold-gray'>Click to say what's up<span>",55)%> </strong></td> 
+     </tr></table>              
+</div>         
+</div>
+</div>
+<% if false %><%=roundedDIV "#my-status","#FFFFFF",bg%><% end %>
+<%if @I.am? student%>  
+<script>
+           ['my-status'].each(function(e){
+                $(e).style.cursor = 'pointer'
+           
+           })
+           Ajax.InPlaceEditor.defaultHighlightColor = "<%=bg%>";
+           x = new Ajax.InPlaceEditor('my-status', '/my/my_mood_status?set=true', 
+                {   
+                    cols:50, 
+                    rows:1,
+                    loadTextURL:'/my/my_mood_status?load=true',                                       
+                    okLink:true,                 
+                    okButton:false,
+                    evalScripts: true,
+                    onComplete : function(transport, element) {
+                        $('stats').update(transport.responseText)
+                    },
+                    cancelLink:true,
+                    formClassName: 'mood-status',   
+                    savingText: 'Updating...',    
+                    clickToEditText: 'Click to say what\'s up', 
+                    loadingText: 'Loading...',
+                    textBetweenControls: ' | ',   
+<% if false %>                    externalControl:'status-updater',                             <% end %>
+                    highlightendcolor: "<%=bg%>",
+                    okText:'update'
+                 })
+                 Event.observe('my-status','click',function(){
+                    SubmenuCache.refresh();
+                 });
+<% if false %>           Event.stopObserving('my-status','mouseover',x.mouseoverListener)<% end %>
+<% if false %>           Event.stopObserving('status-updater','mouseover',x.mouseoverListener)<% end %>
+           
+</script>
+<%end%>                  

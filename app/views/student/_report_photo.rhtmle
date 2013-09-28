@@ -1,0 +1,14 @@
+<%report_form 'photo' do %>
+             <%=hidden_field_tag "a",@album.guid%>             
+             <%=image_tag @photo.album.get_medium_photo(@photo),:style=>'float:left;margin-right:10px'%>
+
+        <div>
+             <p>
+            You are about to report a violation of our Terms of Use. All reports are strictly confidential. Facebook will review this report and take action as necessary.
+        </p><p>
+            We will NOT remove photos just because they're unflattering.
+        </p> 
+        </div>      
+   
+    <div style='clear:left'><br><br></div>
+<%end%>

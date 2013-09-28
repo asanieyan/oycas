@@ -1,0 +1,18 @@
+<% content_for("right_pane") do %>   
+
+    <%= draw_maps('classified_categories')%><br>
+    <%= draw_maps('classified_post')%>
+    
+<% end %>
+
+<%content_for("left_pane") do %>
+    <div class='title-box title-div dark-bold-gray' style='padding:0px'>
+        The Classifieds
+    </div>
+<p>The Oycas classifieds let you trade stuff with other students who are within the same region as you are. The cool thing about the classifieds is that it contains a very wide area of categories that you can choose from.</p>
+
+<p>When posting an item you can use HTML or the word editor to make your post more attractive. </p>
+    
+   <%= draw_maps('classified_browse')%>
+
+<%end%>

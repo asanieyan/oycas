@@ -1,0 +1,85 @@
+#task :classifieds_table_exists do |t|
+#    if not ClassifiedCategory.table_exists?
+#      p 'creating classifieds tables'    
+#      p `mysql -u root  -p123 schoolapp_development <db/create.sql`
+#      p `mysql -u root  -p123 schoolapp_development <db/classifieds.sql`       
+
+#    else
+#      p 'classifieds tables exist'
+#    end    
+#end    
+@tree = []
+@attributes = []
+desc "load the category file in the classifieds folder into database" 
+task :load_classifieds => :environment do |c|
+       require 'yaml'
+       yml =  YAML::load_file('lib/classifieds/categories.yml')                     
+       traverse_and_add nil,yml,0
+#       puts "****************************"
+#       puts "category tree" 
+#       puts @tree
+#       puts "****************************"     
+       traverse_attributes
+       #puts((ClassifiedCategory.find_by_name('For Sale').node.leafs.map {|node| node.category.name }).join("\n"))  
+end
+def traverse_attributes
+   @attributes.each do |category,attribute|
+        node = category.node
+#        puts "node: #{node.category.name}"
+#        puts "attribute counts: " + attributes.size.to_s                           
+                excluding_categories = []
+
+                if attribute.last.is_a? Hash and attribute.last['except']
+            excluding_categories = [attribute.last['except']].flatten
+              
+        end
+        
+        node.all_children.each do |child_node|
+#                puts "leaf : #{leaf.category.name}"                        
+                child_node.category.add_attribute attribute.dup unless excluding_categories.include?(child_node.category.name)
+        end  
+        #this lets the super categories to have the producrt finder functionalities 
+        #using the common attribues of the their sub categories       
+        node.category.add_attribute attribute
+   end 
+end
+def traverse_and_add parent, categories, depth
+    return if categories.empty?    
+    categories.each do |item|
+        space = ""
+        if item.is_a? Hash #it has sub categories 
+            item,sub_categories = item.shift
+        elsif item.is_a? Array    #this item is an attribute for the  parent category 
+#             puts "adding attribute : #{item.inspect} to category : #{parent.category.name}" if parent.category.name == 'For Sale' or parent.category.name == 'Monitor/Display' or parent.category.name == 'Desktop PCs'             
+#             @attribute_hash[parent.category] = [] unless @attribute_hash[parent.category]
+#             @attribute_hash[parent.category] << item   
+             @attributes << [parent.category, item]        
+            next
+        end 
+        depth.times do space += " " end       
+        fail "category name is null or emtpy" unless item and item.size > 0
+#        puts "trying to add category #{item}"
+        name,select_name = item.split(";")        
+        category = ClassifiedCategory.find_by_name(name)        
+        if category 
+#          puts "category exists" 
+        else
+#                  if !school_association and parent
+#                      school_association = parent.category.associable_to           
+#                  elsif school_association
+#                      school_association.sub!(/(\w+)_associable/,'\1')
+#                  end
+          category = ClassifiedCategory.create :name=>name,:select_name=>select_name
+#          puts "category added : #{category.name}"
+        end
+        #category has been created now its time to shove it in the tree to
+        node = CategoryTreeNode.find_by_classified_category_id(category.id)
+        unless node 
+          node = CategoryTreeNode.create :classified_category_id=>category.id 
+        end
+        node.move_to_child_of(parent) if parent 
+        @tree << space + category.name                                   
+        traverse_and_add node,(sub_categories || []), depth + 1       
+    end
+    
+end

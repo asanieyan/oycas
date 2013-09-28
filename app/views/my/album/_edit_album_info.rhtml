@@ -1,0 +1,75 @@
+<div id='album-info-div'>
+<style>
+    .bold-gray div{
+            margin-bottom:5px;
+    }
+</style>
+<div id='message' style='padding-top:10px'> </div>
+<div class='compact-center' style='' > 
+
+        <%=form_tag(:action=>'edit_album_info',:a=>@album.guid)%>
+        <div  id='centered' class='status-box' style='display:table'>  
+        <table style='' class='top-v-align'>
+             
+              <tr>     
+                  <td  style='text-align:right;padding-right:10px;border-right:1px solid #C0C0C0'>                                               
+                             <%if @album.num_photos  > 0 %>
+                              <div class='underline-link status-box small-link-div bold-link-div' style='margin-bottom:5px;text-align:left'>
+                                  <%=link_to_remote 'Change Album Cover',:url=>{:set_cover=>true,:action=>'album',:a=>@album.guid},  
+                                                :update=>"album-info-div",:class=>''%>                        
+                              </div>
+                             <% end%>
+                          <div class='image-border2' style=''>      
+                                <%=image_tag (@album.cover)%>
+                          </div>
+                  
+                    </td>
+                            
+           
+                <td style='padding-left:10px'>    
+                    <table style='' cellspacing=5 >                                              
+                   
+                    <tr> 
+                            <td class='bold-gray' style='vertical-align:middle;'> <div>Album Title:<%=indicator%>  </div>
+                                             
+                                <%= text_field_tag 'album[name]',@album.name,:maxlength=>StudentPhotoAlbum.size_of('name'),:id=>'title',:size=>45%>                                                                                          
+                            </td>              
+                            
+                    </tr>
+                    <tr> 
+                            <td class='bold-gray' style='vertical-align:middle;'> <div>Location:  </div>
+                             
+                                <%= text_field_tag 'album[location]',@album.location,:maxlength=>StudentPhotoAlbum.size_of('location') ,:size=>45%>
+                                                                   
+                            </td>
+                    </tr>
+                    <tr>    <td class='bold-gray' style='vertical-align:middle;'> <div>Who can see this album:</div>
+                             
+                                <%=select_visibility "album[visibility]",@album.visibility%>
+                            </td>
+                    <tr>     
+                    <tr> 
+                            <td class='bold-gray' style='vertical-align:top;'><div> Description: </div>
+                             
+                                <%= text_area_tag 'album[description]', @album.description,:size=>'34x7',:maxlength=>StudentPhotoAlbum.size_of('description') %>                          
+                                 
+                            </td>
+                            
+                    </tr> 
+                
+                    <td> </td>            
+                   </table > 
+              </td>
+             
+           </tr>
+        </table>                                  
+            <div style='text-align:right'> 
+                                              
+                            <%=submit_tag "Save Changes"%>
+            </div>        
+        </div>    
+            
+                                                          
+    </form>
+</div>
+</div>

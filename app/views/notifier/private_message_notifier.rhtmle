@@ -1,0 +1,16 @@
+<%
+	profile_link = Notifier::Host + "/student/#{@sender.guid}/profile"
+	thumb_url = Notifier::Host + @sender.thumb_image
+%>
+<div style='float:left;margin-right:20px;'>
+	<a href="<%=profile_link%>"><img src='<%=thumb_url%>' /></a>
+</div>
+Hey <%=@reciever.f_name%> <a href="<%=profile_link%>"><%=@sender.full_name%></a> has sent you a private message <br>
+<div style='clear:left'><br></div>
+<div style='margin-top:5px;margin-bottom:5px;;border-top:1px solid #C0C0C0' ></div>
+<%=@pbody%>
+<div style='clear:left;margin-top:5px;margin-bottom:5px;;border-top:1px solid #C0C0C0' ></div>
+Thanks,
+The Oycas Team
+
+

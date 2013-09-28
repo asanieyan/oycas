@@ -1,0 +1,36 @@
+
+<div class='title1' >Who Can Search For Me</div>    
+<%if @my.profile_visibility == Student::VisibilityOptions.size - 1 %>
+<p>
+    Since <%=@my.vis_txt_for :profile%> can see your profile then you are also searchable by <%=@my.vis_txt_for :profile%>.
+    To adjust what they can see in your profile go to the profile add-ons.
+</p>
+
+<%else%>
+
+<p>
+        You can allow everyone on Facebook to find you in search results, 
+        including browse and group members list, or you can select restricted 
+        settings to allow only certain people from inside and outside your 
+        networks to find you in search results. Your friends can always 
+        find you in search results.                                        
+</p>
+<p class='gray'>
+    Who can find me in search:  <%=select_visibility "profile[search_visibility]",  flash[:search_visibility] || @my.search_visibility,:min=>@my.profile_visibility%>   
+</p>        
+
+
+<div class='title1' >What Can People Do With My Search Results</div>    
+<p>
+        You can choose what is in your search listing. 
+        People who can see your profile are allowed to do all of the actions below. 
+        People who can't see your profile can:
+</p>
+<p>
+    <%=check_box_tag "profile[stranger_send_msg]","y",@me.stranger_send_msg %> Send you a message<br>
+    <%=check_box_tag "profile[stranger_see_courses]","y",@me.stranger_see_courses %> See my current semester courses<br>
+    <%=check_box_tag "profile[stranger_add_friend]","y",@me.stranger_add_friend %> Add as a friend<br>
+    <%=check_box_tag "profile[stranger_see_pics]","y",@me.stranger_see_pics %> See my pictures <br>
+    
+</p>        
+<%end%>

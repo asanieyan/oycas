@@ -1,0 +1,32 @@
+<div id='error'>
+	
+</div>
+<%School.find(:all,:select=>" schools.*",:joins=>"join semesters on school_id = schools.id",:order=>"semesters.start_date DESC",:conditions=>"__current__ LIKE 'Y' AND class_start IS NULL").each do |school|%>
+	<%=link_to_popup school.name,:action=>"set_school_dates",:id=>school.id%> semesters started <%=distance_of_time_in_words(school.current_semester.start_date,school.current_time)%> ago
+<%end%>
+<table class=''>
+<tr>
+<td>
+<%=form_tag({},{:id=>'form1',:method=>'GET'})%>       
+    <% if @admin_list.size > 0  %>
+      List of  Admins<br>
+       <%=show_admin_list @admin_list,'form1'%>
+    <% end %>      
+
+</form>
+</td>
+
+<td>
+
+<% if @selected_admin != nil then %>
+    First name: <%=@selected_admin.first_name.capitalize%><br>
+    Last name: <%=@selected_admin.last_name.capitalize%> <br>
+    Email: <%=@selected_admin.email%><br>
+
+<% end %>
+
+
+
+
+</td>
+</tr></table>

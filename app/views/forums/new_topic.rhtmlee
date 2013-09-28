@@ -1,0 +1,65 @@
+<div id="discussion">
+
+<%
+    form_tag = form_tag({})
+    if @discussion #a reply being made to the discussion
+            top_url = { :action => 'view_topic',:id=>@discussion.id }
+            top_link = link_to 'Back to topic.', top_url             
+    else
+            top_url = { :action => 'forum_topics' } 
+            top_link = link_to 'Back to discussion board.',top_url
+    end
+%>
+<div id='post_msg'> </div>
+
+<div class='small-link-div' style='margin-bottom:10px'>
+    <%=top_link %>
+</div>
+<%if @discussion%>
+    <div id='discussion-topic' style=''> <%=break_down(@discussion.topic,70)%> </div>
+<%end%>
+<%if @replied_to_post %>
+    
+    <div class='status-box title-div'>You are replying to:<br><br>
+    <%=render_p 'forums/posts_partial',{'posts'=>[@replied_to_post],'is_reply'=>true} %>
+    </div>
+<%end%>
+<%=form_tag%>
+     <div id='topic'>
+        <%unless @discussion%>
+           Discussion Topic:
+        <%else%>
+            Subject:
+        <%end%> 
+     </div>
+     <%=text_field_tag "topic",(@post.subject rescue ""),:maxlength=>Forum.columns_hash['topic'].limit,:size=>60%>
+     <br><br>
+     <div id=''>
+        <%unless @discussion%>
+           Your Post:
+        <%else%>
+           Your Reply:
+        <%end%> 
+     </div>
+     <%=wysi_area "message",(@post.message rescue nil),"600x300"%>
+
+     <input type="hidden" name="page" value="<%= params[:page] %>">
+     <input type="hidden" name="sort" value="<%= params[:sort] %>">
+     <% submit_tag_value = if @post
+                                "Save Changes"
+                            elsif @discussion
+                                "Post Your Reply"
+                            else
+                                "Create Discussion"
+                           end
+     
+     %>
+     <div>
+         <%=submit_tag submit_tag_value %> or <%=link_to 'Cancel',top_url%>
+     </div>
+
+
+</form>
+
+
+</div>

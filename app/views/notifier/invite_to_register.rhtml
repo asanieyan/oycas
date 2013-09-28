@@ -1,0 +1,17 @@
+Hey 
+
+<%=@inviter.full_name%> has invited you to register in your class '<%=@klass.course.full_title%>'
+with the following timetable:
+
+<%=@klass.formated_schedule.join("\n")%>
+
+to register follow the link below
+(If clicking on the link doesn't work, try copying and pasting it into your browser.)
+
+<%=Notifier::Host + "/class/#{@klass.course.subject.downcase + @klass.course.number.downcase}/#{@klass.division}"%>
+
+if you are already registered in this class just ignore this message 
+if you don't have an account with oycas yet, you can register by going to <%=Notifier::Host + "/access/register"%>
+
+Thank you,
+Oycas team

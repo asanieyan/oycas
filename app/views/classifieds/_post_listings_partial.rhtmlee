@@ -1,0 +1,60 @@
+     <% (posts.group_by{|p| day_grouped_time_helper(p.created_on)}).each do |date,posts| %>
+               <div class='title-div bold-gray' style='border-bottom:1px solid #808080;padding-bottom:4px;margin-bottom:15px'>
+                   <%=date%> 
+               </div>
+               <%posts.each do |post|%>            
+               <%url = if post.poster_id == @my.id 
+                                    {:network=>nil,:action=>'show_my_post',:id=>post.id}
+                            else
+                                     {:action=>'show',:id=>post.id}
+                            end            
+                                
+                    %>               
+                <table class='status-box' style='margin-left:10px;margin-right:10px;width:630px' cellspacing=0 cellpadding=0>
+                    <tr>
+                        <%if post.has_listing_image? %>
+                            <td style='width:1px'>                                   
+                                <%= link_to image_tag(post.listing_image.src,:style=>'width:100px;margin-right:5px'),url%>
+                            </td>
+                        <%end%>
+                        <td style='vertical-align:top' class='bold-link-div'>
+                           <div class=''>  							
+                                <%link_to_block url do%> 
+                                <%=break_down(post.title.titlecase,60)%>                                 
+									<%begin%>
+									<%if (@category || post.category).listable_attributes.size > 0%> -
+	                                   <span class=''> <%=(@category || post.category).listable_attributes.map{|attr|                                             
+	                                                value = post.get_attribute_value(attr)
+	                                                value = case attr._type_
+	                                                            when :address;(value.split("###",3)[1] || "").capitalize
+	                                                            when :currency;number_to_currency(value)
+	                                                            when :date;Time.at(value.to_i).strftime("%b %d, %Y")
+	                                                            else value;
+	                                                
+	                                                        end                      
+	                                            }.join(", ")%></span>                                
+	                                    <%end%>	                                
+									 <%rescue%>
+									  
+									 <%end%>
+								<%end%>									 
+                           </div>                             
+                           <div style='margin-right:10px' class='dark-gray'> 
+                                <%=truncate(strip_tags(post.description),60) %>
+                           </div>
+                        </td>  
+                        <td style='width:100px;vertical-align:top'>
+                            <%if post.poster_id == @my.id%>
+                                  <%=m_link "Edit Your Post","/classifieds/edit_post/#{post.id}"%>
+                                  <%=m_link "Delete Your Post","/classifieds/delete_post/#{post.id}",:confirm=>["Delete Classified Post","Are you sure you want to delete this post ?"]%>
+                                  <%if post.replies.size > 0 and @controller.action_name != 'view_replies'%>
+                                    <%=m_link "View Replies (#{post.replies.size})",:action=>'view_replies',:id=>post.id %>
+                                  <%end%>
+                            <%else%>
+                                <%=m_link "View Post",url%>                              
+                            <%end%>
+                        </td>
+                    </tr>
+                </table>
+            <%end%>
+       <%end%>    

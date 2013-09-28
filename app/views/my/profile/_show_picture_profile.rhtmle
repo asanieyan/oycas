@@ -1,0 +1,25 @@
+<div id='message'> </div>
+<div class='form1'>
+    <form action='/my/edit_profile_picture' method='post'  enctype="multipart/form-data">         
+        <table>
+                <tr> 
+                        <td class='form1_q'> Your Current Picutre 
+                                               
+                        <%= image_tag @me.get_image :medium %>
+                         </td>
+                        <td> 
+                            <%= file_field_tag "picture_file" %>
+                        <td>
+                </tr>                
+
+                     
+       
+
+        </table>
+             <%= submit_tag %>   
+                
+</form>
+
+</div>
+
+

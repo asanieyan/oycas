@@ -1,0 +1,36 @@
+<table cellspacing=0 style='height:100%;width:100%' > <tr>
+<% gui.panels.each do |panel|%>
+        <% if gui.panels.index(panel) != 0 %>
+                <td style='' > &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+                    <div style='height:100%;width:50%;border-right:1px #C0C0C0 solid'>  </div>
+                
+                </td>
+        <% end%>
+        <td style=';width:48%;' >
+            <table cellspacing=0 class='tab-panel'>    
+                    <tr>           
+                        <td>         
+                                <table cellspacing=0><tr>
+                                <%if panel.tabs.length > 1%>                                
+                                    <%panel.tabs.each do |tab|%>                                                                                
+                                         <% if panel.is_tab_selected? tab; html_class = "selected-tab"; tab_str=tab.name %>
+                                         <%else html_class="unselected-tab";tab_str=link_to_tab tab end%>
+                                         <td class='<%=html_class%>' style='<%="border-right:none" unless panel.tabs.last == tab%>' >  <%= tab_str %>  </td>                                       
+                                        
+                                    <%end%>
+                                <%else%>
+                                    <td class='selected-tab' style='visibility:hidden'> &nbsp;</td>
+                                <%end%>
+                               </tr></table>
+                        </td>                    
+                     </tr>
+                     <tr>
+                        <td colspan=10 style=' border-top:1px solid #C0C0C0;line-height:10px;background-color:#EEEEFF'>  &nbsp;</td>                    
+                     </tr> 
+                     <tr>                    
+                         <td colspan=10 style='height:100%'> <%= panel.selected_tab.content  %> </td>                                        
+                     </tr>                        
+            </table>
+       </td>
+<%end%>
+</tr></table>

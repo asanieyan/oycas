@@ -1,0 +1,11 @@
+<%=@requester.f_name%> has added you as a friend on Oycas.  We need you to confirm that 
+you are, in fact, friends with <%=@requester.f_name%>.
+
+To confirm this friend request, follow the link below: 
+
+<%=Notifier::Host%>/confirm/friendship/<%=@requester.guid%>
+
+Thanks,
+The Oycas Team
+
+

@@ -1,0 +1,16 @@
+<div class='status-box'>
+<%klasses.each do |klass|%>
+    
+    <div class='list-item-div'>
+        <%title = "<span style='font-weight:bold'>" + klass.name + "</span> " + klass.course.name%>
+        <div><%=link_to title,url_for_klass(klass)%></div>
+        <div class='dark-gray'>  
+               <%=pluralize(klass.klass_enrollments.size,'student')%> registered.                    
+        </div>
+        <div class='dark-gray'> Last student joined <%=to_my_human_time(klass.klass_enrollments.first.created_on)%></div>
+        <%if @studentb == @me and not params[:rlevel] %>        
+           
+        <%end%>
+    </div>
+<%end%>                 
+</div>  

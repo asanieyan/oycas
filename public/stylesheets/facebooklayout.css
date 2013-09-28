@@ -1,0 +1,84 @@
+.status-box {
+    margin-top:2px;
+    margin-bottom:10px;
+    padding:10px;
+    background-color: #FAFAFA;        
+    border: 1px solid #C0C0C0;            
+        
+}
+.underline-link A, A.underline-link  {
+    text-decoration:underline !important;
+}
+.regular-link-div A {
+    text-decoration:underline !important;
+}
+.nounderline-link A, A.nounderline-link  {
+    text-decoration:none !important;
+}
+.nounderline-link A:hover, A.nounderline-link:hover  {
+    text-decoration:underline  !important;
+}
+.small-link-div A, A.small-link-div {
+    font-size:8pt !important;
+}
+.medium-link-div A, A.medium-link-div, .medium-link-div A *{
+    font-size:10pt !important;
+}
+.large-link-div A, A.large-link-div, .large-link-div A *{
+    font-size:12pt !important;
+}
+.bold-link-div A ,A.bold-link-div {
+    font-weight: bold !important;
+}
+.blue-link-div A, A.blue-link-div {
+	color: #3E5594 !important;		
+}
+.normal-link-div A ,A.normal-link-div {
+    font-weight: normal !important;
+}
+A.menu-like-links div {
+    border-bottom:1px solid #C3D9FF;
+    padding:5px;
+    padding-bottom:2px;
+    padding-left:3px;
+    font-size:8pt;
+    text-decoration:none !important;  
+}
+A.menu-like-links:hover div {  
+    background-color: #909090 !important;
+    text-decoration:none !important;
+    color:white !important;
+}
+
+.bold-gray, .normal-gray {
+    color:#909090;
+    font-weight:bold;
+    font-size:8pt;
+}
+.dark-bold-gray,.dark-gray {
+    color:#606060;
+    font-weight:bold;
+    font-size:8pt;
+}
+.nobold {
+    font-weight:normal !important; 
+}
+.normal-gray,.dark-gray {
+    font-weight:normal !important; 
+}
+select, input {
+    font-size:8pt;
+}
+.centered,#centered,.centered2, #centered2 {
+    margin: 0 auto;    
+    margin-left:0 auto;
+    margin-right:0 auto;
+   
+}
+.bold-gray, .dark-bold-gray {
+    font-size:10pt;
+}
+.dark-blue-bg {
+    background-color:#394E8B;
+    
+}

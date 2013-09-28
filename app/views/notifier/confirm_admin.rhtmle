@@ -1,0 +1,4 @@
+You are invited to be a new admin for oycas
+click here to complete your registration
+
+<%=Notifier::Host%>/admin/confirm/<%=@new_admin.guid%>

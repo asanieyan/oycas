@@ -1,0 +1,41 @@
+<div class='' id='centered' style='display:table;margin-top:20px'>
+    <%=render_p 'post_listings_partial',{'posts'=> [@post]}%>
+    <div class='status-box'>
+        <div class='title-div dark-bold-gray' style='border-bottom:1px solid #C0C0C0'> 
+            <%=image_tag '/images/classified_reply.gif',:style=>'float:left;margin-right:5px;'%>
+            <%=pluralize(@post.replies.size,"Reply")%> To My Post  
+            
+        </div>
+        <div style='clear:left'></div>
+        <br>
+    <table class='top-v-align' cellspacing=0 cellpadding=1 style='width:100%'> 
+    <%@post.replies.each do |reply|%>
+         
+            <tr>
+                <td style='width:1px'>
+                    <div class='image-border2' 
+                        <%=link_to_student (image_tag reply.replier.thumb_image),reply.replier%>                        
+                    </div>
+                 </td>
+                 <td>
+                    <%if @I.can_send_message_to? reply.replier%>
+                        <div style='float:right'>
+                            <%=m_link 'Send Message',"/my/compose/#{reply.replier.guid}"%>
+                        </div>
+                    <%end%>
+                    <%=link_to_student reply.replier%>   
+                    <div class='normal-gray' >
+                        <%=time_helper(@my.time(reply.created_on),@my.tz)%>                                            
+                    </div>
+                    <div class='status-box' style='background-color:#EEEEEE'>
+                       <span class='dark-bold-gray'>Subject: </span><%=break_down (reply.subject || ""),80%>
+                       <div><%=reply.reply%></div>
+                    </div>
+                    <br>                    <br>
+
+                 </td>
+            </tr>     
+    <%end%>
+    </table>
+    </div>
+</div>

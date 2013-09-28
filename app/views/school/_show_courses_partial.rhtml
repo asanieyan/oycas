@@ -1,0 +1,8 @@
+<% courses.each do |course| %>
+    <%=link_to_remote course.full_title,:url=>{:action=>'desc_for_course',:id=>course.id},
+                                        :update=>'course-desc-div'
+    
+    
+    %> <br>
+
+<%end%>

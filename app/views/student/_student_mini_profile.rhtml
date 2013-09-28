@@ -1,0 +1,70 @@
+<%  
+            thumb_image = link_to image_tag(student.profile_image),url_for_student(student) 
+            student_name = if @I.am? student
+                                link_to_student(student) + "<span class='bold-gray' style='font-weight:normal;font-size:8pt;'>&nbsp;&nbsp;(that's you)</span>"
+                           else
+                                link_to_student(student)
+                           end
+
+
+%>
+     <table class='status-box' style='width:100%;background-color:white !important;'> <tr>
+                <td style='vertical-align:top;width:1px;'>                    
+                         <%= thumb_image %>                 
+                </td>
+                <td style='vertical-align:top;padding-left:10px;'>
+                        
+                           <strong><%=student_name%> 
+                           <%if @I.can_see_mood_status_of?(student) and student.mood_status_set? %>                               
+                                    <%
+                                        bg = ""#"rgb(255,218,193)"
+                                    %>                                   
+                                    <div class='my-status'  style='margin-right:10px;margin-bottom:5px;'>
+                                    <div style='margin-left:2px' >                                  
+                                        <table class='top-v-align' class='status-box' cellspacing=0 cellpaddind=0><tr>
+                                         <td><%=image_tag '/images/status.gif',:style=>'height:20px;margin-right:5px'%> </td> 
+                                         <td class='normal-gray'>      <%=break_down(student.mood_status || "&nbsp;&nbsp;",40)%> </td> 
+                                         </tr></table>
+                                                
+                                    </div>         
+                                    </div>
+                                    <%=roundedDIV(".my-status","#FFFFFF",bg) unless @browser.is_a? :msie%> 
+                               
+                           <%end%>
+                         <%if @I.can_see_current_classes_of? student%> 
+                             <% 
+                                all_classes = student.schools.inject([]) do |arr,school|
+                                        arr << student.klasses_at(school)
+                                        arr
+                                end
+                                if all_classes.flatten!.size > 0                                
+                             %>                                                           
+                             <div id='current_courses_option' style='' >                                                                                                                                                  
+                                    <div class='small-link-div' style='margin-bottom:5px;'>                                     
+
+                                         <%=image_tag '/images/smallbooks2.gif'%>
+                                         <%=all_classes.map{|k| link_to_klass(k)}.join(", ") %>                                                                            
+                                      </div> 
+                                          
+                             </div>   
+                             <%end%>                   
+                         <%end%>                          
+                         <%if student.relationship_status and @I.can_see_relationship_status_of?(student)%>                            
+                             <div id='relationship_status_option' style='margin-bottom:5px'>
+                                    <span class='bold-gray'>Relationship Status: </span><%= student.relationship_status %>
+                             </div>  
+                         <%end%>                                                                  
+                         <%if student.birthdate and @I.can_see_birthdate_of?(student)%>
+                             <div id='birthdate_option' style=''>
+                                <span class='bold-gray'>Birthdate:</span> <%=student.birthdate %>
+                             </div>
+                         <%end%>
+                        
+                </td>
+            <td class='small-link-div' style='width:130px;vertical-align:top;'>
+                <%=render_p 'student/action_links',{'student'=>student}%>
+                 
+                        
+         </td>
+                
+         </tr></table>

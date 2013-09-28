@@ -1,0 +1,53 @@
+ <div> 
+ <div class='' style='background-color:white;float:right'> 
+       <%=render_p 'login_form'%>  
+       <%=javascript_tag <<-eof
+            $$('.login-label').each(function(e){
+                $(e).addClassName("bold-gray")
+            })
+       eof
+       %> 
+ </div>
+ <div style='width:500px;'>
+     <div class='ad0' style='background-color:#F0F0F0;'> 
+        <div id='' style='display:table;font-size:18;font-weight:bold;padding:10px;color:#FF7400'>    
+           <br>
+            Want to know who is in your class? <span style='font-size:10pt'>Come Inside and start interacting with your classmates live!</span>
+    
+           <br><br>
+        </div>
+     </div>
+  </div>
+  <div class='title-div status-box' style='clear:right;margin-top:20px;margin-bottom:20px;'>
+    To learn more about Oycas <%=link_to 'take the Site tour now!' ,'/access/tour'%>
+  </div>  
+  <div style='text-align:justify'>
+
+     <div class='ad1' style='clear:right;background-color:#F0F0F0'> 
+        <div id='centered' style='display:table;font-size:14;font-weight:bold;padding:10px;color:#FF7400'>    
+            <span style='font-size:20'>Oycas</span> is a web-based educational management tool for college & university students.
+        </div>
+     </div>
+    <div class='dark-gray' style='font-size:10pt;margin-top:20px;'>
+         Here at Oycas we have a vision to combine the power of social networks with the effectiveness of 
+         educational management tools to enhance students' academic experience.
+    </div>   
+    <div class='dark-gray' style='font-size:10pt;margin-top:10px' > 
+        with oycas you can:          
+        <ul style='padding-left:25px'>
+            <li> Register in courses from your own school.   </li>
+            <li> Use class oriented discussion boards and live chat to discuss and collaborate.</li>
+            <li> Upload and share notes, assignments and exams from each of your classes. </li>
+            <li> Build and and maintain social networks in a virtual school environment.</li>            
+            <li> Use the classifieds to locate goods and services in your school.</li>            
+            <li> and much more to help you make your academic life a bit easier.</li>            
+        </ul>
+   
+    </div>  
+                     
+ </div>
+ <%unless @browser.is :msie%>
+  <%=roundedDIV '.ad0',"#FFFFFF","#F0F0F0"%>
+  <%=roundedDIV '.ad1',"#FFFFFF","#F0F0F0"%>
+ <%end%>
+ 

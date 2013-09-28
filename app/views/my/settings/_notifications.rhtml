@@ -1,0 +1,20 @@
+<div id='centered' class='status-box' style='width:500px;padding:20px;display:table'>
+<div class='blue-title-underline title-div'>Email Notifications</div>
+<div id='notification_msg'></div>
+Send me an email to <strong><%=@my.emails.default.address %></strong> when someone...<br><br>
+<%=form_tag :action=>"notifications" %>
+<%
+	%w( add_friend_notification adds_me_as_friend
+    send_message_notification sends_me_a_message
+    note_upload_notification uploads_a_note_to_one_of_my_classes
+    class_discussion_notification creates_a_new_discussion_in_one_of_my_classes
+    classifieds_notification replies_to_my_classified_posting
+   ).in_groups_of(2,false).each do |name,label|
+
+%>
+<div><%=check_box_tag name,1,eval("@my.#{name} == :y") %><%=label.humanize%></div>
+
+<%end%><br><br>
+<%=submit_tag "Save changes"%>
+</form>	
+</div>

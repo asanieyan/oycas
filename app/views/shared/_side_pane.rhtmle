@@ -1,0 +1,6 @@
+<ul style='margin:0;padding:0;'>
+<% navigation_links.each do |nav_link| %>  	       		            
+	<li class='menu-item' style=';display:inline;'><%= link_to nav_link[:name],nav_link[:url] %> </li>
+<% end %>
+</ul>
+

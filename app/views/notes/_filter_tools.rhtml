@@ -1,0 +1,83 @@
+<br>
+<div class='bold-gray side-search-filter-title' style='padding-bottom:2px;border-bottom:1px solid #C3D9FF;margin-bottom:10px;'>
+ Find a course binder
+</div>
+<div id='search'>       
+    <%=flaggy_text_field "course_name","",:flag=>'Enter name of course',:size=>30,:style=>'padding:2px;'%>
+    <div id='course_auto_complete' class='auto_complete' style='font-size:10pt'>
+    </div>
+</div>
+<div id='upload' class='status-box bold-link-div' style='display:none'>          
+     <div style='float:right' class='small-link-div'><%=link_to_function 'x',"MyBinder.searchAgain()"%></div>                                     
+      <%=hidden_field_tag "course_id",""%>  
+      <table cellspacing=0 cellpadding=0>
+        <tr>
+            <td style='padding-right:10px'>
+                                
+            </td>
+            <td class='small-link-div'>                                                          
+                <%link_to_block("#",{:onclick=>"MyBinder.getCourseURL(this)"})do %>
+                    <span id='course_label' class=''> </span>
+                <%end%>                    
+              </td>                                            
+            </tr>
+        </tr>
+     </table>
+ 
+</div>
+<%=javascript_tag <<-eof        
+    courseCompleter = new Ajax.Autocompleter('course_name',
+                'course_auto_complete','#{url_for(:action=>"print_courses")}',
+                    {updateElement : MyBinder.courseSelected.bind(MyBinder)}                        
+                )                             
+eof
+%>
+<br>
+  <%=form_tag({:action=>'show_notes'},{:id=>'filter',:method=>:get,:onsubmit=>""}) %>
+        <%=hidden_field_tag "q",rand(1000)%>
+            <div class='bold-gray side-search-filter-title' style='padding-bottom:2px;border-bottom:1px solid #C3D9FF;margin-bottom:10px;'>
+             <%if  @note_context.is_a? Klass%>
+                Search This Class Notes 
+             <%elsif @note_context.is_a? Course%>
+                Search This Course Notes 
+             <%elsif @I.am?  @note_context%>   
+                Search My Notes
+             <%elsif @note_context.is_a? Student%>
+                Search <%=@note_context.f_name%> Notes
+             <%end%>
+            </div>                    
+            <div class='small-link-div'><%=search_box "s",params[:s],:size=>27%> 
+             <%link_to 'advanced search'%></div><br>
+            
+
+       <div class='bold-gray side-search-filter-title' style=' '> Sort Notes By </div>                                    
+            <%=select_tag "sort",options_for_select( [['Latest Note','ln'],['Most Downloads','ms']],params[:sort]),
+                    :onchange=>"$('filter').submit()"%>
+
+        <br><br>
+         <div class='bold-gray side-search-filter-title' style=' '> Filter Note By Type </div> 
+        <div><%=select_tag "type",options_for_select([["---------",""]] + CourseNote.values_of('note_type').map{|t| [t.to_s.titlecase.pluralize,t.to_s] },params[:type]),:onchange=>"$('filter').submit()"%></div>
+         
+        <br>
+      <%if @note_context.is_a? Klass%>
+                 <div class='bold-gray side-search-filter-title' style=''> Show </div>                                    
+            <%=select_tag "sel",options_for_select( [['This Class Notes Only','cn'],["All The Notes for #{@klass.course.short_title}",'an']],params[:sel]),
+                    :onchange=>"$('filter').submit()"%>
+  
+      <br><br>              
+      <%elsif @note_context.is_a? Student and @notes_courses.size > 0 %>              
+      <div class='bold-gray side-search-filter-title' style=''> Filter Note By Course </div>                                    
+            <%= select_tag "c",options_for_select([["---------",nil]]+ @notes_courses.map{|c| [c.short_title,c.id]},params[:c].to_i),
+                        :onchange=>"$('filter').submit()"
+            %>
+       
+      <br><br>
+      <%end%>        
+      <div class='bold-gray side-search-filter-title' style=' '> View </div>                                    
+            <%=select_tag "view",options_for_select( [['Detail View','dv'],['List View','lv']],params[:view]),
+                    :onchange=>"$('filter').submit()"%>
+
+       <br><br>
+       <%=link_to "Reset Filters",:action=>"show_notes"%>
+      
+  </form>

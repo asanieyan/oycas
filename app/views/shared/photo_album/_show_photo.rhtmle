@@ -1,0 +1,7 @@
+<%if next_photo and prev_photo %>
+            <%=link_to "prev",:photo=>prev_photo.guid%>            
+            <%=link_to "next",:photo=>next_photo.guid%>
+
+<%end%>
+<br>
+<%=image_tag path%>

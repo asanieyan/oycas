@@ -1,0 +1,57 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+
+<% if directories == nil then %>
+    You currently have no documents stored.<br><br>
+    Click <%= link_to "here", :action => "upload_new_document" %> to upload a new document.
+<% else %>
+    <%= link_to "[ Upload New Document ]", :action => "upload_new_document", :folder => params[:folder]%>
+    <%= link_to "[ Create New Folder ]", :action => "create_new_folder" %>
+    
+    
+    <% if directories != nil then %>
+    <br><br>
+    These are your folders:<br><br>
+    <% directories.each do |dir| %>
+        <% if dir != params[:folder] then %>
+            <%= link_to "#{dir}", :action => "documents", :folder => "#{dir}"%>
+            <% if dir != "general" %><%= link_to "[ delete folder ]", {:action => "delete_folder", :folder => "#{dir}"}, :confirm => "Are you sure you want to delete this folder and any files that it contains?" %><% end %>
+            <br>
+        <% else %>
+            <%=dir%>
+            <% if dir != "general" %><%= link_to "[ delete folder ]", {:action => "delete_folder", :folder => "#{dir}"}, :confirm => "Are you sure you want to delete this folder and any files that it contains?" %><% end %>            <br>
+        <% end %>
+    <% end %>
+    
+    
+    <% if files != nil then %>
+        <% if files.length > 0 then %>
+        <br><br>
+        These are your files in the '<%=params[:folder]%>' folder:<br><br>
+        <% files.each do |file| %>
+            <%= link_to file, :action=>"download_document", :folder=>params[:folder], :filename=>file%>    
+            <%= link_to "[ delete ]", {:action=>"delete_document", :folder=>params[:folder], :filename=>file}, :confirm => "Are you sure you want to delete this document?"%>
+            <br>
+        <% end %>
+        
+        <% else %>
+            <br><br>
+            This folder is currently empty.
+        <% end %>
+    <% end %>
+    
+    
+    <% end %>
+<% end %>
+</div>

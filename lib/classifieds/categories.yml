@@ -1,0 +1,149 @@
+# Attribute Name, Attribute Type, Attribute Values
+# be default it is mandetory for all the attributes to be filled properly unless specified 
+# an attribute might have a description attached to it
+# each attribute might have a differnt search title 
+#types 'multiple','boolean','currency','text','date','address','number',multiple_with_input
+#required:y|n default n
+#searchable:y|n default depend on the type for currency and multiple it is searchable but for other stuff its not
+#sortable:y|n  default n
+#custom
+#blank_error_msg:str 
+
+- Community:
+  - Events:
+    - [[Event, field_desc:Enter the type of event, other_name:Other Events], multiple_with_input, Party, Concert, Fundraising Event, Sporting Event] 
+    - [[Start Date, required:y, listable:y] , date] 
+    - [[End Date, descr:Leave this blank for single day events], date]       
+    - [Admission Fee, currency]    
+  - Garage Sales:
+    - [[Sale Date, listable:y], date] 
+    - [[Address, required:y, blank_err:Please enter the location of the garage sale], address]  
+  - Rideshare:
+    - [[From Location, searchable:y, listable:y], text] 
+    - [[Destination, listable:y], text] 
+    - Rides Needed;Looking for a Ride
+    - Rides Offered;Offering a Ride
+  - Lost & Found:
+    - [[Item, sortable:y, other_name:Other], multiple_with_input, Books, 'Wallets, Cash, Bank Cards', Cellphone, Laptops, 'Books, Binder, School Supplies', 'School/Gym bags, Clothing']
+    - Found Items;Found something: 
+      - [Location Found, text] 
+    - Lost Items;Lost something:
+      - [Last Location Seen, text]     
+- Housing:
+  - [[Rent, required:y, searchable:y, listable:y], currency, {except: Rooms Needed}]  
+  - [[Address, required:y, searchable:y, listable:y], address, {except: Rooms Needed}]
+  - Apartments, Condos:          
+    - [Number of bedrooms, multiple, 0, 1, 2, 3, More than 3]    
+    - [[Utilities Included, searchable:y], boolean]
+    - [[Washer/Dryer, searchable:y], boolean]
+    - [[Pets Allowed, searchable:y], boolean]
+    - [[Parking Available, searchable:y], boolean]    
+  - Roommates:    
+    - Rooms Offered;Offering a Room
+    - Rooms Needed;Looking for a Room:
+      - [[Approx. Rent, listable:y], currency]        
+      - [[Approx. Location, listable:y], text]        
+- For Sale:
+  - [[Price, required:y, searchable:y, listable:y], currency ]
+  - Automobile:   
+    - Cars and Trucks
+    - Motorbike
+    - Car Video, Audio System
+    - Parts & Accessories:
+      - Body & Exterior
+      - Exhaust
+      - Engine & Components 
+      - Electrical Components
+      - Wheels & Tires
+      - Other  
+  - Books, Texts:
+    - "Textbooks, Education":
+      - [[Courses, "descr:Enter the name of the courses seperated by comma", searchable:y, field_length:100], text]
+    - Other Books
+    - Magazines
+  - Clothing & Accessories:
+    - Shoes: 
+      - [Gender, multiple, Men, Women]
+      - [Size, multiple, 3.5 & Smaller, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 15 & Larger]      
+    - Pants, Jeans:
+      - [Gender, multiple, Men, Women]
+      - [Waist Size, multiple, 28 & Smaller, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40, 42, 44, 46 & Larger]
+      - [Inseam, multiple, 28 & Smaller, 29, 30, 31, 32, 33, 34, 35, 36 & Larger]
+    - Shirts, T-Shirts, Tanktops:
+      - [Gender, multiple, Men, Women]
+      - [Size, multiple, XS, S, M, L, XL, XXL, XXXL]      
+    - Women Dresses, Skirts:
+      - [Size, multiple, XS, S, M, L, XL, XXL, XXXL]
+    - Jackets & Outerwear:
+      - [Gender, multiple, Men, Women]
+      - [Size, multiple, XS, S, M, L, XL, XXL, XXXL]      
+    - Accessories
+  - Music, Movies:
+    - Accessories
+    - Movie DVDs
+    - CDs, Audio DVDs:
+      - [[Genre, sortable:y, other_name:Other Genres], multiple_with_input, Pop, Country, Rock, R&B, 'House, Electronic', Jazz]    
+    - Digital Music:
+      - [[Genre, sortable:y, other_name:Other Genres], multiple_with_input, Pop, Country, Rock, R&B, 'House, Electronic', Jazz]
+    - Vinyl: 
+      - [[Genre, sortable:y, other_name:Other Genres], multiple_with_input, "R&B, Hip hop, Rap", 'House, Progressive, Electronic']
+  - Music Instruments & Tools:    
+    - DJ Equipments:
+      - Turntables:
+        - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, American DJ, Gemini, Numark, Stanton, Technincs] 
+      - CDJs:
+        - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, American DJ, Gemini, Numark, Stanton, Technincs]       
+      - Cartridges and Needles
+      - Headphones
+      - Mixers:
+        - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, American DJ, Gemini, Numark, Stanton, Pioneer, Vestax, Technincs, Gemsound] 
+      - Other DJ Accessories & Parts      
+    - Guitars
+    - Keyboard
+    - Percussion
+    - Other Music Instruments                        
+  - Computer:
+    - Apple, Machintosh Computers:
+      - Apple Desktops
+      - Apple Laptops, Notebooks
+      - Apple Parts & Accessories & Other Products
+    - Desktop PCs:
+      - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, Dell, Sony, Acer, Gateway, IBM, "HP, Compaq"]
+    - Laptops, Notebooks:
+      - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, Dell, Sony, Toshiba, Acer, Gateway, "HP, Compaq", IBM, NEC]      
+    - Monitor/Display:
+      - [Brand, text]
+      - [Panel Type, multiple, CRT, LCD/Flat Panel]
+      - [Panel Size, multiple, 15-inch & Smaller, 17-inch, 18-inch, 19-inch, 20-inch & Larger]
+    - Printers:
+      - [[Brand, sortable:y, other_name:Other Brands], multiple_with_input, Brother, Canon, Epson, HP, Dell, Xerox]      
+    - Computer Parts & Accessories
+    - Software 
+  - Electronics:
+    - CellPhones, Phones:
+      - [[Phone Brand, sortable:y, other_name:Other], multiple_with_input, Apple iPhone, Hiptop, LG, Motorola, NEC, Nokia, Sony Ericsson, Siemens, PalmOne, RIM, Samsung]
+    - MP3 Players:
+      - [[Brand, sortable:y, other_name:Other MP3 Players], multiple_with_input, Apple iPod, Creative Labs, Dell, iRiver, Microsoft Zune, RCA, Rio, Samsung, Sony]
+  - Parking Spots, Passes:
+    - [Location, text]
+    - Private Parkings
+    - School Parking Passes 
+- 'Fiendship/Dating':
+  - Friend Zone    
+  - Date Zone:
+    - Boys looking for girls
+    - Girls looking for boys
+    - Boys looking for boys
+    - Girls looking for girls  
+- Services:  
+  - Tutoring:
+    - [[Subjects, 'descr:Enter the subjects seperated by comma', searchable:y, field_length:100], text]
+    - [Rate Per Hour, currency]
+  - Computer Services
+  - Creative Services
+  - Automotive
+  - Labor/Move
+  - Volunteer:
+    - [[Type of Service, field_desc:Enter the type of volunteer service, other_name:Other Services, sortable:y, searchable:y], multiple_with_input,  Computer Services, 'Art, Music & Films', Environmental Services, Fashion & Modeling, Research Participation, Labour Services, Humaniterian Services, Teaching & Educational Services, Sports & Health Services] 
+    - Volunteer Service Offered;Offering a Service
+    - Volunteer Service Needed;Looking for a Volunteer

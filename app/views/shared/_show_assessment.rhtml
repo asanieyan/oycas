@@ -1,0 +1,25 @@
+<table cellspacing=0 style='width:80%;margin:0 auto'>
+<% assessment.categories.in_groups_of(2,false) do |cat1_2|%>
+    <tr>
+            <%cat1_2.each do |category|%>
+                    <td style='width:50%;padding-right:40px;padding-top:20px'> 
+                        <%if category %>
+                            <table style='border-bottom:1px #C0C0C0 solid;font-size:8pt;width:100%' cellspacing=0><tr>
+                                                <td> <strong><%=category.title%></strong> </td> 
+                                                <td style='text-align:right'>
+                                                    <% url = {:action=>'show_comments',:field_name=>category.field_name,:instructor_id=>(assessment.instructor.guid rescue nil)}%>
+                                                    <%=link_to_remote "comments(#{category.num_comments})", :url=>url,:update=>'panel1-body'%> 
+                                                </td> 
+                                        </tr>
+                           </table>
+                            <%category.choices.each do |choice_result|%>
+                            <div style='font-size:9pt'> 
+                                            <%=category.format(choice_result) %>
+                            </div>
+                            <% end%>
+                        <%end%>
+                    </td>
+            <%end%>
+    </tr>
+<% end%>
+</table>

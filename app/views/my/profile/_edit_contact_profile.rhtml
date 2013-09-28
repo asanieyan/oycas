@@ -1,0 +1,116 @@
+<%@profile = @me.profile %>
+<style>
+    hr {
+        border:none;border-top:1px solid #C0C0C0;
+        width:90%;
+        margin-top:15px;
+        margin-bottom:15px;
+        
+    }
+    select {
+        font-size:8pt;
+    }
+
+</style>
+<div class='profile-box' >
+<div class='status-box'>
+<div id='message'> </div>
+    <form action='/my/edit_contact_profile' method='post'>
+        <style>
+                .form1_q {width:100px}
+            
+        </style>
+         <table>
+                <%@me.emails.confirmed.each_with_index do |email,i|%>
+                <tr> 
+                        <td class='form1_q'> <%if i == 0 %>Contact Emails <%end%></td>
+                        <td> 
+                            
+                                    <%=email.address%> 
+                           
+                        </td>
+                        <td>
+                            Visible to:  <%=select_visibility "email[#{email.id}]",email.visibility ,:max=>@my.profile_visibility%> 
+                        </td>
+                </tr>
+                <%end%>
+                <tr>
+                        <td class='form1_q'> IM: </td>
+                        <td> 
+                             <%= text_field_tag "profile[im]",@profile.im,:size=>'30',:class=>'textfield'  %>
+                             
+                        </td>
+                        <td>Visible to:  <%=select_visibility "profile[im_visibility]",@profile.im_visibility,:max=>@my.profile_visibility%>                             </td>
+                </tr>                
+          
+                <tr> 
+                       <td class='form1_q'> Land Phone: </td>
+                       <td> 
+                            <%= text_field_tag "profile[land_phone]" ,@profile.land_phone ,:size=>'30' ,:class=>'textfield' %>                            
+                       </td>                                          
+                       <td>Visible to:  <%=select_visibility "profile[land_phone_visibility]", @profile.land_phone_visibility ,:max=>@my.profile_visibility %></td>
+                </tr>                
+
+                <tr> 
+                        <td class='form1_q'>Mobile Phone: </td>
+                        <td> 
+                            <%= text_field_tag "profile[mobile_phone]" ,@profile.mobile_phone  ,:size=>'30',:class=>'textfield' %>                            
+                        </td>                         
+                        <td>Visible to: <%=select_visibility "profile[mobile_phone_visibility]", @profile.mobile_phone_visibility ,:max=>@my.profile_visibility %></td>
+                </tr>  
+                </table><table>              
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr> 
+                        <td class='form1_q'>Residence </td>
+                        <td> 
+                            <%= text_field_tag "profile[residence]"  ,@profile.residence ,:size=>'30',:class=>'textfield' %>                           
+                        </td>       
+                        <td>Visible to: <%=select_visibility "profile[residence_room_visibility]", @profile.residence_room_visibility,:max=>@my.profile_visibility %></td>                        
+                                                
+                </tr>                
+                <tr> 
+                        <td class='form1_q'>Room </td>
+                        <td> <%= text_field_tag "profile[room]"  ,@profile.room,:class=>'textfield' %></td>       
+                                               <td> &nbsp;</td>
+                                                
+                </tr>    
+                </table><table>
+                <tr><td colspan="3"> <hr style=''> </td></tr>
+                <tr> 
+                        <td class='form1_q'> Address </td>
+                        <td> 
+                            <%= text_field_tag "profile[address]" ,@profile.address ,:size=>'50' ,:class=>'textfield' %>
+                            
+                        </td>       
+                        <td>Visible to: <%= select_visibility "profile[address_visibility]", @profile.address_visibility  ,:max=>@my.profile_visibility%></td>
+                                                
+                </tr> 
+                 <tr> 
+                        <td class='form1_q'> City </td>
+                        <td> <%= text_field_tag "profile[city]"  ,@profile.city  ,:class=>'textfield'%></td>       
+                        <td> &nbsp;</td>                        
+                </tr> 
+                <tr id='regionElement'> 
+                       <%= render_p 'my/profile/region_update','my_country'=>@profile.country,'my_sub_region'=>@profile.sub_region %>
+                </tr> 
+                <tr>
+                    <td class='form1_q'> Zip: </td>
+                    <td> <%= text_field_tag "profile[zip_code]" ,@profile.zip_code,:class=>'textfield'   %></td>                              
+                        <td> &nbsp;</td>                    
+                </tr>
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td class='form1_q'> Website: </td>
+                    <td> <%=  text_area_tag "profile[website]", @profile.website, :size => "25x5" %></td>                              
+                        <td> &nbsp;</td>
+                </tr>              
+
+        </table>
+        <div style='text-align:right'><%=submit_tag %> </div>
+                
+</form>
+
+</div>
+
+
+</div>

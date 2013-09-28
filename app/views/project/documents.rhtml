@@ -1,0 +1,90 @@
+<%= render :partial=>'project/actionbar' %>
+<div id="project_error"></div>
+
+<div class="projectGeneral">
+
+<% if @directories == nil then %>
+    You currently have no documents stored.<br><br>
+    Click <%= link_to "here", :action => "upload_new_document", :id=>@project.id, :folder => @current_folder.guid%> to upload a new document.<br>
+    Click <%= link_to "here", :action => "create_new_folder", :id=>@project.id %> to create a new folder.
+
+<% else %>
+
+
+
+    <table><tr style="vertical-align:top;">
+    <% if @directories != nil then %>
+    
+    <% if @directories.length > 1 then %>
+    <td>
+    <script>
+        function goToFolder() {
+            if (document.getElementById('folder').selectedIndex > 1) {
+                document.getElementById('folderform').submit();
+            } else {
+                document.getElementById('folder').selectedIndex=0;
+            }
+        }
+    </script>
+    <%= form_tag({:action=>"documents"},{:id=>"folderform", :method=>"post"})%>
+    Folders:&nbsp;<select id="folder" name="folder" onchange="goToFolder()">
+    <option value="">Select Folder to View
+    <option value="">----------------------
+    <% @directories.each do |dir| %>
+        <% if dir.guid.to_s != params[:folder] then %>
+            <option value="<%=dir.guid%>"><%=dir.folder%>
+        <% end %>
+    <% end %>
+    </select> 
+    
+    </form>
+    </td>
+    <% end %>
+    <td>
+    <%= link_to_function "[ Create New Folder ]", popup({:url=>{:action=>'create_new_folder',:id=>@project.id}, :title=>'Create New Folder'},{:form=>true}) %>
+    </td>
+    </tr></table>
+
+
+<br>
+    <span style='text-align:left;font-size:16pt;font-weight:bold'><%=@current_folder.folder%></span>
+    <%= link_to_function "[ Upload New Document ]", popup({:url=>{:action=>'upload_new_document',:id=>@project.id, :folder => @current_folder.guid}, :title=>'Upload New Document'},{:form=>true}); %>
+
+    <% if @current_folder.folder != "general" && @current_folder != nil then %><%= link_to "[ Delete This Folder ]", {:action => "delete_folder", :id=>@project.id, :folder => @current_folder.guid}, :confirm => ["","Are you sure you want to delete this folder and any files that it contains?"] %><% end %>    
+
+
+
+    
+    
+    <% if @files != nil then %>
+        <% if @files.length > 0 then %>
+        <br><br>
+        <table class="project_document_display">
+            <tr>
+            <td>&nbsp;</td>
+            <td>filename</td>
+            <td>created on</td>
+            <td>comment</td>
+            <td>&nbsp;</td>
+            </tr>
+        
+        <% @files.each do |file| %>
+            <tr>
+            <td style="width:10px;text-align:right;">[i]</td>
+            <td><%= link_to file.file_name, :action=>"download_document", :folder=>@current_folder.guid, :id=>@project.id, :guid=>file.guid%></td>
+            <td style="width:120px;"><%= format_datetime(file.created_on) %></td>
+            <td><%= file.file_comment %></td>
+            <td><%= link_to "[delete]", {:action=>"delete_document", :folder=>@current_folder.guid, :id=>@project.id, :guid=>file.guid}, :confirm => ["","Are you sure you want to delete this document?"]%></td>
+            </tr>
+        <% end %>
+        </table>
+        <% else %>
+            <br><br>
+            This folder is currently empty.
+        <% end %>
+    <% end %>
+    
+    
+    <% end %>
+<% end %>
+</div>

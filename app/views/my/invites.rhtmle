@@ -1,0 +1,20 @@
+<style>
+    #content-panel {
+        background-color:white;
+    }
+	#invite_box-updatable {
+		border:1px solid #C0C0C0;
+		border-top:none;		
+		
+	}
+
+</style>
+<br>
+<div class='title-box title-div'>
+	Invite Your Contacts to Oycas
+	
+</div>
+<div class='centered' id='invite_box' style='width:600px;margin-top:10px;height:90%;font-weight:bold'>
+
+</div>
+<%=tabit('invite_box',Tab.new("Invite from facebook",{:action=>"facebook"}),Tab.new("Invite from email","email_invite"))%>

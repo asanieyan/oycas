@@ -1,0 +1,19 @@
+<div class='status-box '  style=''> 
+    <div id='invite_error'>
+    
+    </div>
+	<div class='title-div'><%=@klass.name%> URL:</div>
+    <div class='yellow-box ' id='centered' style='font-size:11pt;text-align:center'> 
+        <%url = klass2_url(:class_name=>@klass.course.subject.downcase+@klass.course.number.downcase,:division=>@klass.division)%>        
+		<%=break_down(url,60)%>
+    </div>  <br>
+    Enter the email addresses of your classmates to invite them to register in this class 
+    If you want to invite them yourself, just send them the link (above link) so they can register. (seperate the email addresses by space)
+<br><br>
+    <%=form_remote_tag :url=>{:action=>controller.action_name}%>
+        
+        <%=text_area_tag "emails","",:size=>"30x5" %>  <br><br>
+        <%=submit_tag "Invite them"%> or <%=close_pop%>
+    </form>        
+
+</div>

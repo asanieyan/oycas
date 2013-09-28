@@ -1,0 +1,10 @@
+<%report_form 'classified' do %>
+
+        <div>
+             <p>
+                You are about to report a violation of our Terms of Use. All reports are strictly confidential. Oycas will review this report and take action as necessary.
+            </p>
+        </div>      
+   
+    <div style='clear:left'><br><br></div>
+<%end%>

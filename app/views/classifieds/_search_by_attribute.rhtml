@@ -1,0 +1,31 @@
+<% element_id = "attributes[#{attrb.category_position}]"%>
+<% if attrb._type_.to_s =~ /multiple/%>
+                    <%=attrb.name %> <br>
+                    <% values = attrb.values.map{|v| v.valid_value} %>                    
+                    <% 
+                        if attrb.sortable.to_s == 'y'
+                            values = values.sort{|a,b| 
+                                    ret_val = a <=> b                                   
+                            } 
+                        end                         
+                    %>                               
+                    <%=select_tag element_id ,options_for_select([["Any",""]] + values,(params[:attributes] || {})[attrb.category_position.to_s])
+                    %>
+<% elsif attrb._type_.to_s == "address"%>
+        City <br>
+        <%=text_field_tag element_id, "", :size=>10,:maxlength=>10%>
+<% elsif attrb._type_.to_s == "boolean"%>
+     <table cellspacing=0> 
+            <tr>
+                 <td> <%=check_box_tag element_id, attrb.name,(params["attributes"] || {}).has_value?(attrb.name) %> </td>
+                <td style='vertical-align:middle'><%= attrb.name %></td>
+            </tr>
+    </table>        
+<% elsif attrb._type_.to_s == "currency"%>
+        <%=attrb.name %> <br>
+        <%=text_field_tag :min, params[:min], :size=>5,:maxlength=>10%> to <%=text_field_tag :max, params[:max], :size=>5,:maxlength=>10%>
+<% elsif attrb._type_.to_s == "text"%>
+        <%=attrb.name %> <br>
+        <%= text_field_tag element_id,(params["attributes"] || {})[attrb.category_position.to_s]%>
+        
+<%end%>

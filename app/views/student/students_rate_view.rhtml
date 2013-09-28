@@ -1,0 +1,61 @@
+<style>
+    #student-thumbs {
+        background-color:white;
+    }
+    #content-panel {
+        background-color:white;
+    }
+
+
+</style>
+<%= javascript_include_tag 'student_thumbs'%>
+<%= javascript_tag "thumbs = new StudentThumbs('rate-profile','#{@paginator.page_count}')"%>  
+<%=render_p 'student/view_header'%>
+<table class='top-v-align'cellspacing=0 cellpadding=0 style='width:100%'>
+    <tr><td class='status-box' style='border:none;width:80%;padding-top:0;'>    
+    <%if not @students.empty?%>       
+    <table class='top-v-align ' cellspacing=0 cellpadding=0 style='height:100px;width:100%;'>
+        <tr>
+            <td style='<%=@browser.sel_for({:msie=>"padding-top:10px;"},"padding-top:10px;")%>'>
+                <%=show_pagination params.update(:object=>'student')%> 
+                <table class='top-v-align' style='padding:0;' cellspacing=10 cellpadding=0> 
+                <%@students.in_groups_of(4,false) do |one_row_of_students|%>
+                <tr>
+                        <%one_row_of_students.each do |student|%>
+                            <%html_class = @students[0]==student ? "thumb thumb-selected" :  "thumb"%>
+                            <td id='<%=student.guid%>' class='<%=html_class%>' style='text-align:center;'>        			             			    
+                    			    <%= image_tag student.get_image :small %>
+                    			    <div class='small-link-div'>
+                				            <%= link_to_student student.name(:full),student %>
+                                    
+                                    </div>
+                                    <%= javascript_tag "thumbs.add('#{student.guid}')"%>  
+                                                                                                          
+                			</td>
+                			
+                        
+                        <% end %>            
+                </tr> 
+                                       
+                <%end%>                  
+                </table>
+          </td>
+          <td id='rate-profile' style='text-align:right;padding-left:20px;width:50%' >              
+                   <%= render_p 'student/student_rate_profile', {'student'=>@students.first}%>
+
+          </td>
+      </tr>
+    </table>
+    <%else%>
+        <div class='bold-gray' style='text-align:center;margin-top:40px;font-size:11pt'> 
+            There are no students to be rated. Either because they have set their profile not to be rated
+            or they haven't set their profile image
+            
+        </div>
+    <%end%>
+    </td>
+    <td class='left-side-box' style='width:20%;float:none'>    
+              <%=render_p 'student/filter_box'%>
+    </td>    
+    </tr>
+ </table>

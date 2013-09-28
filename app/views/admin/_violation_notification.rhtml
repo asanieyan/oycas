@@ -1,0 +1,22 @@
+<%=form_tag%>    
+    <div id='err'>
+    
+    </div>    
+    <%if @send_msg%>
+           Subject:<%=text_field_tag "subject",nil,:size=>60%><br><br>           
+    <%end%>
+    Dear <%=@to_name%>,<br>
+    <%=text_area_tag "message",(@controller.send(:render_to_string,:inline=>(@notification_message || ""))).strip.gsub(/\n +/,"\n").gsub(/\t/,' '),:size=>'80x10'%>
+    <%=link_to_function 'Cancel',"Pop.close()"%>
+    <%=submit_tag "Send Notification",:onclick=>update_page{|p|
+                                      p << <<-"eof"
+                                            if ($('message').value.blank() || ($('subject') &&  $('subject').value.blank())  ) {
+                                                 Message.show({err:'No field should be blank.'})
+                                                 return false;
+                                            }
+                                          
+                                      eof
+                                      }      
+    
+    %>
+</form>

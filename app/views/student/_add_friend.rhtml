@@ -1,0 +1,40 @@
+<%if @req%>
+<div class='status-box small-link-div'>
+                             You have sent a friend request to <%=@studentb.f_name %> <%=time_helper(@my.time(@req.created_on),@my.tz)%>.
+<div style='text-align:right'>                             
+         <%=link_to 'Cancel Request',:action=>'cancel_friend_request'%> 
+</div>
+</div>                             
+<%end%>
+<%=form_tag %>
+
+<table class='status-box' style='font-size:8pt;' >
+    <tr> 
+        <td style='vertical-align:top;'>
+           <div class='image-border2'> <%=image_tag @studentb.profile_image,:style=>''%></div>
+        </td>
+        <td style='vertical-align:top;'>
+            Your Personal Invite Message <br>
+            <%=text_area_tag "message",(@req.message rescue nil),:size=>"27x4",:style=>'height:95px'%>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2>
+                You are about to 
+                    <%unless @req%>
+                        add <%=@studentb.full_name%> as a friend.
+                    <%else%>
+                        resend another friend request to <%=@studentb.full_name%>.
+                    <%end%>    
+                We will then notify <%=@studentb.f_name%>, who will have to confirm that you are friends.
+
+        
+        </td>
+    </tr>
+</table>    
+<div style='text-align:right;'>    
+    <%=link_to_function 'Cancel',"Pop.close()"%>
+    <%=submit_tag @req ? "Resend Request" : "Add Friend"%>
+</div>
+
+</form>

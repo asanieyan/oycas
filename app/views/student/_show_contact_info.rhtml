@@ -1,0 +1,117 @@
+<table class='show-profile' cellspacing=0 cellpadding=0 style='width:60%;'>                    
+
+                <tr>                        
+                        <%
+                            emails = @studentb.visibile_emails_to?(@me).map{|e| e.address} 
+                        
+                        %>
+                        <%if emails.size > 0%>
+                            <td class='bold-gray' style='vertical-align:top'> Contact Emails: </td>
+                            <td> 
+                                <%= emails.join("<br>")%>
+                                 
+                            </td>
+                        <%end%>
+                </tr>
+            
+                <% if @studentb.profile.im.size > 0 and @studentb.profile.im_visibility >= @my.relation_with(@studentb)%>
+                <tr>
+               
+                        <td class='bold-gray'> IM: </td>
+                        <td> 
+                             <%=@studentb.profile.im%>
+                            
+                        </td>
+                </tr>  
+                
+                 <% end %>
+                             
+               
+                <% if @studentb.profile.land_phone.size > 0 and @studentb.profile.land_phone_visibility >= @my.relation_with(@studentb)%>
+                <tr> 
+                       <td class='bold-gray'> Land Phone: </td>
+                       <td> 
+                            <%=@studentb.profile.land_phone%>
+                           
+                       </td>                                          
+                </tr>
+                <% end %>                
+                <% if @studentb.profile.mobile_phone.size > 0 and @studentb.profile.mobile_phone_visibility >= @my.relation_with(@studentb)%>
+                <tr> 
+                        <td class='bold-gray'>Mobile Phone: </td>
+                        <td> 
+                            <%=@studentb.profile.mobile_phone%>
+                        
+                        </td>                         
+                </tr>
+                <% end %>  
+                <% if @studentb.profile.residence_room_visibility >= @my.relation_with(@studentb)%>
+                    <% if @studentb.profile.residence.size > 0%>              
+                    <tr><td colspan="2"><hr class='profile-section-seperator'/></td></tr>
+                    <tr> 
+                            <td class='bold-gray'>Residence </td>
+                            <td> 
+                                <%=@studentb.profile.residence%>
+                             
+                            </td>       
+                                                    
+                    </tr>
+                    <% end %> 
+                    <% if @studentb.profile.room.size > 0%>               
+                    <tr> 
+                            <td class='bold-gray'>Room </td>
+                            <td> <%=@studentb.profile.room%></td>       
+                                                    
+                    </tr>                   
+                    <% end %>
+                <% end%>
+                <% if @studentb.profile.address_visibility >= @my.relation_with(@studentb)%>
+                    <% if @studentb.profile.address.size > 0%>
+                    <tr><td colspan="2"><hr class='profile-section-seperator'/></td></tr>
+                    <tr> 
+                            <td class='bold-gray'> Address </td>
+                            <td> 
+                                <%=@studentb.profile.address%>
+                               
+                            </td>       
+                                                    
+                    </tr>
+                    <% end %> 
+                    <% if @studentb.profile.city.size > 0%>
+                     <tr> 
+                            <td class='bold-gray'> City </td>
+                            <td> <%=@studentb.profile.city%></td>       
+                                                    
+                    </tr>
+                    <% end %> 
+                <%end%>
+                <tr> 
+                        <td id='cr_name' class='bold-gray'> 
+                             Country 
+                         </td>
+                        <td id='cr_values'>
+                                <%=  (@studentb.profile.sub_region + ", " if @studentb.profile.sub_region) %><%= @studentb.profile.country  %>
+                                
+                        </td>     
+                                                                        
+                </tr>              
+                
+                <% if @studentb.profile.zip_code.size > 0 and @studentb.profile.address_visibility >= @my.relation_with(@studentb)%>
+                <tr>
+                    <td class='bold-gray'> Zip: </td>
+                    <td> <%=@studentb.profile.zip_code%></td>                              
+                </tr>               
+                <% end %>
+                <% if @studentb.profile.website.size > 0  %>
+                <tr><td colspan="2"><hr class='profile-section-seperator';></td></tr>                
+                <tr>
+                    <td class='bold-gray'> Website: </td>
+                    <td> <%=@studentb.profile.website%></td>                              
+                </tr>
+                <% end %>              
+
+        </table>
+             
+
+
+

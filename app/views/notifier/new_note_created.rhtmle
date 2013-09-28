@@ -1,0 +1,20 @@
+<%
+	if @klass == @note.klass 
+		class_name = "your class #{@klass.full_title}"
+	else
+		class_name = "class #{@klass.full_title}"
+	end
+%>	
+A note has been uploaded to <%=class_name%> 
+
+title: <%=@note.title%>
+description: <%=@note.comment%>
+
+to download the note click on the link below
+<%=Notifier::Host%>/course/<%=@note.course.id%>/download?note=<%=@note.guid%>
+if you want to go to the class note homepage click below
+<%=Notifier::Host%>/class/<%=@klass.guid%>/show_notes
+(If clicking on the link doesn't work, try copying and pasting it into your browser.)
+
+Thanks,
+The Oycas Team

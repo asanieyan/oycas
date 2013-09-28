@@ -1,0 +1,12 @@
+<%@messages = IntranetMessage.find_admin_messages(:all).each do |msg|%>
+    <div class='status-box'>
+        <div style='float:right' class='bold-link-div'><%=msg.created_on%>&nbsp;&nbsp;
+            <%=link_to 'x',{:action=>"sent_items",:delete=>msg.id},:confirm=>["","Are you sure you want to delete this message"]%></div>
+        <div class='dark-bold-gray'><%=msg.subject%></div>
+        <div class='blue-box'> <%=msg.body%> </div>
+    </div>
+
+
+<%end%>
+<%=content_tag(:div,"No admin messages have been sent",:class=>"title-div blue-box") if @messages.empty?%>
+

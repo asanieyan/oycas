@@ -1,0 +1,29 @@
+ <table>
+                   
+        <tr> 
+                <td class='form1_q'> School: </td>
+                <td><%= text_field_tag "school#{school_index}[name]",school.name,:size=>'30',:class=>'textfield'  %>   
+                    </td>     
+         </tr>
+         <tr> 
+                    <td> </td>                                       
+                    <td> <%= link_to_function 'remove this school',"inputTag = document.createElement('input');inputTag.name='school#{school_index}[remove]';inputTag.type='hidden';inputTag.value='#{rand(1000)}';document.education_form.appendChild(inputTag);document.education_form.submit()" %> </td>
+         </tr>
+        
+                         
+</table>
+        <div id='new_tables'>
+            <table>
+                <tr> 
+                    <td width='100px'> &nbsp; </td>                                       
+                    <td> <%= 
+                    
+                    (link_to_remote 'add another school',:update=>'new_tables',
+                                                               :url=>{:action=>'get_school_table',:index=>school_index}                                                                                                                            
+                                                               )    if  last_school&& more_schools %> 
+                    </td>
+                </tr>       
+            </table>
+        
+        </div>
+        

@@ -1,0 +1,37 @@
+<%=show_pagination nil,:object=>'note'%>
+<%@notes.each do |note| %>            
+
+<table id='note<%=note.guid%>' class='top-v-align' cellspacing=0;cellpading=0 style='border-bottom:1px solid #D0D0D0;width:100%;'>
+    <tr>
+        <td class='bold-gray' style='font-weight:normal;width:60px;'>
+            <%=@my.time(note.created_on).strftime("%D")%> | 
+            
+        </td>
+        <td  class='dark-bold-gray'>  
+             <%
+                share_context = note.klass ? note.klass.name : note.course.short_title
+             %>
+             <%=link_to "<span>"+image_tag('/images/download.gif') + share_context + " - " + note.note_type.to_s.titlecase + " - " +  truncate(note.title,40) + "</span>",
+             {:controller=>'course',:courseid=>rand(1000000),:action=>'download',:note=>note.guid},:style=>'font-weight:normal'
+             %>                  
+        </td>
+        <td style='text-align:right;width:45px;vertical-align:top'>
+           
+          <%if @I.am? note.owner %>
+            | <span class='bold-link-div'>    
+                    <%=link_to 'X',{:controller=>'course',:courseid=>rand(1000000),:action=>'delete_note',:id=>note.id},
+                        :confirm=>["Delete Your Note","Are you sure you want to delete this note.",
+                        {:onclose=>"$('note#{note.guid}').style.backgroundColor=''",:onpop=>"$('note#{note.guid}').style.backgroundColor='#DDDDDD'"}] %>                        
+            </span> 
+            <%=link_to_popup image_tag('/images/marker.gif',:style=>"width:15px"),{:controller=>'course',:courseid=>rand(1000000),:action=>'edit_note',:id=>note.id},                      
+                            :pop_options=>{:title=>"Edit Note",:onclose=>"$('note#{note.guid}').style.backgroundColor=''",:onpop=>"$('note#{note.guid}').style.backgroundColor='#DDDDDD'"} %>                        
+            
+         <%end%>
+                                                      
+       </td>
+    </tr>
+    
+  </table>
+           
+<%end%>
+

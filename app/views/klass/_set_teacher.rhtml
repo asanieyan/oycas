@@ -1,0 +1,47 @@
+<p class='status-box bold-link-div'>
+    Choose an instructor below or 
+    <%=link_to_function 'Add New Instructor',update_page { |p| 
+                                                    p.redirect_to(:action=>'add_new')
+                                             }
+                    
+            %> to the school. 
+    
+</p>
+<div class=''>
+    <table class='top-v-align' cellscapin=0 cellpadding=0 style='width:450px'>
+        <tr>
+            <td>
+                    <%=search_box "name","",:size=>'31',:banner=>'Search Instructor',:onkeypress=>"$('teacher_id').searchByElimination(this)"%>
+              
+                    <%=form_tag({:action=>'set_teacher'},{:id=>'set_teacher_form',:method=>:post}) %>
+                    <%selected_instructor = @klass.instructor ?  @klass.instructor : @klass.school.instructors.first%>
+                    <%=select_tag "teacher_id",
+                        options_for_select(
+                                @klass.school.instructors.map{|i|                                 
+                                        text = "#{i.email}(#{i.first_name} #{i.last_name})"
+                                        [text,i.id]
+                                },selected_instructor.id),
+                        :size=>10,:style=>'width:200px',:onchange=>remote_function(:url=>{:controller=>'instructor',:action=>'get_image_for',:class_id=>@klass.guid},
+                                                               :loaing=>"$('image-div').update('<img src=\"/images/loading_image_animation.gif\"')",
+                                                               :update=>'image-div',
+                                                               :with=>"'teacher_id=' + $('teacher_id').value")
+                    
+                       %>
+                    </form>
+            </td>
+            <td style='text-align:center;height:200px;width:120px;vertical-align:top'>            
+                <div id='image-div' style='margin-bottom:10px'>
+                    <%=render_p 'instructor/set_instructor_image_partial' , {'instructor'=>selected_instructor ,'klass_guid'=>@klass.guid}%>
+                </div>            
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 style='padding-top:5px;text-align:right;border-top:1px solid #C3D9FF'>
+                          
+                    <%=link_to_function 'Cancel',"Pop.close()"%>&nbsp;&nbsp;
+                    <%=submit_tag "Set Instructor",:onclick=>"$('set_teacher_form').submit()"%>
+            </td>
+        </tr>
+   </table>
+
+</div>

@@ -1,0 +1,72 @@
+<br>
+<%courses = @my.schools.map{|s| 
+        @my.klasses_at(s).map{|k| 
+           
+            link_to_popup k.name,"/course/#{k.course_id}/create_note",:pop_options=>{:title=>'Create New Note Document'}
+        }.join("<br>")
+}.join(hr)
+%> 
+<%if courses.size > 0%>
+<div class='note-info1 dark-bold-gray' style='font-weight:bold;;background-color:#EEEEEE;'>
+<p style='margin:10px'>
+    To create a new note for your course, click on one of your courses  below.<br>
+
+</p> 
+</div>
+<br>
+<div class='bold-gray side-search-filter-title' style='padding-bottom:2px;border-bottom:1px solid #C3D9FF;margin-bottom:10px;'> 
+    Note for My courses 
+</div> 
+<%=courses%>
+<br><br>
+<%=hr%>
+<%else%>
+<div class='status-box dark-bold-gray'>You are not registered in any courses. register fast so you can interact with your classmates.</div>
+<%end%>
+<div class='note-info1 dark-bold-gray' style='font-weight:bold;;background-color:#EEEEEE;'>
+<p style='margin:10px'>
+    <span style='font-size:12pt'>Have an old </span> midterm or assignment that want to share.
+    Enter the name of the course then press enter. 
+</p> 
+</div>
+<%=roundedDIV(".note-info1","#FFFFFF","#EEEEEE") %><br>
+<div class='bold-gray side-search-filter-title' style='padding-bottom:2px;border-bottom:1px solid #C3D9FF;margin-bottom:10px;'> 
+    Find a course
+    
+</div>    
+
+<div id='search'>       
+    <%=flaggy_text_field "course_name","",:flag=>'Enter name of course',:size=>35,:style=>'font-size:10pt;padding:2px;'%>
+    <div id='course_auto_complete' class='auto_complete' style='font-size:10pt'>
+    </div>
+</div>
+<div id='upload' class='status-box bold-link-div' style='display:none'>          
+     <div style='float:right' class='small-link-div'><%=link_to_function 'x',"MyBinder.searchAgain()"%></div>                                     
+      <%=hidden_field_tag "course_id",""%>  
+      <table cellspacing=0 cellpadding=0>
+        <tr>
+            <td style='padding-right:10px'>
+                 <%=image_tag('/images/shared_notes_news_icon.gif')%>               
+            </td>
+            <td>
+                <%link_to_block("#",:pop=>true,:pop_options=>{:onpop=>"MyBinder.getUploadURL()",
+                                           :onclose=>"MyBinder.searchAgain()",
+                                           :title=>"Create New Note Document"
+                                          }) do %>                                                              
+                <span class=''>create note for <span id='course_label' class=''> </span></span> 
+                
+                <%end%>                                              
+              </td>  
+            </tr>
+        </tr>
+     </table>
+ 
+</div>
+<%=javascript_tag <<-eof        
+    courseCompleter = new Ajax.Autocompleter('course_name',
+                'course_auto_complete','#{url_for(:action=>"print_courses")}',
+                    {updateElement : MyBinder.courseSelected.bind(MyBinder)}                        
+                )                             
+eof
+%>
+ <br>

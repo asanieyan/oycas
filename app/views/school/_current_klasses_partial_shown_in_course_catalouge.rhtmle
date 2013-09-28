@@ -1,0 +1,22 @@
+<%if not @my.klasses_at(@school).empty?%>
+    <div style='font-size:10pt;margin-bottom:10px'> 
+        You have <%=pluralize(@my.klasses_at(@school).size,"course")%>.</div>                            
+        <ul class='liststyle1'  >
+        <%= @my.klasses_at(@school).map{|klass| 
+                        "<li class=''>" + 
+                        link_to_klass(klass) + "<span class='small-link-div' style='margin-left:20px'>" + 
+                        link_to('drop class',url_for_school(@school,{:action=>'deregister_from_course',:course_id=>klass.course.id}),
+                                                        :confirm=>["Unregistering from #{klass.name}","Are you sure you want to unregister from this class?"]) + 
+                        
+                        "</span>" + 
+                        "</li>"
+            }.join(" ")%>
+        </ul>
+<%else%>
+    <div style='font-size:11pt;margin-bottom:10px'> 
+            You are not registered in any courses. <br>
+            To register select a subject, then select a course.
+            
+            
+    </div>
+<%end%>  

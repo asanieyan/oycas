@@ -1,0 +1,14 @@
+<%#cache({:subject=>params[:s],:page => params[:page] || 1}) do 
+
+%>
+<br><br>
+<div class='side-search-filter-title'>Select a <%=@subject.code.upcase%> course:</div>
+      
+      <%=show_pagination nil,:method=>:get,:s=>@subject.id,:anchor=>"i" ,:object=>"course"
+      %>
+      <%=render_p 'school/show_courses_partial',{'courses'=>@courses}%>
+   
+<%
+#end
+%>
+<br>

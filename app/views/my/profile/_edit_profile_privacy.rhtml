@@ -1,0 +1,69 @@
+<div id='thisdiv'>
+<style>
+    .gray {
+            color: #505050;
+            font-weight:bold;
+            font-size:8pt;
+            padding:25px;
+            padding-top:15px;
+    }   
+    .foreground-div p,#message {
+        margin: 15px;
+    }   
+
+</style>
+<form id='thisform' action='/my/edit_profile_privacy' method='POST'>
+<div class='profile-box' >
+<div class='status-box'>
+        <div id='message'>
+               
+        </div>
+
+        <div class='title1' ><%=image_tag '/images/profile.gif',:style=>'height:25px'%> Who Can See My Profile </div>
+        <p>
+        You can control who can see your profile. Your friends can always see your profile, and you can 
+        allow all your networks, or some of your networks to see your profile.
+        </p>
+        <p class='gray'>
+        currently my profile is visible to:  &nbsp;
+            <%=select_visibility "profile_visibility", 
+                 @my.profile_visibility,:min=>1
+                
+                %>
+        </p>
+        <div class='title1' ><%=image_tag '/images/miniprofile.gif'%>My Mini-Profile</div>    
+            
+            <p>
+                    <strong>Mini-Profile</strong> is an information badge that contains
+                    some limited information about you. Your mini-profile is what represents you in any type of listing. 
+                    So for those who can't see your profile, they can still see some mini-info about you.
+                    Here you can set what you want to appear in your mini-profile. <br><br>
+<% if false %>                    <span style='color:red'> If nothing happens when you check an option, <% end %>
+<% if false %>                        its probably because you haven't set that option in your profile in the first place.</span><% end %>
+                    
+            </p>
+
+            <p id='checkholder'> 
+             
+                 
+                <%=check_box_tag "mini[add_friend_option]","y",@my.add_friend_option,:onchange=>'updateProfileSample(this)' %> A link to add me as a friend <br>
+                <%=check_box_tag "mini[send_msg_option]","y",@my.send_msg_option ,:onchange=>'updateProfileSample(this)'%> A link to to send me a message<br>
+                <%=check_box_tag "mini[friend_option]","y",@my.friend_option ,:onchange=>'updateProfileSample(this)' %> A link to see my friends <br>                                
+                <%=check_box_tag "mini[rate_option]","y",@my.rate_option,:onchange=>'updateProfileSample(this)'  %> A link to rate my popularity <br>                       
+                <%=check_box_tag "mini[current_courses_option]","y",@my.current_courses_option,:onchange=>'updateProfileSample(this)' %> Courses I am currently taking <br> 
+                <%=check_box_tag "mini[birthdate_option]","y",@my.birthdate_option ,:onchange=>'updateProfileSample(this)'%> My birthdate the way it shows in my profile<br>
+                <%=check_box_tag "mini[relationship_status_option]","y",@my.relationship_status_option ,:onchange=>'updateProfileSample(this)' %> My relationship status <br>                                         
+                <%=check_box_tag "mini[status_option]","y",@my.status_option ,:onchange=>'updateProfileSample(this)'%> My live status <br>                                
+
+
+            </p>    
+<%if false%>
+            <div id='sample'>
+                <%=render_p 'my/profile/sample_mini_profile'%>
+            </div>                      
+<%end%>        
+        <div style='text-align:right'><br><br><%=submit_tag %> </div>
+    </div>
+</div>
+</form>
+</div>

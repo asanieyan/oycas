@@ -1,0 +1,140 @@
+<div class="errorConfirm">
+<% if flash[:error_hash] != nil then %>
+    <% flash[:error_hash].each do |key, value| %>
+        <%= key.to_s + " -> " + value.to_s%>
+    <% end %>
+<% end %>
+
+<% if flash[:success] != nil then %>
+    <%= flash[:success] %>
+<% end %>
+</div>
+
+<div class="projectGeneral">
+<form name="assign_new_task" id="assign_new_task" action="commit_assign_new_task" method="post">
+
+Task:&nbsp;<input type="text" value="" name="title"><br><br>
+
+Assigned by:&nbsp;<%=get_name_by_guid(my_guid)%><br><br>
+
+<script>
+function add_participant() {
+    src = document.getElementById('selection_list')
+    dest = document.getElementById('participant_list')
+    obj = new Option(src[src.selectedIndex].text,src[src.selectedIndex].value)
+    if (does_not_contain(dest, obj)) {
+        dest[dest.length]=obj
+    } else { alert("this person is already a participant"); }
+}
+
+function does_not_contain(dest, obj) {
+    for (x=0; x < dest.length; x++) {
+        if (dest[x].value==obj.value && dest[x].text==obj.text) return false;
+    }
+    return true;
+}
+
+function remove_participant() {
+    src = document.getElementById('participant_list')
+    src[src.selectedIndex]=null
+}
+
+function select_all_selected_participants() {
+    src = document.getElementById('participant_list')
+    for (x=0; x<src.length; x++) {
+        src[x].selected=true;
+    }
+}
+</script>
+<table><tr><td>
+Project Members:<br>
+(click to add)<br>
+<select multiple="multiple" id="selection_list" onclick="add_participant()" size="5" width="30">
+    <% memberlist.each do |member| %>
+    <option value="<%=member.guid%>"><%=get_name_by_guid(member.guid)%>
+    <% end %>
+</select>
+</td><td>
+Task Assignees:<br>
+(click to remove)<br>
+<select multiple="multiple" name="members[]" id="participant_list" onclick="remove_participant()" size="5" width="30">
+</select>
+</td></tr></table>
+
+<br>
+
+Start Date:&nbsp;
+<select name="startmonth" id="startdatemonth">
+<option value="1">January
+<option value="2">February
+<option value="3">March
+<option value="4">April
+<option value="5">May
+<option value="6">June
+<option value="7">July
+<option value="8">August
+<option value="9">September
+<option value="10">October
+<option value="11">November
+<option value="12">December
+</select>
+<script>document.getElementById('startdatemonth').selectedIndex=<% if startmonth != nil then %><%= startmonth.to_i-1 %><% else %><%= Time.now.month.to_i-1 %><% end %>;</script>
+
+<select name="startday" id="startdateday">
+<% for x in 1..31 %>
+    <option value="<%= x %>"><%= x %>
+<% end %>
+</select>
+<script>document.getElementById('startdateday').selectedIndex=<% if startday != nil then %><%= startday.to_i-1 %><% else %><%= Time.now.day.to_i-1 %><% end %>;</script>
+
+<select name="startyear" id="startdateyear">
+<option value="2007">2007
+<option value="2008">2008
+</select>
+<script>document.getElementById('startdateyear').selectedIndex=<% if startyear != nil then %><%= startyear.to_i-1 %><% end %>;</script>
+
+
+<br><br>
+
+Completion Date:&nbsp;
+<select name="month" id="datemonth">
+<option value="1">January
+<option value="2">February
+<option value="3">March
+<option value="4">April
+<option value="5">May
+<option value="6">June
+<option value="7">July
+<option value="8">August
+<option value="9">September
+<option value="10">October
+<option value="11">November
+<option value="12">December
+</select>
+<script>document.getElementById('datemonth').selectedIndex=<% if month != nil then %><%= month.to_i-1 %><% else %><%= Time.now.month.to_i-1 %><% end %>;</script>
+
+<select name="day" id="dateday">
+<% for x in 1..31 %>
+    <option value="<%= x %>"><%= x %>
+<% end %>
+</select>
+<script>document.getElementById('dateday').selectedIndex=<% if day != nil then %><%= day.to_i-1 %><% else %><%= Time.now.day.to_i-1 %><% end %>;</script>
+
+<select name="year" id="dateyear">
+<option value="2007">2007
+<option value="2008">2008
+</select>
+<script>document.getElementById('dateyear').selectedIndex=<% if year != nil then %><%= year.to_i-1 %><% end %>;</script>
+
+
+<input type="hidden" name="task_assigner" value="<%=my_guid%>">
+<input type="hidden" name="fromcalendar" value="<%=fromcalendar%>">
+<input type="hidden" name="cyear" value="<%=year%>">
+<input type="hidden" name="cmonth" value="<%=month%>">
+
+<br><br>
+
+<input type="submit" value="Assign Task" onclick="select_all_selected_participants()">
+
+</form>
+</div>

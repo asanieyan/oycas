@@ -1,0 +1,653 @@
+create database schoolapp_development;
+use schoolapp_development;
+set GLOBAL auto_increment_increment = 1;
+set GLOBAL auto_increment_offset = 1;
+/**************************************************************/
+drop table if exists course_subjects;
+create table course_subjects (
+    id int unsigned not null auto_increment primary key,
+	school_id int unsigned not null,	
+	code varchar(30) not null,
+	name varchar(100) not null,
+	unique key (code,school_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists popularity_rates;
+create table popularity_rates (
+    id int unsigned not null auto_increment primary key,
+	rater_id int unsigned not null,
+	ratee_id int unsigned not null,
+	rate_value int default 0,
+	created_on timestamp,
+	unique key(rater_id,ratee_id)	
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists courses;
+create table courses (
+    id int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique,
+	school_id int unsigned not null ,
+	course_subject_id int unsigned not null,
+	subject varchar(30), 
+    number varchar(10) not null,
+    name varchar(100) not null,
+    credit float(10,2) default 0,
+    description varchar(5000),
+    unique key (course_subject_id,number,school_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists countries;
+create table countries ( 
+    id  int unsigned not null auto_increment primary key,       
+    name varchar(100) not null   
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists sub_regions;
+create table sub_regions ( 
+    id  int unsigned not null auto_increment primary key,   
+    country_id int unsigned not null,         
+    name varchar(100) not null    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists networks;
+create table networks ( 
+    id  int unsigned not null auto_increment primary key,   
+    sub_region_id int unsigned not null,
+    name varchar(100) not null    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists schools;
+create table schools ( 
+    id  int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique,
+    name varchar(100) not null,
+    short_name varchar(20) not null,   
+    /*city_id int unsigned not null,*/
+    network_id int unsigned not null,
+    city varchar(100) not null,
+    website varchar(100) not null,
+    email_domain varchar(20) unique key not null,    
+    time_zone varchar(50) not null,
+    facebook_domain varchar(50), 
+    active enum('y') default null,
+    updated_on datetime,
+    created_on datetime,
+    unique key(network_id,name)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+/**************************************************************/
+drop table if exists instructor_assesments;
+create table instructor_assesments (
+    id int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique,
+    school_id int unsigned not null,
+    course_id int unsigned not null,
+    klass_id int unsigned not null,    
+    instructor_id int unsigned not null,
+    student_id int unsigned not null,   
+    rating smallint, 
+    unique key (student_id,klass_id) 
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists instructors;
+create table instructors (
+    id int unsigned not null auto_increment primary key,
+    school_id int unsigned not null,
+    first_name varchar(30),
+    last_name varchar(30),
+    locked enum('y'),
+    updated_on datetime,
+    email_address varchar(150) not null unique         
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists registrations;
+create table registrations (
+    id int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique,
+    random_number int unsigned not null,    
+    school_id int unsigned not null,
+    school_status enum('undergraduate','graduate','faculty','staff') default 'undergraduate',
+    name varchar(220),    
+    email varchar(100) not null,
+    password varchar(100),  
+    created_on timestamp 
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists klasses;
+create table klasses (
+    id int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique,
+    school_id int unsigned not null,
+	course_id int unsigned not null,
+	semester_id int unsigned not null,
+	instructor_id int unsigned,
+	room varchar(30),
+	division smallint not null
+  
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists klass_schedules;
+create table klass_schedules (
+    id int unsigned not null auto_increment primary key,
+	klass_id int unsigned not null,
+    start_time varchar(5) not null,
+	end_time varchar(5) not null,
+	day_of_week enum('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday') not null,
+	unique key(start_time,end_time,day_of_week,klass_id)
+  
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists school_staffs;
+create table school_staffs (
+    id int unsigned not null auto_increment primary key,
+	school_id int unsigned not null,
+	email_address varchar(100) not null,
+	entry_justification varchar(255) not null,
+    unique key(email_address,school_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists klass_enrollments;
+create table klass_enrollments (
+    id int unsigned not null auto_increment primary key,
+	school_id int unsigned not null,
+	semester_id int unsigned not null,
+	klass_id int unsigned not null,
+	course_id int unsigned not null,
+	student_id int unsigned not null,
+	created_on datetime not null,
+	unique key(student_id,semester_id,course_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists semesters;
+create table semesters  (
+    id int unsigned not null auto_increment primary key,
+    school_id int unsigned not null,
+	season_id int unsigned not null,	
+	__year__ smallint,
+	__current__ enum('Y'),
+	unique key (school_id,__current__),
+	unique key(school_id,season_id,__year__)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists seasons;
+create table seasons  (
+    id int unsigned not null auto_increment primary key,
+	school_id int unsigned not null,
+	name varchar(30),
+	start_month smallint,
+	end_month smallint,
+	unique key(school_id, name)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists student_friends;
+create table student_friends (
+    id int unsigned not null auto_increment primary key,
+    student_id int unsigned not null,
+    friend_id int unsigned not null,
+    created_on timestamp not null,
+    unique key (student_id,friend_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists friend_requests;
+create table friend_requests (
+    id int unsigned not null auto_increment primary key,
+    requester_id int unsigned not null,
+    requestee_id int unsigned not null,
+    created_on timestamp not null,
+    message varchar(500),
+    unique key (requester_id,requestee_id)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists admins;
+create table admins (
+    id int unsigned not null auto_increment primary key,  
+    guid bigint unique key not null,      
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    email varchar(100) not null unique key,    
+    time_zone varchar(50),    
+    password varchar(32),
+    confirmed enum('y') default null    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists school_members;
+create table school_members (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null unique key,
+    student_id int unsigned not null,
+    school_id int unsigned not null,
+    default_school enum('y'),
+    confirmed enum('y'),
+    registered_email varchar(100) not null unique key,      
+    unique key (student_id,school_id),
+    unique key (student_id,default_school)         
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists student_contact_emails;
+create table student_contact_emails (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null unique key,
+    student_id int unsigned not null,
+    contact_email varchar(100) not null unique key , 
+    visibility tinyint default 0,  
+    confirmed enum('y'),
+    default_email enum('y'),
+    unique key (student_id,default_email)            
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists students;
+create table students (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null unique key,
+    username varchar(100) not null unique key,
+    rank enum('student','dummy','piggy') default 'student', 
+    school_status enum('undergraduate','graduate','faculty','staff') default 'undergraduate',
+    account_status enum('active','suspended','deactivated') default 'active',  
+    account_status_change_date datetime default null,
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    whole_name varchar(220),
+    INDEX USING BTREE(whole_name),
+    password varchar(32) not null,
+    security_question varchar(100),
+    security_answer varchar(100),
+    time_zone varchar(50),
+    login_times int unsigned default 0,
+    login_time datetime default 0,
+    logoff_time datetime default 0,
+    profile_image_set enum('y'), 
+    mood_status varchar(100),
+    status_updated_on datetime,       
+    profile_visibility smallint not null default 1,
+    current_course_visibility smallint not null default 1,
+    course_archive_visibility smallint not null default 1,   
+    desk_visibility smallint not null default 1,   
+    friend_visibility smallint not null default 1,       
+    send_msg_option enum('y') default 'y',
+    add_friend_option enum('y') default 'y',
+/*    see_pics_option enum('y') default 'y', */
+    current_courses_option enum('y') default 'y',
+    birthdate_option enum('y') default 'y',
+    relationship_status_option enum('y') default 'y',    
+    friend_option enum('y') default 'y',
+    rate_option enum('y') default 'y',
+    status_option enum('y') default 'y',   
+    gender enum("Male","Female")default NULL,
+    birthdate date,
+    birthdate_visibility smallint not null default 1,
+    birthdate_show_format enum("full","partial") not null default "full",       /*full and partial*/        
+    sexual_orientation enum("Straight","Gay","Bi-Sexual","Bi-Curious") default NULL, 
+    sexual_orientation_visibility smallint not null default 1,
+    relationship_status enum("Single","In a relationship","Open Relationship", "Engaged", "Married") default NULL,
+    relationship_status_visibility smallint not null default 1,
+    add_friend_notification enum('y') default 'y',
+    send_message_notification enum('y'),
+    note_upload_notification enum('y'),
+    school_discussion_notification enum('y'),
+    class_discussion_notification enum('y'),
+    classifieds_notification enum('y'),
+    avg_rate float default 0,
+    rating int default 0,
+    votes int default 0     
+     
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists student_photo_albums;
+create table student_photo_albums (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null unique key,
+    student_id int unsigned not null,
+    name varchar(100) not null,
+    location varchar(100),
+    description varchar(400),
+    album_cover bigint,
+    visibility smallint default 0,
+    created_on datetime not null    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists album_photos;
+create table album_photos (
+    id int unsigned not null auto_increment primary key,
+    student_photo_album_id int unsigned not null,
+    student_id int unsigned not null,
+    guid bigint not null unique key default 0,
+    caption varchar(500) 
+        
+ )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists student_profiles;
+create table student_profiles (
+    id int unsigned not null auto_increment primary key,
+    student_id int unsigned not null unique key,   
+    im varchar(50) default "",
+    im_visibility smallint not null default 0,
+    land_phone varchar(50) default "",
+    land_phone_visibility smallint not null default 0,
+    mobile_phone varchar(50) default "",
+    mobile_phone_visibility smallint not null default 0,
+    residence varchar(50) default "",
+    room varchar(50) default "",
+    residence_room_visibility smallint not null default 0,
+    address varchar(100) default "",
+    city varchar(50) default "",
+    zip_code varchar(10) default "",
+    address_visibility smallint not null default 0,            
+    country varchar(50),
+    sub_region varchar(50),
+    website varchar(200) default "",
+    religious_views enum("Atheist","Bahai","Buddhist","Cao Dai","Christian/Anglican","Christian/Catholic","Christian/LDS","Christian/Orthodox","Christian/Other","Christian/Protestant","Hindu","Jain","Jewish","Muslim","Neo-Paganist","Rastafarian","Religious humanism","Scientologist","Shinto","Sikh","Spiritual but not religious","Taoist","Tenrikyo","Unitarian Universalist","Zoroastrian","Other")default NULL,
+    political_views enum("Right-Conservative","Very Right-Conservative","Centrist","Left-Liberal","Very Left-Liberal","Libertarian","Very Libertarian","Authoritarian","Very Authoritarian","Depends","Not Political")default NULL,
+    activities varchar(300) default "",interests varchar(300) default "",favorite_music varchar(300) default "",favorite_tv_shows varchar(300) default "",favorite_movies varchar(300) default "",favorite_books varchar(300) default "",favorite_quotes varchar(300) default "",about_me varchar(300) default "",
+    personal_info_set enum("y","n") default "y"
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;  
+/**************************************************************/
+drop table if exists scraps;
+create table scraps (
+    id int unsigned not null auto_increment primary key,
+    reciever_guid bigint not null, /*the recipient e { student,class,school) */
+    sender_id int unsigned not null,    
+    created_on timestamp not null,
+    message varchar(500) not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists forums;
+create table forums (
+    id int unsigned not null auto_increment primary key,
+    context_guid bigint not null, /*the recipient e {class,school) */
+    creator_id int unsigned not null,
+    topic varchar(100) not null,
+    last_post_id int unsigned,
+    last_poster_id int unsigned,     
+    last_post_time datetime,
+    num_views int unsigned default 0,
+    num_posts int unsigned default 0,   
+    created_on datetime not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists forum_threads;
+create table forum_threads (
+    id int unsigned not null auto_increment primary key,
+    topic_id int unsigned not null,
+    is_header enum('y'),
+    poster_id int unsigned not null,
+    subject varchar(100),
+    message varchar(3000) not null,
+    thread_replyee_id int unsigned,   
+    created_on datetime not null     
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/**************************************************************/
+drop table if exists uniq_guids;
+create table uniq_guids (
+    id int unsigned not null auto_increment primary key,
+    guid bigint unsigned not null unique key
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists news_events;
+create table news_events (
+    id int unsigned not null auto_increment primary key,
+    context_guid bigint unsigned not null,
+    icon_url varchar(100),
+    type varchar(100),
+    message varchar(500) not null,
+    created_on timestamp     
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists intranet_messages;
+create table intranet_messages (
+    id int unsigned not null auto_increment primary key,
+    sender_id int unsigned not null,
+    subject varchar(100),
+    body varchar(5000) not null,        
+    deleted_by_sender enum('y') default null,
+    created_on timestamp not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists intranet_message_registries;
+create table intranet_message_registries (
+    id int unsigned not null auto_increment primary key,
+    intranet_message_id int unsigned not null,
+    reciever_id int unsigned not null,
+    is_read enum('y'),
+    folder enum('sm','in') not null default 'in',
+    unique key(reciever_id,intranet_message_id)
+    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists projects;
+create table projects (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null,
+    klass_id int unsigned not null,
+    title varchar(100) not null,
+    description varchar(1000),
+    created_on datetime not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_members;
+create table project_members (
+    id int unsigned not null auto_increment primary key,
+    project_id int unsigned not null,
+    student_id int unsigned not null,
+    project_email_address varchar(100) not null,
+    is_activated enum('y','n') not null default 'n'
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_meetings;
+create table project_meetings (
+    id int unsigned not null auto_increment primary key,
+    project_id int unsigned not null,
+    title varchar(100) not null,
+    scheduled_on datetime not null,
+    created_on datetime not null,
+    scheduled_by int unsigned not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_meeting_notes;
+create table project_meeting_notes (
+    id int unsigned not null auto_increment primary key,
+    project_meeting_id int unsigned not null,
+    message varchar(1000) not null,
+    created_on datetime not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_meeting_participants;
+create table project_meeting_participants (
+    id int unsigned not null auto_increment primary key,
+    project_meeting_id int unsigned not null,
+    participant_id bigint not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_tasks;
+create table project_tasks (
+    id int unsigned not null auto_increment primary key,
+    project_id bigint not null,
+    is_completed enum('y','n') not null default 'n',
+    title varchar(100) not null,
+    created_on datetime not null,
+    start_date datetime not null,
+    completion_date datetime not null,
+    task_assigner int unsigned not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_task_assignees;
+create table project_task_assignees (
+    id int unsigned not null auto_increment primary key,
+    project_task_id int unsigned not null,
+    assignee_id int unsigned not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists course_notes;
+create table course_notes (
+    id int unsigned not null auto_increment primary key, 
+    guid bigint not null unique key,   
+	school_id int unsigned not null,
+	course_id int unsigned not null,
+	klass_id int unsigned, 
+	owner_id int unsigned not null,
+	note_type enum('lecture note','exam','assignment','term paper','term project') not null,
+	anonymous enum('y'),
+	title varchar(100) not null,
+	comment varchar(500),
+	num_downloads int default 0,	
+    created_on datetime not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists project_folders;
+create table project_folders (
+    id int unsigned not null auto_increment primary key,
+    guid bigint not null unique key,
+    project_id int unsigned not null,
+    folder varchar(100) not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists change_name_requests;
+create table change_name_requests (
+   id int unsigned not null auto_increment primary key,
+   student_id int unsigned not null,
+   requested_name varchar(200) not null,
+   created_on timestamp not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists report_types;
+create table report_types (
+   id int unsigned not null auto_increment primary key,
+   item_type enum('profile','photo','note','classified') not null unique key
+   
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists report_reasons;
+create table report_reasons (
+   id int unsigned not null auto_increment primary key,
+   report_type_id int not null,
+   reason varchar(100) not null,
+   unique key(report_type_id,reason)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists reported_items;
+create table reported_items (
+   id int unsigned not null auto_increment primary key,
+   reported_item_id int unsigned not null,
+   student_id int unsigned,
+   resolved enum('y') default null,
+   resolved_comments varchar(500) default null,
+   resolved_time datetime default null,
+   report_type_id int unsigned not null,
+   num_reports int default 0,   
+   last_report_time datetime  
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/**************************************************************/
+drop table if exists item_reports;
+create table item_reports (
+    id int unsigned not null auto_increment primary key, 
+    report_id int unsigned not null,   
+    reporter_id int unsigned not null,         
+    reason_id int unsigned not null,    
+    comments varchar(1000) not null,  
+    created_on timestamp not null
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/***********************************************************************/
+/**********************Classifieds**************************************/
+drop table if exists generic_attributes;
+create table generic_attributes (
+  id int unsigned not null auto_increment primary key,
+  name varchar(100),  
+  _type_ enum('multiple','boolean','currency','text','date','address','number','multiple_with_input'),
+  required enum('y','n') default 'n',
+  field_length smallint,
+  descr varchar(200),
+  blank_err varchar(200),
+  format_err varchar(200),
+  sortable enum('y','n') default 'n',
+  searchable enum('y','n') default 'y',
+  listable enum('y','n') default 'n',
+  check_pattern varchar(100),
+  other_name varchar(100),
+  field_desc varchar(200)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists attribute_validities;
+create table attribute_validities (
+  id int unsigned not null auto_increment primary key,
+  generic_attribute_id int unsigned not null,  
+  valid_value varchar(100),
+  min_range float unsigned default 0,
+  max_range float unsigned default 0
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists attribute_category_maps;
+create table attribute_category_maps (
+  id int unsigned not null auto_increment primary key,
+  classified_category_id int unsigned not null,
+  generic_attribute_id int unsigned not null,
+  attribute_index int
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists item_attribute_values;
+create table item_attribute_values (
+  id int unsigned not null auto_increment primary key,  
+  classified_post_id int unsigned not null,
+  classified_category_id int unsigned not null,
+  attrb_1_value varchar(100), 
+  attrb_2_value varchar(100), 
+  attrb_3_value varchar(100), 
+  attrb_4_value varchar(100), 
+  attrb_5_value varchar(100), 
+  attrb_6_value varchar(100),
+  attrb_7_value varchar(100),        
+  attrb_8_value varchar(100)                  
+
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists post_images;
+create table post_images (
+    id int unsigned not null auto_increment primary key,
+    classified_post_id int unsigned not null
+    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists classified_posts ;
+create table classified_posts (
+    id int unsigned not null auto_increment primary key,
+    classified_category_id int unsigned not null,
+    title varchar(100) not null,
+    description blob,
+    poster_id  int unsigned not null,
+    network_id  int unsigned not null,
+    school_id  int unsigned,
+/*    associable_to enum('course','subject'),   associated_names varchar(500),    associated_ids varchar(100),*/
+    created_on datetime not null,
+    updated_on datetime not null
+    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists classified_post_replies ;
+create table classified_post_replies (
+    id int unsigned not null auto_increment primary key,
+    post_id int unsigned not null,
+    replyer_id int unsigned not null,
+    subject varchar(100),
+    reply varchar(3000),    
+    created_on datetime not null    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists classified_categories ;
+create table classified_categories (
+  id int unsigned not null auto_increment primary key,
+  name varchar(100),
+  select_name varchar(100),
+  /*associable_to enum('course','subject'),*/
+  unique key (name)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+drop table if exists category_tree_nodes ;
+create table category_tree_nodes (
+  id int unsigned not null auto_increment primary key,
+  parent_id int,
+  lft int,
+  rgt int,
+  classified_category_id int unsigned,
+  unique key(classified_category_id)
+    
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/********************************************************************/
+/*drop table if exists classified_course_associations ;create table classified_course_associations (    id int unsigned not null auto_increment primary key,    classified_post_id int unsigned not null,    course_id int unsigned not null,    unique key(classified_post_id,course_id)         )ENGINE=InnoDB DEFAULT CHARSET=latin1;*/

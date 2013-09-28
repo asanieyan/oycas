@@ -1,0 +1,52 @@
+<div class='status-box' style='padding-bottom:0'>
+    <p>
+    <% unless !@num_images == @max_images%>    
+        <div class='server-alert-message'>
+        <%if @num_images == 0 %>
+        You can attach up to <%=@max_images%> images to your posting.
+        <%else %>
+           You can attach <%= (@max_images - @num_images).to_s%> more images to your posting    
+        <%end%>   
+        </div>
+        <div class='bold-gray'>
+            Each image must be less 4Mb in size. If it exceeds this limit, it will not be attached.
+        </div>        
+    <%else%>    
+        You have exceeded your maximum allowed picture attachment. Remove some of the pictures first 
+        then you can attach pictures.
+        <% no_more = true%>
+       
+    
+    <%end%>
+    </p>
+    <% unless no_more %>
+        <%=form_tag({:action=>'attach_images_to_post'} ,{:multipart=>true,
+                    :onsubmit=>update_page do |p|
+                      p << <<-"end_eval"
+                                updateTextArea('message') //to prepare wysiwyg                               
+                                $H($('myPostForm').serialize(true)).each(function(pair){
+                                       new Insertion.Bottom('post-values',"<input type='hidden' name='"+pair.key+"' value='"+pair.value+"' />")                                
+                                }.bind(this))
+                           end_eval
+                       end                   
+        
+        })%> 
+        <% (@max_images - @num_images).times do |i| %>
+            <%=file_field_tag "uploaded_images[]" %> <br>
+        <%end%> 
+        <div id='post-values' style='display:none'>
+        
+        </div>          
+        <div style='text-align:right'>
+            <br><br>
+            <%=link_to_function 'Cancel','Pop.close()'%>
+            <%=submit_tag "Add Pictures"%> 
+        
+        </div> 
+    </form>
+    
+    <%else%>
+         <%=link_to_function 'Cancel','Pop.close()'%>
+    
+    <%end%>
+</div>

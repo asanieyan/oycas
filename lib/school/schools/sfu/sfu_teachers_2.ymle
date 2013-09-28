@@ -1,0 +1,140 @@
+--- 
+school: 
+  Simon Fraser University 
+teachers: 
+- :photo: 
+  :last_name: Alkan
+  :email: talkan@sfu.ca
+  :first_name: Tiffany
+- :photo: 
+  :last_name: Brook
+  :email: susan_brook@sfu.ca
+  :first_name: Susan
+- :photo: http://www.sfu.ca/english/budra.jpg
+  :last_name: Budra
+  :email: budra@sfu.ca
+  :first_name: Paul
+- :photo: 
+  :last_name: Chariandy
+  :email: chariand@sfu.ca
+  :first_name: David
+- :photo: http://www.sfu.ca/english/coe.small.jpg
+  :last_name: Coe
+  :email: coe@sfu.ca
+  :first_name: Rick
+- :photo: 
+  :last_name: Colby
+  :email: scolby@sfu.ca
+  :first_name: Sasha
+- :photo: 
+  :last_name: Colligan
+  :email: ccolliga@sfu.ca
+  :first_name: Colette
+- :photo: 
+  :last_name: Collis
+  :email: scollis@sfu.ca
+  :first_name: Steve
+- :photo: 
+  :last_name: Cramer
+  :email: pcramer@sfu.ca
+  :first_name: Peter
+- :photo: 
+  :last_name: Crawford
+  :email: ja_crawford@sfu.ca
+  :first_name: Julie
+- :photo: http://www.sfu.ca/english/leith.jpg
+  :last_name: Davis
+  :email: leith@sfu.ca
+  :first_name: Leith
+- :photo: 
+  :last_name: Derksen
+  :email: jderksen@sfu.ca
+  :first_name: Jeff
+- :photo: 
+  :last_name: Dickinson
+  :email: peter_dickinson@sfu.ca
+  :first_name: Peter
+- :photo: 
+  :last_name: Didicher
+  :email: didicher@sfu.ca
+  :first_name: Nicky
+- :photo: 
+  :last_name: Everton
+  :email: meverton@sfu.ca
+  :first_name: Michael
+- :photo: 
+  :last_name: Fleming
+  :email: jfleming@sfu.ca
+  :first_name: J.D.
+- :photo: 
+  :last_name: Gerson
+  :email: gerson@sfu.ca
+  :first_name: Carole
+- :photo: 
+  :last_name: Ann Gillies
+  :email: gillies@sfu.ca
+  :first_name: Mary
+- :photo: 
+  :last_name: Grieve
+  :email: grieve@sfu.ca
+  :first_name: Tom
+- :photo: 
+  :last_name: Higgins
+  :email: ahiggins@sfu.ca
+  :first_name: Anne
+- :photo: 
+  :last_name: Hungerford
+  :email: hungerfo@sfu.ca
+  :first_name: Anne
+- :photo: 
+  :last_name: Hussey
+  :email: mhussey@sfu.ca
+  :first_name: Matthew
+- :photo: 
+  :last_name: Lesjak
+  :email: clesjak@sfu.ca
+  :first_name: Carolyn
+- :photo: 
+  :last_name: Levy
+  :email: michelle_levy@sfu.ca
+  :first_name: Michelle
+- :photo: 
+  :last_name: Linley
+  :email: mlinley@sfu.ca
+  :first_name: Margaret
+- :photo: 
+  :last_name: McCall
+  :email: smccall@sfu.ca
+  :first_name: Sophie
+- :photo: 
+  :last_name: Miki
+  :email: miki@sfu.ca
+  :first_name: Roy
+- :photo: 
+  :last_name: Ramsey
+  :email: ramsey@sfu.ca
+  :first_name: Robin
+- :photo: 
+  :last_name: Sawatsky
+  :email: marlena@sfu.ca
+  :first_name: Marlene
+- :photo: http://www.sfu.ca/english/schellenpic2.jpg
+  :last_name: Schellenberg
+  :email: schellen@sfu.ca
+  :first_name: Betty
+- :photo: http://www.sfu.ca/english/paulstp.jpg
+  :last_name: St. Pierre
+  :email: stpierr@sfu.ca
+  :first_name: Paul
+- :photo: 
+  :last_name: Symons
+  :email: dana_symons@sfu.ca
+  :first_name: Dana
+- :photo: 
+  :last_name: Yukins
+  :email: e_yukins@sfu.ca
+  :first_name: Liza
+- :photo: 
+  :last_name: Zwagerman
+  :email: sean_zwagerman@sfu.ca
+  :first_name: Sean

@@ -1,0 +1,35 @@
+<table class='show-profile' cellspacing=0 cellpadding=0 style='width:60%;'>                    
+        
+        <tr> 
+                <td class='bold-gray'>Gender: &nbsp;</td>
+                <td> <%= @studentb.gender%>                             
+              </td>
+        </tr>                
+        <% if  @studentb.sexual_orientation and @I.can_see_sexual_orientation_of?(@studentb)%>
+        <tr> 
+               <td class='bold-gray'>Sexual Orientation:&nbsp;</td>
+                <td>   <%= @studentb.sexual_orientation %></td>                        
+        </tr>                   
+        <%end %>       
+        <% if  @studentb.relationship_status and @I.can_see_relationship_status_of?(@studentb)%>               
+            <tr> 
+                    <td class='bold-gray'>Relationship Status:&nbsp;</td>
+                    <td><%= @studentb.relationship_status%> </td>                              
+            </tr>                  
+        <%end%>
+       
+      
+        <% if  @studentb.birthdate and @I.can_see_birthdate_of?(@studentb)%>                  
+        <tr> 
+
+            <td  class='bold-gray'>Birthday:&nbsp;</td>
+            <td> <%=@studentb.birthdate%>                        </td>
+                                        
+        </tr>               
+        <%end%>
+ 
+</table>
+
+
+
+

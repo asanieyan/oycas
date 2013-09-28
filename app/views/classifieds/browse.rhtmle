@@ -1,0 +1,39 @@
+<div class='title-box title-div ' style='margin-bottom:0;padding-bottom:2px;'>
+
+    <%=image_tag '/images/classified.gif',:style=>'float:left;margin-right:8px;'%> Classifieds For Schools in <%=@network.name.cap %> Area
+
+</div>
+
+<div id='centered' style='clear:left;display:table;width:80%'>
+    <div id='welcome' style='background-color:white'>
+        <div  class='dark-bold-gray' style='margin:10px'>
+           <p> Oycas classifieds contains diverse range of categories to choose from.
+            Not only you can buy and sell junk in the "For Sale" category but there are other cool and useful categories to select.
+             </p>
+             <p>to post an item select the "Post an Item" menu above 
+                or select a category to see the postings for that category .          
+             </p>
+             <p> If you still don't get it <%=link_to_help 'click here','h1',:topic=>'Classifieds'%>.
+        </div>
+    </div>
+    <%=roundedDIV "#welcome","#EEEEEE","#FFFFFF"%><br>
+<table class='top-v-align status-box'  style='background-color:white'>
+   <tr>
+        <td colspan=20>             
+                <%=show_network_tabs   %>           
+        <br>
+        </td>
+        
+   </tr>
+   <tr>
+       <%@nodes.each do |super_node|%>
+           <td style='padding:15px;padding-top:2px'>
+                <div style=''><strong> <%= link_to_postings_for super_node.category%> </strong></div>                                 
+                <%super_node.direct_children.sort{|a,b| a.category.name <=> b.category.name}.each do |node|%>
+                   <%= link_to_postings_for node.category%> <br>
+                <%end%>
+            </td>
+        <%end%>
+    </tr>
+</table>
+</div>

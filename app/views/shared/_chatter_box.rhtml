@@ -1,0 +1,37 @@
+<%unless session['chat'+chat_topic]%>
+
+	<div id='chatwindow<%=chat_topic%>'>
+		<div id='chatbox' class='flex' style='cursor:pointer' onclick=''>
+		    <%=title%> 
+		</div>
+        <div id='chatbox_in' class='flex-in'>                           
+			<%=link_to_function(image_tag('/images/out.gif',:id=>'chat-popout'),"$('chatwindow#{chat_topic}').hide();window.open ('#{url_for(:action=>'chat_window',:title=>popup_title,:id=>chat_topic)}', 'chatwindow', 'titlebar=yes, directories=no, location=no, toolbar=no, status=no, menubar=no, resizable=yes, width=600, height=500');return false",:style=>'float:right')%>                            
+			This chat is powered by <a href='http://www.gabbly.com'>Gabbly.com</a>
+            <div style='clear:right;margin-bottom:5px'>
+                
+            </div>     
+			<div id='chat_frame'>
+					
+					<iframe  id='oycasGabbly'  src='http://cw.gabbly.com/gabbly/cw.jsp?e=1&dnc=true&nick=<%=@my.full_name%>&t=<%=chat_topic%>' scrolling='no' style='width:100%; height:400px' frameborder='0'></iframe>                           
+			</div>
+            <%javascript_tag "new Ajax.Updater('chat_frame','#{url_for(:action=>"get_chat_box",:name=>@my.full_name,:id=>chat_topic)}')"%>			
+        	 <span class='' style='color:red'> This chat facility is not designed to be secure. Do not pass sensetive information.</span>
+		</div>
+
+	</div>
+		<%=javascript_tag <<-"end"           
+		         
+		       options = { 		  
+								   onClose : function() {
+		                            	$('oycasGabbly').src = ''
+		                                
+		                           },
+		                           onOpen : function() {                            
+		                                $('oycasGabbly').src = 'http://cw.gabbly.com/gabbly/cw.jsp?e=1&dnc=true&nick=#{@my.full_name}&t=#{chat_topic}'                       
+		                               
+		                           }
+		                   }  
+				   chatFlexer = new Flexer('chatbox',options)
+		        end
+		%>
+<%end%>

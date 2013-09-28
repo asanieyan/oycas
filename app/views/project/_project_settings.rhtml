@@ -1,0 +1,33 @@
+<div id="project_error"></div>
+<div id="project_message"></div>
+<div class="projectGeneral">
+
+<%=form_tag({:action=>'update_project_settings'},{:method=>:post})%>
+
+title (mandatory):<input type="text" name="title" width="100" value="<%= @project.title %>">
+<br><br>
+
+description (optional):<textarea name="description"><%= @project.description %></textarea>
+<br><br>
+<input type="hidden" name="id" value="<%=@project.id%>">
+<input type="submit" value="Save Changes">
+
+</form>
+
+
+<br><br>
+<%= form_tag({},{:onsubmit=>popup({:url=>{:action=>'confirm_remove_project_members',:id=>@project.id},
+                                  :title=>''},{:form=>true}) + 
+               ";return false;" }) %>
+                                  
+    <select name="members[]" multiple="multiple" size="5" width="30">
+    <% @project.project_members.each do |member|%>
+    <option value="<%= member.student_id %>"><%= Student.find(member.student_id).whole_name %><br>
+    <% end %>
+    </select>
+    <br><br>
+    <input type="hidden" name="id" value="<%= @project.id %>">
+    <input type="submit" value="Remove Members">
+</form>
+
+</div>
